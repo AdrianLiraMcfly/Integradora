@@ -1,0 +1,24 @@
+#ini{background-color: #F9DD19;}
+
+#divce{
+    border: 1;
+    width: 1100px;
+    height: 40px;
+    border-radius: 100px;
+}
+
+.item img {
+    height: 100%;
+    width: 100%;
+}
+
+#divpost{
+    border: 1;
+    background-color: rgb(0, 128, 6);
+    width: 1100px;
+    height: 40px;
+    border-radius: 100px;
+}
+#linktab{
+    color: black;
+}
