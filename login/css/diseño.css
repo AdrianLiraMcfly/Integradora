@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: antiquewhite;
+}
+.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: lemonchiffon;
+    border-radius: 10px;
+    height: 360px;
+}
+.formulario h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+.formulario form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .username{
+    position: relative;
+    padding-top: 5px;
+    margin: 30px 0;
+}
+.username input{
+    width: 98%;
+    padding-top: 5px;
+    padding-left: 1px;
+    height: 25px;
+    font-size: 17px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px black solid;
+}
+.username label{
+    position: absolute;
+    top: -50%;
+    left: 5px;
+    color: black;
+    font-size: 14px;
+    pointer-events: none;
+}
+.recordar{
+    height: 40px;
+}
+.recordar button{
+    position: absolute;
+    left: 25%;
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    border: none;
+    background-color: yellow;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+.recordar button:active{
+    transform: scale(0.94);
+}
+.recordar label{
+    padding-left: 18px;
+    position: absolute;
+    left: 7%;
+}
+.container-background{
+    height: 100vh;
+}
+.background{
+    height: 100%;
+    width: 100%;
+    filter: blur(2px);
+}
+.background-form{
+    display: flex;
+    z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1350px;
+    background-color: white;
+    height: 360px;
+}
+.lado-left{
+    height: 100%;
+    width: 100px;
+    margin-left: 0px;
+    margin-right: auto;
+    background-color: gold;
+}
+.lado-right{
+    height: 100%;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 0px;
+    background-color: gold;
+}
