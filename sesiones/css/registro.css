@@ -9,7 +9,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 1px;
 }
 #barra{
     background-color: #F9DD19;
@@ -24,7 +23,5 @@ body{
  top: 30%;
  background-color: #F9DD19;
  width: 50%;
- height: 50%;
- border-radius: 20px;
- 
+ height: auto
 }
