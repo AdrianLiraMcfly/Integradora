@@ -1,15 +1,19 @@
-#letras{
-    transform: translate(0px, 130px);
+#lettersform{
+    text-align: center;
 }
 body{
     background-color: black;
 }
 #backgrnd{
-    color: black;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 60%;
+    height: 60%;
+    margin-top: 30px;
     border: solid 1px;
+    border-radius: 20px;
 }
 #barra{
     background-color: #F9DD19;
@@ -20,11 +24,12 @@ body{
     
 }
 .formul{
- position: absolute;
- top: 30%;
+ position:absolute;
+ top: 26%;
  background-color: #F9DD19;
- width: 50%;
- height: 50%;
+ width: 55%;
  border-radius: 20px;
- 
+ align-items: center;
+ justify-content: center;
+ border: 1px solid;
 }
