@@ -19,7 +19,7 @@ body{
 }
 .formulario h1{
     text-align: center;
-    padding: 0 0 20px 0;
+    padding: 0 0 0 0;
     border-bottom: 1px solid silver;
 }
 .formulario form{
@@ -59,11 +59,12 @@ form .username{
     width: 200px;
     height: 40px;
     font-size: 15px;
-    border: none;
-    background-color: yellow;
+    /*border: none;
+    background-color: yellow;*/
     cursor: pointer;
     transition: transform 0.1s ease;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    /*
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);*/
 }
 .recordar button:active{
     transform: scale(0.94);
@@ -93,16 +94,19 @@ form .username{
     height: 360px;
 }
 .lado-left{
+    /*
     height: 100%;
     width: 100px;
+    */
     margin-left: 0px;
     margin-right: auto;
     background-color: gold;
 }
 .lado-right{
-    height: 100%;
+    /*height: 100%;
     width: 100px;
+    */
     margin-left: auto;
-    margin-right: 0px;
+    margin-right: 0px;  
     background-color: gold;
 }
