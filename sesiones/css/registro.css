@@ -8,19 +8,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 #barra{
     background-color: #F9DD19;
-}
-#vgsimg{
-    padding: 10px;
-    height: 85px;
-    
-}
-.formul{
- position: absolute;
- top: 30%;
- background-color: #F9DD19;
- width: 50%;
- height: auto
 }
