@@ -1,0 +1,15 @@
+{
+    "name": "wicho/practica",
+    "autoload": {
+        "psr-4": {
+            "Wicho\\Practica\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wicho",
+            "email": "luismahe2004@gmail.com"
+        }
+    ],
+    "require": {}
+}
