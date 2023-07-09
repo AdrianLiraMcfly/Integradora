@@ -1,3 +1,56 @@
-#nvbr{
+#barra{
     background-color: #F9DD19;
+    height: 80px;
+}
+#formu{
+    background-color: #F9DD19;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+    border-radius: 10px;
+}
+#formu h3{
+    text-align: center;
+}
+#formu input{
+    width: 300px;
+}
+#formu input[type="checkbox"]{
+    width: 15px;
+}
+#contenedor{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border: 1px;
+    background-color: black;
+    height: 100%;
+    background-image: url(img/FONDO.jpg);
+    background-size: cover;
+    
+}
+#img{
+    position: absolute;
+    top: 5px;
+    left: 620px;
+}
+#inbc{
+    background-color: black;
+    height: 60%;
+    width: 70%;
+    position: relative;
+
+}
+
+/*#formu input{
+    width: 98%;
+    padding-top: 5px;
+    padding-left: 1px;
+    height: 25px;
+    font-size: 17px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px black solid;
 }
