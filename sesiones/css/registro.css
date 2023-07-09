@@ -5,7 +5,6 @@ body{
     background-color: black;
 }
 #backgrnd{
-    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
