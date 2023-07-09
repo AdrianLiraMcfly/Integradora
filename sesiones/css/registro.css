@@ -5,10 +5,12 @@
 #formu{
     background-color: #F9DD19;
     height: auto;
-    position: relative;
+    position: absolute;
     z-index: 2;
     padding: 50px;
     border-radius: 10px;
+    top: 8%;
+    z-index: 2;
 }
 #formu h3{
     text-align: center;
@@ -24,9 +26,9 @@
     position: absolute;
     align-items: center;
     justify-content: center;
-    border: 1px;
     background-color: black;
     height: 100%;
+    width: 100%;
     background-image: url(img/FONDO.jpg);
     background-size: cover;
     
@@ -38,10 +40,11 @@
 }
 #inbc{
     background-color: black;
-    height: 60%;
-    width: 70%;
-    position: relative;
-
+    height: 86%;
+    width: 45%;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
 }
 
 /*#formu input{
