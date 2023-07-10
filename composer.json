@@ -1,0 +1,11 @@
+{
+    "name": "vendor/wicho",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Wicho\\": "src/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
