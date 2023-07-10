@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="css/registro.css">
   <link rel="stylesheet" href="../estilo.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script>
+    function verpass(){
+      var password = document.getElementById("pass");
+      var passwordre= document.getElementById("passre");
+      var vercon= document.getElementById("contravisi");
+      if (vercon.checked){
+        password.type="text";
+        passwordre.type="text";
+      }
+      else{
+        password.type="password";
+        passwordre.type="password";
+      }
+    }
+  </script>
   <title>Document</title>
 </head>
 <body>
@@ -110,17 +125,17 @@
           <input type="text" class="form-control" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1">
         </div>
         <div class="mb-3">
-          <label for="">Contrasena</label>
-          <input type="password" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+          <label for="">Contraseña</label>
+          <input type="password" class="form-control" id="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <div class="mb-3">
-          <label for="">Repite contrasena</label>
-          <input type="password" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+          <label for="">Repite contraseña</label>
+          <input type="password" class="form-control" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <label class="form-check-label" for="defaultCheck1">
-            Contrasena visible
+            Contraseña visible
           </label>
         </div>
         <button type="button" class="btn btn-warning">Aceptar</button>
