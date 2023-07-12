@@ -1,0 +1,70 @@
+#button-addon2
+{
+    margin-left: -9px;
+}
+
+.it
+{
+    /*margin-right: 15px;*/
+    background-color: #F9EDD8;
+    border-radius: 100px 100px 100px 100px;
+}
+
+.aver
+{
+    width: 100px;
+}
+
+.price
+{
+    font-size: 100px;
+}
+
+li b
+{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: rgb(200, 0, 0);
+    font-size: 35px;
+}
+
+.titulo_pro
+{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/*.card
+{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(158,158,158,1) 100%);
+}
+*/
+.backg-cb
+{
+    background-color: rgba(54, 54, 54, 0.5);
+}
+
+h2 b 
+{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+h3 b 
+{
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    color: rgb(255, 255, 255);
+}
+
+#cardnin{
+    background-color: red;
+    color: white;
+
+}
+#cardxb{
+    background-color: black;
+    color: white;
+}
+#cardpl{
+    background-color: rgb(0, 68, 255);
+    color: white;
+
+}
