@@ -1,0 +1,41 @@
+id_producto,nombre,descripcion,id_categoria,precio
+1,Xbox 360,"Consola de septima generacion de Microsoft, integrado con memoria externa y con juegos internos",5,2500
+2,Red dead Redemtion 2 (Xbox One),La segunda entrega de os juegos mas aclamados de Rockstar Games para Xbox one,4,600
+3,Nintendo Wii,Consola wii para jugar con toda la familia con sus controles revolucionarion por movimiento,5,1600
+4,Crash Bandicoot N.Sane Trilogy,La trilogia remasterisada de uno de los plataformas mas aclamados para PS4,4,400
+5,Zelda Breath of the wild,Una de las sagas mas famosas de nintendo vuelve en mundo abierto para Nintendo Switch,4,1200
+6,Cola de rata x360,Cola de rata para controles de Xbox 360,2,80
+7,Funda para controles,"Funda para control que busques, x360, xone, ps4, ps3, Switch y mas!",2,80
+8,Animal Crossing New Leaf,Relajate un rato con los animales mas tiernos de los videojuegos en Animal Crossing para Nintendo Switch,4,1250
+9,Super Smash Bros Ultimate,El juego de peleas por exelencia de Nintendo ahora en Nintendo Switch,4,1250
+10,Metroid Dread,"Samus Aran vuelve para una aventura al estilo metroidvania, solo en nintendo switch",4,1300
+11,Minecraft (Switch),"El juego de construccion indie mas aclamado de la historia, Minecraft ya disponible",4,750
+12,Funda Nintendo Switch Kirby,Funda protectora para tu Nintendo Switch con diseño especial de kirby,2,600
+13,Nintendo Switch Lite (Amarilla),"Nintendo Switch Lite en color amarillo, ideal para salir de paseo y no perderte tus juegos favoritos",5,3800
+14,Red dead Redemtion Undead Nigthmare,El juego de vaqueros de Rockstar vuelve ahora lleno de zombies para Xbox 360 (Tambien compatible con Xbox One),4,450
+15,Final Fantasy XV (PS4),El RPG mas famoso del mundo esta aquí con una nueva fantacia que contarte para PS4,4,350
+16,Red Dead Redemtion 2 (PS4),La segunda entrega de os juegos mas aclamados de Rockstar Games para PS4,4,600
+17,Grand Theft Auto V (Xbox One),¿Listo para volver a desatar el desastre? Grand Theft Auto Vuelve en su quinta entrega para PS4 ,4,550
+18,Grand Theft Auto V (PS4),¿Listo para volver a desatar el desastre? Grand Theft Auto Vuelve en su quinta entrega para Xbox One,4,550
+19,Grand Theft Auto San Andreas (Xbox One),La entrega mas famosa de Grand Theft Auto ahora en Xbox One,4,400
+20,Xbox One Fat,La primera edicion de la consola de octava generacion de Microsoft Xbox one,5,3400
+21,Xbox One Slim,La primera edicion de la consola de octava generacion de Microsoft Xbox one (Blanca),5,4400
+22,Playstation 3,"Playstation 3 con juegos integrados y almacenamiento de 250GB, listo para jugar",5,2300
+23,Playstation 2,Playstation 2 con juegos integrados en USB de 32GB ,5,1300
+24,Xbox Clasico,"Xbox Clasico con juegos clasicos integrados como Nintendo 64, Super Nintendo, clasicos de maquinita y mas!",5,1400
+25,Nintendo 64,"Nintendo 64 con un juego de regalo, revive tu infancia con esta maravillosa consola",5,1200
+26,Super Nintendo,Super Nintendo con un cartucho de regalo para volver a lo retro,5,900
+27,NES,"Nintendo NES, La primera consola de nintendo en el mercado",5,900
+28,Halo Master Chief Collection,La recopilacion de los juegos de la saga halo ahora en tu Xbox one/Series,5,400
+29,Jak and Daxter Collection ,La recopilacion de la trilogia exclusiva de sony remasterizada para PS3,5,300
+30,Resident Evil 4 Remake (Xbox Series),"El remake de Resident Evil 4, una de sus mejores entregas llega para Xbox Series",5,1200
+31,Resident Evil 4 Remake (PS4),"El remake de Resident Evil 4, una de sus mejores entregas llega para PS4",5,1200
+32,Resident Evil 4 Remake (PS5),"El remake de Resident Evil 4, una de sus mejores entregas llega para PS5",5,1200
+33,Resident Evil 2 Remake (PS4),"El remake de Resident Evil 4, una de sus mejores entregas llega para PS4",5,1200
+34,Resident Evil 2 Remake (Xbox One),"El remake de Resident Evil 4, una de sus mejores entregas llega para Xbox One",5,1200
+35,Call of duty Black Ops 2 (Xbox 360),El COD por excelencia para Xbox 360,5,600
+36,Cosplay Misa Amane,Cosplay para eventos y Redes Sociales de Misa Amane,3,350
+37,Cosplay Sailor Moon,Cosplay para eventos y Redes Sociales de Sailor Moon,3,650
+38,Cosplay Rias Gremory,Cosplay para eventos y Redes Sociales de Rias Gremory,3,650
+39,Control Xbox One,Control de Xbox One (Tambien compatible con Xbox series),2,800
+40,Control Xbox Series,Control de Xbox Series (Tambien Compatible con Xbox One),2,1500
