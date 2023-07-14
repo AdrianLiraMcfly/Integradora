@@ -40,6 +40,14 @@
             $(".content").fadeOut(1500);
         },3000);
     });
+
+    $(document).ready(function () {
+            $("#openModalButton").click(function () {
+                $("#myModal").load("modal.html", function () {
+                    $("#myModal").modal("show");
+                });
+            });
+        });
     </script>
 </head>
 <body class="bg-white w-100">
@@ -144,7 +152,9 @@
         </div>
       </nav>
 
+      
       <div class="col-md-9">
+      <button type="button" class="btn btn-primary" id="openModalButton">Agregar Productos</button>
         <div class="container">
         <div class="row">
           <div class="col">
