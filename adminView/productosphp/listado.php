@@ -13,7 +13,7 @@
         margin-top: 50px;
     }
 
-    .table {
+    .table { 
         background-color: #fff;
     }
     .transparent-button {

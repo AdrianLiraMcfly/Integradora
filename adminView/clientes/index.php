@@ -142,7 +142,7 @@
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="../productAdmin.php">
+              <a class="nav-link" href="../productosphp/index.php">
                 <img src="../iconos/products-svgrepo-com.svg" alt="Productos" width="32px"> Productos
               </a>
             </li>

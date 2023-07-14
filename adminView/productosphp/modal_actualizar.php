@@ -9,14 +9,13 @@
 <body>
     <?php
         include('conectarbd.php');
-        $sql="select * from usuarios";
+        $sql="select * from productos";
         $result=mysqli_query($con,$sql);
         while($row=$result->fetch_assoc()){
-          $field0name=$row['id_usuario'];
+          $field0name=$row['id_producto'];
           $field1name=$row['nombre'];
-          $field2name=$row['telefono'];
-          $field3name=$row['email'];
-          $field4name=$row['contraseña'];
+          $field2name=$row['precio'];
+          $field3name=$row['id_categoria'];
 
             echo '
             <div class="modal fade" id="staticBackdrop'.$field0name.'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -33,17 +32,14 @@
                           <input value="'.$field1name.'" name="nombre" class="form-control" id="nombre">
                       </div>
                       <div class="mb-3" style="text-align: left;">
-                          <label>Email:</label>
-                          <input value="'.$field2name.'" name="email" class="form-control" id="email">
+                          <label>Precio:</label>
+                          <input value="'.$field2name.'" name="precio" class="form-control" id="precio">
                       </div>
                       <div class="mb-3" style="text-align: left;">
-                          <label>Telefono:</label>
-                          <input value="'.$field3name.'" name="telefono" class="form-control" id="email">
+                          <label>Categoria:</label>
+                          <input value="'.$field3name.'" name="categoria" class="form-control" id="categoria">
                       </div>
-                      <div class="mb-3" style="text-align: left;">
-                          <label>Contraseña:</label>
-                          <input value="'.$field4name.'" name="contraseña" class="form-control" id="contraseña">
-                      </div>
+
           
                 </div>
                 <div class="modal-footer">
