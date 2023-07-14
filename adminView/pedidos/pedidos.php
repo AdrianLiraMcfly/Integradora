@@ -129,17 +129,17 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="../productosphp/index.php">
+              <a class="nav-link" href="../productosphp/index2.php">
                 <img src="../iconos/products-svgrepo-com.svg" alt="Productos" width="32px"> Productos
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <img src="../iconos/truck-svgrepo-com.svg" alt="Pedidos" width="32px"> Pedidos
+                <img src="../iconos/truck-svgrepo-com.svg" alt="Pedidos" width="32px"> <strong>Pedidos</strong>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../clientes/index.php">
+              <a class="nav-link" href="../clientes/index1.php">
                 <img src="../iconos/user-svgrepo-com.svg" alt="Cliente" width="32px"> Cliente
               </a>
             </li>
