@@ -40,7 +40,7 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
     max-height: 50px;
   }
   </style>
-  <title>ViedeoGame Store - Admin</title>
+  <title>VideoGame Store - Admin</title>
 </head>
 
 <body class="bg-white w-100">
