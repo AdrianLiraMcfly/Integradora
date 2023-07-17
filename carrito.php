@@ -133,7 +133,9 @@
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">
 
                 <button class="btn bg-secondary-subtle border border-black rounded-end-circle rounded-start-0 shadow" type="button" id="button-addon2">
-                  <img src="img/lupa.png" alt="" style="width: 25px">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                  </svg>
                 </button>
 
               </form>
@@ -152,13 +154,7 @@
         <div  class="row pt-3 ps-3 pe-3 pb-0">
 
             <div class="text-center col order-last p-2 border border-1">
-              
             </div>
-  
-            <!--
-            <div class="text-center col bg-dark p-2 border border-black border-1 border-end-0 border-bottom-0 border-end-0">
-              <p class="mb-0 text-white" style="font-size: 18px;"><b>FOLIO</b></p>
-            </div>-->
 
             <div class="text-center col bg-dark p-2 border border-black border-1 border-bottom-0">
               <p class="mb-0 text-white" style="font-size: 18px;"><b>IMAGEN</b></p>
@@ -173,19 +169,16 @@
         <div class="row pt-0 ps-3 pe-3 pb-3">
 
           <div class="text-center col order-last p-2 border">
-            <button class="mt-22 border border-1 border-black bg-danger p-2 rounded-pill shadow-lg">
-              <img src="img/delete.png" alt="delete" width="32px">
+            <button class="mt-22 border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+              </svg>
             </button>
           </div>
 
-          <!--
-          <div class="text-center col bg-light p-2 border border-black border-1 border-end-0">
-            <p class="mb-0" style="font-size: 18px;">XXXXXXX</p>
-          </div>-->
-
           <div class="text-center col bg-light p-2 border border-black border-1">
             <div>
-              <img src="img/galvatron.png" class="rounded border border-2 shadow-sm" style="width: 28%;">
+              <img src="img/galvatron.png" class="rounded border border-2 shadow" style="width: 28%;">
             </div>
           </div>
 
