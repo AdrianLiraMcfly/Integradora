@@ -86,13 +86,8 @@
                     </a>
                       
                     <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-<<<<<<< HEAD
-                      <li><a class="dropdown-item" href="sesiones/login.html">Sign In</a></li>
-                      <li><a class="dropdown-item" href="sesiones/register.html">Log In</a></li>
-=======
                       <li><a class="dropdown-item" href="sesiones/register.html">Sign In</a></li>
                       <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
->>>>>>> 80441ec9e8f18978043cb9543a61932e7e74bbb7
                     </ul>
                         
                   </li>
