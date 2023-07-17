@@ -15,7 +15,7 @@
 
 <body class="bg-white w-100">
 
-<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -87,8 +87,8 @@
                     </a>
                       
                     <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="#">Sign In</a></li>
-                      <li><a class="dropdown-item" href="#">Log In</a></li>
+                      <li><a class="dropdown-item" href="sesiones/register.html">Sign In</a></li>
+                      <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
                     </ul>
                         
                   </li>
@@ -140,7 +140,7 @@
 
               </form>
 
-            </div>
+      </div>
     </nav>
 
     <div class="text-center mt-4 w-100">
