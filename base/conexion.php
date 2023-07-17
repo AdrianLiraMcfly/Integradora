@@ -1,7 +1,7 @@
 <?php
 $contrasena = NULL;
 $usuario = 'root';
-$nombrebd = 'integradora2';
+$nombrebd = 'tienda2';
 
 try{
 
