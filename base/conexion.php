@@ -1,12 +1,12 @@
 <?php
-$contrasena = NULL;
-$usuario = 'root';
+$contrasena = '000000';
+$usuario = 'Administrador';
 $nombrebd = 'integradora2';
 
 try{
 
     $bd = new PDO(
-        'mysql:host=localhost;
+        'mysql:host=54.221.50.113;
         dbname='.$nombrebd,
         $usuario,
         $contrasena,
