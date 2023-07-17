@@ -58,6 +58,7 @@
                         </a>
                     </li>
 
+                    <!--
                     <li class="nav-item p-auto me-1">
                       <a class="nav-link text-center" aria-current="page" href="contactanos.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
@@ -65,7 +66,7 @@
                           <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
                         </svg>
                       </a>
-                  </li>
+                    </li>-->
                   
                   <li class="nav-item dropdown">
                     <a class="nav-link text-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
