@@ -57,7 +57,7 @@
                     </li>
 
 
-                    <li class="nav-item dropdown p-auto">
+                    <li class="nav-item dropdown p-auto me-1">
 
                       <a class="nav-link text-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
@@ -86,8 +86,8 @@
                     </a>
                       
                     <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="#">Sign In</a></li>
-                      <li><a class="dropdown-item" href="#">Log In</a></li>
+                      <li><a class="dropdown-item" href="sesiones/register.html">Sign In</a></li>
+                      <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
                     </ul>
                         
                   </li>
