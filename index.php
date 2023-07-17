@@ -1,3 +1,10 @@
+<?php
+include 'base/conexion.php';
+$sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
+$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+//$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
+$rutaCarpetaImagenes = 'productosimg/';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -294,58 +301,28 @@
       <br/>
 
       <div class="container w-100">
+        <?php foreach($productos as $dato){ ?>
         <div class="row">
          
           <div class="col mb-3">
-            <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+            <a href=" okkiklk<?php  ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
-                    <img src="img/halo.jpg" class="card-img-top" alt="Clabe Tipo C">
-                    <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                        <h5>HALO 4</h5>
-                        <p class="card-text">
-                          <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$600.00</b>
-                        </p>
-                    </div>
-                </div>
-            </a>
-          </div>
 
-          <div class="col mb-3">
-            <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                <div class="card border border-3 border-secondary" style="width: 18rem;">
-                    <img src="img/jedi-last.jpg" class="card-img-top" alt="Clabe Tipo C">
-                    <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                        <h5>Jedi Survivor</h5>
-                        <p class="card-text">
-                          <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$650.00</b>
-                        </p>
-                    </div>
-                </div>
-            </a>
-          </div>
+                <?php
+                      $nombreimagen = $dato->imagen_path;
+                      $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
 
-          <div class="col mb-3">
-            <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                <div class="card border border-3 border-secondary" style="width: 18rem;">
-                    <img src="img/xboxs-s.jpg" class="card-img-top" alt="Clabe Tipo C">
-                    <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                        <h5>X-BOX series S</h5>
-                        <p class="card-text">
-                          <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$4,800.00</b>
-                        </p>
-                    </div>
-                </div>
-            </a>
-          </div>
+                      $base64 = base64_encode(file_get_contents($rutaimagen));
+                      $base64 = 'data:image/jpeg;base64,'.$base64;
 
-          <div class="col mb-3">
-            <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                <div class="card border border-3 border-secondary" style="width: 18rem;">
-                    <img src="img/miles.jpg" class="card-img-top" alt="Clabe Tipo C">
+                      echo  "<img src='$base64' class='img_init' alt=''>";
+
+                    ?>
+
                     <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                        <h5>Spider-Man Miles Morales</h5>
+                        <h5> <?php echo $dato->nombre ?></h5>
                         <p class="card-text">
-                          <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$900.00</b>
+                          <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
                         </p>
                     </div>
                 </div>
@@ -353,6 +330,7 @@
           </div>
 
         </div>
+        <?php } ?>
       </div>
       <br/>
 
