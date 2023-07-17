@@ -106,12 +106,11 @@
                           </svg>
                         </a>
                       
-                      <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Registrarte</a></li>
-                            <li><a class="dropdown-item" href="#">Iniciar sesion</a></li>
-
-                          </li>
-                      </ul>
+                        <ul class="dropdown-menu border border-black">
+                            <li><a class="dropdown-item" href="#">Sign In</a></li>
+                            <li><a class="dropdown-item" href="#">Log In</a></li>
+                        </ul>
+                      </li>
 
                       <li class="nav-item text-center">
                         <a class="nav-link">
@@ -120,9 +119,7 @@
                           </svg>
                         </a>
                       </li>
-                
-
-                      
+                 
                 </ul>
 
               </div>
