@@ -424,8 +424,14 @@
 
       <br/>
 
-      <footer>
-        
-      </footer>
+        <div class="container-fluid" id="foot">
+          <div class="row">
+         <div class="col">
+          <h5>Contactos</h5>
+          <a href="contactanos.php">Contactanos por correo</a>
+          <a href="https://www.facebook.com/VideoGameStorePT">Facebook</a>
+         </div>
+          </div>
+        </div>
 </body>
 </html>
