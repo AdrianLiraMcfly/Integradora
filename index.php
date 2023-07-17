@@ -96,7 +96,7 @@
 
                 </ul>
                 
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto me-auto">
 
                       <li class="nav-item text-center dropdown p-auto">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
