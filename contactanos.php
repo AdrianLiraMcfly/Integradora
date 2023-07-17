@@ -75,7 +75,7 @@
                       </svg>
                     </a>
 
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu border-black">
                       <li><a class="dropdown-item" href="#">Videojuegos</a></li>
                       <li><a class="dropdown-item" href="#">Accesorios</a></li>
                       <li><a class="dropdown-item" href="#">Ropa</a></li>
