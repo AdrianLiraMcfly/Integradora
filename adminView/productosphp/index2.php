@@ -105,7 +105,7 @@
                       </a>
                     </li>
 
-                    <li class="nav-item p-auto it border border-2 border-black shadow-lg">
+                    <li class="nav-item p-auto it border border-2 border-danger shadow-lg">
                       <a class="nav-link text-center" aria-current="page" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
                           <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
