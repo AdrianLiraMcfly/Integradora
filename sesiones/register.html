@@ -21,6 +21,19 @@
         passwordre.type="password";
       }
     }
+    function equalspass(event){
+      event.preventDefault();
+
+      var password = document.getElementById("pass").value;
+      var passwordre = document.getElementById("passre").value;
+      if (password !== passwordre){
+    alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+    return;
+
+      }
+      document.getElementById("form-re").submit();
+
+    }
   </script>
   <title>Document</title>
 </head>
@@ -124,22 +137,22 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
     <div id="formu">
       <h3>Registrate y unete a VideoGame Store!.</h3>
-      <form action="">
+      <form action="#" onsubmit="equalspass(event)" id="form-re">
         <div class="mb-3">
           <label for="">Nombre completo</label>
-          <input type="text" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="text" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
           <label for="">Email</label>
-          <input type="text" class="form-control" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
           <label for="">Contraseña</label>
-          <input type="password" class="form-control" id="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="password" class="form-control" id="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
           <label for="">Repite contraseña</label>
-          <input type="password" class="form-control" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="password" class="form-control" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
@@ -147,7 +160,7 @@
             Contraseña visible
           </label>
         </div>
-        <button type="button" class="btn btn-warning">Aceptar</button>
+        <button type="submit" class="btn btn-warning">Aceptar</button>
       </form>
     </div>
   
