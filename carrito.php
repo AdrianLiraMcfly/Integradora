@@ -107,7 +107,7 @@
 
     <div class="text-center mt-4 w-100">
         <div class="col pt-3 pb-2 bg-dark text-light rounded-pill">
-          <h3><b>CARRITO DE COMPRAS</b></h3>
+          <h3><b>CARRITO</b></h3>
         </div>
     </div>
     
