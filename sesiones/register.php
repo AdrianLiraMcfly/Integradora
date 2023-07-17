@@ -148,18 +148,18 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
     <div id="formu">
       <h3>Registrate y unete a VideoGame Store!.</h3>
-      <form action="#" onsubmit="equalspass(event)" id="form-re">
+      <form method="post" action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re">
         <div class="mb-3">
           <label for="">Nombre completo</label>
-          <input type="text" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <input type="text" name="nombre" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
           <label for="">Email</label>
-          <input type="text" class="form-control" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+          <input type="text" class="form-control" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
           <label for="">Contraseña</label>
-          <input type="password" class="form-control" id="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <input type="password" class="form-control" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
           <label for="">Repite contraseña</label>
