@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
-
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
-    <title>Carrito</title>
+    <title>Busqueda</title>
 </head>
-
-<body class="bg-white w-100">
-
+<body>
 <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
@@ -40,7 +35,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item p-auto me-1  it border border-2 border-black shadow-lg">
+                    <li class="nav-item p-auto me-1">
                         <a class="nav-link text-center" aria-current="page" href="carrito.php">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                             <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
@@ -141,61 +136,30 @@
             </div>
     </nav>
 
-    <div class="text-center mt-4 w-100">
+
+      <br/>
+      <div class="text-center w-100">
         <div class="col pt-3 pb-2 bg-dark text-light rounded-pill">
-          <h3><b>CARRITO</b></h3>
-        </div>
-    </div>
-    
-
-      <div class="container mt-3 bg-secondary-subtle w-auto rounded border border-1 border-black shadow-lg">
-        <div  class="row pt-3 ps-3 pe-3 pb-0">
-
-            <div class="text-center col order-last p-2 border border-1">
-              
-            </div>
-  
-            <!--
-            <div class="text-center col bg-dark p-2 border border-black border-1 border-end-0 border-bottom-0 border-end-0">
-              <p class="mb-0 text-white" style="font-size: 18px;"><b>FOLIO</b></p>
-            </div>-->
-
-            <div class="text-center col bg-dark p-2 border border-black border-1 border-bottom-0">
-              <p class="mb-0 text-white" style="font-size: 18px;"><b>IMAGEN</b></p>
-            </div>
-  
-            <div class="text-center col order-first bg-dark p-2 border border-1 border-black border-end-0 border-bottom-0">
-              <p class="mb-0 text-white" style="font-size: 18px;"><b>PRODUCTO</b></p>
-            </div>
-  
-          </div>
-
-        <div class="row pt-0 ps-3 pe-3 pb-3">
-
-          <div class="text-center col order-last p-2 border">
-            <button class="mt-22 border border-1 border-black bg-danger p-2 rounded-pill shadow-lg">
-              <img src="img/delete.png" alt="delete" width="32px">
-            </button>
-          </div>
-
-          <!--
-          <div class="text-center col bg-light p-2 border border-black border-1 border-end-0">
-            <p class="mb-0" style="font-size: 18px;">XXXXXXX</p>
-          </div>-->
-
-          <div class="text-center col bg-light p-2 border border-black border-1">
-            <div>
-              <img src="img/galvatron.png" class="rounded border border-2 shadow-sm" style="width: 28%;">
-            </div>
-          </div>
-
-          <div class="text-center col order-first bg-light p-2 border border-1 border-black border-end-0">
-            <p class="mb-0" style="font-size: 18px;">Galvatron Figura AoE</p>
-            <h2><b>$500.00</b></h2>
-          </div>
-
+          <h3><b>RESULTADOS</b></h3>
         </div>
       </div>
-
+      <br>
+      <div class="container-fluid w-100">
+        <div class="row">
+            <div class="col mb-3">
+                <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+                    <div class="card border border-3 border-secondary" style="width: 18rem;">
+                        <img src="img/PS5-2.jpg" class="card-img-top" alt="Clabe Tipo C">
+                        <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                            <h5>Playstation 5</h5>
+                            <p class="card-text">
+                              <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$11,800.00</b>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+              </div>
+        </div>
+      </div>
 </body>
 </html>
