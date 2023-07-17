@@ -1,12 +1,32 @@
+<?php
+
+
+
+session_start();
+
+require 'config/database.php'; 
+
+$sqlPeliculas = "SELECT * from vista_productos_categoria";
+$peliculas = $conn->query($sqlPeliculas);
+
+$dir = "posters/";
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100"> 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VideoGame Store - Admin</title>
+    <title>CRUD Modal</title>
+
+
+
     <link rel="stylesheet" href="../productos/estilo.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
     <style>
         .sidebar .nav-item {
       margin-bottom: 10px;
@@ -24,10 +44,9 @@
     }
 
     .container {
-      margin-top: 30px;
+      margin-top: 50px;
     }
 
-    
     .table {
       background-color: #fff;
       border-collapse: collapse;
@@ -39,17 +58,11 @@
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-        setTimeout(function() {
-            $(".content").fadeOut(1500);
-        },3000);
-    });
-    </script>
 </head>
+
 <body class="bg-white w-100">
 
-    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
         <img src="../productos/vd_logo.png" alt="" width="110px" class="p-2">
@@ -101,7 +114,6 @@
                       </a>
                     </li>
 
-
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
@@ -117,10 +129,9 @@
                         <li><a class="dropdown-item" href="#">Consolas</a></li>
                         <li><a class="dropdown-item" href="#">Electronica</a></li>
                       </ul>
-                    </li> 
+                    </li>
 
-
-                  <li class="nav-item p-auto it border border-2 border-danger shadow-lg">
+                    <li class="nav-item p-auto it border border-2 border-danger shadow-lg">
                       <a class="nav-link text-center" aria-current="page" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
                           <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
@@ -128,24 +139,25 @@
                         </svg>
                       </a>
                     </li>
+
                 </ul>
                 
                 <ul class="navbar-nav ms-auto me-auto">
 
-                  <li class="nav-item text-center dropdown p-auto">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item text-center dropdown p-auto">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
-                    </a>
+                      </a>
 
-                    <ul class="dropdown-menu border-black">
-                      <li><a class="dropdown-item" href="#">Sign In</a></li>
-                      <li><a class="dropdown-item" href="#">Log In</a></li>
-                    </ul>
-                  </li>
-                    
+                      <ul class="dropdown-menu border-black">
+                        <li><a class="dropdown-item" href="#">Sign In</a></li>
+                        <li><a class="dropdown-item" href="#">Log In</a></li>
+                      </ul>
+                    </li>
+
                     <li class="nav-item text-center">
                         <a class="nav-link">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -153,7 +165,7 @@
                           </svg>
                         </a>
                     </li>
-
+                    
                 </ul>
 
             </div>
@@ -165,14 +177,14 @@
 
         <nav class="col-md-3 col-lg-2 d-md-block sidebar" height="100vh">
           <div class="sidebar-sticky">
-
             <ul class="nav flex-column">
 
               <li class="nav-item">
-                <a class="nav-link" href="../products/index2.php">
+                <a class="nav-link" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
                     <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
-                  </svg> Productos
+                  </svg> 
+                  <strong>Productos</strong>
                 </a>
               </li>
 
@@ -186,39 +198,157 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="../clientes/index1.php">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                  </svg> 
-                  <strong>Cliente</strong>
+                  </svg> Cliente
                 </a>
               </li>
 
             </ul>
-
-          </div>
-        </nav>
-
-      <div class="col-md-9">
-        <div class="container">
-        <div class="row">
-          <div class="col">
-            <?php include('listado.php')?>
-          </div>
-          <?php include('modal_actualizar.php')?>
         </div>
-        </div>
-      </div>
+      </nav>
 
-      
+    <div class="col-md-9">
+
+
+        <?php if (isset($_SESSION['msg']) && isset($_SESSION['color'])) { ?>
+            <div class="alert alert-<?= $_SESSION['color']; ?> alert-dismissible fade show" role="alert">
+                <?= $_SESSION['msg']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        <?php
+            unset($_SESSION['color']);
+            unset($_SESSION['msg']); 
+        } ?>
+
+        <div class="row justify-content-start">
+            <div class="col-auto">
+                <a href="#" class="btn btn-dark rounded-pill mt-3 shadow" data-bs-toggle="modal" data-bs-target="#nuevoModal"><b class="text-warning">AGREGAR PRODUCTOS</b></a>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre del Producto</th>
+                    <th>Precio</th>
+                    <th>Categoria</th>
+                    <th>Imagen</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php while ($row = $peliculas->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?= $row['id_producto']; ?></td>
+                        <td><?= $row['nombre']; ?></td>
+                        <td><?= $row['precio']; ?></td> 
+                        <td><?= $row['categoria']; ?></td>
+                        <td><img src="<?= $dir . $row['id_producto'] . '.jpg?n=' . time(); ?>" width="100"></td>
+                        <td>
+                            <a href="#" class="btn btn-primary transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_producto']; ?>"><img src="../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
+
+                            <a href="#" class="btn btn-danger transparent-button" data-bs-toggle="modal" data-bs-target="#eliminaModal" data-bs-id="<?= $row['id_producto']; ?>"><img src="../iconos/trash-svgrepo-com.svg" alt="delate" width="25px"></a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
-    </div> 
 
-    
+
+    <?php
+    $sqlGenero = "SELECT id_categoria, nombre FROM categorias";
+    $generos = $conn->query($sqlGenero);
+    ?>
+
+    <?php include 'nuevoModal.php'; ?>
+
+    <?php $generos->data_seek(0); ?>
+
+    <?php include 'editaModal.php'; ?>
+    <?php include 'eliminaModal.php'; ?>
+
+    </div>
+  </div> 
+
+    <script>
+        let nuevoModal = document.getElementById('nuevoModal')
+        let editaModal = document.getElementById('editaModal')
+        let eliminaModal = document.getElementById('eliminaModal')
+
+        nuevoModal.addEventListener('shown.bs.modal', event => {
+            nuevoModal.querySelector('.modal-body #nombre').focus()
+        })
+
+        nuevoModal.addEventListener('hide.bs.modal', event => {
+            nuevoModal.querySelector('.modal-body #nombre').value = ""
+            nuevoModal.querySelector('.modal-body #descripcion').value = ""
+            nuevoModal.querySelector('.modal-body #precio').value = ""
+            nuevoModal.querySelector('.modal-body #categoria').value = ""
+            nuevoModal.querySelector('.modal-body #poster').value = ""
+        })
+
+        editaModal.addEventListener('hide.bs.modal', event => {
+            editaModal.querySelector('.modal-body #nombre').value = ""
+            editaModal.querySelector('.modal-body #descripcion').value = ""
+            editaModal.querySelector('.modal-body #precio').value = ""
+            editaModal.querySelector('.modal-body #categoria').value = ""
+            editaModal.querySelector('.modal-body #img_poster').value = ""
+            editaModal.querySelector('.modal-body #poster').value = ""
+        })
+
+        editaModal.addEventListener('shown.bs.modal', event => {
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+
+            let inputId = editaModal.querySelector('.modal-body #id')
+            let inputNombre = editaModal.querySelector('.modal-body #nombre')
+            let inputDescripcion = editaModal.querySelector('.modal-body #descripcion')
+            let inputPrecio = editaModal.querySelector('.modal-body #precio')
+            let inputGenero = editaModal.querySelector('.modal-body #categoria')
+            let poster = editaModal.querySelector('.modal-body #img_poster')
+
+            let url = "getPelicula.php"
+            let formData = new FormData()
+            formData.append('id', id)
+
+            fetch(url, {
+                    method: "POST",
+                    body: formData
+                }).then(response => response.json())
+                .then(data => {
+
+                    inputId.value = data.id_producto
+                    inputNombre.value = data.nombre
+                    inputDescripcion.value = data.descripcion
+                    inputPrecio.value = data.precio
+                    inputGenero.value = data.id_categoria
+                    poster.src = '<?= $dir ?>' + data.id_producto + '.jpg'
+
+                }).catch(err => console.log(err))
+
+        })
+
+        eliminaModal.addEventListener('shown.bs.modal', event => {
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+            eliminaModal.querySelector('.modal-footer #id').value = id
+        })
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/evitar_reenvio.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+
+
 </body>
+
 </html>
