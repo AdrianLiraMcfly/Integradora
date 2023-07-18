@@ -5,7 +5,6 @@
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'adminView/products/posters/';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

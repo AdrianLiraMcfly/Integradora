@@ -28,23 +28,24 @@
       }
     }
 
-    function equalspass(event)
-    {
-      event.preventDefault();
+    function valform(event) {
+            event.preventDefault();
 
-      var password = document.getElementById("pass").value;
-      var passwordre = document.getElementById("passre").value;
+            var password = document.getElementById("pass").value;
+            var passwordre = document.getElementById("passre").value;
 
-      if (password !== passwordre)
-      {
-        alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
-        return;
+            if (password !== passwordre) {
+                alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+                return;
+            }
 
-      }
-
-      document.getElementById("form-re").submit();
-
-    }
+            if (/\d/.test(password)) {
+                document.getElementById("form-re").submit();
+            } else {
+                alert("La contraseña debe contener al menos un número");
+                return;
+            }
+        }
   </script>
 
   <title>SignIn</title>
@@ -134,6 +135,7 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
 
     <div id="formu">
+<<<<<<< HEAD
       <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
       <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
 
@@ -141,6 +143,15 @@
         <div class="mb-3">
           <label for="">Nombre completo</label>
           <input type="text" name="nombre" class="form-control form-control-sm border border-black" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+=======
+      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE</b></h2>
+      <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
+
+      <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
+        <div class="mb-3">
+          <label for="">Nombre de usuario</label>
+          <input type="text" name="nombre" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+>>>>>>> 9eaf8755b83fd9fbfae7f7bad27f9e418084cdba
         </div>
 
         <div class="mb-3">
@@ -159,14 +170,18 @@
         </div>
 
         <div class="form-check">
+<<<<<<< HEAD
           <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
 
+=======
+          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+>>>>>>> 9eaf8755b83fd9fbfae7f7bad27f9e418084cdba
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>
         </div>
 
-        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white">ACEPTAR</button>
+        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
 
       </form>
     </div>
