@@ -10,8 +10,12 @@ $descripcion = $conn->real_escape_string($_POST['descripcion']);
 $precio = $conn->real_escape_string($_POST['precio']);
 $genero = $conn->real_escape_string($_POST['categoria']);
 
+$cantidad = $conn->real_escape_string($_POST['cantidad']);
+$sqlInventario = "UPDATE inventario SET cantidad ='$cantidad' WHERE id_producto=$id";
+
+
 $sql = "UPDATE productos SET nombre ='$nombre', descripcion = '$descripcion', precio='$precio', id_categoria='$genero' WHERE id_producto=$id";
-if ($conn->query($sql)) {
+if ($conn->query($sql) && $conn->query($sqlInventario)) {
 
     $_SESSION['color'] = "success";
     $_SESSION['msg'] = "Registro actualizado";
