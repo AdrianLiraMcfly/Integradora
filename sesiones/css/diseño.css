@@ -13,7 +13,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background-color: lemonchiffon;
+    /*background-color: lemonchiffon;*/
     border-radius: 10px;
     height: 400px;
 }
@@ -53,7 +53,7 @@ form .username{
     height: 40px;
 }
 .recordar button{
-    position: absolute;
+    /*position: absolute;*/
     /*left: 0%;*/
     /*border-radius: 20px;*/
     /*width: 200px;
