@@ -15,6 +15,6 @@ if ($conn->query($sql) === TRUE) {
     header('Location: ../index.php');
     exit();
 } else {
-    echo "Error al guardar el registro: " . mysqli_error($conn);
+    echo "Error al guardar el registro: ";
 }
 ?>

@@ -20,7 +20,7 @@ $dir = "posters/";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Modal</title>
+    <title>VideoGame Store - Admin</title>
 
 
 
@@ -51,6 +51,11 @@ $dir = "posters/";
       background-color: #fff;
       border-collapse: collapse;
     }
+    .transparent-button {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 
     </style>
 
@@ -235,6 +240,7 @@ $dir = "posters/";
                     <th>#</th>
                     <th>Nombre del Producto</th>
                     <th>Precio</th>
+                    <th>Inventario</th>
                     <th>Categoria</th>
                     <th>Imagen</th>
                     <th>Acción</th>
@@ -247,6 +253,7 @@ $dir = "posters/";
                         <td><?= $row['id_producto']; ?></td>
                         <td><?= $row['nombre']; ?></td>
                         <td><?= $row['precio']; ?></td> 
+                        <td><?= $row['cantidad']; ?></td> 
                         <td><?= $row['categoria']; ?></td>
                         <td><img src="<?= $dir . $row['id_producto'] . '.jpg?n=' . time(); ?>" width="100"></td>
                         <td>
