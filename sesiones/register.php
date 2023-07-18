@@ -174,7 +174,6 @@
         <div class="form-check">
 
           <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
-=======
 
           <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
