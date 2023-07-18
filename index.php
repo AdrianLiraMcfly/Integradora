@@ -1,8 +1,8 @@
 <?php
-  include 'base/conexion.php';
+  include 'src/conexionbd.php';
   $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-  $rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
+  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'productosimg/';
 ?>
 
@@ -305,7 +305,6 @@
       <div class="container w-100 container-products">
         <?php foreach($productos as $dato){ ?>
         <div class="row">
-         
           <div class="col mb-3">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
