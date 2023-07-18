@@ -15,12 +15,12 @@ body{
     width: 400px;
     background-color: lemonchiffon;
     border-radius: 10px;
-    height: 360px;
+    height: 400px;
 }
 .formulario h1{
-    text-align: center;
+    /*text-align: center;*/
     padding: 0 0 0 0;
-    border-bottom: 1px solid silver;
+    /*border-bottom: 1px solid silver;*/
 }
 .formulario form{
     padding: 0 40px;

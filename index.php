@@ -95,7 +95,7 @@
                     </a>
                       
                     <ul class="dropdown-menu bg-body-secondary border border-black border-2" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="sesiones/register.html">Sign In</a></li>
+                      <li><a class="dropdown-item" href="sesiones/register.php">Sign In</a></li>
                       <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
                     </ul>
                         
