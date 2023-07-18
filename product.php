@@ -173,7 +173,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <div class="container-fluid bg-dark mt-5 p-4">
 
         <div class="background-categorias" style="background-color: gold; border: 3px white solid;">
-          <h3><b class="titulos-categorias"> <?php echo $persona->categoria ?> </b></h3>
+          <h3><b class="titulos-categorias"> Mas <?php echo $persona->categoria ?> </b></h3>
       </div> 
       <br>
 
@@ -216,7 +216,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 </div>
 
 
-<?php } ?>
+<?php }
+  $bd = NULL;
+?>
 
             </div>
         </div>
