@@ -6,7 +6,7 @@ include 'src/conexionbd.php';
 
 $id = $_GET['id'];
 
-$sentencia = $bd->prepare("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto where P.id_producto = ?;");
+$sentencia = $bd->prepare("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto where P.id_producto = ?;"); //INNER JOIN categorias C ON P.id_categoria = C.id_categoria 
 $resultado = $sentencia->execute([$id]);
 $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
@@ -140,14 +140,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                                     <h2 class="card-title fw-bold titulo_pro"> <?php echo $persona->nombre ?> </h2>
 
-                                    <h4 class="card-title fw-bold text-secondary">Info 1</h4>
+                                    <h4 class="card-title fw-bold text-secondary">Categoria:</h4>
                                     <ul class="list-unstyled">
                                         <li>Tallas</li>
                                     </ul>
 
                                     <h4 class="card-title fw-bold text-secondary">Descripcion:</h4>
                                     <ul class="list-unstyled">
-                                        <li> <?php echo $persona->descripcion ?> </li>
+                                        <li> <?php //echo $persona->descripcion ?> </li>
                                     </ul>
 
                                     <h4 class="card-title fw-bold text-secondary">Info +</h4>
