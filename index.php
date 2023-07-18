@@ -1,10 +1,11 @@
 <?php
-include 'base/conexion.php';
-$sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
-$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-//$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-$rutaCarpetaImagenes = 'productosimg/';
+  include 'base/conexion.php';
+  $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
+  $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  $rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
+  $rutaCarpetaImagenes = 'productosimg/';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@ $rutaCarpetaImagenes = 'productosimg/';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
     <link rel="stylesheet" href="ruta/a/bootstrap.css">
+    <link rel="stylesheet" href="css/diseno.css">
 
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -300,12 +302,12 @@ $rutaCarpetaImagenes = 'productosimg/';
 
       <br/>
 
-      <div class="container w-100">
+      <div class="container w-100 container-products">
         <?php foreach($productos as $dato){ ?>
         <div class="row">
          
           <div class="col mb-3">
-            <a href=" okkiklk<?php  ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
 
                 <?php
