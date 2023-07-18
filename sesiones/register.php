@@ -152,13 +152,8 @@
 
       <form action="#" onsubmit="equalspass(event)" id="form-re">
         <div class="mb-3">
-<<<<<<< HEAD
-          <label for="">Nombre completo</label>
-          <input type="text" name="nombre" class="form-control form-control-sm border border-black" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
-=======
           <label for=""><b>Nombre completo</b></label>
           <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
->>>>>>> b178794e09f17298e7a188cff3110dc75697cf4b
         </div>
 
         <div class="mb-3">
@@ -177,16 +172,11 @@
         </div>
 
         <div class="form-check">
-<<<<<<< HEAD
-          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
-
-=======
 
           <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
 
           <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
->>>>>>> b178794e09f17298e7a188cff3110dc75697cf4b
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>

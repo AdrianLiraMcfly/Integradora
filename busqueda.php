@@ -112,6 +112,12 @@
    $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'adminView/products/posters/';}
+  else if (isset($_GET['cat'])){
+    $search=$_GET['cat'];
+   $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('$search');");
+   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
+  $rutaCarpetaImagenes = 'adminView/products/posters/';}
     ?>
 
       <br/>
