@@ -21,6 +21,13 @@
     border: none;
 }
 
+.truncate {
+        max-width: 100px; /* Ajusta el ancho máximo según tus necesidades */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 
     </style>
 </head>
@@ -30,31 +37,28 @@
         <tr>
             <th>Nº</th>
             <th>Nombre</th>
-            <th>Telefono</th>
             <th>Email</th>
             <th>Contraseña</th>
             <th>Rol</th>
-            <th>Opciones</th>
+            <th>Accion</th>
         </tr>
         </thead>
         
         <?php
-        include('conectarbd.php');
+        include('../products/config/database.php');
         $sql="select * from vista_usuarios_roles";
-        $result=mysqli_query($con,$sql);
-        while($row=$result->fetch_assoc()){
+        $result= $conn->query($sql);
+        while ($row=$result->fetch_assoc()){
             $field0name=$row['id_usuario'];
             $field1name=$row['usuario'];
-            $field2name=$row['telefono'];
             $field3name=$row['email'];
             $field4name=$row['contraseña'];
             $field5name=$row['rol'];
             echo '<tr>
                 <td>'.$field0name.'</td>
                 <td>'.$field1name.'</td>
-                <td>'.$field2name.'</td>
                 <td>'.$field3name.'</td>
-                <td>'.$field4name.'</td>
+                <td class="truncate">'.$field4name.'</td>
                 <td>'.$field5name.'</td>
                 <td>
                     <a href="eliminar.php?id='.$field0name.'" class="btn btn-danger transparent-button">
