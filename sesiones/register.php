@@ -135,13 +135,13 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
 
     <div id="formu">
-      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE</b></h2>
+      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
       <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
 
-      <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
+      <form action="#" onsubmit="equalspass(event)" id="form-re">
         <div class="mb-3">
-          <label for="">Nombre de usuario</label>
-          <input type="text" name="nombre" class="form-control border border-black form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <label for="">Nombre completo</label>
+          <input type="text" name="nombre" class="form-control form-control-sm border border-black" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
@@ -160,7 +160,12 @@
         </div>
 
         <div class="form-check">
+<<<<<<< HEAD
+          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
+
+=======
           <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+>>>>>>> 9eaf8755b83fd9fbfae7f7bad27f9e418084cdba
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>

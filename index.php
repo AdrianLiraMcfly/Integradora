@@ -1,6 +1,6 @@
 <?php
   include 'src/conexionbd.php';
-  $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
+  $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 9;");
   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'adminView/products/posters/';
