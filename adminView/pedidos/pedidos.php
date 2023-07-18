@@ -1,5 +1,5 @@
 <?php
-include("../clientes/conectarbd.php");
+include("../products/config/database.php");
 $pedidos = "SELECT * FROM vista_carrito_usuarios";
 ?>
 
@@ -208,8 +208,8 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
             </thead>
             <tbody>
             <?php 
-              $resultado = mysqli_query($con, $pedidos);
-              while($row=mysqli_fetch_assoc($resultado)){
+              $resultado = $conn->query($pedidos); 
+              while($row= $resultado->fetch_assoc()){
               ?>
               <tr>
                 <td><?php echo $row ["fecha_venta"];?></td>
