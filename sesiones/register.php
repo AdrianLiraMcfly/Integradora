@@ -28,26 +28,27 @@
       }
     }
 
-    function equalspass(event)
-    {
-      event.preventDefault();
+    function valform(event) {
+            event.preventDefault();
 
-      var password = document.getElementById("pass").value;
-      var passwordre = document.getElementById("passre").value;
+            var password = document.getElementById("pass").value;
+            var passwordre = document.getElementById("passre").value;
 
-      if (password !== passwordre)
-      {
-        alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
-        return;
+            if (password !== passwordre) {
+                alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+                return;
+            }
 
-      }
-
-      document.getElementById("form-re").submit();
-
-    }
+            if (/\d/.test(password)) {
+                document.getElementById("form-re").submit();
+            } else {
+                alert("La contraseña debe contener al menos un número");
+                return;
+            }
+        }
   </script>
 
-  <title>Document</title>
+  <title>SignIn</title>
 
 </head>
 
@@ -117,44 +118,13 @@
                     </a>
                       
                     <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="register.html">Sign In</a></li>
+                      <li><a class="dropdown-item" href="#">Sign In</a></li>
                       <li><a class="dropdown-item" href="login.html">Log In</a></li>
                     </ul>
                         
                   </li>
   
                 </ul>
-  
-                <!--
-                <ul class="navbar-nav ms-auto me-5">
-  
-  
-                      <li class="nav-item dropdown p-auto">
-                        
-                        <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                          </svg>
-                        </a>
-                      
-                        <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-                          <li><a class="dropdown-item" href="#">Sign In</a></li>
-                          <li><a class="dropdown-item" href="#">Log In</a></li>
-                        </ul>
-                        
-                      </li>
-  
-                      
-                      <li class="nav-item p-auto">
-                        <a class="nav-link text-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                          </svg>
-                        </a>
-                      </li>
-                 
-                </ul>-->
   
               </div>
       </div>
@@ -165,44 +135,53 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
 
     <div id="formu">
-<<<<<<< HEAD:sesiones/register.html
-      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE</b></h2>
+<<<<<<< HEAD
+      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
       <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
 
       <form action="#" onsubmit="equalspass(event)" id="form-re">
-=======
-      <h3>Registrate y unete a VideoGame Store!.</h3>
-      <form method="post" action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re">
->>>>>>> 09b64cf9b11b175c03ab892be2e727ed03422294:sesiones/register.php
         <div class="mb-3">
           <label for="">Nombre completo</label>
+          <input type="text" name="nombre" class="form-control form-control-sm border border-black" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+=======
+      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE</b></h2>
+      <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
+
+      <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
+        <div class="mb-3">
+          <label for="">Nombre de usuario</label>
           <input type="text" name="nombre" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+>>>>>>> 9eaf8755b83fd9fbfae7f7bad27f9e418084cdba
         </div>
 
         <div class="mb-3">
           <label for="">Email</label>
-          <input type="text" class="form-control" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+          <input type="text" class="form-control border border-black" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
           <label for="">Contraseña</label>
-          <input type="password" class="form-control" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <input type="password" class="form-control border border-black" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
           <label for="">Repite contraseña</label>
-          <input type="password" class="form-control" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <input type="password" class="form-control border border-black" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+<<<<<<< HEAD
+          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
 
+=======
+          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+>>>>>>> 9eaf8755b83fd9fbfae7f7bad27f9e418084cdba
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>
         </div>
 
-        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white">ACEPTAR</button>
+        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
 
       </form>
     </div>

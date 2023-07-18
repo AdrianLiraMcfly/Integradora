@@ -9,6 +9,7 @@
     padding: 10px;
 }
 .img_init{
+<<<<<<< HEAD
     height: 200px;
     width: 100%;
 }
@@ -37,4 +38,8 @@
     position: relative;
     left: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+=======
+    height: 300px;
+    width: 270px;
+>>>>>>> a3d789812a9d56b8bc39533b49d3e5e91a819d43
 }

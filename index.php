@@ -5,7 +5,6 @@
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'adminView/products/posters/';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +94,7 @@
                     </a>
                       
                     <ul class="dropdown-menu bg-body-secondary border border-black border-2" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="sesiones/register.html">Sign In</a></li>
+                      <li><a class="dropdown-item" href="sesiones/register.php">Sign In</a></li>
                       <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
                     </ul>
                         
@@ -245,7 +244,7 @@
 
                       <p class="card-text" style="text-align: justify;">
                         <b style="text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);">
-                          Los mejores exclusivos los encuentras en playstation, historias atrapantes.
+                          Los pioneros de la industria siguen demostrando porque son el primer lugar.
                         </b>
                       </p>
 

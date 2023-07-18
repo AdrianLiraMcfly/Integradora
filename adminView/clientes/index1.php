@@ -204,10 +204,10 @@
           <div class="row">
 
             <div class="col">
-              <?php include('listado.php')?>
+              <?php include 'listado.php'?>
             </div>
 
-            <?php include('modal_actualizar.php')?>
+            <?php include 'modal_actualizar.php'?>
           </div>
         </div>
       </div>

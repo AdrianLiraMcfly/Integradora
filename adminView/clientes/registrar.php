@@ -5,7 +5,7 @@
         $email=$_POST['email'];
         $telefono=$_POST['telefono'];
         $contraseña=$_POST['contraseña'];
-        include('conectarbd.php');
+        include('../products/config/database.php');
         $sql="insert into usuarios(nombre,email,telefono,contraseña) values('$nombre','$email',$telefono,'$contraseña')";
         $resultado=mysqli_query($con,$sql);
         if($resultado){

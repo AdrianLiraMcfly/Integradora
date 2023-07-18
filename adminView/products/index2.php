@@ -253,7 +253,6 @@ $dir = "posters/";
                         <td><?= $row['id_producto']; ?></td>
                         <td><?= $row['nombre']; ?></td>
                         <td><?= $row['precio']; ?></td> 
-                        <td><?= $row['cantidad']; ?></td> 
                         <td><?= $row['categoria']; ?></td>
                         <td><img src="<?= $dir . $row['id_producto'] . '.jpg?n=' . time(); ?>" width="100"></td>
                         <td>
