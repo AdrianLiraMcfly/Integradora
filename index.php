@@ -3,7 +3,7 @@
   $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-  $rutaCarpetaImagenes = 'productosimg/';
+  $rutaCarpetaImagenes = 'adminView/products/posters/';
 ?>
 
 <!DOCTYPE html>
@@ -302,7 +302,7 @@
 
       <br/>
 
-      <div class="container w-100 container-products">
+      <div class="container  container-products">
         <?php foreach($productos as $dato){ ?>
         <div class="row">
           <div class="col mb-3">
