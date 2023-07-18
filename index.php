@@ -188,10 +188,12 @@
                           Los mejores exclusivos los encuentras en playstation, historias atrapantes.
                         </b>
                       </p>
-
-                      <button type="button" class="btn btn-primary border-2 border-light bg-gradient rounded-pill">
+                      <form action="busqueda.php" method="get">
+                      <button type="submit" class="btn btn-primary border-2 border-light bg-gradient rounded-pill">
+                      <input type="hidden" name="opt" value="Playstation">
                         <b>Ver productos...</b>
                       </button>
+                    </form>
 
                     </div>
                 </div>
@@ -217,11 +219,12 @@
                           Con la consola mas poderosa de la generacion, Xbox te invita a ver sus ofertas.
                         </b>
                       </p>
-
-                      <button type="button" class="btn btn-dark border-2 border-light bg-gradient rounded-pill">
+                      <form action="busqueda.php" method="get">
+                      <button type="submit" class="btn btn-dark border-2 border-light bg-gradient rounded-pill">
+                        <input type="hidden" name="opt" value="Xbox">
                         <b>Ver productos...</b>
                       </button>
-
+                      </form>
                     </div>
                 </div>
             </a>
@@ -248,11 +251,13 @@
                           Los pioneros de la industria siguen demostrando porque son el primer lugar.
                         </b>
                       </p>
-
-                      <button type="button" class="btn btn-danger border-2 border-light bg-gradient rounded-pill">
+                      <form action="busqueda.php" method="get">
+                      
+                      <button type="submit" class="btn btn-danger border-2 border-light bg-gradient rounded-pill">
+                        <input type="hidden" name="opt" value="Nintendo">
                         <b>Ver productos...</b>
                       </button>
-
+                      </form>
                     </div>
                 </div>
             </a>
