@@ -13,7 +13,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background-color: lemonchiffon;
+    /*background-color: lemonchiffon;*/
     border-radius: 10px;
     height: 400px;
 }
@@ -33,13 +33,13 @@ form .username{
 }
 .username input{
     width: 98%;
-    padding-top: 5px;
-    padding-left: 1px;
+    /*padding-top: 5px;
+    padding-left: 1px;*/
     height: 25px;
     font-size: 17px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px black solid;
+    /*border-radius: 10px;*/
+    /*ext-align: center;*/
+    /*border: 1px black solid;*/
 }
 .username label{
     position: absolute;
@@ -53,17 +53,17 @@ form .username{
     height: 40px;
 }
 .recordar button{
-    position: absolute;
-    left: 25%;
-    border-radius: 20px;
-    width: 200px;
+    /*position: absolute;*/
+    /*left: 0%;*/
+    /*border-radius: 20px;*/
+    /*width: 200px;
     height: 40px;
     font-size: 15px;
-    border: none;
-    background-color: yellow;
+    border: none;*/
+    /*background-color: yellow;*/
     cursor: pointer;
     transition: transform 0.1s ease;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    /*box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);*/
 }
 .recordar button:active{
     transform: scale(0.94);
@@ -92,6 +92,7 @@ form .username{
     background-color: white;
     height: 360px;
 }
+/*
 .lado-left{
     
     height: 100%;
@@ -108,3 +109,4 @@ form .username{
     margin-right: 0px;  
     background-color: gold;
 }
+*/
