@@ -1,6 +1,6 @@
 <?php
   include 'src/conexionbd.php';
-  $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 9;");
+  $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'adminView/products/posters/';
@@ -31,7 +31,7 @@
 
 <body class="bg-white w-100">
 
-    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -118,6 +118,7 @@
 
             </div>
     </nav>
+
 
       <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -272,13 +273,13 @@
 
       <div class="container  container-products">
         <?php foreach($productos as $dato){ ?>
-        <div class="row">
+
           <div class="col mb-3">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
 
                 <?php
-                      $nombreimagen = $dato->imagen_path;
+                      $nombreimagen = $dato->imagen;
                       $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
 
                       $base64 = base64_encode(file_get_contents($rutaimagen));
@@ -298,7 +299,7 @@
             </a>
           </div>
 
-        </div>
+
         <?php } ?>
       </div>
       <br/>
@@ -308,81 +309,66 @@
         <div class="col pt-3 pb-2 bg-dark text-dark rounded-pill">
           <h3><b>VIDEOGAME STORE ES TU MEJOR OPCION</b></h3>
         </div>
+          <br>
+
+          <div class="background-categorias">
+          <h3><b class="titulos-categorias">ROPA</b></h3>
+      </div> 
 
       </div>
-        <br/>
+
+
+
+      <br/>
        
-        <br/>
+      <br/>
       
-      <div class="container w-100">
-        <div class="row">
+      <div class="container w-100 container-products">
 
-              <div class="col mb-3">
-                <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                    <div class="card border border-3 border-secondary" style="width: 18rem;">
-                        <img src="img/PS5-2.jpg" class="card-img-top" alt="Clabe Tipo C">
-                        <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                            <h5>Playstation 5</h5>
-                            <p class="card-text">
-                              <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$11,800.00</b>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-              </div>
-              
-              <div class="col mb-3">
-                <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                    <div class="card border border-3 border-secondary" style="width: 18rem;">
 
-                        <img src="img/cablec.png" class="card-img-top" alt="Clabe Tipo C">
-                        
-                        <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                            <h5>Cable tipo C</h5>
-                            <p class="card-text">
-                              <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$100.00</b>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-              </div>
+      <?php 
 
-                
-                <div class="col mb-3">
-                  <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                      <div class="card border border-3 border-secondary" style="width: 18rem;">
+
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 6;");
+      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+      $rutaCarpetaImagenes = 'adminView/products/posters/';
   
-                          <img src="img/guns.jpg" class="card-img-top" alt="Clabe Tipo C">
-                          
-                          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                              <h5>Camisa GnR H</h5>
+      
+    
+      
+      
+      foreach($productos as $dato){ ?>
 
-                              <p class="card-text">
-                                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$300.00</b>
-                              </p>
-                          </div>
-                      </div>
-                  </a>
-                </div>
+<div class="col mb-3">
+  <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+      <div class="card border border-3 border-secondary" style="width: 18rem;">
 
-                <div class="col mb-3">
-                  <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                      <div class="card border border-3 border-secondary" style="width: 18rem;">
-  
-                          <img src="img/cinderella-shirt.jpg" class="card-img-top" alt="Clabe Tipo C">
-                          
-                          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                              <h5>Camisa Cinderella M</h5>
+      <?php
+            $nombreimagen = $dato->imagen;
+            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
 
-                              <p class="card-text">
-                                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$300.00</b>
-                              </p>
-                          </div>
-                      </div>
-                  </a>
-                </div>
+            $base64 = base64_encode(file_get_contents($rutaimagen));
+            $base64 = 'data:image/jpeg;base64,'.$base64;
 
-        </div>
+            echo  "<img src='$base64' class='img_init' alt=''>";
+
+          ?>
+
+          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+              <h5> <?php echo $dato->nombre ?></h5>
+              <p class="card-text">
+                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+              </p>
+          </div>
+      </div>
+  </a>
+</div>
+
+
+<?php } ?>
+
+
+
       </div>
 
       <br/>
