@@ -127,11 +127,10 @@
         </div>
       </div>
       <br>
-      <div class="container-fluid w-100">
+      <div class="container  container-products">
         <div class="row">
-        <div class="container-fluid  container-products">
         <?php foreach($productos as $dato){ ?>
-        <div class="row">
+
           <div class="col mb-3">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
@@ -139,6 +138,7 @@
                 <?php
                       $nombreimagen = $dato->imagen;
                       $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+
                       $base64 = base64_encode(file_get_contents($rutaimagen));
                       $base64 = 'data:image/jpeg;base64,'.$base64;
 
@@ -156,8 +156,9 @@
             </a>
           </div>
 
-        </div>
+
         <?php } ?>
+      </div>
       </div>
       <br/>
         </div>
