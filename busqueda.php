@@ -126,6 +126,15 @@
             </div>
     </nav>
 
+    <?php
+    include 'src/conexionbd.php';
+     if(isset($_POST['search']))
+     $search=$_POST['search'];
+   $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
+   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
+  $rutaCarpetaImagenes = 'adminView/products/posters/';
+    ?>
 
       <br/>
       <div class="text-center w-100">
@@ -136,19 +145,37 @@
       <br>
       <div class="container-fluid w-100">
         <div class="row">
-            <div class="col mb-3">
-                <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                    <div class="card border border-3 border-secondary" style="width: 18rem;">
-                        <img src="img/PS5-2.jpg" class="card-img-top" alt="Clabe Tipo C">
-                        <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                            <h5>Playstation 5</h5>
-                            <p class="card-text">
-                              <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$11,800.00</b>
-                            </p>
-                        </div>
+        <div class="container-fluid  container-products">
+        <?php foreach($productos as $dato){ ?>
+        <div class="row">
+          <div class="col mb-3">
+            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+                <div class="card border border-3 border-secondary" style="width: 18rem;">
+
+                <?php
+                      $nombreimagen = $dato->imagen;
+                      $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+                      $base64 = base64_encode(file_get_contents($rutaimagen));
+                      $base64 = 'data:image/jpeg;base64,'.$base64;
+
+                      echo  "<img src='$base64' class='img_init' alt=''>";
+
+                    ?>
+
+                    <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                        <h5> <?php echo $dato->nombre ?></h5>
+                        <p class="card-text">
+                          <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                        </p>
                     </div>
-                </a>
-              </div>
+                </div>
+            </a>
+          </div>
+
+        </div>
+        <?php } ?>
+      </div>
+      <br/>
         </div>
       </div>
 </body>

@@ -104,9 +104,9 @@
 
               </div>
 
-              <form class="d-flex text-center ms-auto me-auto" role="search">
+              <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
 
-                <input class="form-control border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">
+                <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
                 <button class="btn bg-secondary-subtle border border-black rounded-end-circle rounded-start-0 shadow" type="submit" id="button-addon2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
