@@ -8,14 +8,13 @@
 </head>
 <body>
     <?php
-        include('conectarbd.php');
+        include('../products/config/database.php');
         $sql="select * from usuarios";
-        $result=mysqli_query($con,$sql);
+        $result= $conn->query($sql);
         while($row=$result->fetch_assoc()){
           $field0name=$row['id_usuario'];
           $field1name=$row['nombre'];
-          $field2name=$row['telefono'];
-          $field3name=$row['email'];
+          $field3name=$row['email']; 
           $field4name=$row['contraseña'];
 
             echo '
@@ -34,11 +33,7 @@
                       </div>
                       <div class="mb-3" style="text-align: left;">
                           <label>Email:</label>
-                          <input value="'.$field2name.'" name="email" class="form-control" id="email">
-                      </div>
-                      <div class="mb-3" style="text-align: left;">
-                          <label>Telefono:</label>
-                          <input value="'.$field3name.'" name="telefono" class="form-control" id="email">
+                          <input value="'.$field3name.'" name="email" class="form-control" id="email">
                       </div>
                       <div class="mb-3" style="text-align: left;">
                           <label>Contraseña:</label>
