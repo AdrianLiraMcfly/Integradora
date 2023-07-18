@@ -172,14 +172,11 @@
         </div>
 
         <div class="form-check">
-<<<<<<< HEAD
+
           <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
 =======
-<<<<<<< HEAD
-          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
->>>>>>> 3a3809cc8507a977f13fd29446b366c3c745427a
 
-=======
+          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
