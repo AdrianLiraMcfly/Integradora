@@ -3,51 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="css/registro.css">
   <link rel="stylesheet" href="../estilo.css">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script>
-    function verpass(){
+    function verpass()
+    {
       var password = document.getElementById("pass");
       var passwordre= document.getElementById("passre");
       var vercon= document.getElementById("contravisi");
-      if (vercon.checked){
+
+      if (vercon.checked)
+      {
         password.type="text";
         passwordre.type="text";
       }
-      else{
+      else
+      {
         password.type="password";
         passwordre.type="password";
       }
     }
-    function equalspass(event){
-      event.preventDefault();
 
-      var password = document.getElementById("pass").value;
-      var passwordre = document.getElementById("passre").value;
-      if (password !== passwordre){
-    alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
-    return;
+    function valform(event) {
+            event.preventDefault();
 
-      }
-      document.getElementById("form-re").submit();
-      function valpass() {
-    var password = document.getElementById("pass").value;
+            var password = document.getElementById("pass").value;
+            var passwordre = document.getElementById("passre").value;
 
-    if (/\d/.test(password)) {
-        alert("Contraseña válida");
-    } else {
-        alert("La contraseña debe contener al menos un número");
-    }
-}
+            if (password !== passwordre) {
+                alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+                return;
+            }
 
-    }
+            if (/\d/.test(password)) {
+                document.getElementById("form-re").submit();
+            } else {
+                alert("La contraseña debe contener al menos un número");
+                return;
+            }
+        }
   </script>
+
   <title>Document</title>
+
 </head>
+
 <body>
-  <div class="bck">
+  <div>
+
     <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
   
@@ -152,66 +159,91 @@
   
               </div>
       </div>
-  </nav>
+    </nav>
+
   <div class="container-fluid" id="contenedor">
+
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
+
     <div id="formu">
-      <h3>Registrate y unete a VideoGame Store!.</h3>
-      <form method="post" action="/../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re">
+      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE</b></h2>
+      <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
+
+      <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
         <div class="mb-3">
           <label for="">Nombre de usuario</label>
           <input type="text" name="nombre" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
+
         <div class="mb-3">
           <label for="">Email</label>
           <input type="text" class="form-control" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
         </div>
+
         <div class="mb-3">
           <label for="">Contraseña</label>
           <input type="password" class="form-control" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
+
         <div class="mb-3">
           <label for="">Repite contraseña</label>
           <input type="password" class="form-control" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
+
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()" onclick="valpass()">
+          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>
         </div>
-        <button type="submit" class="btn btn-warning">Aceptar</button>
+
+        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
+
       </form>
     </div>
   
   </div>
 </div>
-<footer>
-  <div class="container-fluid" id="foot">
-    <div class="row">
-   <div class="col">
-    <h5>Contactos</h5>
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-<path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-<path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-</svg>
-    <a href="contactanos.php">Contactanos por correo</a>
-       <br>
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-    </svg>
-    <a href="https://www.facebook.com/VideoGameStorePT">Facebook</a>
+
+  <footer>
+    <div class="container-fluid" id="foot">
+
+      <div class="row">
+        <div class="col">
+          <h5>Contactos</h5>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+
+          <a href="contactanos.php">Contactanos por correo</a>
+          <br>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+          </svg>
+
+          <a href="https://www.facebook.com/VideoGameStorePT">Facebook</a>
     
-   </div>
-   <div class="col">
-     <h5>Encuentranos en</h5>
-     <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Plaza de la tecnologia Torreon - Local 314/322/316</a>
-     <br>
-     <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Dirección: Av Hidalgo 1334, Primitivo Centro, 27000 Torreón, Coah.</a>
-   </div>
+        </div>
+
+        <div class="col">
+          <h5>Encuentranos en</h5>
+
+          <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Plaza de la tecnologia Torreon - Local 314/322/316</a>
+          <br>
+
+          <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Dirección: Av Hidalgo 1334, Primitivo Centro, 27000 Torreón, Coah.</a>
+        </div>
+
+      </div>
+
+      <p>Copyright © 2023 El presente canal es operado por Potato Development de Torreon Coahuila Mexico.</p>
+
     </div>
-    <p>Copyright © 2023 El presente canal es operado por Potato Development de Torreon Coahuila Mexico.</p>
-  </div>
-</footer>
+
+  </footer>
+  
 </body>
 </html>

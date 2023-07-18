@@ -1,9 +1,10 @@
 <?php
-include 'base/conexion.php';
-$sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
-$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-//$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-$rutaCarpetaImagenes = 'productosimg/';
+#  include 'base/conexion.php';
+# $sentencia = $bd->query("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto LIMIT 8;");
+#$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+#$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
+#$rutaCarpetaImagenes = 'productosimg/';
+  //
 ?>
 <!DOCTYPE html>
 <html lang="en">

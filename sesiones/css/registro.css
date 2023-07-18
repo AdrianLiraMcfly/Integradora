@@ -26,10 +26,10 @@
     position: absolute;
     align-items: center;
     justify-content: center;
-    background-color: black;
+    /*background-color: black;*/
     height: 100%;
     width: 100%;
-    background-image: url(img/FONDO.jpg);
+    background-image: url(img/wallpaper.jpg);
     background-size: cover;
     
 }
@@ -39,8 +39,8 @@
     left: 620px;
 }
 #inbc{
-    background-color: black;
-    height: 85%;
+    /*background-color: black;*/
+    height: 86%;
     width: 45%;
     position: absolute;
     z-index: 1;
