@@ -1,3 +1,18 @@
+<?php
+IF(!isset($_GET['id'])){
+    header('Location: index.php');
+}
+include 'base/conexion.php';
+
+$id = $_GET['id'];
+
+$sentencia = $bd->prepare("SELECT * FROM productos P INNER JOIN imagenes_productos IP ON P.id_producto = IP.id_producto where P.id_producto = ?;");
+$resultado = $sentencia->execute([$id]);
+$persona = $sentencia->fetch(PDO::FETCH_OBJ);
+
+$rutaCarpetaImagenes = 'productosimg/';
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -106,7 +121,16 @@
             <div class="row">
 
                 <div class="col-md-4 shadow w-auto h-auto rounded border border-black">
-                    <img src="img/..." class="img-thumbnail border-0" width="488px" alt="Imagen Producto">
+                <?php
+                      $nombreimagen = $persona->imagen_path;
+                      $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+
+                      $base64 = base64_encode(file_get_contents($rutaimagen));
+                      $base64 = 'data:image/jpeg;base64,'.$base64;
+
+                      echo  "<img src='$base64' class='img_init' alt='' style='width: 488px;'>";
+
+                    ?>
                 </div>
 
                 <div class="col-md-4">
@@ -115,16 +139,16 @@
 
                         <div class="card-body">
 
-                                    <h2 class="card-title fw-bold titulo_pro">Nombre productos</h2>
+                                    <h2 class="card-title fw-bold titulo_pro"> <?php echo $persona->nombre ?> </h2>
 
                                     <h4 class="card-title fw-bold text-secondary">Info 1</h4>
                                     <ul class="list-unstyled">
                                         <li>Tallas</li>
                                     </ul>
 
-                                    <h4 class="card-title fw-bold text-secondary">Info 2</h4>
+                                    <h4 class="card-title fw-bold text-secondary">Categoria:</h4>
                                     <ul class="list-unstyled">
-                                        <li>Color producto</li>
+                                        <li> <?php echo $persona->descripcion ?> </li>
                                     </ul>
 
                                     <h4 class="card-title fw-bold text-secondary">Info +</h4>
@@ -136,7 +160,7 @@
                                     </ul>
                     
                                     <ul class="list-unstyled">
-                                        <li><b>Precio</b></li>
+                                        <li><b> <?php echo $persona->precio ?> </b></li>
                                     </ul>
 
                         </div>
