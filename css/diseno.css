@@ -29,6 +29,7 @@
     position: absolute;
     top: 200px;
     left: 1000px;
+    justify-content: center;
     align-items: center;
     background-color: ghostwhite;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
