@@ -32,6 +32,15 @@
 
       }
       document.getElementById("form-re").submit();
+      function valpass() {
+    var password = document.getElementById("pass").value;
+
+    if (/\d/.test(password)) {
+        alert("Contraseña válida");
+    } else {
+        alert("La contraseña debe contener al menos un número");
+    }
+}
 
     }
   </script>
@@ -148,9 +157,9 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
     <div id="formu">
       <h3>Registrate y unete a VideoGame Store!.</h3>
-      <form method="post" action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re">
+      <form method="post" action="/../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re">
         <div class="mb-3">
-          <label for="">Nombre completo</label>
+          <label for="">Nombre de usuario</label>
           <input type="text" name="nombre" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="mb-3">
@@ -166,7 +175,7 @@
           <input type="password" class="form-control" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+          <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()" onclick="valpass()">
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>

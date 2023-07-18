@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'conexionbd.php';
+include 'conexionbd.php';
 
 $nombre=$_POST['nombre'];
 $email=$_POST['email'];
