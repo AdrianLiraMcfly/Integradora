@@ -2,7 +2,7 @@
 IF(!isset($_GET['id'])){
     header('Location: index.php');
 }
-include 'base/conexion.php';
+include 'src/conexionbd.php';
 
 $id = $_GET['id'];
 
@@ -10,7 +10,7 @@ $sentencia = $bd->prepare("SELECT * FROM productos P INNER JOIN imagenes_product
 $resultado = $sentencia->execute([$id]);
 $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
-$rutaCarpetaImagenes = 'productosimg/';
+$rutaCarpetaImagenes = 'adminView/products/posters/';
 
 ?>
 <!DOCTYPE html>
@@ -23,10 +23,9 @@ $rutaCarpetaImagenes = 'productosimg/';
         
         <link rel="stylesheet" href="estilo.css"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        
-    </head>
+        <link rel="stylesheet" href="css/diseno.css">
 
-<body class="bg-white"> 
+        <body class="bg-white"> 
     <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
         <div class="container-fluid">
   
@@ -120,7 +119,7 @@ $rutaCarpetaImagenes = 'productosimg/';
 
             <div class="row">
 
-                <div class="col-md-4 shadow w-auto h-auto rounded border border-black">
+                <div class="col-md-4 shadow w-auto h-auto rounded border border-black container_product_present">
                 <?php
                       $nombreimagen = $persona->imagen_path;
                       $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
@@ -128,7 +127,7 @@ $rutaCarpetaImagenes = 'productosimg/';
                       $base64 = base64_encode(file_get_contents($rutaimagen));
                       $base64 = 'data:image/jpeg;base64,'.$base64;
 
-                      echo  "<img src='$base64' class='img_init' alt='' style='width: 488px;'>";
+                      echo  "<img src='$base64' class='img_present' alt='' style='width: 488px;'>";
 
                     ?>
                 </div>
@@ -146,7 +145,7 @@ $rutaCarpetaImagenes = 'productosimg/';
                                         <li>Tallas</li>
                                     </ul>
 
-                                    <h4 class="card-title fw-bold text-secondary">Categoria:</h4>
+                                    <h4 class="card-title fw-bold text-secondary">Descripcion:</h4>
                                     <ul class="list-unstyled">
                                         <li> <?php echo $persona->descripcion ?> </li>
                                     </ul>
@@ -170,9 +169,9 @@ $rutaCarpetaImagenes = 'productosimg/';
                 </div>
 
                 <div class="col-md-6 w-auto me-0 ms-0">
-                    <div class="mt-3">
-                        <button class="btn btn-warning text-dark fw-bold rounded-pill">AGREGAR AL CARRITO</button><br/><br/>
-                        <button class="btn btn-dark fw-bold rounded-pill">VOLVER A RESULTADOS</button>
+                    <div class="btns_container">
+                        <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns">AGREGAR AL CARRITO</button><br/><br/>
+                        <button class="btn btn-dark fw-bold rounded-pill pos_btns">VOLVER A RESULTADOS</button>
                     </div>
                 </div>
 

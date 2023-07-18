@@ -12,3 +12,29 @@
     height: 200px;
     width: 100%;
 }
+.img_present{
+    height: 100vh;
+    width: 100vh;
+}
+.container_product_present{
+    height: 800px;
+}
+.btns_container{
+    display: flex;
+    flex-flow: row wrap;
+    border: 2px black solid;
+    border-radius: 20px;
+    width: 250px;
+    height: 180px;
+    position: absolute;
+    top: 200px;
+    left: 1000px;
+    align-items: center;
+    background-color: ghostwhite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.pos_btns{
+    position: relative;
+    left: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
