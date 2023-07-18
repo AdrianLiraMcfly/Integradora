@@ -11,7 +11,11 @@
 
         <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
+        <script>
+          function alertaenv(){
+            alert("Mensaje enviado");
+          }
+        </script>
     </head>
 
     <body class="bg-white" style="background-image: url(img/wallpaper.jpg)">
@@ -167,7 +171,7 @@
             <textarea class="form-control border border-black" name="mensaje" aria-label="With textarea"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" name="send">SUBMIT</button>
+        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" name="send" onclick="alertenv()">SUBMIT</button>
     </form>
 
 

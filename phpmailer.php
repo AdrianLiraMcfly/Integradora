@@ -32,8 +32,8 @@ try
     $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('luismahe2004@gmail.com', 'Wicho');
-    $mail->addAddress($destinatario);     //Add a recipient
+    $mail->setFrom($destinatario, 'Cliente');
+    $mail->addAddress('luismahe2004@gmail.com');     //Add a recipient
     
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
@@ -47,9 +47,10 @@ try
     $mail->Body    = $mensaje;
 
     $mail->send();
-    echo 'Message has been sent';
+    echo "<script> alert(Mensaje enviado)</script>";
+    header('Location: contactanos.php');
 } 
 catch (Exception $e) 
 {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
 }
