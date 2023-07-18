@@ -143,7 +143,7 @@
     <form class="bg-warning bg-gradient border border-dark border-3 p-5 rounded-4 w-50 mt-5 mx-auto" action="phpmailer.php" method="post">
 
         <h2 class="text-center titulo_pro text-light"><b>¡ESCRIBENOS!</b></h2>
-        <h4 class="text-center titulo_pro text-dark"><b>Tu opinión nos importa</b></h4>
+        <h4 class="text-center titulo_pro text-dark mb-4"><b>Tu opinión nos importa</b></h4>
         <!--
         <div class="input-group flex-nowrap w-50">
             <span class="input-group-text border border-black shadow-sm" id="addon-wrapping">De:</span>

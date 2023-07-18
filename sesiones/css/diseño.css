@@ -33,13 +33,13 @@ form .username{
 }
 .username input{
     width: 98%;
-    padding-top: 5px;
-    padding-left: 1px;
+    /*padding-top: 5px;
+    padding-left: 1px;*/
     height: 25px;
     font-size: 17px;
-    border-radius: 10px;
-    text-align: center;
-    border: 1px black solid;
+    /*border-radius: 10px;*/
+    /*ext-align: center;*/
+    /*border: 1px black solid;*/
 }
 .username label{
     position: absolute;

@@ -136,31 +136,31 @@
 
     <div id="formu">
       <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
-      <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
+      <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
       <form action="#" onsubmit="equalspass(event)" id="form-re">
         <div class="mb-3">
-          <label for="">Nombre completo</label>
-          <input type="text" name="nombre" class="form-control form-control-sm border border-black" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <label for=""><b>Nombre completo</b></label>
+          <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
-          <label for="">Email</label>
-          <input type="text" class="form-control border border-black" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+          <label for=""><b>Email</b></label>
+          <input type="text" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
-          <label for="">Contraseña</label>
-          <input type="password" class="form-control border border-black" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <label for=""><b>Contraseña</b></label>
+          <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
-          <label for="">Repite contraseña</label>
-          <input type="password" class="form-control border border-black" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <label for=""><b>Repite contraseña</b></label>
+          <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
+          <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
 
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
