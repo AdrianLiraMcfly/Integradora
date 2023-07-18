@@ -3,11 +3,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 .row{
     padding: 10px;
 }
 .img_init{
-    height: 300px;
-    width: 270px;
+    height: 100%;
+    width: 100%;
 }
