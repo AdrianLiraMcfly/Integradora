@@ -165,23 +165,28 @@
     <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
 
     <div id="formu">
+<<<<<<< HEAD:sesiones/register.html
       <h2 class="text-center titulo_pro text-light"><b>REGISTRATE</b></h2>
       <h4 class="text-center titulo_pro text-dark"><b>Unete a VideoGame Store!</b></h4>
 
       <form action="#" onsubmit="equalspass(event)" id="form-re">
+=======
+      <h3>Registrate y unete a VideoGame Store!.</h3>
+      <form method="post" action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re">
+>>>>>>> 09b64cf9b11b175c03ab892be2e727ed03422294:sesiones/register.php
         <div class="mb-3">
           <label for="">Nombre completo</label>
-          <input type="text" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <input type="text" name="nombre" class="form-control form-control-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
           <label for="">Email</label>
-          <input type="text" class="form-control" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+          <input type="text" class="form-control" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">
           <label for="">Contraseña</label>
-          <input type="password" class="form-control" id="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+          <input type="password" class="form-control" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
 
         <div class="mb-3">

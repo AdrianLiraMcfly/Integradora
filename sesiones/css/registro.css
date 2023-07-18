@@ -39,8 +39,13 @@
     left: 620px;
 }
 #inbc{
+<<<<<<< HEAD
     /*background-color: black;*/
     height: 86%;
+=======
+    background-color: black;
+    height: 85%;
+>>>>>>> 09b64cf9b11b175c03ab892be2e727ed03422294
     width: 45%;
     position: absolute;
     z-index: 1;
