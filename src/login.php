@@ -1,15 +1,17 @@
 <?php
-require '/../src/conexionbd.php';
+require '../base/conexion.php';
 
 session_start();
 
-$email=$_POST('email');
-$password=$_POST('password');
-$query="SELECT COUNT(*) as contador from usuarios where email=$email and contraseña=$password";
+$email=$_POST['email'];
+$password=$_POST['password'];
+$hashedpassword= password_hash($password, PASSWORD_DEFAULT);
+$query="SELECT COUNT(*) as contador, nombre from usuarios where email=$email and contraseña=$hashedpassword";
 $consulta=mysqli_query($conn, $query);
 $array= mysqli_fetch_array($consulta);
 
 if ($array['contador']>0){
+    $_SESSION["Email"]=$email;
     header("location:../index.php");
 }
 else{
