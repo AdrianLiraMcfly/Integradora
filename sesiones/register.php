@@ -170,15 +170,11 @@
               <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
-<<<<<<< HEAD
-            <div class="form-check">
-=======
       <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
         <div class="mb-3">
           <label for=""><b>Nombre completo</b></label>
           <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
->>>>>>> 3a68c683dcfffa1d72912c9b17bbf0a316a17faa
 
               <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
               <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
@@ -255,6 +251,7 @@
   
     </div>
 
->>>>>>> ac13d4cbba57eb41be52575b3467d516ac08154e
+  </footer>
+  
 </body>
 </html>
