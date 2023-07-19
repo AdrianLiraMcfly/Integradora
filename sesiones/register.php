@@ -150,7 +150,7 @@
       <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
       <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
-      <form action="#" onsubmit="equalspass(event)" id="form-re">
+      <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
         <div class="mb-3">
           <label for=""><b>Nombre completo</b></label>
           <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
@@ -175,15 +175,13 @@
 
           <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
 
-          <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
+          
           <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
           <label class="form-check-label" for="defaultCheck1">
             Contraseña visible
           </label>
         </div>
-
         <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
-
       </form>
     </div>
   
