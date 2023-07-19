@@ -96,13 +96,13 @@
                         </svg>
                       </a>
 
-                      <ul class="dropdown-menu bg-body-secondary border border-black border-2">
-                        <li><a class="dropdown-item" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                        <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
+                        <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
                       </ul>
 
                     </li>
@@ -116,7 +116,7 @@
                         </svg>
                       </a>
                       
-                      <ul class="dropdown-menu bg-body-secondary border border-black border-2 p-1" style="margin-right: 85px;">
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
                         <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Sign In</strong></a></li>
                         <li><a class="dropdown-item rounded" href="login.html">Log In</a></li>
                       </ul>
@@ -142,7 +142,7 @@
         </div>
       </nav>
 
-    <div class="container-fluid" id="contenedor">
+      <div class="container-fluid" id="contenedor">
 
         <div class="mb-5 p-5" id="formu">
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
@@ -169,19 +169,20 @@
               <label for=""><b>Repite contraseña</b></label>
               <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
-              <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
-              <label class="form-check-label" for="defaultCheck1">
-                Contraseña visible
-              </label> 
-              <br>
-              <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
-            </div>
-          </form>
-      </div>
-  
-    </div>
 
-  </footer>
+                <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+                <label class="form-check-label" for="defaultCheck1">
+                  Contraseña visible
+                </label>
+
+                <br>
+                <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
+
+          </form>
+          
+        </div>
+  
+      </div>
   
 </body>
 </html>
