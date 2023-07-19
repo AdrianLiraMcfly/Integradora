@@ -148,7 +148,7 @@
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
-          <form action="#" onsubmit="equalspass(event)">
+          <form action="../src/subir_regis.php" onsubmit="equalspass(event)">
 
             <div class="mb-3">
               <label for=""><b>Nombre completo</b></label>
