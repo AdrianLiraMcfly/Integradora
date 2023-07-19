@@ -71,12 +71,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       </a>
 
                       <ul class="dropdown-menu bg-body-secondary border border-black border-2">
-                        <li><a class="dropdown-item" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                      <?php
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
                       </ul>
 
                     </li>

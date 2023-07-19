@@ -144,7 +144,7 @@
 
       <div class="container-fluid" id="contenedor">
 
-        <div class="mb-5 p-5" id="formu">
+        <div class="mb-5 p-5 bg-warning bg-gradient border border-3 border-light-subtle" id="formu">
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
