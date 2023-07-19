@@ -1,9 +1,5 @@
 <?php
   include 'src/conexionbd.php';
-  $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
-  $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-  $rutaCarpetaImagenes = 'adminView/products/posters/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,12 +70,14 @@
                       </a>
 
                       <ul class="dropdown-menu bg-body-secondary border border-black border-2">
-                        <li><a class="dropdown-item" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                        <?php
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
                       </ul>
 
                     </li>
@@ -277,7 +275,11 @@
       <br/>
 
       <div class="container  container-products">
-        <?php foreach($productos as $dato){ ?>
+        <?php 
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
+          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+          $rutaCarpetaImagenes = 'adminView/products/posters/';
+        foreach($productos as $dato){ ?>
 
           <div class="col mb-3">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
