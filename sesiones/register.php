@@ -142,7 +142,7 @@
         </div>
       </nav>
 
-    <div class="container-fluid" id="contenedor">
+      <div class="container-fluid" id="contenedor">
 
         <div class="mb-5 p-5" id="formu">
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
@@ -169,19 +169,20 @@
               <label for=""><b>Repite contraseña</b></label>
               <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
-              <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
-              <label class="form-check-label" for="defaultCheck1">
-                Contraseña visible
-              </label> 
-              <br>
-              <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
-            </div>
-          </form>
-      </div>
-  
-    </div>
 
-  </footer>
+                <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+                <label class="form-check-label" for="defaultCheck1">
+                  Contraseña visible
+                </label>
+
+                <br>
+                <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
+
+          </form>
+          
+        </div>
+  
+      </div>
   
 </body>
 </html>
