@@ -57,6 +57,19 @@
                         </svg>
                       </a>
 
+<<<<<<< HEAD
+                      <ul class="dropdown-menu bg-body-secondary border border-black border-2">
+                      <?php
+                          include 'src/conexionbd.php';
+
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
+=======
                       <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                         <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
                         <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
@@ -64,6 +77,7 @@
                         <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
                         <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
                         <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
+>>>>>>> 58bbeeee91030edec9cd93438cd380302b7780c1
                       </ul>
 
                     </li>
