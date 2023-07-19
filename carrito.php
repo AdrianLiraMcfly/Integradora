@@ -14,7 +14,8 @@
 </head>
 
 <body class="bg-white w-100">
-<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+
+    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -56,13 +57,13 @@
                         </svg>
                       </a>
 
-                      <ul class="dropdown-menu bg-body-secondary border border-black border-2">
-                        <li><a class="dropdown-item" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                        <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
+                        <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
                       </ul>
 
                     </li>
@@ -76,7 +77,7 @@
                       </svg>
                     </a>
                       
-                    <ul class="dropdown-menu bg-body-secondary border border-black border-2" style="margin-right: 85px;">
+                    <ul class="dropdown-menu bg-dark-subtle border border-black border-2" style="margin-right: 85px;">
                       <li><a class="dropdown-item" href="sesiones/register.php">Sign In</a></li>
                       <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
                     </ul>
@@ -108,7 +109,6 @@
         </div>
     </div>
     
-
       <div class="container mt-3 bg-secondary-subtle w-auto rounded border border-1 border-black shadow-lg">
         <div  class="row pt-3 ps-3 pe-3 pb-0">
 
@@ -148,5 +148,6 @@
 
         </div>
       </div>
+
 </body>
 </html>
