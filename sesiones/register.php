@@ -173,11 +173,9 @@
               <label class="form-check-label" for="defaultCheck1">
                 Contraseña visible
               </label> 
+              <br>
               <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
             </div>
-
-            <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
-
           </form>
       </div>
   
