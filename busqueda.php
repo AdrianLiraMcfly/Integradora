@@ -54,12 +54,16 @@
                       </a>
 
                       <ul class="dropdown-menu bg-body-secondary border border-black border-2">
-                        <li><a class="dropdown-item" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                      <?php
+                          include 'src/conexionbd.php';
+
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
                       </ul>
 
                     </li>
@@ -100,25 +104,32 @@
     </nav>
 
     <?php
-    include 'src/conexionbd.php';
+
+
     if (isset($_GET['opt'])){
     $search=$_GET['opt'];
    $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
-   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-  $rutaCarpetaImagenes = 'adminView/products/posters/';}
+   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);}
+
   else if(isset($_POST['search'])){
   $search=$_POST['search'];
    $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
-   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-  $rutaCarpetaImagenes = 'adminView/products/posters/';}
-  else if (isset($_GET['cat'])){
-    $search=$_GET['cat'];
-   $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('$search');");
-   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-  //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-  $rutaCarpetaImagenes = 'adminView/products/posters/';}
+   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);}
+
+   else if (isset($_GET['id'])){
+    $idCategoria = $_GET['id'];
+    $sentenciaCategoria = $bd->prepare("SELECT categoria FROM vista_productos_categoria WHERE id_categoria = :id");
+    $sentenciaCategoria->bindParam(':id', $idCategoria);
+    $sentenciaCategoria->execute();
+    $search = $sentenciaCategoria->fetch(PDO::FETCH_COLUMN);
+
+    $sentenciaProductos = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_categoria = :id");
+    $sentenciaProductos->bindParam(':id', $idCategoria);
+    $sentenciaProductos->execute();
+    $productos = $sentenciaProductos->fetchAll(PDO::FETCH_OBJ);
+   }
+
+   $rutaCarpetaImagenes = 'adminView/products/posters/';
     ?>
 
       <br/><br><br>
@@ -158,7 +169,9 @@
           </div>
 
 
-        <?php } ?>
+        <?php } 
+        $bd = NULL;
+        ?>
 
       </div>
       <br/>
