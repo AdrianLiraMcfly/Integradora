@@ -20,9 +20,9 @@
     height: 800px;
 }
 .btns_container{
+    border: 1px black solid;
     display: flex;
     flex-flow: row wrap;
-    border: 2px black solid;
     border-radius: 20px;
     width: 250px;
     height: 180px;
@@ -38,4 +38,27 @@
     position: relative;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 
+}
+.background-categorias{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    width: 250px;
+    height: 50px;
+}
+.titulos-categorias{
+    position: relative;
+    top: 5px;
+}
+.navigation-bar-final{
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+}
+body{
+    position: relative;
+    top:88px;
 }

@@ -1,7 +1,7 @@
 <?php
 
-$passw='000000';
-$usuario='Administrador';
+$passw= '000000';
+$usuario= 'Administrador';
 $nombrebd='integradora2';
 
 try
