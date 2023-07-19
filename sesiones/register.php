@@ -176,38 +176,7 @@
               <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
             </div>
 
-<<<<<<< HEAD
             <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
-=======
-        <div class="mb-3">
-          <label for=""><b>Repite contraseña</b></label>
-          <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
-        </div>
-
-        <div class="form-check">
-
-          <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
-
-          
-          <input class="form-check-input" type="checkbox" id="contravisi" onchange="verpass()">
-          <label class="form-check-label" for="defaultCheck1">
-            Contraseña visible
-          </label>
-        </div>
-        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
-      </form>
-    
-        </div>
-
-        <div class="col">
-          <h5>Encuentranos en</h5>
-
-          <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Plaza de la tecnologia Torreon - Local 314/322/316</a>
-          <br>
-
-          <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Dirección: Av Hidalgo 1334, Primitivo Centro, 27000 Torreón, Coah.</a>
-        </div>
->>>>>>> 3a68c683dcfffa1d72912c9b17bbf0a316a17faa
 
           </form>
       </div>
