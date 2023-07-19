@@ -1,9 +1,9 @@
 <?php
-  //include 'src/conexionbd.php';
-  //$sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
-  //$productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  include 'src/conexionbd.php';
+  $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
+  $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
-  //$rutaCarpetaImagenes = 'adminView/products/posters/';
+  $rutaCarpetaImagenes = 'adminView/products/posters/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
