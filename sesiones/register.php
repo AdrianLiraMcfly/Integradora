@@ -52,10 +52,10 @@
 
 </head>
 
-<body>
-  <div>
-  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
-      <div class="container-fluid">
+<body class="bg-white" style="background-image: url(css/img/wallpaper.jpg)">
+
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+        <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
 
@@ -107,21 +107,21 @@
 
                     </li>
 
-                  <li class="nav-item dropdown p-auto">
+                    <li class="nav-item dropdown p-auto">
                         
-                    <a class="nav-link text-center dropdown-toggle it border border-2 border-black shadow-lg" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                      </svg>
-                    </a>
+                      <a class="nav-link text-center dropdown-toggle it border border-2 border-black shadow-lg" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                      </a>
                       
-                    <ul class="dropdown-menu bg-body-secondary border border-black border-2 p-1" style="margin-right: 85px;">
-                      <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Sign In</strong></a></li>
-                      <li><a class="dropdown-item rounded" href="login.html">Log In</a></li>
-                    </ul>
+                      <ul class="dropdown-menu bg-body-secondary border border-black border-2 p-1" style="margin-right: 85px;">
+                        <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Sign In</strong></a></li>
+                        <li><a class="dropdown-item rounded" href="login.html">Log In</a></li>
+                      </ul>
                         
-                  </li>
+                    </li>
 
                 </ul>
 
@@ -139,33 +139,59 @@
 
               </form>
 
+        </div>
+      </nav>
+
+    <div class="container-fluid" id="contenedor">
+
+        <div class="mb-5 p-5" id="formu">
+          <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
+          <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
+
+          <form action="#" onsubmit="equalspass(event)">
+
+            <div class="mb-3">
+              <label for=""><b>Nombre completo</b></label>
+              <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
-    </nav>
 
-  <div class="container-fluid" id="contenedor">
+            <div class="mb-3">
+              <label for=""><b>Email</b></label>
+              <input type="text" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+            </div>
 
-    <div id="inbc" class="d-none d-lg-block d-xl-block"></div>
+            <div class="mb-3">
+              <label for=""><b>Contraseña</b></label>
+              <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+            </div>
 
-    <div id="formu">
-      <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
-      <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
+            <div class="mb-3">
+              <label for=""><b>Repite contraseña</b></label>
+              <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+            </div>
 
+<<<<<<< HEAD
+            <div class="form-check">
+=======
       <form action="../src/subir_regis.php" onsubmit="equalspass(event)" id="form-re" method="post">
         <div class="mb-3">
           <label for=""><b>Nombre completo</b></label>
           <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
+>>>>>>> 3a68c683dcfffa1d72912c9b17bbf0a316a17faa
 
-        <div class="mb-3">
-          <label for=""><b>Email</b></label>
-          <input type="text" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
-        </div>
+              <input class="form-check-input border border-black shadow-sm" type="checkbox" value="" id="contravisi" onchange="verpass()">
+              <input class="form-check-input border border-black" type="checkbox" value="" id="contravisi" onchange="verpass()">
 
-        <div class="mb-3">
-          <label for=""><b>Contraseña</b></label>
-          <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
-        </div>
+              <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+              <label class="form-check-label" for="defaultCheck1">
+                Contraseña visible
+              </label>
+            </div>
 
+<<<<<<< HEAD
+            <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
+=======
         <div class="mb-3">
           <label for=""><b>Repite contraseña</b></label>
           <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
@@ -187,6 +213,48 @@
   
   </div>
 </div>
+<<<<<<< HEAD
   
+=======
+
+  <footer>
+    <div class="container-fluid" id="foot">
+
+      <div class="row">
+        <div class="col">
+          <h5>Contactos</h5>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+
+          <a href="contactanos.php">Contactanos por correo</a>
+          <br>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+          </svg>
+
+          <a href="https://www.facebook.com/VideoGameStorePT">Facebook</a>
+    
+        </div>
+
+        <div class="col">
+          <h5>Encuentranos en</h5>
+
+          <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Plaza de la tecnologia Torreon - Local 314/322/316</a>
+          <br>
+
+          <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Dirección: Av Hidalgo 1334, Primitivo Centro, 27000 Torreón, Coah.</a>
+        </div>
+>>>>>>> 3a68c683dcfffa1d72912c9b17bbf0a316a17faa
+
+          </form>
+      </div>
+  
+    </div>
+
+>>>>>>> ac13d4cbba57eb41be52575b3467d516ac08154e
 </body>
 </html>

@@ -20,7 +20,7 @@
     <title>LogIn</title>
 </head>
 
-<body class="bg-white w-100" style="background-image: url(css/img/wallpaper.jpg)">
+<body class="bg-white" style="background-image: url(css/img/wallpaper.jpg)">
 
   <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
     <div class="container-fluid">
@@ -111,12 +111,13 @@
           </div>
   </nav>
 
-      <div class="formulario p-1 bg-warning bg-gradient">
+      <div class="formulario p-5 bg-warning bg-gradient">
         <h2 class="text-center titulo_pro text-light mt-2" ><b>INICIA SESION!</b></h2>
-        <h4 class="text-center titulo_pro text-dark mb-4"><b>Bienvenido!</b></h4>
+        <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
 
         <form action="../src/login.php" method="post">
 
+<<<<<<< HEAD
             <div class="username">
                 <input class="border border border-black text-start p-3 shadow-sm rounded" name="email" type="email" required>
                 <label for=""><b>Gmail de usuario</b></label>
@@ -125,6 +126,16 @@
             <div class="username mb-3">
                 <input class="border border border-black text-start p-3 shadow-sm rounded" type="password" name="password" required>
                 <label for=""><b>Contraseña</b></label>
+=======
+            <div class="username mb-5">
+              <label for="" class="pb-5"><b>Gmail de usuario</b></label>
+              <input class="form-control border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="text" required>
+            </div>
+
+            <div class="username mb-3">
+              <label for=""><b>Contraseña</b></label>
+              <input class="form-control border border border-black text-start p-3 shadow-sm rounded w-100" type="password" name="password" required name="" id="" required>
+>>>>>>> ac13d4cbba57eb41be52575b3467d516ac08154e
             </div>
 
             <div class="recordar">
