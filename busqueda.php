@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/diseno.css">
     <link rel="stylesheet" href="estilo.css">
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <title>Busqueda</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -120,18 +121,18 @@
   $rutaCarpetaImagenes = 'adminView/products/posters/';}
     ?>
 
-      <br/>
+      <br/><br><br>
       <div class="text-center w-100">
         <div class="col pt-3 pb-2 bg-dark text-light rounded-pill">
           <h3><b>RESULTADOS DE: <?php echo $search ?></b></h3>
         </div>
       </div>
-      <br>
-      <div class="container  container-products">
-        <div class="row">
+      <br><br>
+      <div class="container-products">
+
         <?php foreach($productos as $dato){ ?>
 
-          <div class="col mb-3">
+          <div class="cards-presentacion">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
 
@@ -158,7 +159,7 @@
 
 
         <?php } ?>
-      </div>
+
       </div>
       <br/>
         </div>
