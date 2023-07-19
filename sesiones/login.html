@@ -1,3 +1,43 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    // Si el usuario ya ha iniciado sesión, redireccionar a la página de inicio
+    header("Location: index.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require 'conexion.php';
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Realizar consulta preparada para buscar el usuario por email
+    $query = "SELECT id, nombre, contraseña FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        // Verificar la contraseña usando password_verify()
+        if (password_verify($password, $row['contraseña'])) {
+            $_SESSION["id"] = $row['id'];
+            $_SESSION["nombre"] = $row['nombre'];
+            $_SESSION["email"] = $email;
+            // Redireccionar a la página de inicio después del inicio de sesión exitoso
+            header("Location: index.php");
+            exit();
+        } else {
+            $error_message = "Contraseña incorrecta";
+        }
+    } else {
+        $error_message = "Usuario no encontrado";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

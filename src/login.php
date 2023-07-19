@@ -6,15 +6,19 @@ session_start();
 $email=$_POST['email'];
 $password=$_POST['password'];
 $hashedpassword= password_hash($password, PASSWORD_DEFAULT);
-$query="SELECT COUNT(*) as contador, nombre from usuarios where email=$email and contraseña=$hashedpassword";
-$consulta=mysqli_query($conn, $query);
-$array= mysqli_fetch_array($consulta);
 
-if ($array['contador']>0){
-    $_SESSION["Email"]=$email;
+// Consulta preparada con marcadores de posición
+$query = "SELECT COUNT(*) as contador, nombre, contraseña FROM usuarios WHERE email = $email";
+$consulta = $conn->prepare($query);
+$consulta->bind_param("s", $email);
+$consulta->execute();
+$resultado = $consulta->get_result();
+$array = $resultado->fetch_assoc();
+
+if ($array['contador'] > 0 && password_verify($hashedpassword, $array['contraseña'])) {
+    $_SESSION["Email"] = $email;
     header("location:../index.php");
-}
-else{
+} else {
     header('location:../sesiones/login.html');
     echo "<alert>Usuario no encontrado.</alert>";
 }

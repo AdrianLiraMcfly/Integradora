@@ -4,6 +4,7 @@
   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //$rutaCarpetaImagenes = dirname(dirname(__FILE__)) . '/productosimg/';
   $rutaCarpetaImagenes = 'adminView/products/posters/';
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,8 +95,17 @@
                     </a>
                       
                     <ul class="dropdown-menu bg-body-secondary border border-black border-2" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="sesiones/register.php">Sign In</a></li>
-                      <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
+                    <?php
+                    if(isset($_SESSION['Email'])){
+                      echo '<li><a class="dropdown-item" href="sesiones/register.php">Configuracion</a></li>';
+                      echo '<li><a class="dropdown-item" href="sesiones/login.html">Cerrar sesion</a></li>';
+                    }
+                      else
+                      {
+                      echo '<li><a class="dropdown-item" href="sesiones/register.php">Sign In</a></li>';
+                      echo '<li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>';
+                    }
+                    ?>
                     </ul>
                         
                   </li>
