@@ -85,8 +85,8 @@
                   </a>
                   
                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
-                    <li><a class="dropdown-item rounded" href="#">Sign In</a></li>
-                    <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="login.html"><strong>Log In</strong></a></li>
+                    <li><a class="dropdown-item rounded mb-1" href="register.php">Sign In</a></li>
+                    <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Log In</strong></a></li>
                   </ul>
                     
                 </li>
@@ -110,19 +110,19 @@
     </div>
   </nav>
 
-      <div class="formulario p-5 bg-warning bg-gradient">
+      <div class="formulario p-5 bg-warning bg-gradient border border-3 border-light-subtle">
         <h2 class="text-center titulo_pro text-light mt-2" ><b>INICIA SESION!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
 
         <form action="../src/login.php" method="post">
 
             <div class="username mb-5">
-                <input class="border border border-black text-start p-3 shadow-sm rounded" name="email" type="text" required>
+                <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="text" required>
                 <label for=""><b>Gmail de usuario</b></label>
             </div>
 
             <div class="username mb-4">
-                <input class="border border border-black text-start p-3 shadow-sm rounded" type="password" name="password" required name="" id="" required>
+                <input class="border border border-black text-start p-3 shadow-sm rounded w-100" type="password" name="password" required name="" id="" required>
                 <label for=""><b>Contraseña</b></label>
             </div>
 
@@ -131,8 +131,8 @@
                     INICIAR SESION
                 </button><br/><br/>
 
-                <label for=""><a href="" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">¿Olvido su contraseña?</a></label><br>
-                <label for=""><b>¿No tiene una cuenta?</b> <a href="register.php" class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">Cree una</a></label>
+                <label for=""><a href="" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">¿Olvido su contraseña?</a></label><br>
+                <label for=""><b>¿No tiene una cuenta?</b> <a href="register.php" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">Cree una</a></label>
             </div>
 
         </form>

@@ -1,9 +1,10 @@
-#barra{
+
+/*#barra{
     background-color: #F9DD19;
     height: 80px;
-}
+}*/
 #formu{
-    background-color: #F9DD19;
+    /*background-color: #F9DD19;*/
     height: auto;
     position: relative;
     z-index: 2;
