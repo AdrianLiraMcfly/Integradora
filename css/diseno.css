@@ -5,8 +5,11 @@
     justify-content: center;
     width: 100%;
 }
+
+.cards-presentacion{
+    padding: 20px;
+}
 .row{
-    padding: 10px;
 }
 .img_init{
     height: 200px;
