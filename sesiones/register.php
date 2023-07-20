@@ -118,7 +118,7 @@
                       
                       <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
                         <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Sign In</strong></a></li>
-                        <li><a class="dropdown-item rounded" href="login.html">Log In</a></li>
+                        <li><a class="dropdown-item rounded" href="login.php">Log In</a></li>
                       </ul>
                         
                     </li>
@@ -127,7 +127,7 @@
 
               </div>
 
-              <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+              <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="../busqueda.php" >
 
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -148,7 +148,7 @@
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
-          <form action="../src/subir_regis.php" onsubmit="equalspass(event)">
+          <form action="../src/subir_regis.php" onsubmit="equalspass(event)" method="post" id="form-re">
 
             <div class="mb-3">
               <label for=""><b>Nombre completo</b></label>
@@ -157,7 +157,7 @@
 
             <div class="mb-3">
               <label for=""><b>Email</b></label>
-              <input type="text" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+              <input type="email" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
             </div>
 
             <div class="mb-3">
