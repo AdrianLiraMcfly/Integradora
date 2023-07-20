@@ -1,3 +1,11 @@
+<?php
+
+
+
+session_start();
+
+if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,3 +124,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+} else {
+  header('location: ../../index.php');
+}
+?>

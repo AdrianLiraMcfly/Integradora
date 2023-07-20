@@ -4,6 +4,9 @@
 
 session_start();
 
+if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+
+
 require 'config/database.php'; 
 
 $sqlPeliculas = "SELECT * from vista_productos_categoria";
@@ -251,3 +254,9 @@ $dir = "posters/";
 </body>
 
 </html>
+
+<?php
+} else {
+  header('location: ../../index.php');
+}
+?>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
 include("../products/config/database.php");
 $pedidos = "SELECT * FROM vista_carrito_usuarios";
 ?>
@@ -146,3 +149,8 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
   </body>
 
   </html>
+  <?php
+} else {
+  header('location: ../../index.php');
+}
+?>
