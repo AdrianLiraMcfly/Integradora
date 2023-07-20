@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+/*
 if (isset($_SESSION['email'])) {
     // Si el usuario ya ha iniciado sesión, redireccionar a la página de inicio
     header("Location: index.php");
@@ -36,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $error_message = "Usuario no encontrado";
     }
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,6 +154,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
 
         <form action="../src/login.php" method="post">
+          <?php
+          //include '../src/login.php';
+          //include '../src/conexionbd.php';
+          ?>
 
             <div class="username mb-5">
                 <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="text" required>
@@ -167,9 +170,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="recordar">
-                <button type="submit" value="Iniciar" class="btn btn-dark fw-bold rounded-pill border border-3 border-white">
-                    INICIAR SESION
-                </button><br/><br/>
+            <input name="btningresar" class="btn btn-dark fw-bold rounded-pill border border-3 border-white" type="submit" value="INICIAR SESION">
+            <br/><br/>
 
                 <label for=""><a href="" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">¿Olvido su contraseña?</a></label><br>
                 <label for=""><b>¿No tiene una cuenta?</b> <a href="register.php" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">Cree una</a></label>

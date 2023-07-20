@@ -1,5 +1,6 @@
 <?php
-
+/*$con =new mysqli("54.196.145.118","Administrador","000000","integradora2");
+$con->set_charset("utf8");*/
 $passw= '000000';
 $usuario= 'Administrador';
 $nombrebd='integradora2';
@@ -19,5 +20,4 @@ catch (Exception $e)
 {
     echo "Error de conexion".$e->getMessage();
 }
-
 ?>

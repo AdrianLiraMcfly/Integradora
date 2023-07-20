@@ -21,12 +21,6 @@
     border: none;
 }
 
-.truncate {
-        max-width: 100px; /* Ajusta el ancho máximo según tus necesidades */
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
 
 
     </style>
@@ -38,7 +32,6 @@
             <th>Nº</th>
             <th>Nombre</th>
             <th>Email</th>
-            <th>Contraseña</th>
             <th>Rol</th>
             <th>Accion</th>
         </tr>
@@ -52,13 +45,11 @@
             $field0name=$row['id_usuario'];
             $field1name=$row['usuario'];
             $field3name=$row['email'];
-            $field4name=$row['contraseña'];
             $field5name=$row['rol'];
             echo '<tr>
                 <td>'.$field0name.'</td>
                 <td>'.$field1name.'</td>
                 <td>'.$field3name.'</td>
-                <td class="truncate">'.$field4name.'</td>
                 <td>'.$field5name.'</td>
                 <td>
                     <a href="eliminar.php?id='.$field0name.'" class="btn btn-danger transparent-button">

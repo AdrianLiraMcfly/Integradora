@@ -23,10 +23,6 @@ CREATE TABLE `roles` (
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
-  `apellido paterno` varchar(50) DEFAULT NULL,
-  `apellido materno` varchar(50) DEFAULT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
   `email` varchar(100) unique DEFAULT NULL,
   `contraseña` varchar(100) DEFAULT NULL,
   `id_rol` int(11) DEFAULT NULL,

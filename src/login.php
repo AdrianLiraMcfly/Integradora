@@ -1,25 +1,32 @@
-<?php
-require '../base/conexion.php';
+<?php session_start();
+include '../base/conexion.php';
+if (!empty($_POST["btningresar"])) {
+    if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+        $usuario = $_POST["email"];
+        $password = $_POST["password"];
 
-session_start();
+        try {
+            $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = :email AND contraseña = :password");
+            $stmt->bindParam(":email", $usuario);
+            $stmt->bindParam(":password", $password);
+            $stmt->execute();
 
-$email=$_POST['email'];
-$password=$_POST['password'];
-$hashedpassword= password_hash($password, PASSWORD_DEFAULT);
+            $datos = $stmt->fetch(PDO::FETCH_OBJ);
 
-// Consulta preparada con marcadores de posición
-$query = "SELECT COUNT(*) as contador, nombre, contraseña FROM usuarios WHERE email = $email";
-$consulta = $conn->prepare($query);
-$consulta->bind_param("s", $email);
-$consulta->execute();
-$resultado = $consulta->get_result();
-$array = $resultado->fetch_assoc();
-
-if ($array['contador'] > 0 && password_verify($hashedpassword, $array['contraseña'])) {
-    $_SESSION["Email"] = $email;
-    header("location:../index.php");
-} else {
-    header('location:../sesiones/login.html');
-    echo "<alert>Usuario no encontrado.</alert>";
+            if ($datos) {
+                $_SESSION["id"] = $datos->id_usuario;
+                $_SESSION["nombre"] = $datos->nombre;
+                $_SESSION["rol"] = $datos->id_rol;
+                //echo "<div class='alert alert-danger'>Acceso consedido</div>";
+                header("Location: ../index.php");
+            } else {
+                echo "<div class='alert alert-danger'>Acceso denegado</div>";
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    } else {
+        echo "Campos Vacios";
+    }
 }
 ?>
