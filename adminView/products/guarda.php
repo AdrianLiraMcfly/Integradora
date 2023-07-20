@@ -19,8 +19,8 @@ if ($conn->query($sql)) {
 
     $sqlInventario = "INSERT INTO inventario (id_producto, cantidad)
     VALUES ($id, $inventario)";
-
-    $_SESSION['color'] = "success";
+    if ($conn->query($sqlInventario)) {
+        $_SESSION['color'] = "success";
     $_SESSION['msg'] = "Registro guardado";
 
     if ($_FILES['poster']['error'] == UPLOAD_ERR_OK) {
@@ -47,6 +47,9 @@ if ($conn->query($sql)) {
             $_SESSION['msg'] .= "<br>Formato de imágen no permitido";
         }
     }
+    }
+
+    
 } else {
     $_SESSION['color'] = "danger";
     $_SESSION['msg'] = "Error al guarda imágen";
