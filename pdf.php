@@ -68,7 +68,15 @@ $id_carrito=$bd->lastInsertId();
 <body>
     <div class="container">
         <div class="color"></div>
-        <div class="img"><img src="vd_logo.png" alt=""></div>
+        <div class="img">
+        <?php 
+        $img='vd_logo.png';
+        $imageData=base64_encode(file_get_contents($img));
+        $mine=mime_content_type($img);
+        $src="data:{$mine};base64,{$imageData}";
+        echo '<img src="'.$src.'">'; 
+        ?>
+        </div>
 </div>
 <div class="content">
     <div class="content-text">
