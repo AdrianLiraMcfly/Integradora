@@ -100,7 +100,7 @@
                       else
                       {
                       echo '<li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>';
-                      echo '<li><a class="dropdown-item rounded" href="sesiones/login.html">Log In</a></li>';
+                      echo '<li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>';
                     }
                     ?>
                     </ul>
