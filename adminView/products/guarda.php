@@ -11,10 +11,14 @@ $descripcion = $conn->real_escape_string($_POST['descripcion']);
 $precio = $conn->real_escape_string($_POST['precio']);
 $genero = $conn->real_escape_string($_POST['categoria']);
 
+$inventario = $conn->real_escape_string($_POST['cantidad']);
 $sql = "INSERT INTO productos (nombre, descripcion, id_categoria, precio)
 VALUES ('$nombre', '$descripcion', $genero,$precio)";
 if ($conn->query($sql)) {
     $id = $conn->insert_id;
+
+    $sqlInventario = "INSERT INTO inventario (id_producto, cantidad)
+    VALUES ($id, $inventario)";
 
     $_SESSION['color'] = "success";
     $_SESSION['msg'] = "Registro guardado";
