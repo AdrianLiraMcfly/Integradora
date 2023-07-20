@@ -96,7 +96,7 @@
                     <?php
                     if(isset($_SESSION['nombre'])){
                       echo '<li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Configuracion</a></li>';
-                      echo '<li><a class="dropdown-item rounded" href="sesiones/login.html">Cerrar sesion</a></li>';
+                      echo '<li><a class="dropdown-item rounded" href="src/login.php">Cerrar sesion</a></li>';
                     }
                       else
                       {
