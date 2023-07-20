@@ -1,5 +1,7 @@
 <?php
 include 'src/conexionbd.php';
+
+$id_carrito=$bd->lastInsertId();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,9 +76,9 @@ include 'src/conexionbd.php';
 </div>
 </div>
 <div class=" content-text folio">
-    <h1>Folio: </h1>
+    <h1>Folio:<?php echo $id_carrito;?> </h1>
  </div>
- <div class="content"id="finaltext>
+ <div class="content"id="finaltext">
     <div class="content-text">
        <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las proximas 48Hrs o sus productos de carrito seran devueltos a venta del publico</p>
     </div>
