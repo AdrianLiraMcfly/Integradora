@@ -114,8 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
                     <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
-                    <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
-                    <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
+                    <li><a class="dropdown-item rounded" href="#">Consolas</a></li>
                   </ul>
 
                 </li>

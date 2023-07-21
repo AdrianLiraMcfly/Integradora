@@ -102,7 +102,6 @@
                         <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
                         <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
                         <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
                       </ul>
 
                     </li>
@@ -116,7 +115,7 @@
                         </svg>
                       </a>
                       
-                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                         <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Sign In</strong></a></li>
                         <li><a class="dropdown-item rounded" href="login.php">Log In</a></li>
                       </ul>
