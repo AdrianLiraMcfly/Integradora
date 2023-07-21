@@ -390,7 +390,7 @@
           <br>
 
           <div class="background-categorias">
-          <h3><b class="titulos-categorias">ROPA</b></h3>
+          <h3><b class="titulos-categorias">Consolas</b></h3>
       </div> 
 
       </div>
@@ -407,7 +407,67 @@
       <?php 
 
 
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 6;");
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 6;");
+      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+      $rutaCarpetaImagenes = 'adminView/products/posters/';
+  
+      
+    
+      
+      
+      foreach($productos as $dato){ ?>
+
+<div class="col mb-3">
+  <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+      <div class="card border border-3 border-secondary" style="width: 18rem;">
+
+      <?php
+            $nombreimagen = $dato->imagen;
+            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+
+            $base64 = base64_encode(file_get_contents($rutaimagen));
+            $base64 = 'data:image/jpeg;base64,'.$base64;
+
+            echo  "<img src='$base64' class='img_init' alt=''>";
+
+          ?>
+
+          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+              <h5> <?php echo $dato->nombre ?></h5>
+              <p class="card-text">
+                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+              </p>
+          </div>
+      </div>
+  </a>
+</div>
+
+
+<?php }
+?>
+
+
+
+      </div>
+      <div class="background-categorias">
+          <h3><b class="titulos-categorias">Ropa</b></h3>
+      </div> 
+
+      </div>
+
+
+
+      <br/>
+       
+      <br/>
+      
+      <div class="container w-100 container-products">
+
+
+      <?php 
+
+
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
       $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       $rutaCarpetaImagenes = 'adminView/products/posters/';
   

@@ -43,14 +43,6 @@ if (!empty($_POST["btningresar"])) {
         exit();
     }
 }
-if (isset($_SESSION["id"])) {
-    // Destruir la sesión actual para cerrar la sesión del usuario
-    session_destroy();
-    // Borrar todas las variables de sesión
-    $_SESSION = array();
-    header("Location: ../index.php");
-    exit();
-}
 ?>
 
 <?php/*
