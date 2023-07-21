@@ -1,7 +1,16 @@
 <?php
 include 'src/conexionbd.php';
 
-$id_carrito=$bd->lastInsertId();
+$sentencia = $bd->query("SELECT id_carrito FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
+$result = $sentencia->fetchAll(PDO::FETCH_OBJ);;
+if ($result) {
+    // Extraer el resultado de la consulta
+    $row =$result[0];
+    $folio = $row->id_carrito; // Puedes ajustar esta fórmula si es necesario 
+} else {
+    // Manejar el caso de error en la consulta
+    echo "Error en la consulta: " . mysqli_error($conn);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,15 +76,15 @@ $id_carrito=$bd->lastInsertId();
 </head>
 <body>
     <div class="container">
-        <div class="color"></div>
+       
         <div class="img">
-        <?php 
-        $img='vd_logo.png';
-        $imageData=base64_encode(file_get_contents($img));
+        <?php
+        $img= 'vd_logo.png';
+        $imgDate=base64_encode(file_get_contents($img));
         $mine=mime_content_type($img);
-        $src="data:{$mine};base64,{$imageData}";
-        echo '<img src="'.$src.'">'; 
-        ?>
+        $src="data:{$mine};base64,{$imgDate}";
+        echo '<img src="'.$src.'">';
+        ?> 
         </div>
 </div>
 <div class="content">
@@ -84,7 +93,7 @@ $id_carrito=$bd->lastInsertId();
 </div>
 </div>
 <div class=" content-text folio">
-    <h1>Folio:<?php echo $id_carrito;?> </h1>
+    <h1>Folio:<?php echo $folio;?> </h1>
  </div>
  <div class="content"id="finaltext">
     <div class="content-text">
