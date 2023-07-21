@@ -1,36 +1,56 @@
 <?php
 session_start();
-    include '../base/conexion.php';
-    if (!empty($_POST["btningresar"])) {
-        if (!empty($_POST["email"]) && !empty($_POST["password"])) {
-            $usuario = $_POST["email"];
-            $password = $_POST["password"];
+include '../base/conexion.php';
 
-            try {
-                $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = :email AND contraseña = :password");
-                $stmt->bindParam(":email", $usuario);
-                $stmt->bindParam(":password", $password);
-                $stmt->execute();
+if (!empty($_POST["btningresar"])) {
+    if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+        $usuario = $_POST["email"];
+        $password = $_POST["password"];
 
-                $datos = $stmt->fetch(PDO::FETCH_OBJ);
+        try {
+            $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = :email");
+            $stmt->bindParam(":email", $usuario);
+            $stmt->execute();
 
-                if ($datos) {
+            $datos = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if ($datos) {
+                // Verificar si la contraseña ingresada coincide con el hash almacenado en la base de datos
+                if (password_verify($password, $datos->contraseña)) {
                     $_SESSION["id"] = $datos->id_usuario;
                     $_SESSION["nombre"] = $datos->nombre;
                     $_SESSION["rol"] = $datos->id_rol;
                     header("Location: ../index.php"); // Redirigir a la página principal después de iniciar sesión exitosamente
                     exit();
                 } else {
-                    echo "<div class='alert alert-danger'>Acceso denegado</div>";
+                    $_SESSION["mensaje_error"] = "Acceso denegado. Contraseña incorrecta.";
+                    header("Location: ../sesiones/login.php");
+                    exit();
                 }
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
+            } else {
+                $_SESSION["mensaje_error"] = "Acceso denegado. Usuario no encontrado.";
+                header("Location: ../sesiones/login.php");
+                exit();
             }
-        } else {
-            echo "Campos Vacios";
+        } catch (PDOException $e) {
+            $_SESSION["mensaje_error"] = "Error en la base de datos: " . $e->getMessage();
+            header("Location: ../sesiones/login.php");
+            exit();
         }
+    } else {
+        $_SESSION["mensaje_error"] = "Por favor, complete todos los campos.";
+        header("Location: ../sesiones/login.php");
+        exit();
     }
-
+}
+if (isset($_SESSION["id"])) {
+    // Destruir la sesión actual para cerrar la sesión del usuario
+    session_destroy();
+    // Borrar todas las variables de sesión
+    $_SESSION = array();
+    header("Location: ../index.php");
+    exit();
+}
 ?>
 
 <?php/*

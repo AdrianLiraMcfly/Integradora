@@ -163,6 +163,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <?php
           //include '../src/login.php';
           //include '../src/conexionbd.php';
+          if (isset($_SESSION["mensaje_error"])) {
+            echo "<script>alert('".$_SESSION["mensaje_error"]."');</script>";
+            unset($_SESSION["mensaje_error"]); // Limpiar el mensaje de error después de mostrarlo
+        }
           ?>
 
             <div class="username mb-5">
