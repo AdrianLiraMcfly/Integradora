@@ -67,7 +67,7 @@
                         <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
                         <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
                         <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
+                        <li><a class="dropdown-item rounded" href="#">Consolas</a></li>
                       </ul>
 
                     </li>
@@ -160,11 +160,11 @@
         </div>
 
         <div class="input-group mb-4 w-100 shadow-sm">
-            <span class="input-group-text border border-black bg-dark text-light"><b style="font-size: 10px">ADD REQUEST</b></span>
+            <span class="input-group-text border border-black bg-dark text-light"><b style="font-size: 10px">COMENTARIO</b></span>
             <textarea class="form-control border border-black" name="mensaje" aria-label="With textarea"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" name="send" onclick="alertenv()">SUBMIT</button>
+        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" name="send" onclick="alertenv()">ENVIAR</button>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>
