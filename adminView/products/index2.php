@@ -177,6 +177,7 @@ $dir = "posters/";
 
     </div>
   </div> 
+  
 
     <script>
         let nuevoModal = document.getElementById('nuevoModal')
