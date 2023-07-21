@@ -13,11 +13,18 @@ try {
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
     $stmt->bindParam(":hashedpassword", $hashedpassword, PDO::PARAM_STR);
     $stmt->execute();
-
+    
     echo "Registro guardado correctamente";
     header('Location: ../index.php');
     exit();
 } catch (PDOException $e) {
-    echo "Error al guardar el registro: " . $e->getMessage();
+    if ($e->getCode() == 23000) {
+        // Error de clave duplicada (email ya en uso)
+        echo "<script>alert('El email ya está en uso. Por favor, utiliza otro email.'); window.location.href='../sesiones/register.php';</script>";
+    
+    } else {
+        // Otro tipo de error
+        echo "Error al guardar el registro: " . $e->getMessage();
+    }
 }
 ?>
