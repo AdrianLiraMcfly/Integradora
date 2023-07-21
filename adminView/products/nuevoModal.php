@@ -19,9 +19,19 @@
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="precio" class="form-label">Precio:</label>
-                        <input type="number" name="precio" id="precio" class="form-control" required>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="precio" class="form-label">Precio:</label>
+                                <input type="number" name="precio" id="precio" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="cantidad" class="form-label">Inventario:</label>
+                                <input type="number" name="cantidad" id="cantidad" class="form-control" required>
+                            </div>
+                        </div>
                     </div>
 
 

@@ -11,12 +11,16 @@ $descripcion = $conn->real_escape_string($_POST['descripcion']);
 $precio = $conn->real_escape_string($_POST['precio']);
 $genero = $conn->real_escape_string($_POST['categoria']);
 
+$inventario = $conn->real_escape_string($_POST['cantidad']);
 $sql = "INSERT INTO productos (nombre, descripcion, id_categoria, precio)
 VALUES ('$nombre', '$descripcion', $genero,$precio)";
 if ($conn->query($sql)) {
     $id = $conn->insert_id;
 
-    $_SESSION['color'] = "success";
+    $sqlInventario = "INSERT INTO inventario (id_producto, cantidad)
+    VALUES ($id, $inventario)";
+    if ($conn->query($sqlInventario)) {
+        $_SESSION['color'] = "success";
     $_SESSION['msg'] = "Registro guardado";
 
     if ($_FILES['poster']['error'] == UPLOAD_ERR_OK) {
@@ -43,6 +47,9 @@ if ($conn->query($sql)) {
             $_SESSION['msg'] .= "<br>Formato de imágen no permitido";
         }
     }
+    }
+
+    
 } else {
     $_SESSION['color'] = "danger";
     $_SESSION['msg'] = "Error al guarda imágen";

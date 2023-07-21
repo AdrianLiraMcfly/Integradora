@@ -62,13 +62,12 @@
                         </svg>
                       </a>
 
-                      <ul class="dropdown-menu border border-black">
-                        <li><a class="dropdown-item" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                        <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
+                        <li><a class="dropdown-item rounded" href="#">Consolas</a></li>
                       </ul>
 
                     </li>
@@ -82,9 +81,9 @@
                       </svg>
                     </a>
                       
-                    <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-                      <li><a class="dropdown-item" href="sesiones/register.php">Sign In</a></li>
-                      <li><a class="dropdown-item" href="sesiones/login.html">Log In</a></li>
+                    <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                      <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
+                      <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
                     </ul>
                         
                   </li>
@@ -124,6 +123,7 @@
 
               </div>
 
+              <!---->
               <form class="d-flex text-center ms-auto me-auto" role="search">
 
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">
@@ -160,11 +160,11 @@
         </div>
 
         <div class="input-group mb-4 w-100 shadow-sm">
-            <span class="input-group-text border border-black bg-dark text-light"><b style="font-size: 10px">ADD REQUEST</b></span>
+            <span class="input-group-text border border-black bg-dark text-light"><b style="font-size: 10px">COMENTARIO</b></span>
             <textarea class="form-control border border-black" name="mensaje" aria-label="With textarea"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" name="send" onclick="alertenv()">SUBMIT</button>
+        <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" name="send" onclick="alertenv()">ENVIAR</button>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>

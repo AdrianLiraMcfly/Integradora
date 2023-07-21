@@ -1,3 +1,48 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id'])) {
+    header('Location: ../index.php'); // Redirigir a la página principal si ya tiene una sesión activa
+    exit();
+}
+/*
+if (isset($_SESSION['email'])) { 
+    // Si el usuario ya ha iniciado sesión, redireccionar a la página de inicio
+    header("Location: index.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require 'conexion.php';
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Realizar consulta preparada para buscar el usuario por email
+    $query = "SELECT id, nombre, contraseña FROM usuarios WHERE email = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        // Verificar la contraseña usando password_verify()
+        if (password_verify($password, $row['contraseña'])) {
+            $_SESSION["id"] = $row['id'];
+            $_SESSION["nombre"] = $row['nombre'];
+            $_SESSION["email"] = $email;
+            // Redireccionar a la página de inicio después del inicio de sesión exitoso
+            header("Location: index.php");
+            exit();
+        } else {
+            $error_message = "Contraseña incorrecta";
+        }
+    } else {
+        $error_message = "Usuario no encontrado";
+    }
+}*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +85,7 @@
             <ul class="navbar-nav me-auto">
 
                 <li class="nav-item p-auto me-1 ">
-                    <a class="nav-link text-center" aria-current="page" href="../../index.php">
+                    <a class="nav-link text-center" aria-current="page" href="../index.php">
                       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                         <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
                       </svg>
@@ -48,7 +93,7 @@
                 </li>
 
                 <li class="nav-item p-auto me-1">
-                    <a class="nav-link text-center" aria-current="page" href="../../carrito.php">
+                    <a class="nav-link text-center" aria-current="page" href="../carrito.php">
                       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                       </svg>
@@ -69,8 +114,7 @@
                     <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
                     <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
-                    <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
-                    <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
+                    <li><a class="dropdown-item rounded" href="#">Consolas</a></li>
                   </ul>
 
                 </li>
@@ -115,6 +159,14 @@
         <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
 
         <form action="../src/login.php" method="post">
+          <?php
+          //include '../src/login.php';
+          //include '../src/conexionbd.php';
+          if (isset($_SESSION["mensaje_error"])) {
+            echo "<script>alert('".$_SESSION["mensaje_error"]."');</script>";
+            unset($_SESSION["mensaje_error"]); // Limpiar el mensaje de error después de mostrarlo
+        }
+          ?>
 
             <div class="username mb-5">
                 <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="text" required>
@@ -127,9 +179,8 @@
             </div>
 
             <div class="recordar">
-                <button type="submit" value="Iniciar" class="btn btn-dark fw-bold rounded-pill border border-3 border-white">
-                    INICIAR SESION
-                </button><br/><br/>
+            <input name="btningresar" class="btn btn-dark fw-bold rounded-pill border border-3 border-white" type="submit" value="INICIAR SESION">
+            <br/><br/>
 
                 <label for=""><a href="" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">¿Olvido su contraseña?</a></label><br>
                 <label for=""><b>¿No tiene una cuenta?</b> <a href="register.php" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">Cree una</a></label>

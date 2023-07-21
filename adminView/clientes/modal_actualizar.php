@@ -15,7 +15,6 @@
           $field0name=$row['id_usuario'];
           $field1name=$row['nombre'];
           $field3name=$row['email']; 
-          $field4name=$row['contraseña'];
 
             echo '
             <div class="modal fade" id="staticBackdrop'.$field0name.'" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -35,10 +34,7 @@
                           <label>Email:</label>
                           <input value="'.$field3name.'" name="email" class="form-control" id="email">
                       </div>
-                      <div class="mb-3" style="text-align: left;">
-                          <label>Contraseña:</label>
-                          <input value="'.$field4name.'" name="contraseña" class="form-control" id="contraseña">
-                      </div>
+
           
                 </div>
                 <div class="modal-footer">
