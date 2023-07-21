@@ -336,7 +336,7 @@
       <?php 
 
 
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 6;");
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
       $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       $rutaCarpetaImagenes = 'adminView/products/posters/';
   
