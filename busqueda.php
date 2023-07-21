@@ -121,6 +121,7 @@
     //$sentenciaCategoria = $bd->prepare("SELECT categoria FROM vista_productos_categoria WHERE id_categoria = :id");
     //$sentenciaCategoria->bindParam(':id', $idCategoria);
     //$sentenciaCategoria->execute();
+    //$search = $sentenciaCategoria->fetch(PDO::FETCH_COLUMN);
     $sentenciaCategoria = $bd->prepare("SELECT nombre FROM categorias WHERE id_categoria = $idCategoria");
     $sentenciaCategoria->execute();
     $search = $sentenciaCategoria->fetch(PDO::FETCH_COLUMN);
@@ -128,8 +129,9 @@
     //$sentenciaProductos = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_categoria = :id");
     //$sentenciaProductos->bindParam(':id', $idCategoria);
     //$sentenciaProductos->execute();
-    $sentenciaProductos = $bd->prepare("SELECT * FROM vista_productos_categoria INNER JOIN categorias WHERE id_categoria = $idCategoria");
-    $sentenciaCategoria->execute();
+
+    $sentenciaProductos = $bd->prepare("SELECT * FROM vista_productos_categoria C INNER JOIN productos P ON P.id_producto = C.id_producto WHERE id_categoria = $idCategoria");
+    $sentenciaProductos->execute();
     $productos = $sentenciaProductos->fetchAll(PDO::FETCH_OBJ);
   }
 
