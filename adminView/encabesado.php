@@ -27,6 +27,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!--
             <form class="d-flex me-3" role="search">
 
               <input class="form-control me-2 border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">
@@ -35,7 +36,7 @@
                   <img src="../img/lupa.png" alt="" style="width: 25px">
                 </button>
 
-            </form>
+            </form>-->
 
             <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
                 

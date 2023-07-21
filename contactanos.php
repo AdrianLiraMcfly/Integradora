@@ -124,6 +124,7 @@
 
               </div>
 
+              <!---->
               <form class="d-flex text-center ms-auto me-auto" role="search">
 
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">

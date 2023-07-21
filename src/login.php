@@ -23,17 +23,33 @@ if (!empty($_POST["btningresar"])) {
                     header("Location: ../index.php"); // Redirigir a la página principal después de iniciar sesión exitosamente
                     exit();
                 } else {
-                    echo "<div class='alert alert-danger'>Acceso denegado. Contraseña incorrecta.</div>";
+                    $_SESSION["mensaje_error"] = "Acceso denegado. Contraseña incorrecta.";
+                    header("Location: ../sesiones/login.php");
+                    exit();
                 }
             } else {
-                echo "<div class='alert alert-danger'>Acceso denegado. Usuario no encontrado.</div>";
+                $_SESSION["mensaje_error"] = "Acceso denegado. Usuario no encontrado.";
+                header("Location: ../sesiones/login.php");
+                exit();
             }
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+            $_SESSION["mensaje_error"] = "Error en la base de datos: " . $e->getMessage();
+            header("Location: ../sesiones/login.php");
+            exit();
         }
     } else {
-        echo "Campos Vacios";
+        $_SESSION["mensaje_error"] = "Por favor, complete todos los campos.";
+        header("Location: ../sesiones/login.php");
+        exit();
     }
+}
+if (isset($_SESSION["id"])) {
+    // Destruir la sesión actual para cerrar la sesión del usuario
+    session_destroy();
+    // Borrar todas las variables de sesión
+    $_SESSION = array();
+    header("Location: ../index.php");
+    exit();
 }
 ?>
 
