@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
 <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
-        <img src="productos/vd_logo.png" alt="" width="110px" class="p-2">
+        <img src="../productos/vd_logo.png" alt="" width="110px" class="p-2">
 
         <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -81,13 +82,14 @@
                           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                         </svg>
                       </a>
-
+                      <?php
+                      echo '
                       <ul class="dropdown-menu border-black">
-                        <li><a class="dropdown-item" href="#">Sign In</a></li>
-                        <li><a class="dropdown-item" href="#">Log In</a></li>
+                        <li><a class="dropdown-item" href="#">'.$_SESSION['nombre'].'</a></li>
+                        <li><a class="dropdown-item" href="../../src/cerrar_sesion.php">Cerrar Sesion</a></li> 
                       </ul>
-                    </li>
-
+                    </li>';
+                    ?>
                     
                     <li class="nav-item text-center dropdown p-auto it border border-2 border-danger shadow-lg">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -98,9 +100,9 @@
                       </a>
 
                       <ul class="dropdown-menu border-black">
-                        <li><a class="dropdown-item" href="#"><strong>Productos</strong></a></li>
-                        <li><a class="dropdown-item" href="pedidos/pedidos.php">Pedidos</a></li>
-                        <li><a class="dropdown-item" href="clientes/index1.php">Clientes</a></li>
+                        <li><a class="dropdown-item" href="../products/index2.php">Productos</a></li>
+                        <li><a class="dropdown-item" href="../pedidos/pedidos.php">Pedidos</a></li>
+                        <li><a class="dropdown-item" href="../clientes/index1.php">Clientes</a></li>
                       </ul>
                     </li>
 
