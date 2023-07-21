@@ -78,6 +78,7 @@ if (isset($_POST['btnAccion'])) {
                     if ($producto['ID'] == $ID) {
                         unset($_SESSION['CARRITO'][$indice]);
                     }
+                    $_SESSION['CARRITO'] = array_values($_SESSION['CARRITO']);
                 }
             } else {
                 $mensaje .= "ID incorrecto";
