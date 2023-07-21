@@ -95,6 +95,7 @@
                     <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
                     <?php
                     if(isset($_SESSION['nombre'])){
+                      echo '<li class="dropdown-item rounded mb-1">Bienvenido '.$_SESSION['nombre'].'</li>';
                       echo '<li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Configuracion</a></li>';
                       echo '<li><a class="dropdown-item rounded" href="src/login.php">Cerrar sesion</a></li>';
                     }
