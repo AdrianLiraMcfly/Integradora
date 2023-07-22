@@ -8,19 +8,20 @@
     height: auto;
     position: relative;
     z-index: 2;
-    /*padding: 50px;*/
+    /*padding: 50px;
     border-radius: 10px;
-    z-index: 2;
+    z-index: 2;*/
 }
 #formu h3{
     text-align: center;
 }
+/*
 #formu input{
     width: 300px;
 }
 #formu input[type="checkbox"]{
     width: 15px;
-}
+}*/
 #contenedor{
     display: flex;
     position: absolute;
@@ -29,23 +30,23 @@
     /*background-color: black;*/
     height: 100%;
     width: 100%;
-    background-image: url(img/wallpaper.jpg);
+    /*background-image: url(img/wallpaper.jpg);*/
     background-size: cover;
-    
 }
+/*
 #img{
     position: absolute;
     top: 5px;
     left: 620px;
 }
 #inbc{
-    /*background-color: black;*/
+    background-color: black;
     height: 86%;
     width: 45%;
     position: absolute;
     z-index: 1;
     border-radius: 10px;
-}
+}*/
 
 /*#formu input{
     width: 98%;

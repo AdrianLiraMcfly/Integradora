@@ -144,28 +144,29 @@
 
       <div class="container-fluid" id="contenedor">
 
-        <div class="mb-5 p-5 bg-warning bg-gradient border border-3 border-light-subtle" id="formu">
+        <div class="bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mb-5 mx-auto" id="formu">
+          
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
           <form action="../src/subir_regis.php" onsubmit="equalspass(event)" method="post" id="form-re">
 
-            <div class="mb-3">
+            <div class="w-100 mb-3">
               <label for=""><b>Nombre completo</b></label>
               <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
-            <div class="mb-3">
+            <div class="w-100 mb-3">
               <label for=""><b>Email</b></label>
               <input type="email" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
             </div>
 
-            <div class="mb-3">
+            <div class="w-100 mb-3">
               <label for=""><b>Contraseña</b></label>
               <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>
 
-            <div class="mb-3">
+            <div class="w-100 mb-3">
               <label for=""><b>Repite contraseña</b></label>
               <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
             </div>

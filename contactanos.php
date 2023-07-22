@@ -123,7 +123,6 @@
 
               </div>
 
-              <!---->
               <form class="d-flex text-center ms-auto me-auto" role="search">
 
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">
@@ -140,7 +139,7 @@
     </nav>
 
     <!--este es el formulario-->
-    <form class="bg-warning bg-gradient border border-light-subtle border-3 p-5 rounded-4 w-50 mt-5 mx-auto" action="phpmailer.php" method="post">
+    <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 w-50 mt-5 mx-auto" action="phpmailer.php" method="post">
 
         <h2 class="text-center titulo_pro text-light"><b>¡ESCRIBENOS!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-4"><b>Tu opinión nos importa</b></h4>
