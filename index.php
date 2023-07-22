@@ -347,12 +347,12 @@
 
       <div class="container  container-products">
         <?php 
-          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 8;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
           $rutaCarpetaImagenes = 'adminView/products/posters/';
         foreach($productos as $dato){ ?>
 
-          <div class="col mb-3">
+          <div class="cards-presentacion">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
 
@@ -407,7 +407,7 @@
       <?php 
 
 
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 6;");
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 8;");
       $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       $rutaCarpetaImagenes = 'adminView/products/posters/';
   
@@ -417,7 +417,7 @@
       
       foreach($productos as $dato){ ?>
 
-<div class="col mb-3">
+<div class="cards-presentacion">
   <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
       <div class="card border border-3 border-secondary" style="width: 18rem;">
 
@@ -446,9 +446,10 @@
 <?php }
 ?>
 
-
+        
 
       </div>
+      <br>
       <div class="background-categorias">
           <h3><b class="titulos-categorias">Ropa</b></h3>
       </div> 
@@ -477,7 +478,7 @@
       
       foreach($productos as $dato){ ?>
 
-<div class="col mb-3">
+<div class="cards-presentacion">
   <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
       <div class="card border border-3 border-secondary" style="width: 18rem;">
 

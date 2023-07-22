@@ -80,11 +80,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               </li>
 
               <?php
-                    if(isset($_SESSION['nombre'])){
-                      if (isset($_SESSION['rol'])) {
-                        switch ($_SESSION['rol']) {
-                          case 1:
-                            echo '
+              if (isset($_SESSION['nombre'])) {
+                if (isset($_SESSION['rol'])) {
+                  switch ($_SESSION['rol']) {
+                    case 1:
+                      echo '
                             <li class="nav-item dropdown p-auto">
                         
                               <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -95,7 +95,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                               </a>
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
-                                <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
@@ -116,9 +116,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                             </ul>
                           </li>';
 
-                            break;
-                            case 2:
-                              echo '
+                      break;
+                    case 2:
+                      echo '
                               <li class="nav-item dropdown p-auto">
                         
                               <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -129,22 +129,20 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                               </a>
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
-                                <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
                         
                             </li>';
-                              break;
-                          default:
-                            
-                            break;
-                        }
-                      }
-                    }
-                      else
-                      {
-                        echo '
+                      break;
+                    default:
+
+                      break;
+                  }
+                }
+              } else {
+                echo '
                         <li class="nav-item dropdown p-auto">
                         
                         <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -160,8 +158,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                         </ul>
                         
                       </li>';
-                    }
-                    ?>
+              }
+              ?>
 
             </ul>
 
@@ -197,7 +195,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <?php
 
         $id = $_GET['id'];
-        $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;"); //INNER JOIN categorias C ON P.id_categoria = C.id_categoria 
+        $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
         $resultado = $sentencia->execute([$id]);
         $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
@@ -261,7 +259,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <div class="container-fluid bg-dark mt-5 p-4">
 
     <div class="background-categorias" style="background-color: gold; border: 3px white solid;">
-      <h3><b class="titulos-categorias"> Mas sobre: <?php echo $persona->categoria ?> </b></h3>
+      <h3><b class="titulos-categorias"> <?php echo $persona->categoria ?> </b></h3>
     </div>
     <br>
 
