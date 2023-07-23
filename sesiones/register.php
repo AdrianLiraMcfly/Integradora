@@ -144,7 +144,7 @@
 
       <div class="container-fluid" id="contenedor">
 
-        <div class="bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mb-5 mx-auto" id="formu">
+        <div class="bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto" id="formu">
           
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
@@ -153,30 +153,31 @@
 
             <div class="w-100 mb-3">
               <label for=""><b>Nombre completo</b></label>
-              <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+              <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required style="height: 32px;">
             </div>
 
             <div class="w-100 mb-3">
               <label for=""><b>Email</b></label>
-              <input type="email" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required>
+              <input type="email" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required style="height: 32px;">
             </div>
 
             <div class="w-100 mb-3">
               <label for=""><b>Contraseña</b></label>
-              <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+              <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required style="height: 32px;">
             </div>
 
             <div class="w-100 mb-3">
               <label for=""><b>Repite contraseña</b></label>
-              <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required>
+              <input type="password" class="form-control border border-black shadow-sm" id="passre" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required style="height: 32px;">
             </div>
 
+            <div class="mb-3">
                 <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
                 <label class="form-check-label" for="defaultCheck1">
                   Contraseña visible
                 </label>
+            </div>
 
-                <br>
                 <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
 
           </form>

@@ -139,26 +139,26 @@
     </nav>
 
     <!--este es el formulario-->
-    <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 w-50 mt-5 mx-auto" action="phpmailer.php" method="post">
+    <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 w-50 mx-auto" action="phpmailer.php" method="post">
 
         <h2 class="text-center titulo_pro text-light"><b>¡ESCRIBENOS!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-4"><b>Tu opinión nos importa</b></h4>
 
-        <div class="input-group flex-nowrap mb-4 w-100 shadow-sm">
+        <div class="input-group flex-nowrap mb-4 w-100 shadow-sm" style="height: 32px;">
 
             <span class="input-group-text border border-black bg-dark text-light" id="addon-wrapping"><b style="font-size: 15px">@</b></span>
             <input type="text" name="destinatario" class="form-control border border-black shadow-sm" placeholder="email@example.com" aria-label="email@example.com" aria-describedby="addon-wrapping">
 
         </div>
 
-        <div class="input-group mb-4 w-100 shadow-sm">
+        <div class="input-group flex-nowrap mb-4 w-100 shadow-sm" style="height: 32px;">
 
             <span class="input-group-text border border-black bg-dark text-light" id="inputGroup-sizing-default"><b style="font-size: 10px">ASUNTO</b></span>
             <input type="text" name="asunto" class="form-control border border-black shadow-sm" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 
         </div>
 
-        <div class="input-group mb-4 w-100 shadow-sm">
+        <div class="input-group flex-nowrap mb-4 w-100 shadow-sm">
             <span class="input-group-text border border-black bg-dark text-light"><b style="font-size: 10px">COMENTARIO</b></span>
             <textarea class="form-control border border-black" name="mensaje" aria-label="With textarea"></textarea>
         </div>

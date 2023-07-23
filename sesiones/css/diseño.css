@@ -8,10 +8,10 @@ body{
 }*/
 
 .formulario{
-    position: absolute;
-    top: 44%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    /*top: 44%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     width: 400px;
     /*background-color: lemonchiffon;*/
     /*border-radius: 10px;*/
