@@ -7,19 +7,16 @@ include 'src/validacion-carrito.php';
 //include 'src/validacion-producto.php';
 include 'src/conexionbd.php';
 
-
-
 $rutaCarpetaImagenes = 'adminView/products/posters/';
 
-
-
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
 
-  <title>Plantilla producto</title>
+  <title>Producto</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,6 +25,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <link rel="stylesheet" href="css/diseno.css">
   <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
 
 <body class="bg-white">
   <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
@@ -72,12 +70,12 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </svg>
                 </a>
 
-                <ul class="dropdown-menu bg-body-secondary border border-black border-2">
+                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                   <?php
                   $sentencia = $bd->query("SELECT * FROM categorias;");
                   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                   foreach ($productos as $dato) {
-                    echo "<li><a class='dropdown-item' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                    echo "<li><a class='dropdown-item rounded mb-1' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
                   }
 
                   ?>
@@ -185,7 +183,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         </div>
   </nav>
-  </head>
 
   <?php if ($mensaje != "") { ?>
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
@@ -275,8 +272,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <div class="container-fluid bg-dark mt-5 p-4">
 
-    <div class="background-categorias" style="background-color: gold; border: 3px white solid;">
-      <h3><b class="titulos-categorias"> <?php echo $persona->categoria ?> </b></h3>
+    <div class="bg-warning background-categorias text-dark mx-auto text-center text-uppercase pt-3 pb-2">
+      <h3><b>más de <?php echo $persona->categoria ?> </b></h3>
     </div>
     <br>
 
@@ -286,9 +283,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
       $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       $rutaCarpetaImagenes = 'adminView/products/posters/';
-
-
-
 
 
       foreach ($productos as $dato) { ?>
