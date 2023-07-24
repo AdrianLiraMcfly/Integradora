@@ -70,10 +70,11 @@
     z-index: 999;
     top: 0px;
 }
-/*
+
 body{
     position: relative;
-}*/
+    top: 85px;
+}
 .container-carrito{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     background-color: ghostwhite;

@@ -76,13 +76,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </svg>
                 </a>
 
-                <ul class="dropdown-menu bg-body-secondary border border-black border-2">
+                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                   <?php
 
                   $sentencia = $bd->query("SELECT * FROM categorias;");
                   $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
                   foreach ($productos as $dato) {
-                    echo "<li><a class='dropdown-item' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                    echo "<li><a class='dropdown-item rounded mb-1' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
                   }
 
                   ?>
@@ -206,8 +206,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <div class="container-pag-carrito">
 
     <div class="carrito-detalles">
-      <div class="background-categorias" style="">
-        <h3><b class="titulos-categorias">DETALLES</b></h3>
+      <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
+        <h3><b>DETALLES</b></h3>
       </div> <br>
 
 
@@ -240,8 +240,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <div class="container-carrito-div">
 
-      <div class="background-categorias" style="">
-        <h3><b class="titulos-categorias">CARRITO</b></h3>
+      <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
+        <h3><b>CARRITO</b></h3>
       </div> <br>
 
       <div class="container-carrito barra-deslizable">
