@@ -72,7 +72,11 @@ $dir = "posters/";
   <?php
   include '../encabesado.php';
   ?> 
-    
+    <div class="d-flex justify-content-center mt-3">
+        <a href="category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
+        <a href="sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
+        <a href="filtro/index2.php" class="btn btn-primary mx-2">Por Categoria</a>
+    </div>
 <?php
 include 'vistas/listado.php';
 ?>
