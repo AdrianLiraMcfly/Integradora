@@ -1,19 +1,4 @@
-<?php
 
-
-
-session_start();
-
-if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-
-
-require 'config/database.php'; 
-
-$sqlCategorias = "SELECT * from categorias";
-$Categorias = $conn->query($sqlCategorias);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +12,12 @@ $Categorias = $conn->query($sqlCategorias);
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <title>Document</title>
-    <style>
-        /* Personaliza el tamaño del contenedor para centrar verticalmente */
-
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
       <div class="container-fluid">
 
-        <img src="../productos/vd_logo.png" alt="" width="110px" class="p-2">
+        <img src="../../productos/vd_logo.png" alt="" width="110px" class="p-2">
 
         <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -91,7 +72,7 @@ $Categorias = $conn->query($sqlCategorias);
                         <li><a class="dropdown-item" href="#">Ropa</a></li>
                         <li><a class="dropdown-item" href="#">Juguetes</a></li>
                         <li><a class="dropdown-item" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item" href="#">Electronica</a></li>
+                        <li><a class="dropdown-item" href="#">Electronica</a></li> 
                       </ul>
                     </li>
 
@@ -120,9 +101,9 @@ $Categorias = $conn->query($sqlCategorias);
                       </a>
 
                       <ul class="dropdown-menu border-black">
-                        <li><a class="dropdown-item" href="../products/index2.php">Productos</a></li>
-                        <li><a class="dropdown-item" href="../pedidos/pedidos.php">Pedidos</a></li>
-                        <li><a class="dropdown-item" href="../clientes/index1.php">Clientes</a></li>
+                        <li><a class="dropdown-item" href="../../products/index2.php">Productos</a></li>
+                        <li><a class="dropdown-item" href="../../pedidos/pedidos.php">Pedidos</a></li>
+                        <li><a class="dropdown-item" href="../../clientes/index1.php">Clientes</a></li>
                       </ul>
                     </li>
 
@@ -132,104 +113,11 @@ $Categorias = $conn->query($sqlCategorias);
       </div>
     </nav>
 
-    <div class="container">
-        <div class="pt-5 pb-5">
-            <form action="guardarCategoria.php" method="POST" enctype="multipart/form-data" >
-                <div class="form-group">
-                    <label for="categoria_nombre">Nombre</label>
-                    <input class="form-control" type="text" id="nombre" name="nombre"  required>
-                </div>
-                <div class="text-center mt-3">
-                    <button type="submit" class="btn btn-info rounded-pill px-4">Guardar</button>
-                </div>
-            </form> 
-        </div>
-    </div>
-
-    <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Nombre de Categoria</th>
-            <th>Accion</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <?php while ($row = $Categorias->fetch_assoc()) { ?>
-            <tr>
-                <td><?= $row['id_categoria']; ?></td>
-                <td><?= $row['nombre']; ?></td>
-                <td>
-                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#modalEditCategoria" data-bs-id="<?= $row['id_categoria']; ?>"><img src="../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
-
-                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#modalEliminarCategoria" data-bs-id="<?= $row['id_categoria']; ?>"><img src="../iconos/trash-svgrepo-com.svg" alt="delate" width="25px"></a>
-                </td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
-
-<?php
-include 'pages/modalEditCategoria.php';
-
-include 'pages/modalEliminarCategoria.php';
-
-?>
-
     <!--
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/evitar_reenvio.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
-    <script>
-        let modalEditCategoria = document.getElementById('modalEditCategoria')
-        let modalEliminarCategoria = document.getElementById('modalEliminarCategoria')
-
-
-
-        modalEditCategoria.addEventListener('hide.bs.modal', event => {
-            editaModal.querySelector('.modal-body #nombre').value = ""
-        })
-
-        modalEditCategoria.addEventListener('shown.bs.modal', event => {
-            let button = event.relatedTarget
-            let id = button.getAttribute('data-bs-id')
-
-            let inputId = modalEditCategoria.querySelector('.modal-body #id')
-            let inputNombre = modalEditCategoria.querySelector('.modal-body #nombre')
-
-
-            let url = "pages/getCategoria.php"
-            let formData = new FormData() 
-            formData.append('id', id)
-
-            fetch(url, {
-                    method: "POST",
-                    body: formData
-                }).then(response => response.json())
-                .then(data => {
-
-                    inputId.value = data.id_categoria
-                    inputNombre.value = data.nombre
-
-                }).catch(err => console.log(err))
-
-        })
-
-        modalEliminarCategoria.addEventListener('shown.bs.modal', event => {
-            let button = event.relatedTarget
-            let id = button.getAttribute('data-bs-id')
-            modalEliminarCategoria.querySelector('.modal-footer #id').value = id
-        })
-    </script>
-
 </body>
 </html>
-
-<?php
-} else {
-  header('location: ../../index.php');
-}
-?>

@@ -7,9 +7,9 @@ session_start();
 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
 
 
-require 'config/database.php'; 
+require '../config/database.php'; 
 
-$sqlPeliculas = "SELECT * from vista_productos_categoria";
+$sqlPeliculas = "SELECT * from categorias";
 $peliculas = $conn->query($sqlPeliculas);
 
 $dir = "posters/";
@@ -27,7 +27,7 @@ $dir = "posters/";
 
 
 
-    <link rel="stylesheet" href="../productos/estilo.css"/>
+    <link rel="stylesheet" href="../../productos/estilo.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <style>
@@ -69,16 +69,20 @@ $dir = "posters/";
 </head>
 
 <body class="bg-white w-100">
+
+
   <?php
-  include '../encabesado.php';
+  include '../encabesadoProducts.php';
   ?> 
-    <div class="d-flex justify-content-center mt-3">
-        <a href="category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
-        <a href="sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
-        <a href="filtro/index2.php" class="btn btn-primary mx-2">Por Categoria</a>
+
+<div class="d-flex justify-content-center mt-3">
+        <a href="#" class="btn btn-primary mx-2">Nueva categoria</a>
+        <a href="../sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
+        <a href="../filtro/index2.php" class="btn btn-primary mx-2">Por Categoria</a>
     </div>
+    
 <?php
-include 'vistas/listado.php';
+include '../vistas/listadoCategory.php';
 ?>
     <script>
         let nuevoModal = document.getElementById('nuevoModal')
@@ -91,21 +95,10 @@ include 'vistas/listado.php';
 
         nuevoModal.addEventListener('hide.bs.modal', event => {
             nuevoModal.querySelector('.modal-body #nombre').value = ""
-            nuevoModal.querySelector('.modal-body #descripcion').value = ""
-            nuevoModal.querySelector('.modal-body #precio').value = ""
-            nuevoModal.querySelector('.modal-body #cantidad').value = ""
-            nuevoModal.querySelector('.modal-body #categoria').value = "" 
-            nuevoModal.querySelector('.modal-body #poster').value = ""
         })
 
         editaModal.addEventListener('hide.bs.modal', event => {
             editaModal.querySelector('.modal-body #nombre').value = ""
-            editaModal.querySelector('.modal-body #descripcion').value = ""
-            editaModal.querySelector('.modal-body #precio').value = ""
-            editaModal.querySelector('.modal-body #cantidad').value = ""
-            editaModal.querySelector('.modal-body #categoria').value = ""
-            editaModal.querySelector('.modal-body #img_poster').value = ""
-            editaModal.querySelector('.modal-body #poster').value = ""
         })
 
         editaModal.addEventListener('shown.bs.modal', event => {
@@ -114,11 +107,6 @@ include 'vistas/listado.php';
 
             let inputId = editaModal.querySelector('.modal-body #id')
             let inputNombre = editaModal.querySelector('.modal-body #nombre')
-            let inputDescripcion = editaModal.querySelector('.modal-body #descripcion')
-            let inputPrecio = editaModal.querySelector('.modal-body #precio')
-            let inputCantidad = editaModal.querySelector('.modal-body #cantidad')
-            let inputGenero = editaModal.querySelector('.modal-body #categoria')
-            let poster = editaModal.querySelector('.modal-body #img_poster')
 
             let url = "getPelicula.php"
             let formData = new FormData() 
@@ -130,13 +118,8 @@ include 'vistas/listado.php';
                 }).then(response => response.json())
                 .then(data => {
 
-                    inputId.value = data.id_producto
+                    inputId.value = data.id_categoria
                     inputNombre.value = data.nombre
-                    inputDescripcion.value = data.descripcion
-                    inputPrecio.value = data.precio
-                    inputCantidad.value = data.cantidad
-                    inputGenero.value = data.id_categoria
-                    poster.src = '<?= $dir ?>' + data.id_producto + '.jpg'
 
                 }).catch(err => console.log(err))
 

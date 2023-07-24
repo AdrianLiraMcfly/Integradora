@@ -11,7 +11,7 @@
             </div>
 
             <div class="modal-footer">
-                <form action="eliminarCategoria.php" method="post">
+                <form action="elimina.php" method="post">
 
                     <input type="hidden" name="id" id="id">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
