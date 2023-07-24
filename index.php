@@ -390,19 +390,19 @@
       </div>
       <br/>
 
-      <div class="text-center w-100">
+      <div class="text-center w-100 mb-4">
 
-        <div class="col pt-3 pb-2 bg-dark text-dark rounded-pill">
+        <div class="col pt-3 pb-2 bg-dark text-dark rounded-pill mb-4">
           <h3><b>VIDEOGAME STORE ES TU MEJOR OPCION</b></h3>
         </div>
-        <br>
 
-        <div class="background-categorias">
-          <h3><b class="titulos-categorias">Consolas</b></h3>
-        </div> 
+        
+        <div class="col pt-3 pb-2 bg-danger background-categorias text-dark mx-auto">
+          <h3><b>CONSOLAS</b></h3>
+        </div>
 
       </div>
-      <br/><br/>
+      <br/>
       
       <div class="container w-100 container-products">
 
@@ -448,8 +448,8 @@
       </div>
       <br>
 
-      <div class="background-categorias">
-        <h3><b class="titulos-categorias">ROPA</b></h3>
+      <div class="col text-center pt-3 pb-2 bg-primary background-categorias text-dark mx-auto">
+        <h3><b>ROPA</b></h3>
       </div> 
 
       </div>
