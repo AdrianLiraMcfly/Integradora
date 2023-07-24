@@ -196,7 +196,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php
   if(!isset($_SESSION['nombre'])){
     ?>
-     <center><div><p>NECESITAS INICIAR SESION PARA USAR EL CARRITO</p></div></center>
+     <center><br><br><br><br><br><div><p>NECESITAS INICIAR SESION PARA USAR EL CARRITO</p></div></center>
     <?php
   }
   else{
