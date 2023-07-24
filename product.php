@@ -2,11 +2,17 @@
 if (!isset($_GET['id'])) {
   header('Location: index.php');
 }
-include 'src/conexionbd.php';
 include 'src/config.php';
 include 'src/validacion-carrito.php';
+//include 'src/validacion-producto.php';
+include 'src/conexionbd.php';
+
+
 
 $rutaCarpetaImagenes = 'adminView/products/posters/';
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -247,7 +253,18 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <input type="hidden" name="precio" id="precio" value=" <?php echo openssl_encrypt($persona->precio, COD, KEY); ?> ">
             <input type="hidden" name="cantidad" id="cantidad" value=" <?php echo openssl_encrypt(1, COD, KEY); ?> ">
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
-            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns" name="btnAccion" value="agregar" type="submit">AGREGAR AL CARRITO</button>
+            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns" id="btnPedido" name="btnAccion" value="agregar" type="submit" <?php //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']) echo 'disabled'; ?>>AGREGAR AL CARRITO</button>
+            <?php 
+            //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']){
+            //  echo "<script>
+            //  const boton = document.getElementById('btnPedido');
+            //
+            //  boton.addEventListener('mouseover', function() {
+            //    alert('¡Estás pasando el mouse por encima del botón!');
+            //  });
+            //</script>";
+            //}
+            ?>
           </form>
           <button class="btn btn-dark fw-bold rounded-pill pos_btns">VOLVER A RESULTADOS</button>
         </div>

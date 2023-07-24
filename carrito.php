@@ -1,8 +1,19 @@
 <?php
+
+//if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//    header("Location: " . $_SERVER['PHP_SELF']);
+//    exit();
+//}
 include 'src/config.php';
 include 'src/validacion-carrito.php';
 include 'src/conexionbd.php';
 $rutaCarpetaImagenes = 'adminView/products/posters/';
+
+//if (isset($_POST['btnPedido'])) {
+//  $_SESSION['btnPedido'] = true;
+//}
+//$boton_desactivado = isset($_SESSION['btnPedido']) && $_SESSION['btnPedido'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -182,6 +193,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
 
+  <?php
+  if(!isset($_SESSION['nombre'])){
+    ?>
+     <center><div><p>NECESITAS INICIAR SESION PARA USAR EL CARRITO</p></div></center>
+    <?php
+  }
+  else{
+  ?>
+
   <br>
   <div class="container-pag-carrito">
 
@@ -200,8 +220,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           <p style="font-size: 17px;">Fecha limite de recogida: No generada</p>
           <p style="font-size: 17px;">Elementos: <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
           <p style="font-size: 17px;">Total: $<?php  ?> </p>
-          <div class="container-btn">
-            <button style="z-index: 50;" value="Iniciar" class="btn-carrito">Realizar Pedido</button>
+          <div class="container-btn"> 
+            <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
+          <form action="src/insert-dat-carrito.php" method="post">  
+            <button style="z-index: 50;" class="btn-carrito" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>Realizar Pedido</button>
+          </form>
           </div> <br> <br>
           <p style="font-size: 14px;">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
 
@@ -286,7 +309,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   </div>
   <?php } else { ?>
     <div class="alert alert-success"> No hay productos en el carrito... </div>
-  <?php } ?>
+  <?php }} ?>
 
 </body>
 
