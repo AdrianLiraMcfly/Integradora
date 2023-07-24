@@ -200,7 +200,7 @@
         <div class="carousel-inner">
 
           <div class="carousel-item active">
-            <img src="img/zelda-tears.jpg" class="d-block w-100 mx-auto" alt="jojo" height="575px">
+            <img src="img/zelda.jpg" class="d-block w-100 mx-auto" alt="jojo" height="575px">
             <div class="carousel-caption d-none d-md-block">
               <h3 class="dark-sh"><b>¡LA SECUELA DEL JUEGO MAS ACLAMADO DE NINTENDO SWITCH!</b></h3>
               <h4 class="text-body-secondary"><b>LUCHA JUNTO A LINK PARA DERROTAR A GANON</b></h4>
@@ -208,7 +208,7 @@
           </div>
 
           <div class="carousel-item">
-            <img src="img/gow-rag.jpg" class="d-block w-100 mx-auto" alt="..." height="575px">
+            <img src="img/godof.jpg" class="d-block w-100 mx-auto" alt="..." height="575px">
             <div class="carousel-caption d-none d-md-block">
               <h3 class="dark-sh"><b>AÚN QUEDAN DIOSES</b></h3>
               <h4 class="text-body-secondary"><b>KRATOS REGRESA JUNTO ATREUS PARA PRESENCIAR EL RAGNAROK</b></h4>
@@ -216,7 +216,7 @@
           </div>
 
           <div class="carousel-item">
-            <img src="img/ff16.jpg" class="d-block w-100 mx-auto" alt="..." height="575px">
+            <img src="img/ff.jpg" class="d-block w-100 mx-auto" alt="..." height="575px">
             <div class="carousel-caption d-none d-md-block">
               <h3 class="dark-sh"><b>UNA ÚLTIMA FANTASÍA SE APROXIMA</b></h3>
               <h4 class="text-body-secondary"><b>LA DÉCIMA SEXTA ENTREGA DE FINAL FANTASY VIENE CON TODO</b></h4>
