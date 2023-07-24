@@ -28,8 +28,9 @@
 
 <body class="bg-white w-100">
 
-    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
-      <div class="container-fluid">
+      <!--BARRA-->
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+        <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
 
@@ -185,10 +186,10 @@
 
               </form>
 
-            </div>
-    </nav>
-
-
+        </div>
+      </nav>
+      
+      <!--CARRUSEL-->
       <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -234,7 +235,8 @@
         </button>
       </div>
       <br/>
-
+      
+      <!--CONSOLAS-->
       <div class="container w-100">
         <div class="row">
          
@@ -268,7 +270,8 @@
                 </div>
             </a>
           </div>
-<div class="col-3"></div>
+
+          <div class="col-3"></div>
           <!--XBOX-->
           <div class="col-1 mb-3">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
@@ -335,17 +338,17 @@
         </div>
       </div>
       <br/>
-
-
+      
+      <!--TITULO-->
       <div class="text-center w-100">
         <div class="col pt-3 pb-2 bg-warning text-dark rounded-pill">
           <h2><b>¡NUEVOS LANZAMIENTOS!</b></h2>
         </div>
       </div>
-
       <br/>
 
-      <div class="container  container-products">
+      <!--PRODUCTOS-->
+      <div class="container container-products">
         <?php 
           $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 8;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -387,131 +390,116 @@
         <div class="col pt-3 pb-2 bg-dark text-dark rounded-pill">
           <h3><b>VIDEOGAME STORE ES TU MEJOR OPCION</b></h3>
         </div>
-          <br>
+        <br>
 
-          <div class="background-categorias">
+        <div class="background-categorias">
           <h3><b class="titulos-categorias">Consolas</b></h3>
-      </div> 
+        </div> 
 
       </div>
-
-
-
-      <br/>
-       
-      <br/>
+      <br/><br/>
       
       <div class="container w-100 container-products">
 
+        <?php 
 
-      <?php 
 
-
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 8;");
-      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-      $rutaCarpetaImagenes = 'adminView/products/posters/';
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 8;");
+          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+          $rutaCarpetaImagenes = 'adminView/products/posters/';
   
-      
-    
-      
-      
-      foreach($productos as $dato){ ?>
+          foreach($productos as $dato)
+        { ?>
 
-<div class="cards-presentacion">
-  <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-      <div class="card border border-3 border-secondary" style="width: 18rem;">
+          <div class="cards-presentacion">
 
-      <?php
-            $nombreimagen = $dato->imagen;
-            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+              <div class="card border border-3 border-secondary" style="width: 18rem;">
 
-            $base64 = base64_encode(file_get_contents($rutaimagen));
-            $base64 = 'data:image/jpeg;base64,'.$base64;
+                <?php
+                  $nombreimagen = $dato->imagen;
+                  $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,'.$base64;
 
-            echo  "<img src='$base64' class='img_init' alt=''>";
+                  echo  "<img src='$base64' class='img_init' alt=''>";
+                ?>
 
-          ?>
+                <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                  <h5><?php echo $dato->nombre ?></h5>
 
-          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-              <h5> <?php echo $dato->nombre ?></h5>
-              <p class="card-text">
-                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
-              </p>
+                  <p class="card-text">
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                  </p>
+                </div>
+
+              </div>
+            </a>
           </div>
-      </div>
-  </a>
-</div>
 
-
-<?php }
-?>
-
-        
+        <?php }
+        ?>
 
       </div>
       <br>
+
       <div class="background-categorias">
-          <h3><b class="titulos-categorias">Ropa</b></h3>
+        <h3><b class="titulos-categorias">ROPA</b></h3>
       </div> 
 
       </div>
 
-
-
-      <br/>
-       
+      <br/>       
       <br/>
       
       <div class="container w-100 container-products">
 
-
-      <?php 
-
-
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
-      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-      $rutaCarpetaImagenes = 'adminView/products/posters/';
+        <?php 
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
+          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+          $rutaCarpetaImagenes = 'adminView/products/posters/';
   
       
     
       
       
-      foreach($productos as $dato){ ?>
+        foreach($productos as $dato)
+        { ?>
 
-<div class="cards-presentacion">
-  <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-      <div class="card border border-3 border-secondary" style="width: 18rem;">
+          <div class="cards-presentacion">
+            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-      <?php
-            $nombreimagen = $dato->imagen;
-            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+              <div class="card border border-3 border-secondary" style="width: 18rem;">
 
-            $base64 = base64_encode(file_get_contents($rutaimagen));
-            $base64 = 'data:image/jpeg;base64,'.$base64;
+                <?php
 
-            echo  "<img src='$base64' class='img_init' alt=''>";
+                  $nombreimagen = $dato->imagen;
+                  $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,'.$base64;
 
+                  echo  "<img src='$base64' class='img_init' alt=''>";
+
+                ?>
+
+                <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                  <h5> <?php echo $dato->nombre ?></h5>
+                  <p class="card-text">
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+
+          <?php }
+            $bd = NULL;
           ?>
 
-          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-              <h5> <?php echo $dato->nombre ?></h5>
-              <p class="card-text">
-                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
-              </p>
-          </div>
-      </div>
-  </a>
-</div>
-
-
-<?php }
-  $bd = NULL;
-?>
-
 
 
       </div>
-
       <br/>
 
       <footer>
