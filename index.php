@@ -200,48 +200,49 @@
         <div class="carousel-inner">
 
           <div class="carousel-item active">
-            <img src="img/zelda.jpg" class="d-block w-100" alt="jojo" height="500px">
+            <img src="img/zelda-tears.jpg" class="d-block w-100 mx-auto" alt="jojo" height="575px">
             <div class="carousel-caption d-none d-md-block">
-              <h2 class="text-dark">¡La secuela del juego mas aclamado de Nintendo Switch!</h2>
-              <h4 class="text-black-50">Lucha junto a Link para derrotar a Ganon</h4>
+              <h3 class="dark-sh"><b>¡LA SECUELA DEL JUEGO MAS ACLAMADO DE NINTENDO SWITCH!</b></h3>
+              <h4 class="text-body-secondary"><b>LUCHA JUNTO A LINK PARA DERROTAR A GANON</b></h4>
             </div>
           </div>
 
           <div class="carousel-item">
-            <img src="img/godof.jpg" class="d-block w-100" alt="..." height="500px">
+            <img src="img/gow-rag.jpg" class="d-block w-100 mx-auto" alt="..." height="575px">
             <div class="carousel-caption d-none d-md-block">
-              <h2 class="text-light">Aun quedan dioses</h2>
-              <h4 class="text-white-50">Kratos regresa junto Atreus para presenciar el Ragnarok</h4>
+              <h3 class="dark-sh"><b>AÚN QUEDAN DIOSES</b></h3>
+              <h4 class="text-body-secondary"><b>KRATOS REGRESA JUNTO ATREUS PARA PRESENCIAR EL RAGNAROK</b></h4>
             </div>
           </div>
 
           <div class="carousel-item">
-            <img src="img/ff16.jpg" class="d-block w-100" alt="..." height="500px">
+            <img src="img/ff16.jpg" class="d-block w-100 mx-auto" alt="..." height="575px">
             <div class="carousel-caption d-none d-md-block">
-              <h2 class="text-light">Una ultima fantasia se aproxima</h2>
-              <h4 class="text-white-50">La decima sexta entrega de Final Fantasy viene con todo.</h4>
+              <h3 class="dark-sh"><b>UNA ÚLTIMA FANTASÍA SE APROXIMA</b></h3>
+              <h4 class="text-body-secondary"><b>LA DÉCIMA SEXTA ENTREGA DE FINAL FANTASY VIENE CON TODO</b></h4>
             </div>
           </div>
 
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="carousel-control-prev-icon rounded-circle" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="carousel-control-next-icon rounded-circle" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
       <br/>
       
       <!--CONSOLAS-->
-      <div class="container w-100">
+      <div class="container container-consolas w-100">
         <div class="row">
          
           <!--PLAY-->
-          <div class="col-1 mb-3">
+          <div class="col mb-3">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0" style="box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);">
 
                 <div class="card bg-primary rounded-5" style="width: 23rem;">
@@ -270,10 +271,12 @@
                 </div>
             </a>
           </div>
+          
+          <!--
+          <div class="col-3"></div>-->
 
-          <div class="col-3"></div>
           <!--XBOX-->
-          <div class="col-1 mb-3">
+          <div class="col mb-3">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
                 <div class="card bg-black rounded-5" style="width: 23rem;">
@@ -301,10 +304,12 @@
                 </div>
             </a>
           </div>
-          <div class="col-3"></div>
+
+          <!--
+          <div class="col-3"></div>-->
 
           <!--NINTENDO-->
-          <div class="col-1 mb-3">
+          <div class="col mb-3">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
                 <div class="card bg-danger rounded-5" style="width: 23rem;">

@@ -6,11 +6,19 @@
     width: 100%;
 }
 
+.container-consolas{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
 .cards-presentacion{
     padding: 10px;
 }
-.row{
-}
+/*.row{
+}*/
 .img_init{
     height: 200px;
     width: 100%;
