@@ -28,8 +28,9 @@
 
 <body class="bg-white w-100">
 
-    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
-      <div class="container-fluid">
+      <!--BARRA-->
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+        <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
 
@@ -185,10 +186,10 @@
 
               </form>
 
-            </div>
-    </nav>
-
-
+        </div>
+      </nav>
+      
+      <!--CARRUSEL-->
       <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -234,7 +235,8 @@
         </button>
       </div>
       <br/>
-
+      
+      <!--CONSOLAS-->
       <div class="container w-100">
         <div class="row">
          
@@ -268,7 +270,8 @@
                 </div>
             </a>
           </div>
-<div class="col-3"></div>
+
+          <div class="col-3"></div>
           <!--XBOX-->
           <div class="col-1 mb-3">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
@@ -335,24 +338,24 @@
         </div>
       </div>
       <br/>
-
-
+      
+      <!--TITULO-->
       <div class="text-center w-100">
         <div class="col pt-3 pb-2 bg-warning text-dark rounded-pill">
           <h2><b>¡NUEVOS LANZAMIENTOS!</b></h2>
         </div>
       </div>
-
       <br/>
 
-      <div class="container  container-products">
+      <!--PRODUCTOS-->
+      <div class="container container-products">
         <?php 
-          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 9;");
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 8;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
           $rutaCarpetaImagenes = 'adminView/products/posters/';
         foreach($productos as $dato){ ?>
 
-          <div class="col mb-3">
+          <div class="cards-presentacion">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
                 <div class="card border border-3 border-secondary" style="width: 18rem;">
 
@@ -387,130 +390,116 @@
         <div class="col pt-3 pb-2 bg-dark text-dark rounded-pill">
           <h3><b>VIDEOGAME STORE ES TU MEJOR OPCION</b></h3>
         </div>
-          <br>
+        <br>
 
-          <div class="background-categorias">
+        <div class="background-categorias">
           <h3><b class="titulos-categorias">Consolas</b></h3>
-      </div> 
+        </div> 
 
       </div>
-
-
-
-      <br/>
-       
-      <br/>
+      <br/><br/>
       
       <div class="container w-100 container-products">
 
+        <?php 
 
-      <?php 
 
-
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 6;");
-      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-      $rutaCarpetaImagenes = 'adminView/products/posters/';
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 8;");
+          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+          $rutaCarpetaImagenes = 'adminView/products/posters/';
   
-      
-    
-      
-      
-      foreach($productos as $dato){ ?>
+          foreach($productos as $dato)
+        { ?>
 
-<div class="col mb-3">
-  <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-      <div class="card border border-3 border-secondary" style="width: 18rem;">
+          <div class="cards-presentacion">
 
-      <?php
-            $nombreimagen = $dato->imagen;
-            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+              <div class="card border border-3 border-secondary" style="width: 18rem;">
 
-            $base64 = base64_encode(file_get_contents($rutaimagen));
-            $base64 = 'data:image/jpeg;base64,'.$base64;
+                <?php
+                  $nombreimagen = $dato->imagen;
+                  $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,'.$base64;
 
-            echo  "<img src='$base64' class='img_init' alt=''>";
+                  echo  "<img src='$base64' class='img_init' alt=''>";
+                ?>
 
-          ?>
+                <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                  <h5><?php echo $dato->nombre ?></h5>
 
-          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-              <h5> <?php echo $dato->nombre ?></h5>
-              <p class="card-text">
-                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
-              </p>
+                  <p class="card-text">
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                  </p>
+                </div>
+
+              </div>
+            </a>
           </div>
-      </div>
-  </a>
-</div>
 
-
-<?php }
-?>
-
-
+        <?php }
+        ?>
 
       </div>
+      <br>
+
       <div class="background-categorias">
-          <h3><b class="titulos-categorias">Ropa</b></h3>
+        <h3><b class="titulos-categorias">ROPA</b></h3>
       </div> 
 
       </div>
 
-
-
-      <br/>
-       
+      <br/>       
       <br/>
       
       <div class="container w-100 container-products">
 
-
-      <?php 
-
-
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
-      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-      $rutaCarpetaImagenes = 'adminView/products/posters/';
+        <?php 
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
+          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+          $rutaCarpetaImagenes = 'adminView/products/posters/';
   
       
     
       
       
-      foreach($productos as $dato){ ?>
+        foreach($productos as $dato)
+        { ?>
 
-<div class="col mb-3">
-  <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-      <div class="card border border-3 border-secondary" style="width: 18rem;">
+          <div class="cards-presentacion">
+            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-      <?php
-            $nombreimagen = $dato->imagen;
-            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+              <div class="card border border-3 border-secondary" style="width: 18rem;">
 
-            $base64 = base64_encode(file_get_contents($rutaimagen));
-            $base64 = 'data:image/jpeg;base64,'.$base64;
+                <?php
 
-            echo  "<img src='$base64' class='img_init' alt=''>";
+                  $nombreimagen = $dato->imagen;
+                  $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,'.$base64;
 
+                  echo  "<img src='$base64' class='img_init' alt=''>";
+
+                ?>
+
+                <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                  <h5> <?php echo $dato->nombre ?></h5>
+                  <p class="card-text">
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+
+          <?php }
+            $bd = NULL;
           ?>
 
-          <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-              <h5> <?php echo $dato->nombre ?></h5>
-              <p class="card-text">
-                <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
-              </p>
-          </div>
-      </div>
-  </a>
-</div>
-
-
-<?php }
-  $bd = NULL;
-?>
-
 
 
       </div>
-
       <br/>
 
       <footer>
@@ -546,16 +535,26 @@
               <h4><b>ENCUENTRANOS EN</b></h4>
 
               <div class="mt-2 mb-2">
-                <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Plaza de la tecnologia Torreon - Local 314/322/316</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop me-1" viewBox="0 0 16 16">
+                  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                </svg>
+
+                <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Plaza de la Tecnología Torreon - Local 314/322/316</a>
               </div>
 
               <div class="mt-2 mb-2">
-                <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Dirección: Av Hidalgo 1334, Primitivo Centro, 27000 Torreón, Coah.</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map-fill me-1" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+                  <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+                </svg>
+
+                <a href="https://www.google.com.mx/maps/place/Plaza+de+la+Tecnolog%C3%ADa+Torre%C3%B3n/@25.5372733,-103.4654479,17z/data=!3m1!4b1!4m6!3m5!1s0x868fd9689c38aa7b:0x93f069a0cb99a84!8m2!3d25.5372685!4d-103.462873!16s%2Fg%2F1td4vq7s?entry=ttu">Av. Hidalgo 1334, Primitivo Centro, 27000 Torreón, Coah.</a>
               </div>  
 
             </div>
 
           </div>
+
 
           <div class="bg-dark p-2">
 

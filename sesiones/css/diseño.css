@@ -8,14 +8,14 @@ body{
 }*/
 
 .formulario{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    /*top: 44%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     width: 400px;
     /*background-color: lemonchiffon;*/
-    border-radius: 10px;
-    height: 450px;
+    /*border-radius: 10px;*/
+    height: auto;
 }
 .formulario h1{
     /*text-align: center;*/
@@ -50,7 +50,7 @@ form .username{
     pointer-events: none;
 }
 .recordar{
-    height: 40px;
+    height: auto;
 }
 .recordar button{
     /*position: absolute;*/
@@ -69,9 +69,9 @@ form .username{
     transform: scale(0.94);
 }
 .recordar label{
-    padding-left: 18px;
-    position: absolute;
-    left: 7%;
+    /*padding-left: 18px;*/
+    position: relative;
+    /*left: 0;*/
 }
 .container-background{
     height: 100vh;
