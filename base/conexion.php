@@ -1,5 +1,5 @@
 <?php
-    $servername = "54.196.145.118";
+    $servername = "54.209.294.64";
     $username = "Administrador";
     $password = "000000";
     $dbname = "integradora2";
