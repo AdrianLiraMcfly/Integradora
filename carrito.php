@@ -203,44 +203,41 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   ?>
 
   <br>
-  <div class="container-pag-carrito">
+    <div class="container-pag-carrito">
 
-    <div class="carrito-detalles">
-      <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
-        <h3><b>DETALLES</b></h3>
-      </div> <br>
+      <div class="carrito-detalles">
+        <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
+          <h3><b>DETALLES</b></h3>
+        </div> <br>
 
 
-      <div class="container-carrito shadow-lg">
+        <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4">
 
-        <div class="informacion-detalles-carrito">
-          <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
-          <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
-          <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
-          <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-          <p style="font-size: 17px;"><b>Total:</b> $<?php  ?> </p>
+          <div class="informacion-detalles-carrito">
 
-          <div class="container-btn"> 
-            <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
+            <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
+            <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
+            <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
+            <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php  ?> </p>
 
-            <form action="src/insert-dat-carrito.php" method="post">  
-              <button style="z-index: 50; font-size: 17px;" class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
-                <b>REALIZAR PEDIDO</b>
-              </button>
-            </form>
+            <div class="container-btn"> 
+              <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
 
+              <form action="src/insert-dat-carrito.php" method="post">  
+                <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
+                  <b>REALIZAR PEDIDO</b>
+                </button>
+              </form>
+            </div>
+
+            <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
           </div>
 
-          <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
-
         </div>
-
-
       </div>
     </div>
 
-
-    </div>
     <?php if (!empty($_SESSION['CARRITO'])) { ?>
 
     <div class="container-carrito-div">
@@ -249,7 +246,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <h3><b>CARRITO</b></h3>
       </div> <br>
 
-      <div class="container-carrito barra-deslizable shadow-lg">
+      <div class="container-carrito shadow-lg barra-deslizable border border-2 border-black p-3 rounded-4">
         <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
 
 
@@ -264,31 +261,32 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
 
 
-          <div class="container-carrito-products">
-            <div class="btn-delete-product">
+          <div class="container-carrito-products border border-2 border-black text-center">
+
+            <div class="btn-delete-product w-25 text-center me-auto">
               <form action="" method="post">
 
                 <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
-                <button class="mt-22 border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
 
+                <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                  </svg>
+                </button>
               </form>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-              </svg>
-              </button>
             </div>
 
-            <div class="container-products-carrito-info">
-              <p class="mb-0" style="font-size: 18px;"> <?php echo $producto['NOMBRE'] ?> </p>
-              <b> $<?php echo $producto['PRECIO'] ?> </b>
+            <div class="container-products-carrito-info w-25 text-center me-auto">
+              <p class="mb-0" style="font-size: 18px;"><?php echo $producto['NOMBRE'] ?></p>
+              <b>$<?php echo $producto['PRECIO'] ?></b>
             </div>
 
-            <div class="container-folio-products">
-              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" style="width: 35%; height: 25%; position: absolute; text-align: center;" value="<?php echo $producto['CANTIDAD'] ?>">  </input> </p>
-              <b><a href="">Ver Producto</a></b>
+            <div class="container-folio-products w-25 text-center me-auto">
+              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $producto['CANTIDAD'] ?>">  </input> </p>
+              <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
             </div>
 
-            <div class="container-products-carrito-img">
+            <div class="container-products-carrito-img w-25 me-auto">
 
 
               <?php 
@@ -298,7 +296,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               $base64 = base64_encode(file_get_contents($rutaimagen));
               $base64 = 'data:image/jpeg;base64,' . $base64;
 
-              echo  "<img src='$base64' class='' style='width: 100%; height: 100px;' alt=''>";
+              echo  "<img src='$base64' class='p-2' style='width: 100px; height: 100px;' alt=''>";
 
               ?>
 
