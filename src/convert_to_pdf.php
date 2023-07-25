@@ -34,7 +34,7 @@ $dompdf->render();
 
 
 
-/*
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -78,4 +78,4 @@ catch (Exception $e)
 {
     echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
 }
-?> */
+?> 
