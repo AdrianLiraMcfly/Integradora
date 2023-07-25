@@ -211,22 +211,27 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       </div> <br>
 
 
-      <div class="container-carrito" style="background-color: white;">
+      <div class="container-carrito shadow-lg">
 
         <div class="informacion-detalles-carrito">
-          <br>
-          <p style="font-size: 17px;">Folio: No generado</p>
-          <p style="font-size: 17px;">Fecha realizacion de pedido: No generada</p>
-          <p style="font-size: 17px;">Fecha limite de recogida: No generada</p>
-          <p style="font-size: 17px;">Elementos: <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-          <p style="font-size: 17px;">Total: $<?php  ?> </p>
+          <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
+          <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
+          <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
+          <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
+          <p style="font-size: 17px;"><b>Total:</b> $<?php  ?> </p>
+
           <div class="container-btn"> 
             <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
-          <form action="src/insert-dat-carrito.php" method="post">  
-            <button style="z-index: 50;" class="btn-carrito" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>Realizar Pedido</button>
-          </form>
-          </div> <br> <br>
-          <p style="font-size: 14px;">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
+
+            <form action="src/insert-dat-carrito.php" method="post">  
+              <button style="z-index: 50; font-size: 17px;" class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
+                <b>REALIZAR PEDIDO</b>
+              </button>
+            </form>
+
+          </div>
+
+          <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
 
         </div>
 
@@ -244,7 +249,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <h3><b>CARRITO</b></h3>
       </div> <br>
 
-      <div class="container-carrito barra-deslizable">
+      <div class="container-carrito barra-deslizable shadow-lg">
         <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
 
 
@@ -279,7 +284,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             </div>
 
             <div class="container-folio-products">
-              <p class="mb-0" style="font-size: 18px;">Cantidad : <input type="text" style="width: 35%; height: 25%; position: absolute; text-align: center;" value="<?php echo $producto['CANTIDAD'] ?>">  </input> </p>
+              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" style="width: 35%; height: 25%; position: absolute; text-align: center;" value="<?php echo $producto['CANTIDAD'] ?>">  </input> </p>
               <b><a href="">Ver Producto</a></b>
             </div>
 
