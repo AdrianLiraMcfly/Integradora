@@ -56,16 +56,20 @@ if (isset($_POST['btnAccion'])) {
                     $mensaje = "El producto ya ha sido seleccionado...";
                 } else {
                     $NumeroProductos = count($_SESSION['CARRITO']);
-                    $producto = array(
-                        'ID' => $ID,
-                        'NOMBRE' => $NOMBRE,
-                        'PRECIO' => $PRECIO,
-                        'CANTIDAD' => $CANTIDAD,
-                        'IMAGEN' => $IMAGEN
-                    );
-
-                    $_SESSION['CARRITO'][$NumeroProductos] = $producto;
-                    $mensaje = "Producto agregado al carrito exitosamente...";
+                    if($NumeroProductos == 4){
+                        $mensaje = "La cantidad maxima de articulos es de 4.";
+                    }
+                    else{
+                        $producto = array(
+                            'ID' => $ID,
+                            'NOMBRE' => $NOMBRE,
+                            'PRECIO' => $PRECIO,
+                            'CANTIDAD' => $CANTIDAD,
+                            'IMAGEN' => $IMAGEN
+                        );
+                        $_SESSION['CARRITO'][$NumeroProductos] = $producto;
+                        $mensaje = "Producto agregado al carrito exitosamente...";
+                    }
                 }
             }
 

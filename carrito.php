@@ -200,6 +200,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     <?php
   }
   else{
+    $total=0; 
   ?>
 
   <br>
@@ -219,12 +220,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php  ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];} echo $total; ?> </p>
 
             <div class="container-btn"> 
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
 
               <form action="src/insert-dat-carrito.php" method="post">  
+                <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
                 <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
                   <b>REALIZAR PEDIDO</b>
                 </button>
@@ -263,7 +265,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="container-carrito-products border border-2 border-black text-center">
 
-            <div class="btn-delete-product w-25 text-center me-auto">
+            <div class="btn-delete-product w-auto text-center ms-auto me-auto">
               <form action="" method="post">
 
                 <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
@@ -286,7 +288,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
             </div>
 
-            <div class="container-products-carrito-img w-25 me-auto">
+            <div class="container-products-carrito-img w-25 me-auto p-2">
 
 
               <?php 
@@ -296,7 +298,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               $base64 = base64_encode(file_get_contents($rutaimagen));
               $base64 = 'data:image/jpeg;base64,' . $base64;
 
-              echo  "<img src='$base64' class='p-2' style='width: 100px; height: 100px;' alt=''>";
+              echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
 
               ?>
 
