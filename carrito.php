@@ -265,7 +265,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="container-carrito-products border border-2 border-black text-center">
 
-            <div class="btn-delete-product w-25 text-center me-auto">
+            <div class="btn-delete-product w-auto text-center ms-auto me-auto">
               <form action="" method="post">
 
                 <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
@@ -288,7 +288,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
             </div>
 
-            <div class="container-products-carrito-img w-25 me-auto">
+            <div class="container-products-carrito-img w-25 me-auto p-2">
 
 
               <?php 
@@ -298,7 +298,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               $base64 = base64_encode(file_get_contents($rutaimagen));
               $base64 = 'data:image/jpeg;base64,' . $base64;
 
-              echo  "<img src='$base64' class='p-2' style='width: 100px; height: 100px;' alt=''>";
+              echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
 
               ?>
 

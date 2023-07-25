@@ -139,7 +139,7 @@ body{
 .container-pag-carrito{
     display: flex;
     flex-flow: row wrap;
-    position:fixed;
+    position:absolute;
     width: 100%;
 }
 .container-carrito-div{
@@ -177,5 +177,5 @@ body{
 }
 .barra-deslizable{
     overflow-y: auto;
-    position: relative;
+    /*position: relative;*/
 }
