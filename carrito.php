@@ -217,7 +217,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           <div class="informacion-detalles-carrito">
 
             <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
-            <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
+            <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada  ññññ á ó ! ~ ^^ ? ¿ ¡ ''</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
             <p style="font-size: 17px;"><b>Total:</b> $<?php foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];} echo $total; ?> </p>
@@ -226,6 +226,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
 
               <form action="src/insert-dat-carrito.php" method="post">  
+                <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
                 <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
                   <b>REALIZAR PEDIDO</b>
                 </button>

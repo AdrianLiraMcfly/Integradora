@@ -5,6 +5,9 @@ if (!isset($_POST['btnPedido'])){
     echo 'ERROR';
     exit();
 }
+if(isset($_POST['txtTotal'])){
+    $total = $_POST['txtTotal'];
+}
 
 include 'conexionbd.php';
 $bd->beginTransaction();
@@ -16,10 +19,12 @@ try {
         $sentencia_producto->execute([$dato['ID'], $dato['CANTIDAD'], $dato['PRECIO'], NULL]); // Dejar id_carrito como NULL por ahora
     }
 
+
+
     // Insertar registro en la tabla carrito
     $id_usuario = $_SESSION['id'];
     $sentencia_carrito = $bd->prepare("INSERT INTO carrito (id_usuario, fecha_venta, total) VALUES (?, NOW(), ?);");
-    $sentencia_carrito->execute([$id_usuario, NULL]);
+    $sentencia_carrito->execute([$id_usuario, $total]);
 
     // Obtener el id_carrito recién insertado
     $id_carrito = $bd->lastInsertId();
