@@ -191,46 +191,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   </nav>
 
   <?php
-<<<<<<< HEAD
-  if(!isset($_SESSION['nombre'])){
-    ?>
-
-      <div class="d-flex align-items-center justify-content-center vh-100">
-        <div class="alerts p-2 w-50 text-center rounded-4 shadow-lg">
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
-              <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-              <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
-            </svg>
-
-            <p class="text-warn my-auto fw-bold text-light mb-3">
-              ¡NECESITAS INICIAR SESION PARA USAR EL CARRITO!
-            </p>
-
-            <span class="fw-bold bg-warning border border-black border-2 rounded-pill p-1 shadow-sm">
-              <a class="link-warn" href="sesiones/login.php">
-                Inicia Sesión
-              </a>
-            </span>
-            <br/><br/>
-
-            <span class="fw-bold bg-warning border border-black border-2 rounded-pill p-1 shadow-sm">
-              <a class="link-warn" href="sesiones/register.php">
-                ¡Crea una!
-              </a>
-            </span>
-        </div>
-      </div>
-
-    <?php
-  }
-  else{
-    $total=0; 
-  ?>
-
-  <br>
-    <div class="container-pag-carrito p-1">
-=======
   if (!isset($_SESSION['nombre'])) {
   ?>
 
@@ -258,7 +218,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <br>
     <div class="container-pag-carrito">
->>>>>>> 6c9a79a8a3791a520a30dbe1a9c42ae4325815af
 
       <div class="carrito-detalles">
         <div class="text-center">
@@ -301,19 +260,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <?php if (!empty($_SESSION['CARRITO'])) { ?>
 
-<<<<<<< HEAD
-    <div class="container-carrito-div p-1">
-
-      <div class="text-center">
-        <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2"><b>CARRITO</b></span>
-      </div> <br>
-=======
       <div class="container-carrito-div">
 
         <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
           <h3><b>CARRITO</b></h3>
         </div> <br>
->>>>>>> 6c9a79a8a3791a520a30dbe1a9c42ae4325815af
 
         <div class="container-carrito shadow-lg barra-deslizable border border-2 border-black p-3 rounded-4">
           <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
@@ -330,17 +281,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
 
 
-<<<<<<< HEAD
-          <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
-
-            <div class="btn-delete-product w-auto text-center ms-1 me-auto border text-center">
-              <form action="" method="post">
-=======
             <div class="container-carrito-products border border-2 border-black text-center">
 
               <div class="btn-delete-product w-auto text-center ms-auto me-auto">
                 <form action="" method="post">
->>>>>>> 6c9a79a8a3791a520a30dbe1a9c42ae4325815af
 
                   <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
 
@@ -381,48 +325,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             </div>
           <?php } ?>
 
-<<<<<<< HEAD
-            <div class="container-products-carrito-info w-auto text-center me-auto border">
-              <p class="mb-0"><?php echo $producto['NOMBRE'] ?></p>
-              <b>$<?php echo $producto['PRECIO'] ?></b>
-            </div>
-
-            <div class="container-folio-products w-auto text-center me-auto border"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
-              <p class="mb-0">
-                Cantidad: 
-                <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)">  
-                </input> 
-              </p>
-              <a class="ver-pro mt-3" href="">
-                <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
-                  Ver Producto
-                </b>
-              </a>
-            </div>
-
-            <div class="container-products-carrito-img w-25 me-1 p-2 border">
-
-
-              <?php 
-              $nombreimagen = $persona->imagen;
-              $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
-
-              $base64 = base64_encode(file_get_contents($rutaimagen));
-              $base64 = 'data:image/jpeg;base64,' . $base64;
-
-              echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
-
-              ?>
-
-
-            </div>
-          </div>
-        <?php } ?>
-=======
         </div>
       </div>
 
->>>>>>> 6c9a79a8a3791a520a30dbe1a9c42ae4325815af
 
       </div>
     <?php } else { ?>
@@ -430,15 +335,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php }
   } ?>
 
-<<<<<<< HEAD
-
-  </div>
-  <?php } else { ?>
-    <div class="alert alert-success">No hay productos en el carrito...</div>
-  <?php }} ?>
-  
-=======
->>>>>>> 6c9a79a8a3791a520a30dbe1a9c42ae4325815af
 </body>
 
 </html>
