@@ -332,14 +332,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php } else { ?>
     <div class="alert alert-success"> No hay productos en el carrito... </div>
   <?php }} ?>
-
-  <script>
-  function actualizarCantidad(indice) {
-    var inputCantidad = document.getElementById("INDICE" + indice);
-    var nuevaCantidad = inputCantidad.value;
-    <?php $_SESSION['CARRITO'][$indice]['CANTIDAD'] = ?> nuevaCantidad; 
-  }
-</script>
   
 </body>
 
