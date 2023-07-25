@@ -231,11 +231,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   ?>
 
   <br>
-    <div class="container-pag-carrito">
+    <div class="container-pag-carrito p-1">
 
       <div class="carrito-detalles">
-        <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
-          <h3><b>DETALLES</b></h3>
+        <div class="text-center">
+          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2"><b>DETALLES</b></span>
         </div> <br>
 
 
@@ -269,10 +269,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <?php if (!empty($_SESSION['CARRITO'])) { ?>
 
-    <div class="container-carrito-div">
+    <div class="container-carrito-div p-1">
 
-      <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
-        <h3><b>CARRITO</b></h3>
+      <div class="text-center">
+        <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2"><b>CARRITO</b></span>
       </div> <br>
 
       <div class="container-carrito shadow-lg barra-deslizable border border-2 border-black p-3 rounded-4">
@@ -290,9 +290,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
 
 
-          <div class="container-carrito-products border border-2 border-black text-center">
+          <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
-            <div class="btn-delete-product w-auto text-center ms-auto me-auto">
+            <div class="btn-delete-product w-auto text-center ms-1 me-auto border text-center">
               <form action="" method="post">
 
                 <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
@@ -305,17 +305,25 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               </form>
             </div>
 
-            <div class="container-products-carrito-info w-25 text-center me-auto">
-              <p class="mb-0" style="font-size: 18px;"><?php echo $producto['NOMBRE'] ?></p>
+            <div class="container-products-carrito-info w-auto text-center me-auto border">
+              <p class="mb-0"><?php echo $producto['NOMBRE'] ?></p>
               <b>$<?php echo $producto['PRECIO'] ?></b>
             </div>
 
-            <div class="container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
-              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)">  </input> </p>
-              <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
+            <div class="container-folio-products w-auto text-center me-auto border"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
+              <p class="mb-0">
+                Cantidad: 
+                <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)">  
+                </input> 
+              </p>
+              <a class="ver-pro mt-3" href="">
+                <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
+                  Ver Producto
+                </b>
+              </a>
             </div>
 
-            <div class="container-products-carrito-img w-25 me-auto p-2">
+            <div class="container-products-carrito-img w-25 me-1 p-2 border">
 
 
               <?php 
@@ -340,7 +348,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   </div>
   <?php } else { ?>
-    <div class="alert alert-success"> No hay productos en el carrito... </div>
+    <div class="alert alert-success">No hay productos en el carrito...</div>
   <?php }} ?>
   
 </body>
