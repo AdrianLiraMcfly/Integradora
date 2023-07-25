@@ -36,8 +36,8 @@ try {
 
     $bd->commit();
 
-    header('location: ../carrito.php');
-    //header('location: convert_to_pdf.php');
+    //header('location: ../carrito.php');
+    header('location: convert_to_pdf.php');
     }
 
 } catch (Exception $e) {
