@@ -28,7 +28,7 @@
     width: 100vh;
 }
 .container_product_present{
-    height: 800px;
+    height: auto;
 }
 .btns_container{
     border: 1px black solid;

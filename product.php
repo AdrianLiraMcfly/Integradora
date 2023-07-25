@@ -188,13 +188,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
   <?php } ?>
 
-
-
-  <div class="container-fluid w-75 mt-5">
+  <div class="container-fluid mt-5">
 
     <div class="row">
 
-      <div class="col-md-4 shadow w-auto h-auto rounded border border-black container_product_present">
+      <div class="col-md-4 shadow rounded container_product_present">
         <?php
 
         $id = $_GET['id'];
