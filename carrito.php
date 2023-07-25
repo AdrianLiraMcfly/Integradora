@@ -17,7 +17,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -227,7 +226,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
               <form action="src/insert-dat-carrito.php" method="post" target="_blank">  
                 <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
-                <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
+                <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" id="btnPedido"  value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
                   <b>REALIZAR PEDIDO</b>
                 </button>
               </form>

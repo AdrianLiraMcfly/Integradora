@@ -1,6 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 include 'conexionbd.php';
+session_start();
 
 use Dompdf\Dompdf;
 $dompdf=new Dompdf();
@@ -27,12 +28,12 @@ $dompdf->set_option('isRemoteEnabled', true); // Permite cargar imágenes desde 
 // Renderiza el contenido HTML en PDF
 $dompdf->render();
 
-$pdfward=$dompdf->output();
+
 
 // Genera el archivo PDF
-$dompdf->stream("Folio.pdf", array("Attachment" => false));
 
-require __DIR__ . 'bootstrap.php';
+
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -55,21 +56,22 @@ try
     $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom($destinatario, 'Cliente');
-    $mail->addAddress('luismahe2004@gmail.com');     //Add a recipient
+    $mail->setFrom('luismahe2004@gmail.com', 'Videogame Store');
+    $mail->addAddress($_SESSION['email'], $_SESSION['nombre']);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
 
     //Attachments
-    $mail->addAttachment($pdfward, 'Folio.pdf');    //Optional name
+    $pdfward=$dompdf->output();
+    $mail->addStringAttachment($pdfward, 'Folio.pdf');    //Optional name
 
     //Content
     $mail->isHTML(true);                  //Set email format to HTML
     $mail->Subject = 'Folio de compra';
     $mail->Body    = 'Favor de presentar su folio en el local 322 de la plaza de la tecnologia';
-
     $mail->send();
+    $dompdf->stream("Folio.pdf", array("Attachment" => false));
     header('Location: ../index.php');
 } 
 catch (Exception $e) 
