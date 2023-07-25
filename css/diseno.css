@@ -139,7 +139,7 @@ body{
 .container-pag-carrito{
     display: flex;
     flex-flow: row wrap;
-    position:absolute;
+    position: fixed;
     width: 100%;
 }
 .container-carrito-div{

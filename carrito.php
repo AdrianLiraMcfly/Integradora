@@ -31,7 +31,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <title>Carrito</title>
 </head>
 
-<body class="bg-white w-100">
+<body class="bg-white w-100 h-100">
 
   <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
     <div class="container-fluid">
@@ -195,7 +195,24 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php
   if(!isset($_SESSION['nombre'])){
     ?>
-     <center><div><p>NECESITAS INICIAR SESION PARA USAR EL CARRITO</p></div></center>
+
+      <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="alerts p-2 w-25 text-center rounded-3 shadow-lg">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+              <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+              <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+            </svg>
+
+            <p class="text-warn my-auto fw-bold text-light mb-3">
+              ¡NECESITAS INICIAR SESION PARA USAR EL CARRITO!
+            </p>
+
+            <span class="fw-medium"><a class="link-warn" href="sesiones/login.php">¿Ya tienes cuenta?</a></span><br/>
+            <span class="fw-medium"><a class="link-warn" href="sesiones/register.php">¡Crea una!</a></span>
+        </div>
+      </div>
+
     <?php
   }
   else{
@@ -219,7 +236,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];} echo $total; ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php if(isset($_SESSION['CARRITO'])){foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];}}  echo $total; ?> </p>
 
             <div class="container-btn"> 
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
@@ -282,8 +299,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <b>$<?php echo $producto['PRECIO'] ?></b>
             </div>
 
-            <div class="container-folio-products w-25 text-center me-auto">
-              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $producto['CANTIDAD'] ?>">  </input> </p>
+            <div class="container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
+              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)">  </input> </p>
               <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
             </div>
 
@@ -314,7 +331,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php } else { ?>
     <div class="alert alert-success"> No hay productos en el carrito... </div>
   <?php }} ?>
-
+  
 </body>
 
 </html>
