@@ -32,7 +32,7 @@ try {
     $bd->commit();
 
     // Redireccionar después de completar la inserción
-    header('location: ../carrito.php');
+    header('location: convert_to_pdf.php');
 } catch (Exception $e) {
     // Revertir la transacción en caso de error
     $bd->rollback();
