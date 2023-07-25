@@ -217,7 +217,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           <div class="informacion-detalles-carrito">
 
             <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
-            <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada  ññññ á ó ! ~ ^^ ? ¿ ¡ ''</p>
+            <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
             <p style="font-size: 17px;"><b>Total:</b> $<?php foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];} echo $total; ?> </p>
