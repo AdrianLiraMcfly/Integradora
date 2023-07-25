@@ -200,6 +200,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     <?php
   }
   else{
+    $total=0; 
   ?>
 
   <br>
@@ -219,7 +220,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php  ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];} echo $total; ?> </p>
 
             <div class="container-btn"> 
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
