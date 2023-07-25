@@ -7,6 +7,7 @@ $nombrebd='integradora2';
 
 try {
     $bd = new PDO(
+        'mysql:host=54.209.244.64;dbname=' . $nombrebd,
         'mysql:host=54.209.294.64;dbname=' . $nombrebd,
         $usuario,
         $passw,
