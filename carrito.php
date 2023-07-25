@@ -220,7 +220,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];} echo $total; ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php if(isset($_SESSION['CARRITO'])){foreach($_SESSION['CARRITO'] as $indice => $producto){$total+=$producto['PRECIO'];}}  echo $total; ?> </p>
 
             <div class="container-btn"> 
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
@@ -283,8 +283,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <b>$<?php echo $producto['PRECIO'] ?></b>
             </div>
 
-            <div class="container-folio-products w-25 text-center me-auto">
-              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $producto['CANTIDAD'] ?>">  </input> </p>
+            <div class="container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
+              <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)">  </input> </p>
               <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
             </div>
 
@@ -316,6 +316,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     <div class="alert alert-success"> No hay productos en el carrito... </div>
   <?php }} ?>
 
+  <script>
+  function actualizarCantidad(indice) {
+    var inputCantidad = document.getElementById("INDICE" + indice);
+    var nuevaCantidad = inputCantidad.value;
+    <?php $_SESSION['CARRITO'][$indice]['CANTIDAD'] = ?> nuevaCantidad; 
+  }
+</script>
+  
 </body>
 
 </html>
