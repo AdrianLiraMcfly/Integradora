@@ -239,14 +239,14 @@
       <br/>
       
       <!--CONSOLAS-->
-      <div class="container container-consolas w-100">
-        <div class="row">
+      <div class="container-fluid container-consolas">
+        <div class="row w-100">
          
           <!--PLAY-->
-          <div class="col mb-3">
+          <div class="col-4">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0" style="box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);">
 
-                <div class="card bg-primary rounded-5" style="width: 23rem;">
+                <div class="card bg-primary rounded-5 h-100">
 
                     <center>
                       <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" fill="currentColor" class="bi bi-playstation mt-4" viewBox="0 0 16 16" id="consolas">
@@ -277,10 +277,10 @@
           <div class="col-3"></div>-->
 
           <!--XBOX-->
-          <div class="col mb-3">
+          <div class="col-4">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-black rounded-5" style="width: 23rem;">
+                <div class="card bg-black rounded-5 h-100">
 
                     <center>
                       <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" fill="currentColor" class="bi bi-xbox mt-4" viewBox="0 0 16 16" id="consolas">
@@ -310,10 +310,10 @@
           <div class="col-3"></div>-->
 
           <!--NINTENDO-->
-          <div class="col mb-3">
+          <div class="col-4">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-danger rounded-5" style="width: 23rem;">
+                <div class="card bg-danger rounded-5 h-100">
 
                     <center>
                       <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" fill="currentColor" class="bi bi-nintendo-switch  mt-4" viewBox="0 0 16 16" id="consolas">
