@@ -283,7 +283,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     </div>
     <br>
 
-    <div class="container-products">
+    <div class="row container-products w-100 h-100 p-2">
       <?php
       $categoria = $persona->categoria;
       $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
@@ -293,7 +293,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       foreach ($productos as $dato) { ?>
 
-        <div class="col mb-3">
+        <div class="col-4 me-auto" style="align-items:center; justify-content: space-around;">
           <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
             <div class="card border border-3 border-secondary" style="width: 18rem;">
 
