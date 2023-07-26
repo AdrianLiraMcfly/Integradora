@@ -214,11 +214,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php
   } else {
 
-    //$IDusuario = $_SESSION['id'];
-    //$sentencia = $bd->query("SELECT id_carrito FROM carrito WHERE id_usuario = $IDusuario;");
-    //$persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
-//
-    //if(empty($persona)){
+    $IDusuario = $_SESSION['id'];
+    $sentencia = $bd->query("SELECT id_carrito FROM carrito WHERE id_usuario = $IDusuario;");
+    $persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
+    if(empty($persona)){
 
     $total = 0;
   ?>
@@ -369,11 +369,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       
     <?php 
     }
-  //} else{
-//
-  ////echo 'YA HICISTE UNA COMPRA, PENE';
+  } else{
 
-//}
+  echo 'YA HICISTE UNA COMPRA, PENE';
+
+}
 }
   ?>
 
