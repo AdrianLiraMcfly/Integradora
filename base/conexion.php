@@ -1,7 +1,7 @@
 <?php
-    $servername = "54.209.244.64";
-    $username = "Administrador";
-    $password = "000000";
+    $servername = "52.23.174.251";
+    $username = "luna";
+    $password = "";
     $dbname = "integradora2";
 
 try 

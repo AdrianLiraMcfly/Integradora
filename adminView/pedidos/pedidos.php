@@ -50,7 +50,6 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
 <?php
   include '../encabesado.php';
   ?>
-
 <div class="container d-flex justify-content-center align-items-center">
     <div class="col-md-9">
       <div class="container">
@@ -71,13 +70,13 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
               while($row= $resultado->fetch_assoc()){
               ?> 
               <tr>
-                <td><?php echo $row ["id_carrito"]?></td>
+                <td ><?php echo $row ["id_carrito"]?></td>
                 <td><?php echo $row ["fecha_venta"];?></td>
                 <td><?php echo $row ["id_order"];?></td>
                 <td><?php echo $row ["total"];?></td>
                 <td><?php echo $row ["nombre_usuario"];?></td>
                 <td>
-                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#pedidoModal">Ver Detalle</button>
+                  <button name="btnModal" class="btn btn-primary btn-sm btnVerDetalle" data-toggle="modal" data-target="#pedidoModal" data-idcarrito="<?php echo $row["id_carrito"]; ?>" data-idusuario="<?php echo $row["id_usuario"]; ?>">Ver Detalle</button>
                 </td>
               </tr>
               <?php
@@ -91,16 +90,15 @@ $pedidos = "SELECT * FROM vista_carrito_usuarios";
 <?php include 'modalVer.php'; ?>
 
 <script>
-  public function listarPendientes()
-  {
-    $data = $this->model->getPedidos(1);
-    for (let index = 0; index < array.length; index++) {
-      const element = array[index];
-      
-    }
-    echo json_encode($data);
-    die();
-  }
+// Agregar el evento click del botón "Ver Detalle"
+$('.btnVerDetalle').click(function() {
+  // Obtener el ID del carrito y el ID del usuario del atributo "data-" del botón
+  var idCarrito = $(this).data('idcarrito');
+  var idUsuario = $(this).data('idusuario');
+
+  // Hacer la solicitud AJAX para cargar el contenido del modal desde modalVer.php
+  $('#pedidoModal .modal-content').load('modalVer.php?idCarrito=' + idCarrito + '&idUsuario=' + idUsuario);
+});
 </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

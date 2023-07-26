@@ -14,7 +14,7 @@
 #}
 
 
-$conn = new mysqli("54.196.145.118", "Administrador", "000000", "integradora2");
+$conn = new mysqli("52.23.174.251", "luna", "", "integradora2");
 
 if ($conn->connect_error) {
     die("Error de conexión" . $conn->connect_error);
