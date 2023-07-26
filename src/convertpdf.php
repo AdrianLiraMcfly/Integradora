@@ -43,7 +43,7 @@ try
 
     //Recipients
     $mail->setFrom('luismahe2004@gmail.com', 'Cliente');
-    $mail->addAddress('jorge.liralopez11@gmail.com');     //Add a recipient
+    $mail->addAddress($_SESSION['email']);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
@@ -77,10 +77,9 @@ try
     <body>
         <div class="container">
             <h1>Gracias por comprar con nosotros!</h1>
-            <h1>Folio: <?php echo $folio; ?></h1>
+            <h1>Folio: '.$folio.'</h1>
             <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
-            <img src="../vd_logo.png" alt="Imagen de agradecimiento">
         </div>
     </body>
     </html>';
