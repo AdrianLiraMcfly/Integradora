@@ -35,7 +35,7 @@ try {
     $sentencia_update->execute([$id_carrito]);
 
     $bd->commit();
-    header('location: convertTopdf.php');
+    header('location: converttopdf.php');
     //header('location: ../carrito.php');
     
     }
