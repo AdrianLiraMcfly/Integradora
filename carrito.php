@@ -233,26 +233,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {
-                                                          foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                                                            $total += $producto['PRECIO'];
-                                                          }
-                                                        }
-                                                        echo $total; ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {foreach ($_SESSION['CARRITO'] as $indice => $producto) {$total += $producto['PRECIO'];}} echo $total; ?> </p>
 
             <div class="container-btn">
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
 
-<<<<<<< HEAD
-              <form action="src/insert-dat-carrito.php" method="post">
-                <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
-                <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; 
-                                                                                                                                                          ?>>
-=======
               <form action="src/insert-dat-carrito.php" method="post" target="_blank">  
                 <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
                 <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" id="btnPedido"  value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
->>>>>>> 6868e944a0eaa2097f1e22f608f61e0c3e6f7fde
                   <b>REALIZAR PEDIDO</b>
                 </button>
               </form>
