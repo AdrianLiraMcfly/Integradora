@@ -338,18 +338,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                 <div class="col-4 container-products-carrito-img w-auto p-2">
 
-
                   <?php
-                  $nombreimagen = $persona->imagen;
-                  $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
-
-                  $base64 = base64_encode(file_get_contents($rutaimagen));
-                  $base64 = 'data:image/jpeg;base64,' . $base64;
-
-                  echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
-
+                    $nombreimagen = $persona->imagen;
+                    $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
+                    $base64 = base64_encode(file_get_contents($rutaimagen));
+                    $base64 = 'data:image/jpeg;base64,' . $base64;
+                    echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
                   ?>
-
 
                 </div>
               </div>
