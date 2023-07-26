@@ -106,11 +106,13 @@ body{
     position: relative;
     justify-content: center;
     flex-direction: column;
+    padding: 0%;
     /*left: auto;*/
 }
 .container-products-carrito-img{
     /*padding-top: 5px;
     padding-bottom: 5px;*/
+    padding: 0%;
     display: flex;
     justify-content: center;
     /*margin-right:40px;
@@ -124,12 +126,14 @@ body{
     justify-content: center;
     align-items: center;
     /*height: auto;*/
+    padding: 0%;
 }
 .container-folio-products{
     display: flex;
     position: relative;
     justify-content: center;
     flex-direction: column;
+    padding: 0%;
     /*left: 60px;*/
 }
 .carrito-detalles{
