@@ -7,7 +7,8 @@ $result = $sentencia->fetchAll(PDO::FETCH_OBJ);;
 if ($result) {
     // Extraer el resultado de la consulta
     $row =$result[0];
-    $folio = $row->id_order; // Puedes ajustar esta fórmula si es necesario 
+    $folio = $row->id_order; // Puedes ajustar esta fórmula si es necesario
+    $_SESSION["folio"]=$folio;
 } else {
     // Manejar el caso de error en la consulta
     echo "Error en la consulta: " . mysqli_error($conn);
@@ -77,7 +78,7 @@ try
     <body>
         <div class="container">
             <h1>Gracias por comprar con nosotros!</h1>
-            <h1>Folio: '.$folio.'</h1>
+            <h1>Folio: '.$_SESSION['folio'].'</h1>
             <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
@@ -88,8 +89,7 @@ try
     $mail->Body    = $body;
 
     $mail->send();
-    echo "<script> alert(Mensaje enviado)</script>";
-    header('Location: ../index.php');
+    header('Location: ../carrito.php');
 } 
 catch (Exception $e) 
 {
