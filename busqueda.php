@@ -139,11 +139,14 @@
   ?>
 
   <br /><br><br>
+
   <div class="text-center text-uppercase w-100">
+
     <div class="col pt-3 pb-2 bg-dark text-light rounded-pill">
-      <h3><b>RESULTADOS DE: <?php echo $search ?></b></h3>
+      <h3><b>RESULTADOS DE <?php echo $search ?></b></h3>
     </div>
   </div>
+
   <br><br>
   <div class="container-products">
 
