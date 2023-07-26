@@ -236,12 +236,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {
-                                                          foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                                                            $total += $producto['PRECIO'];
-                                                          }
-                                                        }
-                                                        echo $total; ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {foreach ($_SESSION['CARRITO'] as $indice => $producto) {$total += $producto['PRECIO'];}} echo $total; ?> </p>
 
             <div class="container-btn">
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
@@ -289,7 +284,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
               <div class="row w-100 mx-auto">
-                <div class="col-3 btn-delete-product w-auto text-center me-auto border">
+                <div class="col-3 btn-delete-product w-auto text-center me-auto">
                   <form action="" method="post">
 
                     <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
@@ -302,7 +297,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </form>
                 </div>
 
-                <div class="col-3 container-products-carrito-info w-25 text-center me-auto border">
+                <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
                   <p class="mb-0" style="font-size: 12px;"><?php echo $producto['NOMBRE'] ?></p>
                   <b style="font-size: 12px;">$<?php echo $producto['PRECIO'] ?></b>
                 </div>
@@ -323,7 +318,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </a>
                 </div>
 
-                <div class="col-3 container-products-carrito-img w-25 p-2 border">
+                <div class="col-3 container-products-carrito-img w-25 p-2">
 
 
                   <?php
