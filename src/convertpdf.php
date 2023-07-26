@@ -1,33 +1,17 @@
 <?php
-require '../vendor/autoload.php';
-include 'conexionbd.php';
 session_start();
+include '../src/conexionbd.php';
 
-use Dompdf\Dompdf;
-$dompdf=new Dompdf();
-
-$opt=$dompdf->getOptions();
-
-$opt->set(array('isRemoteEnabled' => TRUE));
-
-$dompdf->setOptions($opt);
-
-$rutaContent = 'pdf.php';
-
-include $rutaContent;
-$contenido = ob_get_clean();
-
-// Carga el contenido HTML en Dompdf
-$dompdf->loadHtml($contenido);
-
-$dompdf->setPaper('letter');
-
-// Opciones de estilo (opcional)
-$dompdf->set_option('isRemoteEnabled', true); // Permite cargar imágenes desde URLs externas
-
-// Renderiza el contenido HTML en PDF
-$dompdf->render();
-$pdfward=$dompdf->output();
+$sentencia = $bd->query("SELECT id_order FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
+$result = $sentencia->fetchAll(PDO::FETCH_OBJ);;
+if ($result) {
+    // Extraer el resultado de la consulta
+    $row =$result[0];
+    $folio = $row->id_order; // Puedes ajustar esta fórmula si es necesario 
+} else {
+    // Manejar el caso de error en la consulta
+    echo "Error en la consulta: " . mysqli_error($conn);
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -63,7 +47,44 @@ try
     //Content
     $mail->isHTML(true);                  //Set email format to HTML
     $mail->Subject = 'Folio de compra';
-    $mail->Body    = 'Favor de presentar su folio en el local 322 de la plaza de la tecnologia';
+    $mail->Body    = '<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            img{
+                width: 300px;
+                height: 200px;
+            }
+                .container{
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+    
+                }
+                p, h1{
+                    font-family:sans-serif
+                }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        
+    
+        
+        <h1>Gracias por comprar con nostros!</h1>
+    
+    
+        <h1>Folio:'.$folio.'?> </h1>
+    
+           <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las proximas 48Hrs o sus productos de carrito seran devueltos a venta del publico.</p>
+           <p>VideoGame Store agradece su fidelidad y preferencia.</p>
+     </div>
+    </body>
+    </html>';
     $mail->send();
     $dompdf->stream($pdfward, array("Attachment" => false));
     exit();
