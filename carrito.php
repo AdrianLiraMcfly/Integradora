@@ -263,7 +263,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <?php if (!empty($_SESSION['CARRITO'])) { ?>
 
-<<<<<<< HEAD
       <div class="container-carrito-div p-1">
 
         <div class="text-center">
@@ -273,15 +272,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div><br>
 
         <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
-=======
-      <div class="container-carrito-div">
-
-        <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
-          <h3><b>CARRITO</b></h3>
-        </div> <br>
-
-        <div class="container-carrito shadow-lg barra-deslizable border border-2 border-black p-3 rounded-4">
->>>>>>> e517456aa40c9bc5b91958fe2f0d339e466b5d1b
           <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
 
 
@@ -296,7 +286,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
 
 
-<<<<<<< HEAD
             <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
               <div class="row w-100 mx-auto">
@@ -304,12 +293,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <form action="" method="post">
 
                     <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
-=======
-            <div class="container-carrito-products border border-2 border-black text-center">
-
-              <div class="btn-delete-product w-auto text-center ms-auto me-auto">
-                <form action="" method="post">
->>>>>>> e517456aa40c9bc5b91958fe2f0d339e466b5d1b
 
                     <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -364,7 +347,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
       </div>
 
-<<<<<<< HEAD
       <!--</div>-->
     <?php } else 
     { ?>
@@ -374,8 +356,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <b>CARRITO</b>
           </span>
         </div><br>
-=======
->>>>>>> e517456aa40c9bc5b91958fe2f0d339e466b5d1b
 
         <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
           <div class="text-center p-1 w-auto mt-0">
