@@ -20,6 +20,7 @@ if (!empty($_POST["btningresar"])) {
                     $_SESSION["id"] = $datos->id_usuario;
                     $_SESSION["nombre"] = $datos->nombre;
                     $_SESSION["rol"] = $datos->id_rol;
+                    $_SESSION["email"] = $usuario;
                     header("Location: ../index.php"); // Redirigir a la página principal después de iniciar sesión exitosamente
                     exit();
                 } else {

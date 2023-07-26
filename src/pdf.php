@@ -1,12 +1,12 @@
 <?php
 include '../src/conexionbd.php';
 
-$sentencia = $bd->query("SELECT id_carrito FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
+$sentencia = $bd->query("SELECT id_order FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
 $result = $sentencia->fetchAll(PDO::FETCH_OBJ);;
 if ($result) {
     // Extraer el resultado de la consulta
     $row =$result[0];
-    $folio = $row->id_carrito; // Puedes ajustar esta fórmula si es necesario 
+    $folio = $row->id_order; // Puedes ajustar esta fórmula si es necesario 
 } else {
     // Manejar el caso de error en la consulta
     echo "Error en la consulta: " . mysqli_error($conn);

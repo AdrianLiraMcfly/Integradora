@@ -81,7 +81,7 @@
 
                 <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
                   <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
-                  <li><a class="dropdown-item rounded" href="sesiones/login.html">Log In</a></li>
+                  <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
                 </ul>
 
               </li>

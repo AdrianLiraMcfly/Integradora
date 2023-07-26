@@ -5,36 +5,42 @@ if (!isset($_POST['btnPedido'])){
     echo 'ERROR';
     exit();
 }
+if(isset($_POST['txtTotal'])){
+    $total = $_POST['txtTotal'];
+}
 
 include 'conexionbd.php';
 $bd->beginTransaction();
 
 try {
-    // Insertar productos en la tabla detalles_carrito
+    $NumProductos = 0;
+    foreach($_SESSION['CARRITO'] as $indice => $producto){
+        $NumProductos += $producto['CANTIDAD'];
+    }
+    if($NumProductos > 4){
+        echo "La cantidad maxima total de articulos que puedes pedir es de 4.";
+    }else{
+
     $sentencia_producto = $bd->prepare("INSERT INTO detalles_carrito (id_producto, cantidad, precio_unitario, id_carrito) VALUES (?,?,?,?);");
     foreach ($_SESSION['CARRITO'] as $indice => $dato) {
         $sentencia_producto->execute([$dato['ID'], $dato['CANTIDAD'], $dato['PRECIO'], NULL]); // Dejar id_carrito como NULL por ahora
     }
 
-    // Insertar registro en la tabla carrito
     $id_usuario = $_SESSION['id'];
     $sentencia_carrito = $bd->prepare("INSERT INTO carrito (id_usuario, fecha_venta, total) VALUES (?, NOW(), ?);");
-    $sentencia_carrito->execute([$id_usuario, NULL]);
+    $sentencia_carrito->execute([$id_usuario, $total]);
 
-    // Obtener el id_carrito recién insertado
     $id_carrito = $bd->lastInsertId();
-
-    // Actualizar id_carrito en la tabla detalles_carrito
     $sentencia_update = $bd->prepare("UPDATE detalles_carrito SET id_carrito = ? WHERE id_carrito IS NULL;");
     $sentencia_update->execute([$id_carrito]);
 
-    // Confirmar la transacción
     $bd->commit();
+    header('location: convertpdf.php');
+    //header('location: ../carrito.php');
+    
+    }
 
-    // Redireccionar después de completar la inserción
-    header('location: convert_to_pdf.php');
 } catch (Exception $e) {
-    // Revertir la transacción en caso de error
     $bd->rollback();
     echo "Error al procesar la compra: " . $e->getMessage();
 }
