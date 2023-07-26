@@ -195,7 +195,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   ?>
 
     <div class="d-flex align-items-center justify-content-center vh-100">
-      <div class="alerts p-2 w-25 text-center rounded-3 shadow-lg">
+      <div class="alerts bg-warning bg-gradient p-2 w-25 text-center rounded-3 shadow-lg">
 
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
           <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
@@ -219,13 +219,16 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     <br>
     <div class="container-pag-carrito">
 
-      <div class="carrito-detalles">
-        <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
-          <h3><b>DETALLES</b></h3>
+      <div class="carrito-detalles p-1">
+
+        <div class="text-center">
+          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2">
+            <b>DETALLES</b>
+          </span>
         </div> <br>
 
 
-        <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4">
+        <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
           <div class="informacion-detalles-carrito">
 
@@ -238,7 +241,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <div class="container-btn">
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
 
-              <form action="src/insert-dat-carrito.php" method="post" target="_blank">  
+              <form action="src/insertdatcarrito.php" method="post" target="_blank">  
                 <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
                 <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" id="btnPedido"  value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
                   <b>REALIZAR PEDIDO</b>
@@ -255,13 +258,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <?php if (!empty($_SESSION['CARRITO'])) { ?>
 
-      <div class="container-carrito-div">
+      <div class="container-carrito-div p-1">
 
-        <div class="text-center pt-3 pb-2 bg-dark background-categorias text-dark mx-auto">
-          <h3><b>CARRITO</b></h3>
-        </div> <br>
+        <div class="text-center">
+          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2">
+            <b>CARRITO</b>
+          </span>
+        </div><br>
 
-        <div class="container-carrito shadow-lg barra-deslizable border border-2 border-black p-3 rounded-4">
+        <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
           <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
 
 
@@ -276,58 +281,87 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
 
 
-            <div class="container-carrito-products border border-2 border-black text-center">
+            <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
-              <div class="btn-delete-product w-auto text-center ms-auto me-auto">
-                <form action="" method="post">
+              <div class="row w-100 mx-auto">
+                <div class="col-3 btn-delete-product w-auto text-center me-auto">
+                  <form action="" method="post">
 
-                  <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
+                    <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
 
-                  <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                      <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                    </svg>
-                  </button>
-                </form>
+                    <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+
+                <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
+                  <p class="mb-0" style="font-size: 12px;"><?php echo $producto['NOMBRE'] ?></p>
+                  <b style="font-size: 12px;">$<?php echo $producto['PRECIO'] ?></b>
+                </div>
+
+                <div class="col-3 container-folio-products w-25 text-center me-auto border"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
+
+                  <p class="mb-0" style="font-size: 12px;">
+                    Cantidad
+                    <br/>
+
+                    <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)"> </input> 
+                  </p>
+
+                  <a class="ver-pro mt-3" style="font-size: 10px;" href="#">
+                    <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
+                      Ver Producto
+                    </b>
+                  </a>
+                </div>
+
+                <div class="col-3 container-products-carrito-img w-25 p-2">
+
+
+                  <?php
+                  $nombreimagen = $persona->imagen;
+                  $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
+
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,' . $base64;
+
+                  echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
+
+                  ?>
+
+
+                </div>
               </div>
 
-              <div class="container-products-carrito-info w-25 text-center me-auto">
-                <p class="mb-0" style="font-size: 18px;"><?php echo $producto['NOMBRE'] ?></p>
-                <b>$<?php echo $producto['PRECIO'] ?></b>
-              </div>
-
-              <div class="container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
-                <p class="mb-0" style="font-size: 18px;">Cantidad: <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)"> </input> </p>
-                <a class="ver-pro mt-3" href=""><b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">Ver Producto</b></a>
-              </div>
-
-              <div class="container-products-carrito-img w-25 me-auto p-2">
-
-
-                <?php
-                $nombreimagen = $persona->imagen;
-                $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
-
-                $base64 = base64_encode(file_get_contents($rutaimagen));
-                $base64 = 'data:image/jpeg;base64,' . $base64;
-
-                echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
-
-                ?>
-
-
-              </div>
             </div>
           <?php } ?>
 
         </div>
       </div>
 
+      <!--</div>-->
+    <?php } else 
+    { ?>
+      <div class="container-carrito-div p-1">
+        <div class="text-center">
+          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2">
+            <b>CARRITO</b>
+          </span>
+        </div><br>
 
+        <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
+          <div class="text-center p-1 w-auto mt-0">
+            Aún no hay productos en el carrito...
+          </div>
+        </div>
+        
       </div>
-    <?php } else { ?>
-      <div class="alert alert-success"> No hay productos en el carrito... </div>
-  <?php }
+      
+    <?php 
+    }
   } ?>
 
 </body>

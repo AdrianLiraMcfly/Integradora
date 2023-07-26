@@ -27,13 +27,7 @@ $dompdf->set_option('isRemoteEnabled', true); // Permite cargar imágenes desde 
 
 // Renderiza el contenido HTML en PDF
 $dompdf->render();
-
-
-
-// Genera el archivo PDF
-
-
-
+$pdfward=$dompdf->output();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -52,8 +46,8 @@ try
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
     $mail->Username   = 'luismahe2004@gmail.com';            //SMTP username
     $mail->Password   = 'ebvwebdlbfxeavxs';                 //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;       //Enable implicit TLS encryption
-    $mail->Port       = 465;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    $mail->SMTPSecure = 'tls';       //Enable implicit TLS encryption
+    $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
     $mail->setFrom('luismahe2004@gmail.com', 'Videogame Store');
@@ -63,7 +57,7 @@ try
     //$mail->addBCC('bcc@example.com');
 
     //Attachments
-    $pdfward=$dompdf->output();
+    
     $mail->addStringAttachment($pdfward, 'Folio.pdf');    //Optional name
 
     //Content
@@ -71,11 +65,12 @@ try
     $mail->Subject = 'Folio de compra';
     $mail->Body    = 'Favor de presentar su folio en el local 322 de la plaza de la tecnologia';
     $mail->send();
-    $dompdf->stream("Folio.pdf", array("Attachment" => false));
-    header('Location: ../index.php');
+    $dompdf->stream($pdfward, array("Attachment" => false));
+    exit();
 } 
 catch (Exception $e) 
 {
     echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
 }
+?> 
 ?>

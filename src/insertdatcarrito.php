@@ -35,9 +35,9 @@ try {
     $sentencia_update->execute([$id_carrito]);
 
     $bd->commit();
-
+    header('location: convertpdf.php');
     //header('location: ../carrito.php');
-    header('location: convert_to_pdf.php');
+    
     }
 
 } catch (Exception $e) {

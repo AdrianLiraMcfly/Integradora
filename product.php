@@ -188,11 +188,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
   <?php } ?>
 
-  <div class="container-fluid w-75 mt-5">
+  <div class="container-fluid p-2">
 
-    <div class="row">
+    <div class="row w-100 mx-auto p-2">
 
-      <div class="col-md-4 shadow w-auto h-auto rounded border border-black container_product_present">
+      <div class="col-4 container_product_present shadow rounded border border-2 border-black border-2 p-2 w-auto ms-auto me-auto">
         <?php
 
         $id = $_GET['id'];
@@ -207,14 +207,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         $base64 = base64_encode(file_get_contents($rutaimagen));
         $base64 = 'data:image/jpeg;base64,' . $base64;
 
-        echo  "<img src='$base64' class='img_present' alt='' style='width: 488px;'>";
+        echo  "<img src='$base64' class='img_present my-auto' alt='' style='width: 200px; height: 200px;'>";
 
         ?>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-4 w-auto me-auto">
 
-        <div class="card bg-body-secondary bg-gradient shadow border border-black mt-auto w-75">
+        <div class="card bg-body-secondary bg-gradient shadow border border-black border-2">
 
           <div class="card-body">
 
@@ -231,7 +231,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             </ul>
 
             <ul class="list-unstyled">
-              <li><b> <?php echo $persona->precio ?> </b></li>
+              <li><b>$<?php echo $persona->precio ?> </b></li>
             </ul>
 
           </div>
@@ -240,15 +240,19 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       </div>
 
-      <div class="col-md-6 w-auto me-0 ms-0">
-        <div class="btns_container">
+      <div class="col-4 w-auto p-2 me-auto">
+        <div class="btns_container p-2">
           <form action="" method="post">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
             <input type="hidden" name="nombre" id="nombre" value=" <?php echo openssl_encrypt($persona->nombre, COD, KEY); ?> ">
             <input type="hidden" name="precio" id="precio" value=" <?php echo openssl_encrypt($persona->precio, COD, KEY); ?> ">
             <input type="hidden" name="cantidad" id="cantidad" value=" <?php echo openssl_encrypt(1, COD, KEY); ?> ">
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
-            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns" id="btnPedido" name="btnAccion" value="agregar" type="submit" <?php //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']) echo 'disabled'; ?>>AGREGAR AL CARRITO</button>
+
+            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns" id="btnPedido" name="btnAccion" value="agregar" type="submit" <?php //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']) echo 'disabled'; ?>>
+              AGREGAR AL CARRITO
+            </button>
+
             <?php 
             //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']){
             //  echo "<script>
@@ -261,7 +265,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             //}
             ?>
           </form>
-          <button class="btn btn-dark fw-bold rounded-pill pos_btns">VOLVER A RESULTADOS</button>
+          
+          <!--
+          <button class="btn btn-dark fw-bold rounded-pill pos_btns">
+            VOLVER A RESULTADOS
+          </button>-->
         </div>
       </div>
 
@@ -270,7 +278,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <div class="container-fluid bg-dark mt-5 p-4">
 
-    <div class="bg-warning background-categorias text-dark mx-auto text-center text-uppercase pt-3 pb-2">
+    <div class="bg-warning background-categorias text-dark mx-auto my-auto text-center text-uppercase">
       <h3><b>más de <?php echo $persona->categoria ?> </b></h3>
     </div>
     <br>
