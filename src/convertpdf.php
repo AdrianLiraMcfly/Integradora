@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../src/conexionbd.php';
+include 'conexionbd.php';
 
 $sentencia = $bd->query("SELECT id_order FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
 $result = $sentencia->fetchAll(PDO::FETCH_OBJ);;
