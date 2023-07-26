@@ -57,37 +57,31 @@ try
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Correo de confirmación</title>
         <style>
-            img{
-                width: 300px;
-                height: 200px;
+            /* Estilos en línea */
+            img {
+                width: 100%; /* Ajusta el tamaño de la imagen al 100% del contenedor */
+                max-width: 300px; /* Establece el ancho máximo de la imagen */
+                height: auto; /* Permite que la imagen conserve su relación de aspecto */
             }
-                .container{
-                    display:flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-    
-                }
-                p, h1{
-                    font-family:sans-serif
-                }
+            .container {
+                text-align: center; /* Alinea el contenido al centro */
+            }
+            h1, p {
+                font-family: Arial, sans-serif;
+                color: #333333;
+            }
         </style>
     </head>
     <body>
         <div class="container">
-        
-    
-        
-        <h1>Gracias por comprar con nostros!</h1>
-    
-    
-        <h1>Folio:'.$folio.'?> </h1>
-    
-           <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las proximas 48Hrs o sus productos de carrito seran devueltos a venta del publico.</p>
-           <p>VideoGame Store agradece su fidelidad y preferencia.</p>
-     </div>
+            <h1>Gracias por comprar con nosotros!</h1>
+            <h1>Folio: <?php echo $folio; ?></h1>
+            <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
+            <p>VideoGame Store agradece su fidelidad y preferencia.</p>
+            <img src="../vd_logo.jpg" alt="Imagen de agradecimiento">
+        </div>
     </body>
     </html>';
     $mail->isHTML(true);                  //Set email format to HTML
