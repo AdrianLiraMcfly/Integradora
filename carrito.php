@@ -289,7 +289,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
               <div class="row w-100 mx-auto">
-                <div class="col-3 btn-delete-product w-auto text-center me-auto border">
+                <div class="col-3 btn-delete-product w-auto text-center me-auto">
                   <form action="" method="post">
 
                     <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
@@ -302,7 +302,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </form>
                 </div>
 
-                <div class="col-3 container-products-carrito-info w-25 text-center me-auto border">
+                <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
                   <p class="mb-0" style="font-size: 12px;"><?php echo $producto['NOMBRE'] ?></p>
                   <b style="font-size: 12px;">$<?php echo $producto['PRECIO'] ?></b>
                 </div>
@@ -323,7 +323,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </a>
                 </div>
 
-                <div class="col-3 container-products-carrito-img w-25 p-2 border">
+                <div class="col-3 container-products-carrito-img w-25 p-2">
 
 
                   <?php
