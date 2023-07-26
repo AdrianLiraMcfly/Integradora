@@ -29,7 +29,6 @@ $dompdf->set_option('isRemoteEnabled', true); // Permite cargar imágenes desde 
 $dompdf->render();
 $pdfward=$dompdf->output();
 
-$dompdf=new dompdf();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -67,7 +66,7 @@ try
     $mail->Body    = 'Favor de presentar su folio en el local 322 de la plaza de la tecnologia';
     $mail->send();
     $dompdf->stream($pdfward, array("Attachment" => false));
-    header('Location: ../index.php');
+    exit();
 } 
 catch (Exception $e) 
 {
