@@ -20,7 +20,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="estilo.css">
   <link rel="stylesheet" href="css/diseno.css">
@@ -214,6 +214,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <?php
   } else {
+
+    //$IDusuario = $_SESSION['id'];
+    //$sentencia = $bd->query("SELECT id_carrito FROM carrito WHERE id_usuario = $IDusuario;");
+    //$persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
+//
+    //if(empty($persona)){
+
     $total = 0;
   ?>
 
@@ -232,17 +239,23 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
           <div class="informacion-detalles-carrito">
-
-            <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
+          <?php
+        // Verificar si tiene folio
+        if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
+         $folio = $_SESSION['folio'];
+         echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
+          // Aquí también puedes deshabilitar el botón de compra si lo deseas
+          echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
+} else {
+         echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
+         // Aquí también puedes habilitar el botón de compra si lo deseas
+         echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
+}
+?>
             <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
             <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
             <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {
-                                                          foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                                                            $total += $producto['PRECIO'];
-                                                          }
-                                                        }
-                                                        echo $total; ?> </p>
+            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {foreach ($_SESSION['CARRITO'] as $indice => $producto) {$total += $producto['PRECIO'];}} echo $total; ?> </p>
 
             <div class="container-btn">
               <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
@@ -368,7 +381,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       
     <?php 
     }
-  } ?>
+  //} else{
+//
+  ////echo 'YA HICISTE UNA COMPRA, PENE';
+
+//}
+}
+  ?>
 
 </body>
 
