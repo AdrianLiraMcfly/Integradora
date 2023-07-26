@@ -287,22 +287,20 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
           <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
-
-
+            
             <?php
 
-            $id = $producto['ID'];
-            $sentencia = $bd->prepare("SELECT imagen FROM vista_productos_categoria WHERE id_producto = ?;");
-            $resultado = $sentencia->execute([$id]);
-            $persona = $sentencia->fetch(PDO::FETCH_OBJ);
+              $id = $producto['ID'];
+              $sentencia = $bd->prepare("SELECT imagen FROM vista_productos_categoria WHERE id_producto = ?;");
+              $resultado = $sentencia->execute([$id]);
+              $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
             ?>
-
-
 
             <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
               <div class="row w-100 mx-auto">
+
                 <div class="col-3 btn-delete-product w-auto text-center me-auto">
                   <form action="" method="post">
 
@@ -317,13 +315,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 </div>
 
                 <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
-                  <p class="mb-0" style="font-size: 12px;"><?php echo $producto['NOMBRE'] ?></p>
-                  <b style="font-size: 12px;">$<?php echo $producto['PRECIO'] ?></b>
+                  <p class="mb-0" style="font-size: 14px;"><?php echo $producto['NOMBRE'] ?></p>
+                  <b style="font-size: 14px;">$<?php echo $producto['PRECIO'] ?></b>
                 </div>
 
-                <div class="col-3 container-folio-products w-25 text-center me-auto border"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
+                <div class="col-3 container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
 
-                  <p class="mb-0" style="font-size: 12px;">
+                  <p class="mb-0 p-0" style="font-size: 14px;">
                     Cantidad
                     <br/>
 
