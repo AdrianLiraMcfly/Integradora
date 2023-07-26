@@ -12,6 +12,7 @@ if ($result) {
     // Manejar el caso de error en la consulta
     echo "Error en la consulta: " . mysqli_error($conn);
 }
+require 'bootstrap.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -19,6 +20,13 @@ use PHPMailer\PHPMailer\Exception;
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
+
+//$remitente = $_POST['remitente'];
+$destinatario = $_POST['destinatario'];
+$asunto = $_POST['asunto'];
+$mensaje = $_POST['mensaje'];
+$send = $_POST['send'];
+
 //Load Composer's autoloader
 //require 'vendor/autoload.php';
 
@@ -34,20 +42,17 @@ try
     $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('luismahe2004@gmail.com', 'Videogame Store');
-    $mail->addAddress($_SESSION['email'], $_SESSION['nombre']);     //Add a recipient
+    $mail->setFrom('luismahe2004@gmail.com', 'Cliente');
+    $mail->addAddress('jorge.liralopez11@gmail.com');     //Add a recipient
     
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
 
     //Attachments
-    
-    $mail->addStringAttachment($pdfward, 'Folio.pdf');    //Optional name
+    //$mail->addAttachment('img/op.jpg');    //Optional name
 
     //Content
-    $mail->isHTML(true);                  //Set email format to HTML
-    $mail->Subject = 'Folio de compra';
-    $mail->Body    = '<!DOCTYPE html>
+    $body='<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -85,13 +90,15 @@ try
      </div>
     </body>
     </html>';
+    $mail->isHTML(true);                  //Set email format to HTML
+    $mail->Subject = $asunto;
+    $mail->Body    = $body;
+
     $mail->send();
-    $dompdf->stream($pdfward, array("Attachment" => false));
-    exit();
+    echo "<script> alert(Mensaje enviado)</script>";
+    header('Location: ../index.php');
 } 
 catch (Exception $e) 
 {
     echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
 }
-?> 
-?>
