@@ -80,12 +80,12 @@ try
             <h1>Folio: <?php echo $folio; ?></h1>
             <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
-            <img src="../vd_logo.jpg" alt="Imagen de agradecimiento">
+            <img src="../vd_logo.png" alt="Imagen de agradecimiento">
         </div>
     </body>
     </html>';
     $mail->isHTML(true);                  //Set email format to HTML
-    $mail->Subject = $asunto;
+    $mail->Subject = 'VideoGame Store: Folio de compra';
     $mail->Body    = $body;
 
     $mail->send();
