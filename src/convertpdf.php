@@ -37,13 +37,13 @@ try
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'luismahe2004@gmail.com';            //SMTP username
-    $mail->Password   = 'ebvwebdlbfxeavxs';                 //SMTP password
+    $mail->Username   = 'videogamestore9@gmail.com';            //SMTP username
+    $mail->Password   = 'qyltjnjtpxdcszsn';                 //SMTP password
     $mail->SMTPSecure = 'tls';       //Enable implicit TLS encryption
     $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('luismahe2004@gmail.com', 'Cliente');
+    $mail->setFrom('videogamestore9@gmail.com', 'Video Game Store');
     $mail->addAddress($_SESSION['email']);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
@@ -79,7 +79,7 @@ try
         <div class="container">
             <h1>Gracias por comprar con nosotros!</h1>
             <h1>Folio: '.$_SESSION['folio'].'</h1>
-            <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
+            <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de los próximos 3 dias o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
     </body>

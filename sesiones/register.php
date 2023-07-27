@@ -142,7 +142,7 @@
         </div>
       </nav>
 
-      <div class="container-fluid" id="contenedor">
+      <div class="container-fluid mt-3" id="contenedor">
 
         <div class="bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto" id="formu">
           
