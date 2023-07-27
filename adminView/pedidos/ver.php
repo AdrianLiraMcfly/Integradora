@@ -1,20 +1,40 @@
 <?php
 
 
-require 'config/database.php'; 
+$idUsuario = '<span id="idUsuarioValue"></span';
+$idCarrito = '<span id="idCarritoValue"></span>';
 
-$id_carrito = $conn->real_escape_string($_POST['id_carrito']);
-$id_usuario = $conn->real_escape_string($_POST['id_usuario']);
+$_SESSION['id_usuario'] = $idUsuario;
+$_SESSION['id_carrito'] = $idCarrito;
 
-$sql = "SELECT id_carrito, id_usuario FROM carrito WHERE id_carrito = $id_carrito AND id_usuario = $id_usuario LIMIT 1";
+// Suponiendo que ya tienes una conexión a la base de datos y tienes el objeto $mysqli listo
+
+// ... (Código previo)
+
+$sql = "CALL integradora2.ObtenerProductosPorUsuarioYCarrito(32, 39)";
+
 $resultado = $conn->query($sql);
-$rows = $resultado->num_rows;
 
-$carritoUsuario = [];
-
-if ($rows > 0) {
-    $carritoUsuario = $resultado->fetch_assoc();
+if ($resultado) {
+    // Verifica si se han devuelto filas
+    if ($resultado->num_rows > 0) {
+        // Obtiene los datos del conjunto de resultados
+        while ($fila = $resultado->fetch_assoc()) {
+            // Procesa cada fila de datos
+            // Por ejemplo:
+            $nombreProducto = $fila['nombre'];
+            $precioProducto = $fila['precio_unitario'];
+            // ... (y así sucesivamente)
+        }
+        // Libera el conjunto de resultados
+        $resultado->free_result();
+    } else {
+        // No se encontraron productos para el usuario y carrito dados, manejarlo según sea necesario (por ejemplo, mostrar un mensaje)
+        echo "No se encontraron productos para el usuario y carrito proporcionados.";
+    }
+} else {
+    // Ocurrió un error al ejecutar la consulta, manejarlo según sea necesario
+    echo "Error al ejecutar la consulta SQL: " . $conn->error;
 }
 
-echo json_encode($carritoUsuario, JSON_UNESCAPED_UNICODE);
 ?>

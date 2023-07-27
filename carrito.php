@@ -12,6 +12,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 //}
 //$boton_desactivado = isset($_SESSION['btnPedido']) && $_SESSION['btnPedido'];
 
+// Leer el mensaje de la URL
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -189,7 +191,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         </div>
   </nav>
-
+  <?php
+   if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje'];?>
+   <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+   <?php } ?>
   <?php
   if (!isset($_SESSION['nombre'])) {
   ?>
@@ -233,35 +239,42 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             <div class="background-categorias text-light">
               <b>DETALLES</b>
-    </div> <br>
+            </div> <br>
 
 
           <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
             <div class="informacion-detalles-carrito">
               <?php
-              /* Verificar si tiene folio
-        if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
-         $folio = $_SESSION['folio'];
-         echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
-          // Aquí también puedes deshabilitar el botón de compra si lo deseas
-          echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
-          } else {
-         echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
-         // Aquí también puedes habilitar el botón de compra si lo deseas
-         echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
-        }*/
+                      /* Verificar si tiene folio
+                if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
+                $folio = $_SESSION['folio'];
+                echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
+                  // Aquí también puedes deshabilitar el botón de compra si lo deseas
+                  echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
+                  } else {
+                echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
+                // Aquí también puedes habilitar el botón de compra si lo deseas
+                echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
+                }*/
               ?>
+
               <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
               <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
               <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
               <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-              <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {
-                                                            foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                                                              $total += $producto['PRECIO'];
-                                                            }
-                                                          }
-                                                          echo $total; ?> </p>
+              <p style="font-size: 17px;">
+                <b>Total:</b> 
+                $<?php if (isset($_SESSION['CARRITO'])) 
+                {
+                  foreach ($_SESSION['CARRITO'] as $indice => $producto) 
+                  {
+                    $total += $producto['PRECIO'];
+                  }
+                }
+                echo $total; 
+                ?> 
+              </p>
 
 <?php 
 $sumaCantidades = 0;
@@ -433,10 +446,13 @@ if($sumaCantidades > 4){
                   <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="btnPedido" id="btnPedido" value="pedido" disabled>
                     <b>REALIZAR PEDIDO</b>
                   </button>
+                </form>
+                <form action="src/convertpdf.php" method="post">
                   <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="" id="" value="" style="margin-left: 35px;">
                     <b>ENVIAR FOLIO</b>
                   </button>
                 </form>
+                
               </div>
 
               <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
