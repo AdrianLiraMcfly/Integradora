@@ -251,7 +251,7 @@ session_start();
 
 
       <?php }
-      $bd = NULL;
+      $bd = NULL; //h
       ?>
 
     </div>

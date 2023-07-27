@@ -54,3 +54,5 @@ catch (Exception $e)
 {
     echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
 }
+
+//

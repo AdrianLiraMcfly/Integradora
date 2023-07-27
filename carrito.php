@@ -552,6 +552,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php
     }
   }
+  $bd = NULL;
   ?>
 
 </body>

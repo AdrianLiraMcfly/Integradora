@@ -349,7 +349,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     });
   </script>
 
-
+<?php // ?>
 </body>
 
 </html>

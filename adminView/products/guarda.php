@@ -62,4 +62,6 @@ if ($conn->query($sql)) {
     $_SESSION['msg'] = "Error al guardar el producto";
 }
 
+
+
 header('Location: index2.php');

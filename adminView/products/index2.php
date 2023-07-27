@@ -171,4 +171,5 @@ $dir = "posters/";
 } else {
   header('location: ../../index.php');
 }
+
 ?>
