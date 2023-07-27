@@ -138,6 +138,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
 
           </div>
+          <?php
+           if (isset($_GET['mensaje'])) {
+           $mensajeAlerta = $_GET['mensaje'];?>
+           <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+           <?php } ?>
 
           <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
 

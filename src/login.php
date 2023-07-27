@@ -24,8 +24,8 @@ if (!empty($_POST["btningresar"])) {
                     header("Location: ../index.php"); // Redirigir a la página principal después de iniciar sesión exitosamente
                     exit();
                 } else {
-                    $_SESSION["mensaje_error"] = "Acceso denegado. Contraseña incorrecta.";
-                    header("Location: ../sesiones/login.php");
+                    $mensajeAlerta = "Contraseña incorrecta";;
+                    header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
                     exit();
                 }
             } else {
