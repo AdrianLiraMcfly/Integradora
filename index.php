@@ -506,7 +506,6 @@
 
 
           <?php }
-            $bd = NULL;
           ?>
 
 
@@ -581,5 +580,6 @@
         </div>
 
       </footer>
+      <?php $bd = NULL; ?>
 </body>
 </html>

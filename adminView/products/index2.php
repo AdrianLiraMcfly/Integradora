@@ -29,34 +29,40 @@ $dir = "posters/";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <style>
-        .sidebar .nav-item {
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-    }
+      .sidebar .nav-item 
+      {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
 
-    .sidebar {
-      height: 100vh;
-      background-color: #f8f9fa;
-    }
+      .sidebar 
+      {
+        height: 100vh;
+        background-color: #f8f9fa;
+      }
 
-    .sidebar .nav-link {
-      color: #333;
-    }
+      .sidebar .nav-link 
+      {
+        color: #333;
+      }
 
-    .container {
-      margin-top: 50px;
-    }
+      .container 
+      {
+        margin-top: 50px;
+      }
 
-    .table {
-      background-color: #fff;
-      border-collapse: collapse;
-    }
-    .transparent-button {
-    background-color: transparent;
-    border-color: transparent;
-}
+      .table 
+      {
+        background-color: #fff;
+        border-collapse: collapse;
+      }
 
+      .transparent-button 
+      {
+        background-color: transparent;
+        border-color: transparent;
+      }
 
     </style>
 
@@ -67,18 +73,19 @@ $dir = "posters/";
 </head>
 
 <body class="bg-white w-100">
-  <?php
-  include '../encabesado.php';
-  ?> 
-    <div class="d-flex justify-content-center mt-3">
-        <a href="#" class="btn btn-primary mx-2">Prodcuctos</a>
-        <a href="category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
-        <a href="sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
-        <a href="filtro/index2.php" class="btn btn-primary mx-2">Por Categoria</a>
-    </div>
-<?php
-include 'vistas/listado.php';
-?>
+    <?php
+    include '../encabesado.php';
+    ?> 
+      <div class="d-flex justify-content-center mt-3">
+          <a href="#" class="btn btn-primary mx-2">Productos</a>
+          <a href="category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
+          <a href="sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
+          <a href="filtro/index2.php" class="btn btn-primary mx-2">Por Categoria</a>
+      </div>
+    <?php
+    include 'vistas/listado.php';
+    ?>
+    
     <script>
         let nuevoModal = document.getElementById('nuevoModal')
         let editaModal = document.getElementById('editaModal')
@@ -164,4 +171,5 @@ include 'vistas/listado.php';
 } else {
   header('location: ../../index.php');
 }
+
 ?>

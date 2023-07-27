@@ -49,7 +49,10 @@ $dir = "../products/posters/";
   .barra-deslizable{
     overflow-y: auto;
     /*position: relative;*/
-}
+  }
+  .oculto{
+    
+  }
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -61,10 +64,17 @@ $dir = "../products/posters/";
 
 <div class="d-flex justify-content-center mt-3">
         <a href="#" class="btn btn-primary mx-2">Pedidos</a>
+<<<<<<< HEAD
         <a href="cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
         <a href="pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
         <a href="completado/completados.php" class="btn btn-primary mx-2">Completados</a>
         <a href="#" class="btn btn-primary mx-2">Buscar</a>
+=======
+        <a href="#" class="btn btn-primary mx-2">Cancelados</a>
+        <a href="#" class="btn btn-primary mx-2">Pendientes</a>
+        <a href="#" class="btn btn-primary mx-2">Completados</a>
+        <a href="#" class="btn btn-primary mx-2 oculto">Buscar</a>
+>>>>>>> 7d94c0a7775feeddfbd0d1daf44e86b59bd8878e
     </div>
 
     <div class="container mt-3">
@@ -94,7 +104,13 @@ $dir = "../products/posters/";
                 
               ?> 
               <tr>
+<<<<<<< HEAD
                 <td ><?php echo $row ["id_carrito"]?></td>
+=======
+                <td><?php echo $row ["id_carrito"]?></td>
+                <td><?php echo $row ["estado_orden"]?></td>
+                <td><?php echo $row ["fecha_venta"];?></td>
+>>>>>>> 7d94c0a7775feeddfbd0d1daf44e86b59bd8878e
                 <td><?php echo $row ["id_order"];?></td>
                 <td><?php echo $row ["nombre_cliente"];?></td>
                 <td>$<?php echo $row ["cantidad_total"];?></td>

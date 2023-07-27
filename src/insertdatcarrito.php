@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_POST['btnPedido'])){
     echo 'ERROR';
     exit();
@@ -9,7 +8,21 @@ if(isset($_POST['txtTotal'])){
     $total = $_POST['txtTotal'];
 }
 
-include 'conexionbd.php';
+
+$sumaCantidades = 0;
+
+foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
+    $sumaCantidades += $cantidad['CANTIDAD'];
+}
+
+if($sumaCantidades > 4){
+
+     echo "<div class='alert alert-warning'> <b>  AQUI VA EL MENSAJE  </b> <a href='../carrito.php' style='background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;'><b>Ver Carrito</b></a> </div>";
+     
+
+}else{
+
+    include 'conexionbd.php';
 $bd->beginTransaction();
 
 try {
@@ -36,39 +49,15 @@ try {
 
     $bd->commit();
     header('location: ../carrito.php');
+    $bd = NULL;
     
     }
 
 } catch (Exception $e) {
     $bd->rollback();
     echo "Error al procesar la compra: " . $e->getMessage();
+    $bd = NULL;
 }
 
-
-
-//$sentencia = $bd->prepare("INSERT INTO detalles_carrito (id_producto, cantidad, precio_unitario) VALUES (?,?,?);");
-//
-//foreach($_SESSION['CARRITO'] as $indice => $dato){
-//$sentencia->execute([$dato['ID'],$dato['CANTIDAD'],$dato['PRECIO']]);
-//header('location: ../carrito.php');
-//}
-//$id_usuario = $_SESSION['id'];
-//$sentencia = $bd->prepare("INSERT INTO carrito (id_usuario, fecha_venta, total) VALUES (?, NOW(), ?);");
-//$sentencia->execute([$id_usuario, NULL])
-
-
-
-//$Nombre = $_POST['txtNombre'];
-//$Telefono = $_POST['txtTelefono'];
-//$Correo = $_POST['txtCorreo'];
-//
-//$sentencia = $bd->prepare("INSERT INTO usuarios(Nombre,Telefono,Correo) values (?,?,?);");
-//$resultado = $sentencia->execute([$Nombre,$Telefono,$Correo]);
-//
-//if($resultado === TRUE){
-//    //echo "Insertado correctamente";
-//    header('location: index.php');
-//}else{
-//    echo "ERROR";
-//}
+}
 ?>
