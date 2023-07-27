@@ -79,7 +79,7 @@ try
         <div class="container">
             <h1>Gracias por comprar con nosotros!</h1>
             <h1>Folio: '.$_SESSION['folio'].'</h1>
-            <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
+            <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de los próximos 3 dias o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
     </body>
