@@ -72,6 +72,7 @@
                 </li>
 
                 <?php
+                session_start();
                     if(isset($_SESSION['nombre'])){
                       if (isset($_SESSION['rol'])) {
                         switch ($_SESSION['rol']) {
