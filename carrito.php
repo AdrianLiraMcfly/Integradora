@@ -21,7 +21,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="estilo.css">
   <link rel="stylesheet" href="css/diseno.css">
@@ -96,7 +96,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   switch ($_SESSION['rol']) {
                     case 1:
                       echo '
-                            <li class="nav-item dropdown p-auto">
+                            <li class="nav-item dropdown p-auto me-1">
                         
                               <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -112,19 +112,20 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                               </ul>
                         
                             </li>
-                            <li class="nav-item text-center dropdown p-auto ">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
-                                <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
-                                <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-                              </svg>
-                            </a>
+
+                            <li class="nav-item text-center dropdown p-auto">
+                              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                  <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                  <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                </svg>
+                              </a>
       
-                            <ul class="dropdown-menu border-black">
-                              <li><a class="dropdown-item" href="adminView/products/index2.php">Productos</a></li>
-                              <li><a class="dropdown-item" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
-                              <li><a class="dropdown-item" href="adminView/clientes/index1.php">Clientes</a></li>
-                            </ul>
+                              <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                <li><a class="dropdown-item rounded mb-1" href="adminView/products/index2.php">Productos</a></li>
+                                <li><a class="dropdown-item rounded mb-1" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
+                                <li><a class="dropdown-item rounded" href="adminView/clientes/index1.php">Clientes</a></li>
+                              </ul>
                           </li>';
 
                       break;

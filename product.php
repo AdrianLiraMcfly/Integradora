@@ -19,7 +19,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <title>Producto</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
   <link rel="stylesheet" href="estilo.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="css/diseno.css">
@@ -283,7 +283,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     </div>
     <br>
 
-    <div class="container-products">
+    <div class="row container-products w-100 h-100 p-2">
       <?php
       $categoria = $persona->categoria;
       $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
@@ -293,7 +293,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       foreach ($productos as $dato) { ?>
 
-        <div class="col mb-3">
+        <div class="col-4 me-auto" style="align-items:center; justify-content: space-around;">
           <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
             <div class="card border border-3 border-secondary" style="width: 18rem;">
 
