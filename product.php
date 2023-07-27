@@ -276,14 +276,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     </div>
   </div>
 
-  <div class="container-fluid bg-dark mt-5 p-4">
+  <div class="container-fluid bg-dark mt-5 p-4 border border-5 border-warning">
 
     <div class="bg-warning background-categorias text-dark mx-auto my-auto text-center text-uppercase">
       <h3><b>más de <?php echo $persona->categoria ?> </b></h3>
     </div>
     <br>
 
-    <div class="container-products">
+    <div class="row container-products border border-5 w-100 h-100 p-2">
       <?php
       $categoria = $persona->categoria;
       $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
@@ -293,7 +293,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       foreach ($productos as $dato) { ?>
 
-        <div class="col mb-3">
+        <div class="col-4 border border-2 border-primary me-auto" style="align-items: center;">
           <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
             <div class="card border border-3 border-secondary" style="width: 18rem;">
 
