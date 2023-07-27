@@ -54,15 +54,17 @@
 
 }
 .background-categorias{
-    /*margin-left: auto;
-    margin-right: auto;*/
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 100px 0px 100px 0px;
     box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.5);
-    /*justify-content: center;*/
-    /*text-align: center;*/
-    /*background-color: rgb(42, 42, 42);*/
-    width: 300px;
-    /*height: 50px;*/
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(42, 42, 42);
+    max-width: 100%;
+    min-width: 28%;
+    height: 100%;
+    font-size: 25px;
 }
 .titulos-categorias{
     position: relative;
@@ -147,14 +149,15 @@ body{
     display: flex;
     flex-flow: row wrap;
     position: fixed;
-    width: 50%;
+    width: 40%;
+    margin-left: 3%;
 }
 .container-carrito-div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*margin-right: auto;*/
+    margin-right: 3%;
     margin-left: auto;
     width: 50%;
     position: relative;
