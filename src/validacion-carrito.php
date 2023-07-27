@@ -2,6 +2,7 @@
 session_start();
 
 $mensaje = "";
+$VALcant = 0;
 if (isset($_POST['btnAccion'])) {
 
     switch ($_POST['btnAccion']) {
@@ -25,11 +26,24 @@ if (isset($_POST['btnAccion'])) {
             } else {
                 $mensaje .= "Precio incorrecto";
             }
-            if (is_numeric(openssl_decrypt($_POST['cantidad'], COD, KEY))) {
-                $CANTIDAD = openssl_decrypt($_POST['cantidad'], COD, KEY);
-                $mensaje .= "Cantidad correcta" . $CANTIDAD;
-            } else {
+
+            if (is_numeric($_POST['cantidad'])) {
+                $CANTIDAD = $_POST['cantidad'];
+
+                if($_POST['cantidad'] <= 0){
+
+
+                    $mensaje .= "Cantidad incorrecta" . $CANTIDAD;
+                    $VALcant = 1;
+                }
+                else{
+                    $VALcant = 2;
+                }
+
+            }
+            else {
                 $mensaje .= "Cantidad incorrecta";
+                $VALcant = 1;
             }
             if (is_string(openssl_decrypt($_POST['imagen'], COD, KEY))) {
                 $IMAGEN = openssl_decrypt($_POST['imagen'], COD, KEY);
@@ -37,41 +51,49 @@ if (isset($_POST['btnAccion'])) {
             } else {
                 $mensaje .= "Imagen incorrecta";
             }
+            if($VALcant == 2){
 
-            if (!isset($_SESSION['CARRITO'])) {
-                $producto = array(
-                    'ID' => $ID,
-                    'NOMBRE' => $NOMBRE,
-                    'PRECIO' => $PRECIO,
-                    'CANTIDAD' => $CANTIDAD,
-                    'IMAGEN' => $IMAGEN
-                );
-                $_SESSION['CARRITO'][0] = $producto;
-                $mensaje = "Producto agregado al carrito exitosamente...";
-            } else {
-
-                $idproductos = array_column($_SESSION['CARRITO'], "ID");
-
-                if (in_array($ID, $idproductos)) {
-                    $mensaje = "El producto ya ha sido seleccionado...";
+                if (!isset($_SESSION['CARRITO'])) {
+                    $producto = array(
+                        'ID' => $ID,
+                        'NOMBRE' => $NOMBRE,
+                        'PRECIO' => $PRECIO,
+                        'CANTIDAD' => $CANTIDAD,
+                        'IMAGEN' => $IMAGEN
+                    );
+                    $_SESSION['CARRITO'][0] = $producto;
+                    $mensaje = "Producto agregado al carrito exitosamente...";
                 } else {
-                    $NumeroProductos = count($_SESSION['CARRITO']);
-                    if($NumeroProductos == 4){
-                        $mensaje = "La cantidad maxima de articulos es de 4.";
-                    }
-                    else{
-                        $producto = array(
-                            'ID' => $ID,
-                            'NOMBRE' => $NOMBRE,
-                            'PRECIO' => $PRECIO,
-                            'CANTIDAD' => $CANTIDAD,
-                            'IMAGEN' => $IMAGEN
-                        );
-                        $_SESSION['CARRITO'][$NumeroProductos] = $producto;
-                        $mensaje = "Producto agregado al carrito exitosamente...";
+    
+                    $idproductos = array_column($_SESSION['CARRITO'], "ID");
+    
+                    if (in_array($ID, $idproductos)) {
+                        $mensaje = "El producto ya ha sido seleccionado...";
+                    } else {
+                        $NumeroProductos = count($_SESSION['CARRITO']);
+                        if($NumeroProductos == 4){
+                            $mensaje = "La cantidad maxima de articulos es de 4.";
+                        }
+                        else{
+                            $producto = array(
+                                'ID' => $ID,
+                                'NOMBRE' => $NOMBRE,
+                                'PRECIO' => $PRECIO,
+                                'CANTIDAD' => $CANTIDAD,
+                                'IMAGEN' => $IMAGEN
+                            );
+                            $_SESSION['CARRITO'][$NumeroProductos] = $producto;
+                            $mensaje = "Producto agregado al carrito exitosamente...";
+                        }
                     }
                 }
+
+
+            }else{
+                $mensaje = "Escriba una cantida VALIDA.";
             }
+
+
 
             break;
         case 'eliminar':

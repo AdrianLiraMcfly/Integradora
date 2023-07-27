@@ -1,5 +1,4 @@
 <?php
-
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //    header("Location: " . $_SERVER['PHP_SELF']);
 //    exit();
@@ -8,7 +7,6 @@ include 'src/config.php';
 include 'src/validacion-carrito.php';
 include 'src/conexionbd.php';
 $rutaCarpetaImagenes = 'adminView/products/posters/';
-
 //if (isset($_POST['btnPedido'])) {
 //  $_SESSION['btnPedido'] = true;
 //}
@@ -265,14 +263,27 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                                                           }
                                                           echo $total; ?> </p>
 
+<?php 
+$sumaCantidades = 0;
+
+foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
+    $sumaCantidades += $cantidad['CANTIDAD'];
+}
+?>
+
               <div class="container-btn">
 
                 <form action="src/insertdatcarrito.php" method="post">
                   <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
-                  <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" id="btnPedido" value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; 
-                                                                                                                                                                            ?>>
-                    <b>REALIZAR PEDIDO</b>
-                  </button>
+<?php 
+if($sumaCantidades > 4){
+  echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
+}else{
+  echo "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
+<b>REALIZAR PEDIDO</b>
+</button>";
+}
+?>
                 </form>
               </div>
 
@@ -332,13 +343,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                                                                                                 ?>
 
                     <p class="mb-0" style="font-size: 17px;">
-                      Cantidad
+                      Cantidad:
                       <br />
 
-                      <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)"> </input>
+                      <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" disabled value="<?php echo $producto['CANTIDAD']; ?>"> </input>
                     </p>
 
-                    <a class="ver-pro mt-3" style="font-size: 12px;" href="#">
+                    <a class="ver-pro mt-3" style="font-size: 12px;" href="product.php?id=<?php echo $producto['ID']; ?>">
                       <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
                         Ver Producto
                       </b>
@@ -462,7 +473,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <div class="col-3 container-folio-products w-25 text-center me-auto border">
                 <p class="mb-0" style="font-size: 17px;">
                 Cantidad:      
-                  <br />
+                  <br/>
           
                   <input type="text" disabled class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $dato['cantidad'] ?>"> </input>
                 </p>

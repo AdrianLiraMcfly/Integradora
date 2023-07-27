@@ -184,9 +184,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
 
-  <?php if ($mensaje != "") { ?>
+  <?php if ($VALcant == 2) { ?>
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
-  <?php } ?>
+  <?php } if($VALcant == 1){ 
+  ?>
+    <div class="alert alert-warning"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+
+  <?php }
+  ?>
+
 
   <div class="container-fluid p-2">
 
@@ -241,35 +247,22 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       </div>
 
       <div class="col-4 w-auto p-2 me-auto">
-        <div class="btns_container p-2">
+        <div class="btns_container">
           <form action="" method="post">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
             <input type="hidden" name="nombre" id="nombre" value=" <?php echo openssl_encrypt($persona->nombre, COD, KEY); ?> ">
             <input type="hidden" name="precio" id="precio" value=" <?php echo openssl_encrypt($persona->precio, COD, KEY); ?> ">
-            <input type="hidden" name="cantidad" id="cantidad" value=" <?php echo openssl_encrypt(1, COD, KEY); ?> ">
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
 
-            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns" id="btnPedido" name="btnAccion" value="agregar" type="submit" <?php //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']) echo 'disabled'; ?>>
+            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit" <?php //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']) echo 'disabled'; ?>>
               AGREGAR AL CARRITO
+              <?php  ?>
             </button>
-
-            <?php 
-            //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']){
-            //  echo "<script>
-            //  const boton = document.getElementById('btnPedido');
-            //
-            //  boton.addEventListener('mouseover', function() {
-            //    alert('¡Estás pasando el mouse por encima del botón!');
-            //  });
-            //</script>";
-            //}
-            ?>
+            <div class="cont-cant">
+            <p><b>Cantidad:</b></p>
+            <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
+            </div>
           </form>
-          
-          <!--
-          <button class="btn btn-dark fw-bold rounded-pill pos_btns">
-            VOLVER A RESULTADOS
-          </button>-->
         </div>
       </div>
 
@@ -328,6 +321,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>
+
+  <script>
+  var inputCantidad = document.getElementById("cantidad");
+
+  inputCantidad.addEventListener("input", function(event) {
+    this.setAttribute("value", event.target.value);
+  });
+</script>
+
 
 </body>
 
