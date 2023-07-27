@@ -62,7 +62,6 @@
                         </a>
                     </li>
 
-
                     <li class="nav-item dropdown p-auto me-1">
 
                       <a class="nav-link text-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -83,16 +82,80 @@
                       </ul>
 
                     </li>
-
-                  
+                
                     <?php
-                    if(isset($_SESSION['nombre'])){
-                      if (isset($_SESSION['rol'])) {
-                        switch ($_SESSION['rol']) {
-                          case 1:
-                            echo '
-                            <li class="nav-item dropdown p-auto me-1">
+                      if(isset($_SESSION['nombre']))
+                      {
+                        if (isset($_SESSION['rol'])) 
+                        {
+                          switch ($_SESSION['rol']) 
+                          {
+                            case 1:
+                              echo 
+                              '<li class="nav-item dropdown p-auto me-1">
+                          
+                                <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                  </svg>
+                                </a>
                         
+                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                  <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                  <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
+                                  <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
+                                </ul>
+                          
+                              </li>
+
+                              <li class="nav-item text-center dropdown p-auto">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                    <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                    <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                  </svg>
+                                </a>
+        
+                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                  <li><a class="dropdown-item rounded mb-1" href="adminView/products/index2.php">Productos</a></li>
+                                  <li><a class="dropdown-item rounded mb-1" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
+                                  <li><a class="dropdown-item rounded" href="adminView/clientes/index1.php">Clientes</a></li>
+                                </ul>
+                              </li>';
+
+                            break;
+
+                            case 2:
+                                echo '
+                                <li class="nav-item dropdown p-auto me-1">
+                          
+                                  <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                  </a>
+                        
+                                  <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                    <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                    <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
+                                    <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
+                                  </ul>
+                          
+                                </li>';
+                                break;
+                                default:
+                              
+                            break;
+                          }
+                        }
+                      }
+                      else
+                      {
+                          echo 
+                          '<li class="nav-item dropdown p-auto me-1">
+                          
                               <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -101,75 +164,13 @@
                               </a>
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
-                                <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
-                                <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
+                                <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
+                                <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
                               </ul>
-                        
-                            </li>
-
-                            <li class="nav-item text-center dropdown p-auto">
-                              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
-                                  <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
-                                  <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-                                </svg>
-                              </a>
-      
-                              <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                <li><a class="dropdown-item rounded mb-1" href="adminView/products/index2.php">Productos</a></li>
-                                <li><a class="dropdown-item rounded mb-1" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
-                                <li><a class="dropdown-item rounded" href="adminView/clientes/index1.php">Clientes</a></li>
-                              </ul>
-                            </li>';
-
-                            break;
-                            case 2:
-                              echo '
-                              <li class="nav-item dropdown p-auto me-1">
-                        
-                                <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                  </svg>
-                                </a>
-                      
-                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                  <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
-                                  <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
-                                  <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
-                                </ul>
-                        
-                              </li>';
-                              break;
-                          default:
-                            
-                            break;
-                        }
+                          
+                          </li>';
                       }
-                    }
-                      else
-                      {
-                        echo '
-                        <li class="nav-item dropdown p-auto me-1">
-                        
-                            <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                              </svg>
-                            </a>
-                    
-                            <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                              <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
-                              <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
-                            </ul>
-                        
-                        </li>';
-                    }
                     ?>
-
 
                 </ul>
 
