@@ -158,9 +158,9 @@
           <div class="card border border-3 border-secondary" style="width: 18rem;">
 
             <?php
-            $nombreimagen = $dato->imagen;
+            
+            $nombreimagen = $dato->id_producto.".jpg";
             $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
-
             $base64 = base64_encode(file_get_contents($rutaimagen));
             $base64 = 'data:image/jpeg;base64,' . $base64;
 
