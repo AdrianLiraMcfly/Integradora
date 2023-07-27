@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +74,7 @@
                 </li>
 
                 <?php
+                
                     if(isset($_SESSION['nombre']))
                     {
                       if (isset($_SESSION['rol'])) 
