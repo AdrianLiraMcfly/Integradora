@@ -30,7 +30,7 @@ if ($conn->query($sql)) {
                 $poster = $dir . '/' . $id . '.jpg';
 
                 if (!file_exists($dir)) {
-                    mkdir($dir, 0777);
+                    mkdir($dir, 0755);
                 }
 
                 if (!move_uploaded_file($_FILES['poster']['tmp_name'], $poster)) {
