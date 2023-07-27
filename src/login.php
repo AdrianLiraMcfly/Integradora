@@ -29,14 +29,14 @@ if (!empty($_POST["btningresar"])) {
                     exit();
                 }
             } else {
-                $_SESSION["mensaje_error"] = "Acceso denegado. Usuario no encontrado.";
-                header("Location: ../sesiones/login.php");
-                exit();
+                $mensajeAlerta = "Usuario no encontrado";;
+                    header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
+                    exit();
             }
         } catch (PDOException $e) {
-            $_SESSION["mensaje_error"] = "Error en la base de datos: " . $e->getMessage();
-            header("Location: ../sesiones/login.php");
-            exit();
+            $mensajeAlerta = "error inesperado";;
+                    header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
+                    exit();
         }
     } else {
         $_SESSION["mensaje_error"] = "Por favor, complete todos los campos.";

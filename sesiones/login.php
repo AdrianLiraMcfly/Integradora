@@ -138,11 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
 
           </div>
-          <?php
-           if (isset($_GET['mensaje'])) {
-           $mensajeAlerta = $_GET['mensaje'];?>
-           <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
-           <?php } ?>
+          
 
           <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
 
@@ -158,7 +154,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
   </nav>
-
+  <?php
+           if (isset($_GET['mensaje'])) {
+           $mensajeAlerta = $_GET['mensaje'];?>
+           <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
+           <?php } ?>
       <div class="formulario bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto">
         <h2 class="text-center titulo_pro text-light mt-2" ><b>INICIA SESION!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
