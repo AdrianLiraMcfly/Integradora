@@ -14,6 +14,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 //}
 //$boton_desactivado = isset($_SESSION['btnPedido']) && $_SESSION['btnPedido'];
 
+// Leer el mensaje de la URL
+if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje'];
+    echo "<script>alert('" . htmlspecialchars($mensajeAlerta) . "');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

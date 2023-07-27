@@ -89,7 +89,9 @@ try
     $mail->Body    = $body;
 
     $mail->send();
-    header('Location: ../carrito.php');
+    $mensajeAlerta = "¡La acción se realizó con éxito!";
+    header('Location: ../carrito.php?mensaje='. urlencode($mensajeAlerta));
+    exit();
 } 
 catch (Exception $e) 
 {
