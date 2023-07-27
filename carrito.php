@@ -277,6 +277,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               </p>
 
 <?php 
+if(isset($_SESSION['CARRITO'])){
+  
+
 $sumaCantidades = 0;
 
 foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
@@ -295,7 +298,7 @@ if($sumaCantidades > 4){
   echo "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
 <b>REALIZAR PEDIDO</b>
 </button>";
-}
+}}
 ?>
                 </form>
               </div>
