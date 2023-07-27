@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_POST['btnPedido'])){
     echo 'ERROR';
     exit();
@@ -9,7 +8,21 @@ if(isset($_POST['txtTotal'])){
     $total = $_POST['txtTotal'];
 }
 
-include 'conexionbd.php';
+
+$sumaCantidades = 0;
+
+foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
+    $sumaCantidades += $cantidad['CANTIDAD'];
+}
+
+if($sumaCantidades > 4){
+
+     echo "<div class='alert alert-warning'> <b>  AQUI VA EL MENSAJE  </b> <a href='../carrito.php' style='background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;'><b>Ver Carrito</b></a> </div>";
+     
+
+}else{
+
+    include 'conexionbd.php';
 $bd->beginTransaction();
 
 try {
@@ -43,6 +56,15 @@ try {
     $bd->rollback();
     echo "Error al procesar la compra: " . $e->getMessage();
 }
+
+}
+
+
+
+
+
+
+
 
 
 
