@@ -256,11 +256,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
 
             <?php
-            $IDusuario = $_SESSION['id'];
-            $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
-            $mipito = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            if(isset($_SESSION['nombre'])){
+              $IDusuario = $_SESSION['id'];
+              $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
+              $mipito = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  
+              @$IDxESTADO = $mipito[0]['id_estado'];
+            
 
-            @$IDxESTADO = $mipito[0]['id_estado'];
 
             if ($IDxESTADO != 2 || $IDxESTADO == NULL) {
             ?>
@@ -277,7 +280,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <div class="cont-cant">
                   <p><b>Cantidad:</b></p>
                   <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
-                <?php } ?>
+                <?php }} ?>
+                
+                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                AGREGAR AL CARRITO
+              </button>
+                <p><b>Cantidad:</b></p>
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
 
                 </div>
           </form>
