@@ -47,7 +47,6 @@
                   </a>
                 </li>
 
-
                 <li class="nav-item dropdown p-auto me-1 it border border-2 border-black shadow-lg">
 
                   <a class="nav-link text-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,21 +79,12 @@
                     </svg>
                   </a>
 
-<<<<<<< HEAD
                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
                     <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
                     <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
                   </ul>
 
                 </li>
-=======
-            <?php
-            
-            $nombreimagen = $dato->id_producto.".jpg";
-            $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
-            $base64 = base64_encode(file_get_contents($rutaimagen));
-            $base64 = 'data:image/jpeg;base64,' . $base64;
->>>>>>> 9718d751d91a53862aeb2330d3da84a76b6636d2
 
               </ul>
 
@@ -149,7 +139,6 @@
       <div class="col pt-3 pb-2 bg-dark text-light rounded-pill">
         <h3><b>RESULTADOS DE <?php echo $search ?></b></h3>
       </div>
-
     </div>
     <br/><br/>
 
@@ -188,7 +177,7 @@
       ?>
 
     </div>
-    <br/>
+  <br/>
 
   </div>
   </div>
