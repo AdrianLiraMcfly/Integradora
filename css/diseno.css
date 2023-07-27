@@ -29,8 +29,8 @@
 }
 .container_product_present
 {
-    height: auto;
-    width: auto;
+    /*height: auto;
+    width: auto;*/
     align-items: center;
 }
 .btns_container{
