@@ -2,10 +2,9 @@
 session_start();
 
 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-include("../products/config/database.php");
-$pedidos = "SELECT * FROM vista_ventas";
+include("../../products/config/database.php");
+$pedidos = "SELECT * FROM vista_carrito_completado";
 
-$dir = "../products/posters/";
 
 ?>
 
@@ -49,10 +48,7 @@ $dir = "../products/posters/";
   .barra-deslizable{
     overflow-y: auto;
     /*position: relative;*/
-  }
-  .oculto{
-    
-  }
+}
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -63,10 +59,10 @@ $dir = "../products/posters/";
   ?>
 
 <div class="d-flex justify-content-center mt-3">
-        <a href="#" class="btn btn-primary mx-2">Pedidos</a>
-        <a href="cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
-        <a href="pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
-        <a href="completado/completados.php" class="btn btn-primary mx-2">Completados</a>
+        <a href="../pedidos.php" class="btn btn-primary mx-2">Pedidos</a>
+        <a href="../cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
+        <a href="../pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
+        <a href="#" class="btn btn-primary mx-2">Completados</a>
         <a href="#" class="btn btn-primary mx-2">Buscar</a>
     </div>
 
@@ -79,7 +75,6 @@ $dir = "../products/posters/";
                 <th>Nombre del Cliente</th>
                 <th>Cantidad Total</th>
                 <th>Fecha y Hora</th>
-                <th scope="col" class="col-lg-4">Productos</th>
                 <th>Estado</th>
               </tr>
             </thead>
@@ -87,12 +82,6 @@ $dir = "../products/posters/";
             <?php 
               $resultado = $conn->query($pedidos); 
               while($row= $resultado->fetch_assoc()){
-                $idUsuario = $row["id_usuario"];
-                $idCarrito = $row["id_carrito"];
-
-                $conn->multi_query("CALL integradora2.ObtenerProductosPorUsuarioYCarrito($idUsuario,$idCarrito)");
-                $productosPedido = $conn->store_result();
-                $conn->next_result();
 
                 
               ?> 
@@ -100,37 +89,18 @@ $dir = "../products/posters/";
                 <td ><?php echo $row ["id_carrito"]?></td>
                 <td><?php echo $row ["id_order"];?></td>
                 <td><?php echo $row ["nombre_cliente"];?></td>
-                <td>$<?php echo $row ["cantidad_total"];?></td>
+                <td>$<?php echo $row ["total"];?></td>
                 <td><?php echo $row ["fecha_venta"];?></td>
-                <td scope="row">
-                  <table class="table table-borderless table-sm table-responsive barra-deslizable" >
-                    <thead>
-                      <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      while ($producto = $productosPedido->fetch_assoc()) {
-                      ?>
-                      <tr>
-                        <td><?php echo $producto["nombre"]; ?></td>
-                        <td>$<?php echo $producto["precio_unitario"]; ?></td>
-                        <td><?php echo $producto["cantidad"]; ?></td>
-                      </tr>
-                      <?php }?>
-                    </tbody>
-                  </table>
-                </td>
-                <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
+                <td><strong><?php echo $row ["estado"]?></strong></td>
               </tr>
               <?php
               }?>
             </tbody>        
           </table>
     </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

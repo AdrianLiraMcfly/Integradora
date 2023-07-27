@@ -27,7 +27,7 @@
 */
 
 .img_init{
-    height: 200px;
+    height: 230px;
     width: auto;
 }
 
@@ -47,26 +47,26 @@
     align-items: center;
 }
 .btns_container{
-    border: 1px black solid;
+    /*border: 1px black solid;*/
     display: flex;
     flex-flow: row wrap;
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     width: auto;
-    height: 70%;
+    height: 100%;
     position: relative;
-    top: 20%;
+    /*top: 20%;*/
     /*left: 1000px;*/
     justify-content: center;
     align-items: center;
     background-color: ghostwhite;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    padding: 10px;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    padding: 10px;*/
 }
 .input-perfect{
     border-radius: 10px;
     text-align: center;
     font-weight: bold;
-    width: 60%;
+    /*width: 60%;*/
 }
 .pos_btns{
     position: relative;
@@ -133,7 +133,7 @@ body{
 }
 .cont-cant{
     position: relative;
-    top: 20px;
+    /*top: 20px;*/
 }
 .container-products-carrito-img{
     /*padding-top: 5px;
