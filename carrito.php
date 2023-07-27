@@ -241,35 +241,42 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             <div class="background-categorias text-light">
               <b>DETALLES</b>
-    </div> <br>
+            </div> <br>
 
 
           <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
             <div class="informacion-detalles-carrito">
               <?php
-              /* Verificar si tiene folio
-        if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
-         $folio = $_SESSION['folio'];
-         echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
-          // Aquí también puedes deshabilitar el botón de compra si lo deseas
-          echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
-          } else {
-         echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
-         // Aquí también puedes habilitar el botón de compra si lo deseas
-         echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
-        }*/
+                      /* Verificar si tiene folio
+                if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
+                $folio = $_SESSION['folio'];
+                echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
+                  // Aquí también puedes deshabilitar el botón de compra si lo deseas
+                  echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
+                  } else {
+                echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
+                // Aquí también puedes habilitar el botón de compra si lo deseas
+                echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
+                }*/
               ?>
+
               <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
               <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
               <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
               <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-              <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {
-                                                            foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                                                              $total += $producto['PRECIO'];
-                                                            }
-                                                          }
-                                                          echo $total; ?> </p>
+              <p style="font-size: 17px;">
+                <b>Total:</b> 
+                $<?php if (isset($_SESSION['CARRITO'])) 
+                {
+                  foreach ($_SESSION['CARRITO'] as $indice => $producto) 
+                  {
+                    $total += $producto['PRECIO'];
+                  }
+                }
+                echo $total; 
+                ?> 
+              </p>
 
               <div class="container-btn">
 

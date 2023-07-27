@@ -278,7 +278,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <div class="container-fluid bg-dark mt-5 p-4">
 
-    <div class="bg-warning background-categorias text-dark mx-auto my-auto text-center text-uppercase">
+    <div class="bg-warning background-categorias text-center text-uppercase">
       <h3><b>más de <?php echo $persona->categoria ?> </b></h3>
     </div>
     <br>
