@@ -14,6 +14,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 //}
 //$boton_desactivado = isset($_SESSION['btnPedido']) && $_SESSION['btnPedido'];
 
+// Leer el mensaje de la URL
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,7 +193,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         </div>
   </nav>
-
+  <?php
+   if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje'];?>
+   <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+   <?php } ?>
   <?php
   if (!isset($_SESSION['nombre'])) {
   ?>
