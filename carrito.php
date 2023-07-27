@@ -422,10 +422,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="btnPedido" id="btnPedido" value="pedido" disabled>
                     <b>REALIZAR PEDIDO</b>
                   </button>
+                </form>
+                <form action="src/convertpdf.php" method="post">
                   <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="" id="" value="" style="margin-left: 35px;">
                     <b>ENVIAR FOLIO</b>
                   </button>
                 </form>
+                
               </div>
 
               <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
