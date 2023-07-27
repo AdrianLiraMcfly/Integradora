@@ -2,8 +2,8 @@
 session_start();
 
 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-include("../products/config/database.php");
-$pedidos = "SELECT * FROM vista_ventas";
+include("../../products/config/database.php");
+$pedidos = "SELECT * FROM vista_carrito_pendientes";
 
 $dir = "../products/posters/";
 
@@ -49,10 +49,7 @@ $dir = "../products/posters/";
   .barra-deslizable{
     overflow-y: auto;
     /*position: relative;*/
-  }
-  .oculto{
-    
-  }
+}
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -63,10 +60,10 @@ $dir = "../products/posters/";
   ?>
 
 <div class="d-flex justify-content-center mt-3">
-        <a href="#" class="btn btn-primary mx-2">Pedidos</a>
-        <a href="cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
-        <a href="pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
-        <a href="completado/completados.php" class="btn btn-primary mx-2">Completados</a>
+        <a href="../pedidos.php" class="btn btn-primary mx-2">Pedidos</a>
+        <a href="../cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
+        <a href="#" class="btn btn-primary mx-2">Pendientes</a>
+        <a href="../completado/completados.php" class="btn btn-primary mx-2">Completados</a>
         <a href="#" class="btn btn-primary mx-2">Buscar</a>
     </div>
 
@@ -81,6 +78,7 @@ $dir = "../products/posters/";
                 <th>Fecha y Hora</th>
                 <th scope="col" class="col-lg-4">Productos</th>
                 <th>Estado</th>
+                <th>Accion</th>
               </tr>
             </thead>
             <tbody>
@@ -100,7 +98,7 @@ $dir = "../products/posters/";
                 <td ><?php echo $row ["id_carrito"]?></td>
                 <td><?php echo $row ["id_order"];?></td>
                 <td><?php echo $row ["nombre_cliente"];?></td>
-                <td>$<?php echo $row ["cantidad_total"];?></td>
+                <td>$<?php echo $row ["total"];?></td>
                 <td><?php echo $row ["fecha_venta"];?></td>
                 <td scope="row">
                   <table class="table table-borderless table-sm table-responsive barra-deslizable" >
@@ -124,13 +122,55 @@ $dir = "../products/posters/";
                     </tbody>
                   </table>
                 </td>
-                <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
+                <td ><strong><?php echo $row ["estado"]?></strong></td>
+                <td>
+                  <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_carrito']; ?>"><img src="../../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
+                </td>
               </tr>
               <?php
               }?>
             </tbody>        
           </table>
     </div>
+
+
+    <?php 
+$sqlGenero = "SELECT id_estado, nombre_estado FROM estado";
+$generos = $conn->query($sqlGenero);
+?>
+
+    <?php include 'editaModal.php';?>
+    <script>
+        let editaModal = document.getElementById('editaModal')
+
+        editaModal.addEventListener('hide.bs.modal', event => {
+            editaModal.querySelector('.modal-body #estado').value = ""
+        })
+
+        editaModal.addEventListener('shown.bs.modal', event => {
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+
+            let inputId = editaModal.querySelector('.modal-body #id')
+            let inputNombre = editaModal.querySelector('.modal-body #estado')
+
+            let url = "getEstado.php"
+            let formData = new FormData() 
+            formData.append('id', id)
+
+            fetch(url, {
+                    method: "POST",
+                    body: formData
+                }).then(response => response.json())
+                .then(data => {
+
+                    inputId.value = data.id_carrito
+                    inputNombre.value = data.id_estado
+
+                }).catch(err => console.log(err))
+
+        })
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
