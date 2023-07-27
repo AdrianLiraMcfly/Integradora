@@ -395,23 +395,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       $persona2 = $sentencia->fetchAll(PDO::FETCH_ASSOC);
   
       @$IDxESTADO = $persona2[0]['id_estado'];
-
-      //$id = $producto['ID'];
-      //$sentencia = $bd->prepare("SELECT imagen FROM vista_productos_categoria WHERE id_producto = ?;");
-      //$resultado = $sentencia->execute([$id]);
-      //$persona = $sentencia->fetch(PDO::FETCH_OBJ);
-
       ?>
-
-
-
-
-
-
 <br>
-
-
-
       <div class="container-pag-carrito">
 
         <div class="carrito-detalles">
@@ -427,15 +412,18 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <p style="font-size: 17px;"><b>Folio:</b> <?php echo $persona2[0]['id_order']; ?> </p>
               <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> <?php echo $persona2[0]['fecha_venta']; ?> </p>
               <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> <?php echo $persona2[0]['fecha_limite']; ?> </p>
-              <p style="font-size: 17px;"><b>Elementos:</b></p>
+              <p style="font-size: 17px;"><b>Elementos:</b> <?php  $a = 0; foreach($persona2 as $indice=> $dato2){$a++;} echo $a;?> </p>
               <p style="font-size: 17px;"><b>Total:</b> $ <?php echo $persona2[0]['total']; ?> </p>
 
               <div class="container-btn">
 
-                <form action="src/insertdatcarrito.php" method="post" target="_blank">
+                <form action="src/insertdatcarrito.php" method="post" target="">
                   <input type="hidden" name="txtTotal" value="">
-                  <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" id="btnPedido" value="pedido">
+                  <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="btnPedido" id="btnPedido" value="pedido" disabled>
                     <b>REALIZAR PEDIDO</b>
+                  </button>
+                  <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="" id="" value="" style="margin-left: 35px;">
+                    <b>ENVIAR FOLIO</b>
                   </button>
                 </form>
               </div>
@@ -459,7 +447,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
-        <?php foreach($persona as $indice => $dato){ ?>
+        <?php foreach($persona2 as $indice => $dato){ ?>
           <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
             <div class="row w-100 mx-auto">
@@ -473,9 +461,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
               <div class="col-3 container-folio-products w-25 text-center me-auto border">
                 <p class="mb-0" style="font-size: 17px;">
-                
+                Cantidad:      
                   <br />
-
+          
                   <input type="text" disabled class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $dato['cantidad'] ?>"> </input>
                 </p>
 
