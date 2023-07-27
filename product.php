@@ -186,7 +186,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <?php if ($VALcant == 2) { ?>
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
-  <?php } if($VALcant == 1){ 
+  <?php }
+  if ($VALcant == 1) {
   ?>
     <div class="alert alert-warning"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
 
@@ -254,14 +255,31 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <input type="hidden" name="precio" id="precio" value=" <?php echo openssl_encrypt($persona->precio, COD, KEY); ?> ">
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
 
-            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit" <?php //if (isset($_SESSION['btnAdd']) && $_SESSION['btnAdd']) echo 'disabled'; ?>>
-              AGREGAR AL CARRITO
-              <?php  ?>
-            </button>
-            <div class="cont-cant">
-            <p><b>Cantidad:</b></p>
-            <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
-            </div>
+            <?php
+            $IDusuario = $_SESSION['id'];
+            $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
+            $mipito = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+            @$IDxESTADO = $mipito[0]['id_estado'];
+
+            if ($IDxESTADO != 2 || $IDxESTADO == NULL) {
+            ?>
+              <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                AGREGAR AL CARRITO
+              </button>
+              <div class="cont-cant">
+                <p><b>Cantidad:</b></p>
+                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
+              <?php } else { ?>
+                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                  AGREGAR AL CARRITO
+                </button>
+                <div class="cont-cant">
+                  <p><b>Cantidad:</b></p>
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
+                <?php } ?>
+
+                </div>
           </form>
         </div>
       </div>
@@ -278,25 +296,24 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <div class="row w-100 h-100 p-2">
       <?php
-        $categoria = $persona->categoria;
-        $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
-        $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        $rutaCarpetaImagenes = 'adminView/products/posters/';
-        foreach ($productos as $dato) 
-        { ?>
+      $categoria = $persona->categoria;
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
+      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+      $rutaCarpetaImagenes = 'adminView/products/posters/';
+      foreach ($productos as $dato) { ?>
 
         <div class="col-4 prod-card me-auto ms-auto mb-4">
-          <a href="product.php?id=<?php echo $dato->id_producto?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+          <a href="product.php?id=<?php echo $dato->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
             <div class="card border border-3 border-secondary" style="width: 200px; height: 100%">
 
               <?php
-                $nombreimagen = $dato->imagen;
-                $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+              $nombreimagen = $dato->imagen;
+              $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
 
-                $base64 = base64_encode(file_get_contents($rutaimagen));
-                $base64 = 'data:image/jpeg;base64,' . $base64;
+              $base64 = base64_encode(file_get_contents($rutaimagen));
+              $base64 = 'data:image/jpeg;base64,' . $base64;
 
-                echo  "<img src='$base64' class='img_init2' alt=''>";
+              echo  "<img src='$base64' class='img_init2' alt=''>";
               ?>
 
               <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
@@ -325,14 +342,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>
 
   <script>
-  var inputCantidad = document.getElementById("cantidad");
+    var inputCantidad = document.getElementById("cantidad");
 
-  inputCantidad.addEventListener("input", function(event) {
-    this.setAttribute("value", event.target.value);
-  });
-</script>
+    inputCantidad.addEventListener("input", function(event) {
+      this.setAttribute("value", event.target.value);
+    });
+  </script>
 
-
+<?php // ?>
 </body>
 
 </html>

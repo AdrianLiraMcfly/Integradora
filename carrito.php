@@ -192,10 +192,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
   <?php
-   if (isset($_GET['mensaje'])) {
-    $mensajeAlerta = $_GET['mensaje'];?>
-   <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
-   <?php } ?>
+  if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje']; ?>
+    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+  <?php } ?>
   <?php
   if (!isset($_SESSION['nombre'])) {
   ?>
@@ -237,16 +237,16 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <div class="carrito-detalles">
 
 
-            <div class="background-categorias text-light">
-              <b>DETALLES</b>
-            </div> <br>
+          <div class="background-categorias text-light">
+            <b>DETALLES</b>
+          </div> <br>
 
 
           <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
             <div class="informacion-detalles-carrito">
               <?php
-                      /* Verificar si tiene folio
+              /* Verificar si tiene folio
                 if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
                 $folio = $_SESSION['folio'];
                 echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
@@ -264,46 +264,45 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
               <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
               <p style="font-size: 17px;">
-                <b>Total:</b> 
-                $<?php if (isset($_SESSION['CARRITO'])) 
-                {
-                  foreach ($_SESSION['CARRITO'] as $indice => $producto) 
-                  {
-                    $total += $producto['PRECIO'];
+                <b>Total:</b>
+                $<?php if (isset($_SESSION['CARRITO'])) {
+                    foreach ($_SESSION['CARRITO'] as $indice => $producto) {
+                      $total += $producto['PRECIO'];
+                    }
                   }
-                }
-                echo $total; 
-                ?> 
+                  echo $total;
+                  ?>
               </p>
 
-<?php 
-if(isset($_SESSION['CARRITO'])){
-  
+              <?php
+              if (isset($_SESSION['CARRITO'])) {
 
-$sumaCantidades = 0;
 
-foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
-    $sumaCantidades += $cantidad['CANTIDAD'];
-}
-?>
+                $sumaCantidades = 0;
 
-              <div class="container-btn">
+                foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
+                  $sumaCantidades += $cantidad['CANTIDAD'];
+                }
+              ?>
 
-                <form action="src/insertdatcarrito.php" method="post">
-                  <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
-<?php 
-if($sumaCantidades > 4){
-  echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
-}else{
-  echo "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
+                <div class="container-btn">
+
+                  <form action="src/insertdatcarrito.php" method="post">
+                    <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
+                  <?php
+                  if ($sumaCantidades > 4) {
+                    echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
+                  } else {
+                    echo "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
 <b>REALIZAR PEDIDO</b>
 </button>";
-}}
-?>
-                </form>
-              </div>
+                  }
+                }
+                  ?>
+                  </form>
+                </div>
 
-              <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
+                <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
             </div>
 
           </div>
@@ -315,7 +314,7 @@ if($sumaCantidades > 4){
         <div class="container-carrito-div">
 
 
-            <div class="background-categorias text-light">
+          <div class="background-categorias text-light">
             <b>CARRITO</b>
           </div><br>
 
@@ -400,9 +399,9 @@ if($sumaCantidades > 4){
       <?php } else { ?>
         <div class="container-carrito-div">
 
-            <div class="background-categorias text-light">
-              <b>CARRITO</b>
-      </div><br>
+          <div class="background-categorias text-light">
+            <b>CARRITO</b>
+          </div><br>
 
           <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
             <div class="text-center p-1 w-auto mt-0">
@@ -420,42 +419,46 @@ if($sumaCantidades > 4){
       $IDusuario = $_SESSION['id'];
       $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
       $persona2 = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  
+
       @$IDxESTADO = $persona2[0]['id_estado'];
       ?>
-<br>
+      <br>
       <div class="container-pag-carrito">
 
         <div class="carrito-detalles">
 
-            <div class="background-categorias text-light">
-              <b>DETALLES</b>
-            </div> <br>
+          <div class="background-categorias text-light">
+            <b>DETALLES</b>
+          </div> <br>
 
 
           <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
             <div class="informacion-detalles-carrito">
-            <p style="font-size: 17px;"><b>Folio:</b> <?php echo $persona2[0]['id_order']; ?> </p>
+              <p style="font-size: 17px;"><b>Folio:</b> <?php echo $persona2[0]['id_order']; ?> </p>
               <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> <?php echo $persona2[0]['fecha_venta']; ?> </p>
               <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> <?php echo $persona2[0]['fecha_limite']; ?> </p>
-              <p style="font-size: 17px;"><b>Elementos:</b> <?php  $a = 0; foreach($persona2 as $indice=> $dato2){$a++;} echo $a;?> </p>
+              <p style="font-size: 17px;"><b>Elementos:</b> <?php $a = 0;
+                                                            foreach ($persona2 as $indice => $dato2) {
+                                                              $a++;
+                                                            }
+                                                            echo $a; ?> </p>
               <p style="font-size: 17px;"><b>Total:</b> $ <?php echo $persona2[0]['total']; ?> </p>
 
               <div class="container-btn">
-
-                <form action="src/insertdatcarrito.php" method="post" target="">
-                  <input type="hidden" name="txtTotal" value="">
-                  <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="btnPedido" id="btnPedido" value="pedido" disabled>
-                    <b>REALIZAR PEDIDO</b>
-                  </button>
-                </form>
                 <form action="src/convertpdf.php" method="post">
-                  <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow"  type="submit" name="" id="" value="" style="margin-left: 35px;">
+                  <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="" id="" value="" style="margin-left: 35px;">
                     <b>ENVIAR FOLIO</b>
                   </button>
                 </form>
-                
+                <br>
+                <form action="src/CANCELARxPEDIDO.php" method="post">
+                  <input type="hidden" name="IDxCARRITO" value="<?php echo $persona2[0]['id_carrito'];?>">
+                  <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
+                    <b>CANCELAR PEDIDO</b>
+                  </button>
+                </form>
+
               </div>
 
               <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
@@ -471,55 +474,55 @@ if($sumaCantidades > 4){
       <div class="container-carrito-div">
 
 
-          <div class="background-categorias text-light">
-            <b>CARRITO</b>
-    </div><br>
+        <div class="background-categorias text-light">
+          <b>CARRITO</b>
+        </div><br>
 
         <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
-        <?php foreach($persona2 as $indice => $dato){ ?>
-          <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
+          <?php foreach ($persona2 as $indice => $dato) { ?>
+            <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
-            <div class="row w-100 mx-auto">
-              <div class="col-3 btn-delete-product w-auto text-center me-auto">
+              <div class="row w-100 mx-auto">
+                <div class="col-3 btn-delete-product w-auto text-center me-auto">
+                </div>
+
+                <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
+                  <p class="mb-0" style="font-size: 17px;"><?php echo $dato['nombre'] ?></p>
+                  <b style="font-size: 17px;"><?php echo $dato['precio_unitario'] ?></b>
+                </div>
+
+                <div class="col-3 container-folio-products w-25 text-center me-auto border">
+                  <p class="mb-0" style="font-size: 17px;">
+                    Cantidad:
+                    <br />
+
+                    <input type="text" disabled class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $dato['cantidad'] ?>"> </input>
+                  </p>
+
+                  <a class="ver-pro mt-3" style="font-size: 12px;" href="product.php?id=<?php echo $dato['id_producto'] ?>">
+                    <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
+                      Ver Producto
+                    </b>
+                  </a>
+                </div>
+
+                <div class="col-3 container-products-carrito-img w-25 p-2">
+
+
+                  <?php
+                  $nombreimagen = $dato['imagen'];
+                  $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,' . $base64;
+                  echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
+                  ?>
+
+
+                </div>
               </div>
 
-              <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
-                <p class="mb-0" style="font-size: 17px;"><?php echo $dato['nombre'] ?></p>
-                <b style="font-size: 17px;"><?php echo $dato['precio_unitario'] ?></b>
-              </div>
-
-              <div class="col-3 container-folio-products w-25 text-center me-auto border">
-                <p class="mb-0" style="font-size: 17px;">
-                Cantidad:      
-                  <br/>
-          
-                  <input type="text" disabled class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $dato['cantidad'] ?>"> </input>
-                </p>
-
-                <a class="ver-pro mt-3" style="font-size: 12px;" href="#">
-                  <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
-                    Ver Producto
-                  </b>
-                </a>
-              </div>
-
-              <div class="col-3 container-products-carrito-img w-25 p-2">
-
-
-                <?php
-                $nombreimagen = $dato['imagen'];
-                $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
-                $base64 = base64_encode(file_get_contents($rutaimagen));
-                $base64 = 'data:image/jpeg;base64,' . $base64;
-                echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
-                ?>
-
-
-              </div>
             </div>
-
-          </div>
           <?php } ?>
         </div>
       </div>
@@ -549,6 +552,7 @@ if($sumaCantidades > 4){
   <?php
     }
   }
+  $bd = NULL;
   ?>
 
 </body>

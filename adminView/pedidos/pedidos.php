@@ -49,7 +49,10 @@ $dir = "../products/posters/";
   .barra-deslizable{
     overflow-y: auto;
     /*position: relative;*/
-}
+  }
+  .oculto{
+    
+  }
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -64,7 +67,7 @@ $dir = "../products/posters/";
         <a href="#" class="btn btn-primary mx-2">Cancelados</a>
         <a href="#" class="btn btn-primary mx-2">Pendientes</a>
         <a href="#" class="btn btn-primary mx-2">Completados</a>
-        <a href="#" class="btn btn-primary mx-2">Buscar</a>
+        <a href="#" class="btn btn-primary mx-2 oculto">Buscar</a>
     </div>
 
     <div class="container mt-3">
@@ -95,8 +98,8 @@ $dir = "../products/posters/";
                 
               ?> 
               <tr>
-                <td ><?php echo $row ["id_carrito"]?></td>
-                <td ><?php echo $row ["estado_orden"]?></td>
+                <td><?php echo $row ["id_carrito"]?></td>
+                <td><?php echo $row ["estado_orden"]?></td>
                 <td><?php echo $row ["fecha_venta"];?></td>
                 <td><?php echo $row ["id_order"];?></td>
                 <td><?php echo $row ["cantidad_total"];?></td>
