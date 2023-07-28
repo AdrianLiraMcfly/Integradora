@@ -14,6 +14,9 @@ if ($result) {
     echo "Error en la consulta: " . mysqli_error($conn);
 }
 require 'bootstrap.php';
+if (isset($_SESSION['CARRITO'])) {
+    foreach ($_SESSION['CARRITO'] as $indice => $producto) 
+    {$total += $producto['PRECIO'];}}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -79,6 +82,7 @@ try
         <div class="container">
             <h1>Gracias por comprar con nosotros!</h1>
             <h1>Folio: '.$_SESSION['folio'].'</h1>
+            <h2>Total de compra'.$total.'</h2>
             <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las próximas 48 horas o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
