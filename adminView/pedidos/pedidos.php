@@ -3,10 +3,7 @@ session_start();
 
 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
 include("../products/config/database.php");
-$pedidos = "SELECT * FROM vista_ventas";
-
-$dir = "../products/posters/";
-
+$pedidos = "SELECT * FROM vista_carrito_usuarios";
 ?>
 
 <!DOCTYPE html>
@@ -46,13 +43,6 @@ $dir = "../products/posters/";
     max-width: 50px;
     max-height: 50px;
   }
-  .barra-deslizable{
-    overflow-y: auto;
-    /*position: relative;*/
-  }
-  .oculto{
-    
-  }
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -61,76 +51,57 @@ $dir = "../products/posters/";
 <?php
   include '../encabesado.php';
   ?>
-
-<div class="d-flex justify-content-center mt-3">
-        <a href="#" class="btn btn-primary mx-2">Pedidos</a>
-        <a href="cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
-        <a href="pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
-        <a href="completado/completados.php" class="btn btn-primary mx-2">Completados</a>
-        <a href="buscador/buscador.php" class="btn btn-primary mx-2">Buscar</a>
-    </div>
-
-    <div class="container mt-3">
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="col-md-9">
+      <div class="container">
         <table class="table table-striped">
         <thead> 
               <tr>
                 <th>#</th>
-                <th>ID de la Orden</th>
-                <th>Nombre del Cliente</th>
-                <th>Cantidad Total</th>
                 <th>Fecha y Hora</th>
-                <th scope="col" class="col-lg-4">Productos</th>
-                <th>Estado</th>
+                <th>ID de la Orden</th>
+                <th>Cantidad Total</th>
+                <th>Nombre del Cliente</th>
+                <th>Accion</th>
               </tr>
             </thead>
             <tbody>
             <?php 
               $resultado = $conn->query($pedidos); 
               while($row= $resultado->fetch_assoc()){
-                $idUsuario = $row["id_usuario"];
-                $idCarrito = $row["id_carrito"];
-
-                $conn->multi_query("CALL integradora2.ObtenerProductosPorUsuarioYCarrito($idUsuario,$idCarrito)");
-                $productosPedido = $conn->store_result();
-                $conn->next_result();
-
-                
               ?> 
               <tr>
                 <td ><?php echo $row ["id_carrito"]?></td>
-                <td><?php echo $row ["id_order"];?></td>
-                <td><?php echo $row ["nombre_cliente"];?></td>
-                <td>$<?php echo $row ["cantidad_total"];?></td>
                 <td><?php echo $row ["fecha_venta"];?></td>
-                <td scope="row">
-                  <table class="table table-borderless table-sm table-responsive barra-deslizable" >
-                    <thead>
-                      <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      while ($producto = $productosPedido->fetch_assoc()) {
-                      ?>
-                      <tr>
-                        <td><?php echo $producto["nombre"]; ?></td>
-                        <td>$<?php echo $producto["precio_unitario"]; ?></td>
-                        <td><?php echo $producto["cantidad"]; ?></td>
-                      </tr>
-                      <?php }?>
-                    </tbody>
-                  </table>
+                <td><?php echo $row ["id_order"];?></td>
+                <td><?php echo $row ["total"];?></td>
+                <td><?php echo $row ["nombre_usuario"];?></td>
+                <td>
+                  <button name="btnModal" class="btn btn-primary btn-sm btnVerDetalle" data-toggle="modal" data-target="#pedidoModal" data-idcarrito="<?php echo $row["id_carrito"]; ?>" data-idusuario="<?php echo $row["id_usuario"]; ?>">Ver Detalle</button>
                 </td>
-                <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
               </tr>
               <?php
               }?>
             </tbody>        
           </table>
+      </div>
     </div>
+  </div>
+
+<?php include 'modalVer.php'; ?>
+
+<script>
+// Agregar el evento click del botón "Ver Detalle"
+$('.btnVerDetalle').click(function() {
+  // Obtener el ID del carrito y el ID del usuario del atributo "data-" del botón
+  var idCarrito = $(this).data('idcarrito');
+  var idUsuario = $(this).data('idusuario');
+
+  // Hacer la solicitud AJAX para cargar el contenido del modal desde modalVer.php
+  $('#pedidoModal .modal-content').load('modalVer.php?idCarrito=' + idCarrito + '&idUsuario=' + idUsuario);
+});
+</script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

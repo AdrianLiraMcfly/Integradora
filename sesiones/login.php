@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="../icon.png">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/estilo.css">
@@ -138,7 +138,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
 
           </div>
-          
 
           <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
 
@@ -155,28 +154,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </nav>
 
-  <?php
-           if (isset($_GET['mensaje'])) {
-           $mensajeAlerta = $_GET['mensaje'];?>
-           <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
-           <?php } ?>
-      <div class="formulario bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto mt-5">
+      <div class="formulario bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto">
         <h2 class="text-center titulo_pro text-light mt-2" ><b>INICIA SESION!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
 
         <form action="../src/login.php" method="post">
           <?php
-            //include '../src/login.php';
-            //include '../src/conexionbd.php';
-            if (isset($_SESSION["mensaje_error"])) 
-            {
-              echo "<script>alert('".$_SESSION["mensaje_error"]."');</script>";
-              unset($_SESSION["mensaje_error"]); // Limpiar el mensaje de error después de mostrarlo
-            }
+          //include '../src/login.php';
+          //include '../src/conexionbd.php';
+          if (isset($_SESSION["mensaje_error"])) {
+            echo "<script>alert('".$_SESSION["mensaje_error"]."');</script>";
+            unset($_SESSION["mensaje_error"]); // Limpiar el mensaje de error después de mostrarlo
+        }
           ?>
 
             <div class="username mb-5">
-                <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="email" required>
+                <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="text" required>
                 <label for=""><b>Gmail de usuario</b></label>
             </div>
 
@@ -197,6 +190,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </form>
       </div>
-      <?php // ?>
+    
 </body>
 </html>

@@ -30,7 +30,7 @@ if ($conn->query($sql)) {
                 $poster = $dir . '/' . $id . '.jpg';
 
                 if (!file_exists($dir)) {
-                    mkdir($dir, 0755);
+                    mkdir($dir, 0777);
                 }
 
                 if (!move_uploaded_file($_FILES['poster']['tmp_name'], $poster)) {
@@ -61,7 +61,5 @@ if ($conn->query($sql)) {
     $_SESSION['color'] = "danger";
     $_SESSION['msg'] = "Error al guardar el producto";
 }
-
-
 
 header('Location: index2.php');

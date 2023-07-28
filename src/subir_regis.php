@@ -16,7 +16,6 @@ try {
     
     echo "Registro guardado correctamente";
     header('Location: ../index.php');
-
     exit();
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {

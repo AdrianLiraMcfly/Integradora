@@ -48,7 +48,6 @@ if ($id > 0) {
 }
 
 // Redirigir a la página deseada después de la eliminación (independientemente del resultado)
-
 header('Location: index2.php');
 exit();
 ?>
