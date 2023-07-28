@@ -293,9 +293,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   if ($sumaCantidades > 4) {
                     echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
                   } else {
-                    echo "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
-<b>REALIZAR PEDIDO</b>
-</button>";
+                    echo 
+                    "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
+                      <b>REALIZAR PEDIDO</b>
+                    </button>";
                   }
                 }
                   ?>

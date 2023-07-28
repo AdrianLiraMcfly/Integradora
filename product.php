@@ -199,7 +199,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <div class="row w-100 mx-auto p-2">
 
-      <div class="col-4 container_product_present shadow rounded border border-2 border-black border-2 p-2 w-auto ms-auto me-auto">
+      <div class="col-4 container_product_present shadow rounded border border-2 border-dark w-auto ms-auto me-auto">
         <?php
 
           $id = $_GET['id'];
@@ -214,12 +214,12 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           $base64 = base64_encode(file_get_contents($rutaimagen));
           $base64 = 'data:image/jpeg;base64,' . $base64;
 
-          echo  "<img src='$base64' class='img_present my-auto' alt='' style='width: 200px; height: 200px;'>";
+          echo  "<img src='$base64' class='img_present' alt='' style='width: 200px; height: 200px;'>";
 
         ?>
       </div>
 
-      <div class="col-4 w-auto me-auto">
+      <div class="col-4 w-auto p-2 ms-auto me-auto">
 
         <div class="card bg-body-secondary bg-gradient shadow border border-black border-2">
 
@@ -247,7 +247,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       </div>
 
-      <div class="col-4 w-auto p-2 me-auto">
+      <div class="col-4 w-auto p-2 ms-auto me-auto ">
         <div class="btns_container rounded p-2 shadow border border-black border-2">
           <form action="" method="post">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
@@ -256,7 +256,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
 
             <?php
-            if(isset($_SESSION['nombre'])){
+            if(isset($_SESSION['nombre']))
+            {
               $IDusuario = $_SESSION['id'];
               $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
               $mipito = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -290,14 +291,22 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <p>
                     <b>Cantidad:</b>
                   </p>
+
                   <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
-                <?php }} ?>
-                
-                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                AGREGAR AL CARRITO
-              </button>
-                <p><b>Cantidad:</b></p>
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
+                  <?php 
+                  }
+                  }
+                  ?>
+                  <!--
+                  <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                    AGREGAR AL CARRITO
+                  </button>
+
+                  <p>
+                    <b>Cantidad:</b>
+                  </p>
+
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>-->
 
                 </div>
           </form>
