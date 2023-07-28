@@ -4,7 +4,6 @@ if (!isset($_GET['id'])) {
 }
 include 'src/config.php';
 include 'src/validacion-carrito.php';
-//include 'src/validacion-producto.php';
 include 'src/conexionbd.php';
 
 $rutaCarpetaImagenes = 'adminView/products/posters/';
@@ -202,17 +201,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="col-4 container_product_present shadow rounded border border-2 border-dark w-auto ms-auto me-auto">
         <?php
 
-          $id = $_GET['id'];
-          $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
-          $resultado = $sentencia->execute([$id]);
-          $persona = $sentencia->fetch(PDO::FETCH_OBJ);
-
-
-          $nombreimagen = $persona->imagen;
-          $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
-
-          $base64 = base64_encode(file_get_contents($rutaimagen));
-          $base64 = 'data:image/jpeg;base64,' . $base64;
+        $id = $_GET['id'];
+        $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
+        $resultado = $sentencia->execute([$id]);
+        $persona = $sentencia->fetch(PDO::FETCH_OBJ);
+        $nombreimagen = $persona->imagen;
+        $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+        $base64 = base64_encode(file_get_contents($rutaimagen));
+        $base64 = 'data:image/jpeg;base64,' . $base64;
 
           echo  "<img src='$base64' class='img_present' alt='' style='width: 200px; height: 200px;'>";
 
@@ -278,11 +274,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <b>Cantidad:</b>
                 </p>
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
-
-                <?php 
-            } 
-            else 
-            { ?>
+              <?php } else { ?>
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
                   AGREGAR AL CARRITO
                 </button>
