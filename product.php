@@ -115,7 +115,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                             <ul class="dropdown-menu border-black">
                               <li><a class="dropdown-item" href="adminView/products/index2.php">Productos</a></li>
                               <li><a class="dropdown-item" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
-                              <li><a class="dropdown-item" href="adminView/clientes/index1.php">Clientes</a></li>
+                              <li><a class="dropdown-item" href="adminView/clientes/clientes/clientes.php">Clientes</a></li>
                             </ul>
                           </li>';
 
@@ -198,9 +198,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     <div class="row w-100 mx-auto p-2">
 
-      <div class="col-4 container_product_present shadow rounded border border-2 border-black border-2 p-2 w-auto ms-auto me-auto">
+      <div class="col-4 container_product_present shadow rounded border border-2 border-dark w-auto ms-auto me-auto">
         <?php
 
+<<<<<<< HEAD
         $id = $_GET['id'];
         $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
         $resultado = $sentencia->execute([$id]);
@@ -209,13 +210,26 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
         $base64 = base64_encode(file_get_contents($rutaimagen));
         $base64 = 'data:image/jpeg;base64,' . $base64;
+=======
+          $id = $_GET['id'];
+          $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
+          $resultado = $sentencia->execute([$id]);
+          $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
-          echo  "<img src='$base64' class='img_present my-auto' alt='' style='width: 200px; height: 200px;'>";
+
+          $nombreimagen = $persona->imagen;
+          $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
+
+          $base64 = base64_encode(file_get_contents($rutaimagen));
+          $base64 = 'data:image/jpeg;base64,' . $base64;
+>>>>>>> 56a762e837baa4aed7e6eaf44a8c9bf52c87b67d
+
+          echo  "<img src='$base64' class='img_present' alt='' style='width: 200px; height: 200px;'>";
 
         ?>
       </div>
 
-      <div class="col-4 w-auto me-auto">
+      <div class="col-4 w-auto p-2 ms-auto me-auto">
 
         <div class="card bg-body-secondary bg-gradient shadow border border-black border-2">
 
@@ -243,7 +257,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       </div>
 
-      <div class="col-4 w-auto p-2 me-auto">
+      <div class="col-4 w-auto p-2 ms-auto me-auto ">
         <div class="btns_container rounded p-2 shadow border border-black border-2">
           <form action="" method="post">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
@@ -252,7 +266,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
 
             <?php
-            if(isset($_SESSION['nombre'])){
+            if(isset($_SESSION['nombre']))
+            {
               $IDusuario = $_SESSION['id'];
               $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
               $mipito = $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -273,7 +288,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <b>Cantidad:</b>
                 </p>
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
+<<<<<<< HEAD
               <?php } else { ?>
+=======
+
+                <?php 
+            } 
+            else 
+            { ?>
+>>>>>>> 56a762e837baa4aed7e6eaf44a8c9bf52c87b67d
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
                   AGREGAR AL CARRITO
                 </button>
@@ -282,6 +305,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <p>
                     <b>Cantidad:</b>
                   </p>
+
                   <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
                 <?php }}else{ ?>
                   </form> <form action="carrito.php">
