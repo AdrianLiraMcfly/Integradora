@@ -202,16 +202,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="col-4 container_product_present shadow rounded border border-2 border-dark w-auto ms-auto me-auto">
         <?php
 
-<<<<<<< HEAD
-        $id = $_GET['id'];
-        $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
-        $resultado = $sentencia->execute([$id]);
-        $persona = $sentencia->fetch(PDO::FETCH_OBJ);
-        $nombreimagen = $persona->imagen;
-        $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
-        $base64 = base64_encode(file_get_contents($rutaimagen));
-        $base64 = 'data:image/jpeg;base64,' . $base64;
-=======
           $id = $_GET['id'];
           $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
           $resultado = $sentencia->execute([$id]);
@@ -223,7 +213,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           $base64 = base64_encode(file_get_contents($rutaimagen));
           $base64 = 'data:image/jpeg;base64,' . $base64;
->>>>>>> 7fc2d0997c02638795a2787ec3153ca58c874886
 
           echo  "<img src='$base64' class='img_present' alt='' style='width: 200px; height: 200px;'>";
 
@@ -289,17 +278,12 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <b>Cantidad:</b>
                 </p>
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
-<<<<<<< HEAD
-              <?php } else { ?>
-                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit">
-=======
 
                 <?php 
             } 
             else 
             { ?>
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
->>>>>>> 7fc2d0997c02638795a2787ec3153ca58c874886
                   AGREGAR AL CARRITO
                 </button>
 
@@ -309,23 +293,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </p>
 
                   <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
-<<<<<<< HEAD
-                  <?php 
-                  }
-                  }
-                  ?>
-                  <!--
-                  <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                    AGREGAR AL CARRITO
-                  </button>
-
-                  <p>
-                    <b>Cantidad:</b>
-                  </p>
-
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>-->
-
-=======
                 <?php }}else{ ?>
                   </form> <form action="carrito.php">
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
@@ -334,7 +301,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <p><b>Cantidad:</b></p>
                   <input class="input-perfect" disabled value="1"></input> <?php } ?>
                   </form>
->>>>>>> c9f1fcf71a39e50e2a43daad1bff2e42729ca8f0
                 </div>
 
         </div>
