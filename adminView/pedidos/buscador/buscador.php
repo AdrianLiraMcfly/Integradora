@@ -48,9 +48,13 @@ $pedidos = "SELECT * FROM vista_ventas";
     overflow-y: auto;
     /*position: relative;*/
   }
-  .oculto{
-    
+  .col-3{
+    margin-bottom: 5px;
   }
+
+  /*.oculto{
+    
+  }*/
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -60,53 +64,82 @@ $pedidos = "SELECT * FROM vista_ventas";
   include '../encabesado.php';
   ?>
 
-<div class="d-flex justify-content-center mt-3">
-        <a href="../pedidos.php" class="btn btn-primary mx-2">Pedidos</a>
-        <a href="../cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
-        <a href="../pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
-        <a href="../completado/completados.php" class="btn btn-primary mx-2">Completados</a>
-        <a href="#" class="btn btn-primary mx-2">Buscar</a>
-    </div>
+        <div class="content-fluid justify-content-center mt-3 mb-auto">
+          <div class="row w-100 p-2 me-auto ms-auto">
 
-    <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
-        <hr>
-      </form>
-    </div>
+            <div class="col-3 me-auto ms-5 text-center w-auto">
+              <a href="../pedidos.php" class="btn btn-warning rounded-pill border border-3 border-black">
+                <b>Pedidos</b>
+              </a>
+            </div>
+            
+            <div class="col-3 me-auto ms-5 text-center w-auto">
+              <a href="../cancelados/cancelados.php" class="btn btn-warning rounded-pill border border-3 border-black">
+                <b>Cancelados</b>
+              </a>
+            </div>
+            
+            <div class="col-3 me-5 ms-5 text-center w-auto">
+              <a href="../pendientes/pendientes.php" class="btn btn-warning rounded-pill border border-3 border-black">
+                <b>Pendientes</b>
+              </a>
+            </div>
 
-    <div class="container mt-3">
-        <table class="table table-striped table_id">
-        <thead> 
+            <div class="col-3 me-5 ms-auto text-center w-auto">
+              <a href="../completado/completados.php" class="btn btn-warning rounded-pill border border-3 border-black">
+                <b>Completados</b>
+              </a>
+            </div>
+
+            <!--
+            <a href="#" class="btn btn-warning mx-2 rounded-pill border border-3 border-black">
+              <b>Buscar</b>
+            </a>-->
+          </div>
+        </div>
+
+        <div class="container-fluid">
+          <form class="d-flex w-50 mx-auto">
+            <input class="form-control light-table-filter shadow-lg border border-2 border-dark rounded-pill p-auto" data-table="table_id" type="text" placeholder="Buscar">
+            <hr>
+          </form>
+        </div>
+
+        <div class="container mt-3">
+
+          <table class="table table-striped table_id border shadow-sm">
+            <thead> 
               <tr>
-                <th>#</th>
-                <th>ID de la Orden</th>
-                <th>Nombre del Cliente</th>
-                <th>Cantidad Total</th>
-                <th>Fecha y Hora</th>
-                <th>Estado</th>
+                <th class="bg-dark text-light">#</th>
+                <th class="bg-dark text-light">ID de la Orden</th>
+                <th class="bg-dark text-light">Nombre del Cliente</th>
+                <th class="bg-dark text-light">Cantidad Total</th>
+                <th class="bg-dark text-light">Fecha y Hora</th>
+                <th class="bg-dark text-light">Estado</th>
               </tr>
             </thead>
-            <tbody>
-            <?php 
-              $resultado = $conn->query($pedidos); 
-              while($row= $resultado->fetch_assoc()){
 
-                
-              ?> 
-              <tr>
-                <td ><?php echo $row ["id_carrito"]?></td>
-                <td><?php echo $row ["id_order"];?></td>
-                <td><?php echo $row ["nombre_cliente"];?></td>
-                <td>$<?php echo $row ["cantidad_total"];?></td>
-                <td><?php echo $row ["fecha_venta"];?></td>
-                <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
-              </tr>
-              <?php
-              }?>
+            <tbody>
+              <?php 
+                $resultado = $conn->query($pedidos); 
+                while($row= $resultado->fetch_assoc()){
+
+                  
+                ?> 
+                <tr>
+                  <td ><?php echo $row ["id_carrito"]?></td>
+                  <td><?php echo $row ["id_order"];?></td>
+                  <td><?php echo $row ["nombre_cliente"];?></td>
+                  <td>$<?php echo $row ["cantidad_total"];?></td>
+                  <td><?php echo $row ["fecha_venta"];?></td>
+                  <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
+                </tr>
+                <?php
+                }?>
             </tbody>        
           </table>
-    </div>
+        </div>
+        
     <script src="../../js/buscador.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
