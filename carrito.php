@@ -556,6 +556,12 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   $bd = NULL;
   ?>
 
+
+
+<script>
+
+  </script>
+
 </body>
 
 </html>

@@ -273,7 +273,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <p>
                   <b>Cantidad:</b>
                 </p>
-                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
+                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
               <?php } else { ?>
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
                   AGREGAR AL CARRITO
@@ -284,7 +284,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                     <b>Cantidad:</b>
                   </p>
 
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
                 <?php }}else{ ?>
                   </form> <form action="carrito.php">
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">

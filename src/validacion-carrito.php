@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $mensaje = "";
 $VALcant = 0;
 if (isset($_POST['btnAccion'])) {
@@ -26,20 +25,16 @@ if (isset($_POST['btnAccion'])) {
             } else {
                 $mensaje .= "Precio incorrecto";
             }
-
             if (is_numeric($_POST['cantidad'])) {
                 $CANTIDAD = $_POST['cantidad'];
 
                 if($_POST['cantidad'] <= 0){
-
-
                     $mensaje .= "Cantidad incorrecta" . $CANTIDAD;
                     $VALcant = 1;
                 }
                 else{
                     $VALcant = 2;
                 }
-
             }
             else {
                 $mensaje .= "Cantidad incorrecta";
@@ -66,9 +61,24 @@ if (isset($_POST['btnAccion'])) {
                 } else {
     
                     $idproductos = array_column($_SESSION['CARRITO'], "ID");
-    
+                    $NumeroProductos = count($_SESSION['CARRITO']);
                     if (in_array($ID, $idproductos)) {
                         $mensaje = "El producto ya ha sido seleccionado...";
+                        $NEWcantidad = $_POST['cantidad'];
+
+                        foreach($_SESSION['CARRITO'] as $indice => $dato){
+                            if($dato['ID'] == $ID){
+                                $producto = array(
+                                    'ID' => $ID,
+                                    'NOMBRE' => $NOMBRE,
+                                    'PRECIO' => $PRECIO,
+                                    'CANTIDAD' => $NEWcantidad,
+                                    'IMAGEN' => $IMAGEN
+                                );
+                                $_SESSION['CARRITO'][$indice] = $producto;
+                            }
+                        }
+
                     } else {
                         $NumeroProductos = count($_SESSION['CARRITO']);
                         if($NumeroProductos == 4){
@@ -87,14 +97,9 @@ if (isset($_POST['btnAccion'])) {
                         }
                     }
                 }
-
-
             }else{
                 $mensaje = "Escriba una cantida VALIDA.";
             }
-
-
-
             break;
         case 'eliminar':
             if (is_numeric(openssl_decrypt($_POST['id'], COD, KEY))) {
@@ -112,4 +117,3 @@ if (isset($_POST['btnAccion'])) {
             break;
     }
 }
-// 
