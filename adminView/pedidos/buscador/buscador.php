@@ -3,8 +3,7 @@ session_start();
 
 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
 include("../../products/config/database.php");
-$pedidos = "SELECT * FROM vista_carrito_completado";
-
+$pedidos = "SELECT * FROM vista_ventas";
 
 ?>
 
@@ -48,7 +47,10 @@ $pedidos = "SELECT * FROM vista_carrito_completado";
   .barra-deslizable{
     overflow-y: auto;
     /*position: relative;*/
-}
+  }
+  .oculto{
+    
+  }
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -62,12 +64,19 @@ $pedidos = "SELECT * FROM vista_carrito_completado";
         <a href="../pedidos.php" class="btn btn-primary mx-2">Pedidos</a>
         <a href="../cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
         <a href="../pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
-        <a href="#" class="btn btn-primary mx-2">Completados</a>
-        <a href="../buscador/buscador.php" class="btn btn-primary mx-2">Buscar</a>
+        <a href="../completado/completados.php" class="btn btn-primary mx-2">Completados</a>
+        <a href="#" class="btn btn-primary mx-2">Buscar</a>
+    </div>
+
+    <div class="container-fluid">
+      <form class="d-flex">
+        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+        <hr>
+      </form>
     </div>
 
     <div class="container mt-3">
-        <table class="table table-striped">
+        <table class="table table-striped table_id">
         <thead> 
               <tr>
                 <th>#</th>
@@ -89,18 +98,16 @@ $pedidos = "SELECT * FROM vista_carrito_completado";
                 <td ><?php echo $row ["id_carrito"]?></td>
                 <td><?php echo $row ["id_order"];?></td>
                 <td><?php echo $row ["nombre_cliente"];?></td>
-                <td>$<?php echo $row ["total"];?></td>
+                <td>$<?php echo $row ["cantidad_total"];?></td>
                 <td><?php echo $row ["fecha_venta"];?></td>
-                <td><strong><?php echo $row ["estado"]?></strong></td>
+                <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
               </tr>
               <?php
               }?>
             </tbody>        
           </table>
     </div>
-
-
-
+    <script src="../../js/buscador.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
