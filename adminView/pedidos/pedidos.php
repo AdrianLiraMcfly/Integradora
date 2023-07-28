@@ -67,7 +67,7 @@ $dir = "../products/posters/";
         <a href="cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
         <a href="pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
         <a href="completado/completados.php" class="btn btn-primary mx-2">Completados</a>
-        <a href="#" class="btn btn-primary mx-2">Buscar</a>
+        <a href="buscador/buscador.php" class="btn btn-primary mx-2">Buscar</a>
     </div>
 
     <div class="container mt-3">

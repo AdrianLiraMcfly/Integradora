@@ -116,7 +116,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                             <ul class="dropdown-menu border-black">
                               <li><a class="dropdown-item" href="adminView/products/index2.php">Productos</a></li>
                               <li><a class="dropdown-item" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
-                              <li><a class="dropdown-item" href="adminView/clientes/index1.php">Clientes</a></li>
+                              <li><a class="dropdown-item" href="adminView/clientes/clientes/clientes.php">Clientes</a></li>
                             </ul>
                           </li>';
 
