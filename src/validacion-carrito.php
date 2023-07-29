@@ -33,6 +33,9 @@ if (isset($_POST['btnAccion'])) {
                     $VALcant = 1;
                 }
                 else{
+                    if($_POST['cantidad'] > 4){
+                        $CANTIDAD = 4;
+                    }
                     $VALcant = 2;
                 }
             }
