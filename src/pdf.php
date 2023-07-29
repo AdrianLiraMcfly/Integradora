@@ -58,5 +58,6 @@ ob_start();
        <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de las proximas 48Hrs o sus productos de carrito seran devueltos a venta del publico.</p>
        <p>VideoGame Store agradece su fidelidad y preferencia.</p>
  </div>
+ <?php $bd = NULL; ?>
 </body>
 </html>

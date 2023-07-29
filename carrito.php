@@ -1,5 +1,4 @@
 <?php
-
 //if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //    header("Location: " . $_SERVER['PHP_SELF']);
 //    exit();
@@ -8,15 +7,17 @@ include 'src/config.php';
 include 'src/validacion-carrito.php';
 include 'src/conexionbd.php';
 $rutaCarpetaImagenes = 'adminView/products/posters/';
-
 //if (isset($_POST['btnPedido'])) {
 //  $_SESSION['btnPedido'] = true;
 //}
 //$boton_desactivado = isset($_SESSION['btnPedido']) && $_SESSION['btnPedido'];
 
+// Leer el mensaje de la URL
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,7 +124,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                 <li><a class="dropdown-item rounded mb-1" href="adminView/products/index2.php">Productos</a></li>
                                 <li><a class="dropdown-item rounded mb-1" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
-                                <li><a class="dropdown-item rounded" href="adminView/clientes/index1.php">Clientes</a></li>
+                                <li><a class="dropdown-item rounded" href="adminView/clientes/clientes/clientes.php">Clientes</a></li>
                               </ul>
                           </li>';
 
@@ -190,7 +191,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         </div>
   </nav>
-
+  <?php
+  if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje']; ?>
+    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+  <?php } ?>
   <?php
   if (!isset($_SESSION['nombre'])) {
   ?>
@@ -212,175 +217,343 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       </div>
     </div>
 
-  <?php
+    <?php
   } else {
 
-    //$IDusuario = $_SESSION['id'];
-    //$sentencia = $bd->query("SELECT id_carrito FROM carrito WHERE id_usuario = $IDusuario;");
-    //$persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
-//
-    //if(empty($persona)){
+    $IDusuario = $_SESSION['id'];
+    $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
+    $persona = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-    $total = 0;
-  ?>
+    @$IDxESTADO = $persona[0]['id_estado'];
 
-    <br>
-    <div class="container-pag-carrito">
+    if ($IDxESTADO != 2 || $IDxESTADO == NULL) {
 
-      <div class="carrito-detalles p-1">
+      $total = 0;
+    ?>
 
-        <div class="text-center">
-          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2">
+      <br>
+      <div class="container-pag-carrito">
+
+        <div class="carrito-detalles">
+
+
+          <div class="background-categorias text-light">
             <b>DETALLES</b>
-          </span>
-        </div> <br>
+          </div> <br>
 
 
-        <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
+          <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
-          <div class="informacion-detalles-carrito">
-          <?php
-        // Verificar si tiene folio
-        if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
-         $folio = $_SESSION['folio'];
-         echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
-          // Aquí también puedes deshabilitar el botón de compra si lo deseas
-          echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
-} else {
-         echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
-         // Aquí también puedes habilitar el botón de compra si lo deseas
-         echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
-}
-?>
-            <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
-            <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
-            <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
-            <p style="font-size: 17px;"><b>Total:</b> $<?php if (isset($_SESSION['CARRITO'])) {foreach ($_SESSION['CARRITO'] as $indice => $producto) {$total += $producto['PRECIO'];}} echo $total; ?> </p>
+            <div class="informacion-detalles-carrito">
+              <?php
+              /* Verificar si tiene folio
+                if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
+                $folio = $_SESSION['folio'];
+                echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
+                  // Aquí también puedes deshabilitar el botón de compra si lo deseas
+                  echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
+                  } else {
+                echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
+                // Aquí también puedes habilitar el botón de compra si lo deseas
+                echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
+                }*/
+              ?>
 
-            <div class="container-btn">
-              <!--En la action va "product.php" para descativar este boton, pero tambien hay mas codigos comentados aparte de este para que esto funcione-->
+              <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
+              <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
+              <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
+              <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
+              <p style="font-size: 17px;">
+                <b>Total:</b>
+                $<?php if (isset($_SESSION['CARRITO'])) {
+                    foreach ($_SESSION['CARRITO'] as $indice => $producto) {
+                      $total += $producto['PRECIO'];
+                    }
+                  }
+                  echo $total;
+                  ?>
+              </p>
 
-              <form action="src/insertdatcarrito.php" method="post">  
-                <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
-                <button class="btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="btnPedido" id="btnPedido"  value="pedido" <?php //echo $boton_desactivado ? 'disabled' : '';             //if (isset($_SESSION['btnPedido']) && $_SESSION['btnPedido']) echo 'disabled'; ?>>
-                  <b>REALIZAR PEDIDO</b>
-                </button>
-              </form>
+              <?php
+              if (isset($_SESSION['CARRITO'])) {
+
+
+                $sumaCantidades = 0;
+
+                foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
+                  $sumaCantidades += $cantidad['CANTIDAD'];
+                }
+              ?>
+
+                <div class="container-btn">
+
+                  <form action="src/insertdatcarrito.php" method="post">
+                    <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
+                  <?php
+                  if ($sumaCantidades > 4) {
+                    echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
+                  } else {
+                    echo 
+                    "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
+                      <b>REALIZAR PEDIDO</b>
+                    </button>";
+                  }
+                }
+                  ?>
+                  </form>
+                </div>
+
+                <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
             </div>
 
-            <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
           </div>
-
         </div>
       </div>
-    </div>
 
-    <?php if (!empty($_SESSION['CARRITO'])) { ?>
+      <?php if (!empty($_SESSION['CARRITO'])) { ?>
 
-      <div class="container-carrito-div p-1">
+        <div class="container-carrito-div">
 
-        <div class="text-center">
-          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2">
+
+          <div class="background-categorias text-light">
             <b>CARRITO</b>
-          </span>
-        </div><br>
+          </div><br>
 
-        <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
-          <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
-            
-            <?php
+          <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
+            <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
+
+
+              <?php
 
               $id = $producto['ID'];
               $sentencia = $bd->prepare("SELECT imagen FROM vista_productos_categoria WHERE id_producto = ?;");
               $resultado = $sentencia->execute([$id]);
               $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
-            ?>
+              ?>
 
+
+
+              <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
+
+                <div class="row w-100 mx-auto">
+                  <div class="col-3 btn-delete-product w-auto text-center me-auto">
+                    <form action="" method="post">
+
+                      <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
+
+                      <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                          <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                        </svg>
+                      </button>
+                    </form>
+                  </div>
+
+                  <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
+                    <p class="mb-0" style="font-size: 17px;"><?php echo $producto['NOMBRE'] ?></p>
+                    <b style="font-size: 17px;">$<?php echo $producto['PRECIO'] ?></b>
+                  </div>
+
+                  <div class="col-3 container-folio-products w-25 text-center me-auto border"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
+                                                                                                ?>
+
+                    <p class="mb-0" style="font-size: 17px;">
+                      Cantidad:
+                      <br />
+
+                      <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" disabled value="<?php echo $producto['CANTIDAD']; ?>"> </input>
+                    </p>
+
+                    <a class="ver-pro mt-3" style="font-size: 12px;" href="product.php?id=<?php echo $producto['ID']; ?>">
+                      <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
+                        Ver Producto
+                      </b>
+                    </a>
+                  </div>
+
+                  <div class="col-3 container-products-carrito-img w-25 p-2">
+
+
+                    <?php
+                    $nombreimagen = $persona->imagen;
+                    $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
+
+                    $base64 = base64_encode(file_get_contents($rutaimagen));
+                    $base64 = 'data:image/jpeg;base64,' . $base64;
+
+                    echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
+
+                    ?>
+
+
+                  </div>
+                </div>
+
+              </div>
+            <?php } ?>
+
+          </div>
+        </div>
+
+        <!--</div>-->
+      <?php } else { ?>
+        <div class="container-carrito-div">
+
+          <div class="background-categorias text-light">
+            <b>CARRITO</b>
+          </div><br>
+
+          <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
+            <div class="text-center p-1 w-auto mt-0">
+              Aún no hay productos en el carrito...
+            </div>
+          </div>
+
+        </div>
+
+      <?php
+      }
+    } else {
+
+
+      $IDusuario = $_SESSION['id'];
+      $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
+      $persona2 = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+      @$IDxESTADO = $persona2[0]['id_estado'];
+      ?>
+      <br>
+      <div class="container-pag-carrito">
+
+        <div class="carrito-detalles">
+
+          <div class="background-categorias text-light">
+            <b>DETALLES</b>
+          </div> <br>
+
+
+          <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
+
+            <div class="informacion-detalles-carrito">
+              <p style="font-size: 17px;"><b>Folio:</b> <?php echo $persona2[0]['id_order']; ?> </p>
+              <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> <?php echo $persona2[0]['fecha_venta']; ?> </p>
+              <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> <?php echo $persona2[0]['fecha_limite']; ?> </p>
+              <p style="font-size: 17px;"><b>Elementos:</b> <?php $a = 0;
+                                                            foreach ($persona2 as $indice => $dato2) {
+                                                              $a++;
+                                                            }
+                                                            echo $a; ?> </p>
+              <p style="font-size: 17px;"><b>Total:</b> $ <?php echo $persona2[0]['total']; ?> </p>
+
+              <div class="container-btn">
+                <form action="src/convertpdf.php" method="post">
+                  <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="" id="" value="" style="margin-left: 35px;">
+                    <b>ENVIAR FOLIO</b>
+                  </button>
+                </form>
+                <br>
+                <form action="src/CANCELARxPEDIDO.php" method="post">
+                  <input type="hidden" name="IDxCARRITO" value="<?php echo $persona2[0]['id_carrito'];?>">
+                  <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
+                    <b>CANCELAR PEDIDO</b>
+                  </button>
+                </form>
+
+              </div>
+
+              <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="container-carrito-div">
+
+
+        <div class="background-categorias text-light">
+          <b>CARRITO</b>
+        </div><br>
+
+        <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
+
+          <?php foreach ($persona2 as $indice => $dato) { ?>
             <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
               <div class="row w-100 mx-auto">
-
-                <div class="col-4 btn-delete-product w-auto text-center me-auto">
-                  <form action="" method="post">
-
-                    <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
-
-                    <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                      </svg>
-                    </button>
-                  </form>
+                <div class="col-3 btn-delete-product w-auto text-center me-auto">
                 </div>
 
-                <div class="col-4 container-products-carrito-info w-25 text-center me-auto">
-                  <p class="mb-0" style="font-size: 14px;"><?php echo $producto['NOMBRE'] ?></p>
-                  <b style="font-size: 14px;">$<?php echo $producto['PRECIO'] ?></b>
+                <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
+                  <p class="mb-0" style="font-size: 17px;"><?php echo $dato['nombre'] ?></p>
+                  <b style="font-size: 17px;"><?php echo $dato['precio_unitario'] ?></b>
                 </div>
 
-                <!--
-                <div class="col-3 container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO ?>
+                <div class="col-3 container-folio-products w-25 text-center me-auto border">
+                  <p class="mb-0" style="font-size: 17px;">
+                    Cantidad:
+                    <br />
 
-                  <p class="mb-0 p-0" style="font-size: 14px;">
-                    Cantidad
-                    <br/>
-
-                    <input type="text" class="bg-body-secondary rounded border border-2 border-black w-25 text-center" id="INDICE<?php echo $indice; ?>" value="<?php echo $producto['CANTIDAD']; ?>" oninput="actualizarCantidad(<?php echo $indice; ?>)"> </input> 
+                    <input type="text" disabled class="bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $dato['cantidad'] ?>"> </input>
                   </p>
 
-                  <a class="ver-pro mt-3" style="font-size: 10px;" href="#">
+                  <a class="ver-pro mt-3" style="font-size: 12px;" href="product.php?id=<?php echo $dato['id_producto'] ?>">
                     <b class="border border-2 border-black w-auto bg-warning text-dark rounded-pill p-1">
                       Ver Producto
                     </b>
                   </a>
-                </div>-->
+                </div>
 
-                <div class="col-4 container-products-carrito-img w-auto p-2">
+                <div class="col-3 container-products-carrito-img w-25 p-2">
+
 
                   <?php
-                    $nombreimagen = $persona->imagen;
-                    $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
-                    $base64 = base64_encode(file_get_contents($rutaimagen));
-                    $base64 = 'data:image/jpeg;base64,' . $base64;
-                    echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
+                  $nombreimagen = $dato['imagen'];
+                  $rutaimagen = strval($rutaCarpetaImagenes . $nombreimagen);
+                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                  $base64 = 'data:image/jpeg;base64,' . $base64;
+                  echo  "<img src='$base64' class='p-2 border border-2 rounded-pill' style='width: 100px; height: 100px;' alt=''>";
                   ?>
+
 
                 </div>
               </div>
 
             </div>
           <?php } ?>
-
         </div>
       </div>
 
-      <!--</div>-->
-    <?php } else 
-    { ?>
-      <div class="container-carrito-div p-1">
-        <div class="text-center">
-          <span class="cart-le my-auto w-auto bg-dark background-categorias text-light mx-auto p-2">
-            <b>CARRITO</b>
-          </span>
-        </div><br>
 
-        <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
-          <div class="text-center p-1 w-auto mt-0">
-            Aún no hay productos en el carrito...
-          </div>
-        </div>
-        
-      </div>
-      
-    <?php 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <?php
     }
-  //} else{
-//
-  ////echo 'YA HICISTE UNA COMPRA, PENE';
-
-//}
-}
+  }
+  $bd = NULL;
   ?>
 
 

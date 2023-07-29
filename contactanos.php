@@ -139,7 +139,7 @@
     </nav>
 
     <!--este es el formulario-->
-    <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 mx-auto" style="width: 400px;" action="phpmailer.php" method="post">
+    <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 mx-auto mt-5" style="width: 400px;" action="phpmailer.php" method="post">
 
         <h2 class="text-center titulo_pro text-light"><b>¡ESCRIBENOS!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-4"><b>Tu opinión nos importa</b></h4>
@@ -167,6 +167,6 @@
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>
-    
+    <?php // ?>
     </body>
 </html>
