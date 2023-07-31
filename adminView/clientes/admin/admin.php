@@ -61,7 +61,6 @@ $dir = "../products/posters/";
 
 <div class="d-flex justify-content-center mt-3">
 <a href="../clientes/clientes.php" class="btn btn-primary mx-2">Usuarios</a>
-        <a href="../empleados/empleado.php" class="btn btn-primary mx-2">Empleados</a>
         <a href="../cliente/clientes.php" class="btn btn-primary mx-2">Clientes</a>
         <a href="#" class="btn btn-primary mx-2">Administrador</a>
         <a href="../buscador/buscador.php" class="btn btn-primary mx-2">Buscar</a>

@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<table class="table table-striped">
+<table class="table table-striped table_id">
     <thead>
         <tr>
             <th>#</th>
