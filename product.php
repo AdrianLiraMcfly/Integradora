@@ -234,8 +234,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             </ul>
             <h4 class="card-title fw-bold text-secondary">Stock:</h4>
             <ul class="list-unstyled">
-              <li> <?php echo $persona->cantidad;
-              $inventario = $persona->cantidad ?> </li>
+              <li> <?php echo $persona->cantidad; ?> </li>
             </ul>
 
             <ul class="list-unstyled">
@@ -251,6 +250,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="col-4 w-auto p-2 ms-auto me-auto ">
         <div class="btns_container rounded p-2 shadow border border-black border-2">
           <form action="" method="post">
+            <input type="hidden" name="inv" id="inv" value="<?php echo $persona->cantidad; ?>">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
             <input type="hidden" name="nombre" id="nombre" value=" <?php echo openssl_encrypt($persona->nombre, COD, KEY); ?> ">
             <input type="hidden" name="precio" id="precio" value=" <?php echo openssl_encrypt($persona->precio, COD, KEY); ?> ">

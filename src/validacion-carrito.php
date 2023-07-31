@@ -8,6 +8,7 @@ if (isset($_POST['btnAccion'])) {
     switch ($_POST['btnAccion']) {
 
         case 'agregar':
+
             if (is_numeric(openssl_decrypt($_POST['id'], COD, KEY))) {
                 $ID = openssl_decrypt($_POST['id'], COD, KEY);
             } else {
@@ -32,8 +33,11 @@ if (isset($_POST['btnAccion'])) {
                         $VALcant = 2;
                     }
                     else{
-                        if($_POST['cantidad'] > $inventario){
+                        if($_POST['cantidad'] > $_POST['inv']){
                             $VALcant = 4;
+                        }
+                        else{
+                            $VALcant = 2;
                         }
                     }
 
