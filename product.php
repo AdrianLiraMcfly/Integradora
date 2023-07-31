@@ -186,7 +186,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php if ($VALcant == 2) { ?>
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
   <?php }
-  if ($VALcant == 1) {
+  if ($VALcant == 1 || $VALcant == 4) {
   ?>
     <div class="alert alert-warning"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
 
@@ -231,6 +231,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <h4 class="card-title fw-bold text-secondary">Descripcion:</h4>
             <ul class="list-unstyled">
               <li> <?php echo $persona->descripcion ?> </li>
+            </ul>
+            <h4 class="card-title fw-bold text-secondary">Stock:</h4>
+            <ul class="list-unstyled">
+              <li> <?php echo $persona->cantidad;
+              $inventario = $persona->cantidad ?> </li>
             </ul>
 
             <ul class="list-unstyled">
