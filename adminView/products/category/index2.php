@@ -79,7 +79,6 @@ $dir = "posters/";
         <a href="../index2.php" class="btn btn-primary mx-2">Productos</a>
         <a href="#" class="btn btn-primary mx-2">Nueva categoria</a>
         <a href="../sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
-        <a href="../filtro/index2.php" class="btn btn-primary mx-2">Buscar</a>
     </div>
     
 <?php
