@@ -191,34 +191,38 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         </div>
   </nav>
+
   <?php
   if (isset($_GET['mensaje'])) {
     $mensajeAlerta = $_GET['mensaje']; ?>
     <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
   <?php } ?>
   <?php
-  if (!isset($_SESSION['nombre'])) {
-  ?>
+  if (!isset($_SESSION['nombre'])) 
+  {
+    ?>
 
-    <div class="d-flex align-items-center justify-content-center vh-100">
-      <div class="alerts bg-warning bg-gradient p-2 w-25 text-center rounded-3 shadow-lg">
+      <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="alerts bg-warning bg-gradient p-2 w-25 text-center rounded-3 shadow-lg">
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
-          <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
-          <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
-        </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+            <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+          </svg>
 
-        <p class="text-warn my-auto fw-bold text-light mb-3">
-          ¡NECESITAS INICIAR SESION PARA USAR EL CARRITO!
-        </p>
+          <p class="text-warn my-auto fw-bold text-light mb-3">
+            ¡NECESITAS INICIAR SESION PARA USAR EL CARRITO!
+          </p>
 
-        <span class="fw-medium"><a class="link-warn" href="sesiones/login.php">¿Ya tienes cuenta?</a></span><br />
-        <span class="fw-medium"><a class="link-warn" href="sesiones/register.php">¡Crea una!</a></span>
+          <span class="fw-medium"><a class="link-warn" href="sesiones/login.php">¿Ya tienes cuenta?</a></span><br />
+          <span class="fw-medium"><a class="link-warn" href="sesiones/register.php">¡Crea una!</a></span>
+        </div>
       </div>
-    </div>
 
-    <?php
-  } else {
+      <?php
+  } 
+  else 
+  {
 
     $IDusuario = $_SESSION['id'];
     $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
@@ -310,7 +314,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
       </div>
 
-      <?php if (!empty($_SESSION['CARRITO'])) { ?>
+      <?php if (!empty($_SESSION['CARRITO'])) 
+      { ?>
 
         <div class="container-carrito-div">
 
@@ -397,24 +402,29 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
 
         <!--</div>-->
-      <?php } else { ?>
-        <div class="container-carrito-div">
+      <?php 
+      } 
+      else 
+      { ?>
+          <div class="container-carrito-div">
 
-          <div class="background-categorias text-light">
-            <b>CARRITO</b>
-          </div><br>
+            <div class="background-categorias text-light">
+              <b>CARRITO</b>
+            </div><br>
 
-          <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
-            <div class="text-center p-1 w-auto mt-0">
-              Aún no hay productos en el carrito...
+            <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-100">
+              <div class="text-center p-1 w-auto mt-0">
+                Aún no hay productos en el carrito...
+              </div>
             </div>
+
           </div>
 
-        </div>
-
-      <?php
+        <?php
       }
-    } else {
+    } 
+    else 
+    {
 
 
       $IDusuario = $_SESSION['id'];
@@ -433,9 +443,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           </div> <br>
 
 
-          <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
+          <div class="container-fluid container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-auto">
 
-            <div class="informacion-detalles-carrito">
+            <div class="container-fluid informacion-detalles-carrito">
               <p style="font-size: 17px;"><b>Folio:</b> <?php echo $persona2[0]['id_order']; ?> </p>
               <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> <?php echo $persona2[0]['fecha_venta']; ?> </p>
               <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> <?php echo $persona2[0]['fecha_limite']; ?> </p>
@@ -447,12 +457,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <p style="font-size: 17px;"><b>Total:</b> $ <?php echo $persona2[0]['total']; ?> </p>
 
               <div class="container-btn">
+
                 <form action="src/convertpdf.php" method="post">
                   <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="" id="" value="" style="margin-left: 35px;">
                     <b>ENVIAR FOLIO</b>
                   </button>
                 </form>
-                <br>
+
                 <form action="src/CANCELARxPEDIDO.php" method="post">
                   <input type="hidden" name="IDxCARRITO" value="<?php echo $persona2[0]['id_carrito'];?>">
                   <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
@@ -468,8 +479,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           </div>
         </div>
       </div>
-
-
 
 
       <div class="container-carrito-div">
@@ -528,39 +537,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <?php
+      <?php
     }
   }
   $bd = NULL;
   ?>
 
-
-
 <script>
-
-  </script>
+</script>
 
 </body>
 
