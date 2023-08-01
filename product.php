@@ -186,7 +186,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php if ($VALcant == 2) { ?>
     <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
   <?php }
-  if ($VALcant == 1) {
+  if ($VALcant == 1 || $VALcant == 4) {
   ?>
     <div class="alert alert-warning"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
 
@@ -232,6 +232,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <ul class="list-unstyled">
               <li> <?php echo $persona->descripcion ?> </li>
             </ul>
+            <h4 class="card-title fw-bold text-secondary">Stock:</h4>
+            <ul class="list-unstyled">
+              <li> <?php echo $persona->cantidad; ?> </li>
+            </ul>
 
             <ul class="list-unstyled">
               <li><b>$<?php echo $persona->precio ?> </b></li>
@@ -246,6 +250,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="col-4 w-auto p-2 ms-auto me-auto ">
         <div class="btns_container rounded p-2 shadow border border-black border-2">
           <form action="" method="post">
+            <input type="hidden" name="inv" id="inv" value="<?php echo $persona->cantidad; ?>">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
             <input type="hidden" name="nombre" id="nombre" value=" <?php echo openssl_encrypt($persona->nombre, COD, KEY); ?> ">
             <input type="hidden" name="precio" id="precio" value=" <?php echo openssl_encrypt($persona->precio, COD, KEY); ?> ">
@@ -273,7 +278,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <p>
                   <b>Cantidad:</b>
                 </p>
-                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value="1"></input>
+                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
               <?php } else { ?>
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
                   AGREGAR AL CARRITO
@@ -284,7 +289,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                     <b>Cantidad:</b>
                   </p>
 
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value="1"></input>
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
                 <?php }}else{ ?>
                   </form> <form action="carrito.php">
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">

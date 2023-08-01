@@ -186,13 +186,13 @@ session_start();
     <?php
       if (isset($_GET['opt'])) 
       {
-        $search = $_GET['opt'];
+        $search = addslashes($_GET['opt']);
         $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       } 
       else if (isset($_POST['search'])) 
       {
-        $search = $_POST['search'];
+        $search = addslashes($_POST['search']);
         $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       } 

@@ -80,8 +80,16 @@ $dir = "posters/";
           <a href="#" class="btn btn-primary mx-2">Productos</a>
           <a href="category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
           <a href="sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
-          <a href="filtro/index2.php" class="btn btn-primary mx-2">Buscar</a>
       </div>
+
+
+      <div class="container-fluid">
+      <form class="d-flex">
+        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+        <hr>
+      </form>
+    </div>
+
     <?php
     include 'vistas/listado.php';
     ?>
@@ -155,6 +163,7 @@ $dir = "posters/";
         })
     </script>
 
+<script src="../js/buscador.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/evitar_reenvio.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
