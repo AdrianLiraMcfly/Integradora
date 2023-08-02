@@ -125,11 +125,30 @@ h4 b
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8); /* La sombra se hará más oscura al poner el cursor encima */
 }
 
+.link-con
+{
+    text-decoration: none;
+    color: #212529;
+}
+
 .wel 
 {
     font-size: 6vw; /* Usamos vw para ajustar el tamaño al ancho del viewport */
     text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
 }
+
+.wel2
+{
+    font-size: 1.8vw;
+    text-shadow: 0px 0px 3px rgba(55, 55, 55, 0.5);
+}
+
+.wel3
+{
+    font-size: 1.5vw;
+    text-shadow: 0px 0px 3px rgba(55, 55, 55, 0.5);
+}
+
 
 .wht
 {
@@ -150,8 +169,9 @@ h4 b
 
 .encima:hover
 {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(41, 41, 41, 0.25);
 }
+
 /*
 #encima {
     
