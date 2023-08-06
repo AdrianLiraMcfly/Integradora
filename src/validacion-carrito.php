@@ -50,64 +50,71 @@ if (isset($_POST['btnAccion'])) {
                 $IMAGEN = openssl_decrypt($_POST['imagen'], COD, KEY);
             } else {
             }
-            if($VALcant == 2){
-
-                if (!isset($_SESSION['CARRITO'])) {
-                    $producto = array(
-                        'ID' => $ID,
-                        'NOMBRE' => $NOMBRE,
-                        'PRECIO' => $PRECIO,
-                        'CANTIDAD' => $CANTIDAD,
-                        'IMAGEN' => $IMAGEN
-                    );
-                    $_SESSION['CARRITO'][0] = $producto;
-                    $mensaje = "Producto agregado al carrito exitosamente...";
-                } else {
+            switch($VALcant){
+                case 1:
+                    $mensaje = "Escriba una cantida VALIDA.";
+                    break;
+                case 2:
+                    if (!isset($_SESSION['CARRITO'])) {
+                        $producto = array(
+                            'ID' => $ID,
+                            'NOMBRE' => $NOMBRE,
+                            'PRECIO' => $PRECIO,
+                            'CANTIDAD' => $CANTIDAD,
+                            'IMAGEN' => $IMAGEN
+                        );
+                        $_SESSION['CARRITO'][0] = $producto;
+                        $mensaje = "Producto agregado al carrito exitosamente...";
+                    } else {
+        
+                        $idproductos = array_column($_SESSION['CARRITO'], "ID");
+                        $NumeroProductos = count($_SESSION['CARRITO']);
+                        if (in_array($ID, $idproductos)) {
+                            $mensaje = "El producto ya ha sido seleccionado...";
+                            $NEWcantidad = $_POST['cantidad'];
     
-                    $idproductos = array_column($_SESSION['CARRITO'], "ID");
-                    $NumeroProductos = count($_SESSION['CARRITO']);
-                    if (in_array($ID, $idproductos)) {
-                        $mensaje = "El producto ya ha sido seleccionado...";
-                        $NEWcantidad = $_POST['cantidad'];
-
-                        foreach($_SESSION['CARRITO'] as $indice => $dato){
-                            if($dato['ID'] == $ID){
+                            foreach($_SESSION['CARRITO'] as $indice => $dato){
+                                if($dato['ID'] == $ID){
+                                    $producto = array(
+                                        'ID' => $ID,
+                                        'NOMBRE' => $NOMBRE,
+                                        'PRECIO' => $PRECIO,
+                                        'CANTIDAD' => $NEWcantidad,
+                                        'IMAGEN' => $IMAGEN
+                                    );
+                                    $_SESSION['CARRITO'][$indice] = $producto;
+                                    header('location: ../carrito.php');
+                                }
+                            }
+    
+                        } else {
+                            $NumeroProductos = count($_SESSION['CARRITO']);
+                            if($NumeroProductos == 4){
+                                $mensaje = "La cantidad maxima de articulos es de 4.";
+                            }
+                            else{
                                 $producto = array(
                                     'ID' => $ID,
                                     'NOMBRE' => $NOMBRE,
                                     'PRECIO' => $PRECIO,
-                                    'CANTIDAD' => $NEWcantidad,
+                                    'CANTIDAD' => $CANTIDAD,
                                     'IMAGEN' => $IMAGEN
                                 );
-                                $_SESSION['CARRITO'][$indice] = $producto;
+                                $_SESSION['CARRITO'][$NumeroProductos] = $producto;
+                                $mensaje = "Producto agregado al carrito exitosamente...";
+                                header('location: ../carrito.php');
+    
                             }
                         }
-
-                    } else {
-                        $NumeroProductos = count($_SESSION['CARRITO']);
-                        if($NumeroProductos == 4){
-                            $mensaje = "La cantidad maxima de articulos es de 4.";
-                        }
-                        else{
-                            $producto = array(
-                                'ID' => $ID,
-                                'NOMBRE' => $NOMBRE,
-                                'PRECIO' => $PRECIO,
-                                'CANTIDAD' => $CANTIDAD,
-                                'IMAGEN' => $IMAGEN
-                            );
-                            $_SESSION['CARRITO'][$NumeroProductos] = $producto;
-                            $mensaje = "Producto agregado al carrito exitosamente...";
-                        }
                     }
-                }
-            }else{
-                if($VALcant == 1){
-                    $mensaje = "Escriba una cantida VALIDA.";
-                }
-                if($VALcant == 4){
+                    break;
+                case 3:
+                    break;
+                case 4:
                     $mensaje .= "No tenemos la cantidad que estas pidiendo, ingresa un valor mas pequeño.";
-                }
+                    break;
+                case 5:
+                    break;
             }
             break;
         case 'eliminar':
