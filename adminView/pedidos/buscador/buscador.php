@@ -48,9 +48,6 @@ $pedidos = "SELECT * FROM vista_ventas";
     overflow-y: auto;
     /*position: relative;*/
   }
-  .oculto{
-    
-  }
   </style>
   <title>VideoGame Store - Admin</title>
 </head>

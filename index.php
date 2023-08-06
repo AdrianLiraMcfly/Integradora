@@ -103,7 +103,7 @@
                         
                                 <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                   <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
-                                  <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
+                                  <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                   <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                 </ul>
                           
@@ -139,7 +139,7 @@
                         
                                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                     <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
-                                    <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
+                                    <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                     <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                   </ul>
                           
@@ -369,7 +369,7 @@
 
           <div class="cards-presentacion">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                <div class="card border border-3 border-secondary" style="width: 18rem;">
+                <div class="card bg-dark border border-3 border-secondary" style="width: 18rem;">
 
                 <?php
                       $nombreimagen = $dato->id_producto.".jpg";
@@ -426,7 +426,7 @@
           <div class="cards-presentacion">
 
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-              <div class="card border border-3 border-secondary" style="width: 18rem;">
+              <div class="card bg-dark border border-3 border-secondary" style="width: 18rem;">
 
                 <?php
                   $nombreimagen = $dato->id_producto.".jpg";
@@ -479,9 +479,9 @@
         { ?>
 
           <div class="cards-presentacion">
-            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+            <a href="product.php?id=<?php echo $dato->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-              <div class="card border border-3 border-secondary" style="width: 18rem;">
+              <div class="card bg-dark border border-secondary border-3" style="width: 18rem;">
 
                 <?php
 
@@ -490,7 +490,7 @@
                   $base64 = base64_encode(file_get_contents($rutaimagen));
                   $base64 = 'data:image/jpeg;base64,'.$base64;
 
-                  echo  "<img src='$base64' class='img_init' alt=''>";
+                  echo  "<img src='$base64' class='img_init rounded-top' alt=''>";
 
                 ?>
 
