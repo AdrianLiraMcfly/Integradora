@@ -257,7 +257,7 @@
 
                     <div class="card-body text-center text-light rounded-bottom p-2">
 
-                      <p class="card-text" style="text-align: justify;">
+                      <p class="card-text">
                         <b style="text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);">
                           Los mejores exclusivos los encuentras en playstation, historias atrapantes.
                         </b>
@@ -293,7 +293,7 @@
 
                     <div class="card-body text-center text-light rounded-bottom p-2">
 
-                      <p class="card-text" style="text-align: justify;">
+                      <p class="card-text">
                         <b style="text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);">
                           La consola mas poderosa de la generacion te invita a ver sus ofertas.
                         </b>
@@ -327,7 +327,7 @@
 
                     <div class="card-body text-center text-light rounded-bottom p-2">
 
-                      <p class="card-text" style="text-align: justify;">
+                      <p class="card-text">
                         <b style="text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);">
                           Los pioneros de la industria siguen demostrando porque son el primer lugar.
                         </b>
