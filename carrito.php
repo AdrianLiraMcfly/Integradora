@@ -271,7 +271,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <b>Total:</b>
                 $<?php if (isset($_SESSION['CARRITO'])) {
                     foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-                      $total += $producto['PRECIO'];
+                      $total += $producto['PRECIO'] * $producto['CANTIDAD'];
                     }
                   }
                   echo $total;
@@ -294,13 +294,17 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <form action="src/insertdatcarrito.php" method="post">
                     <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
                   <?php
-                  if ($sumaCantidades > 4) {
-                    echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
-                  } else {
-                    echo 
-                    "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
-                      <b>REALIZAR PEDIDO</b>
-                    </button>";
+                  if(empty($_SESSION['CARRITO'])){
+                    echo "<div class='alert alert-warning'> <b> AUN NO TIENES NINGUN PRODUCTO AÑADIDO. </b></div>";
+                  }else{
+                    if ($sumaCantidades > 4) {
+                      echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
+                    } else {
+                      echo 
+                      "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
+                        <b>REALIZAR PEDIDO</b>
+                      </button>";
+                    }
                   }
                 }
                   ?>
