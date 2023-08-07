@@ -210,7 +210,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         $base64 = base64_encode(file_get_contents($rutaimagen));
         $base64 = 'data:image/jpeg;base64,' . $base64;
 
-          echo  "<img src='$base64' class='img_present' alt='' style='width: 200px; height: 200px;'>";
+          echo  "<img src='$base64' class='img_present' alt='product' style='width: 200px; height: 200px;'>";
 
         ?>
       </div>
