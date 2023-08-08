@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include '../src/conexionbd.php';
 if (isset($_SESSION['id'])) {
     header('Location: ../index.php'); // Redirigir a la página principal si ya tiene una sesión activa
     exit();
@@ -110,13 +110,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </a>
 
                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                    <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
-                    <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
-                    <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
-                    <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
-                    <li><a class="dropdown-item rounded" href="#">Consolas</a></li>
-                  </ul>
-
+                  <?php
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item rounded mb-1' href='../busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
+                        </ul>
                 </li>
 
                 <li class="nav-item dropdown p-auto">
