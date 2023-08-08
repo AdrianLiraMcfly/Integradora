@@ -1,3 +1,6 @@
+<?php
+include '../src/conexionbd.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,12 +100,14 @@
                       </a>
 
                       <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                        <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Consolas</a></li>
-                        <li><a class="dropdown-item rounded" href="#">Electronica</a></li>
+                      <?php
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item rounded mb-1' href='../busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
                       </ul>
 
                     </li>
