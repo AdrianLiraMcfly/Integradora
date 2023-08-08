@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->execute()) {
         $_SESSION['nombre'] = $newName;
         echo "<script>alert('Nombre de usuario cambiado exitosamente.'); window.location.href = '../configuracion.php';</script>";
+        //echo "<div class="bg-warning bg-gradient">Nombre de usuario cambiado exitosamente</div>";
     } else {
         echo "<script>alert('Error al cambiar el nombre de usuario.'); window.location.href = '../configuracion.php';</script>";
     }

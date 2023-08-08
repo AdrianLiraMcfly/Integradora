@@ -183,14 +183,19 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
 
-  <?php if ($VALcant == 2) { ?>
-    <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
-  <?php }
-  if ($VALcant == 1 || $VALcant == 4) {
-  ?>
-    <div class="alert alert-danger"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+  <?php 
+    if ($VALcant == 2) 
+    { ?>
+      <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+      <?php 
+    }
+    if ($VALcant == 1 || $VALcant == 4) 
+    {
+      ?>
+      <div class="alert alert-danger"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
 
-  <?php }
+      <?php 
+    }
   ?>
 
 
@@ -279,31 +284,42 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <b>Cantidad:</b>
                 </p>
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
-              <?php } else { ?>
-                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                  AGREGAR AL CARRITO
-                </button>
+              <?php } 
+              else 
+                { ?>
+                  <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                    AGREGAR AL CARRITO
+                  </button>
 
-                <div class="cont-cant">
-                  <p>
-                    <b>Cantidad:</b>
-                  </p>
+                  <div class="cont-cant">
+                    <p>
+                      <b>Cantidad:</b>
+                    </p>
 
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
-                <?php }}else{ ?>
-                  </form> <form action="carrito.php">
-                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
-                AGREGAR AL CARRITO
-              </button>
-                <p><b>Cantidad:</b></p>
-                  <input class="input-perfect" disabled value="1"></input> <?php } ?>
-                  </form>
+                    <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
+                  <?php 
+                }
+              }
+              else
+              { ?>
+                    </form> 
+                    <form action="carrito.php">
+                      <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
+                        AGREGAR AL CARRITO
+                      </button>
+
+                      <p><b>Cantidad:</b></p>
+                      <input class="input-perfect" disabled value="1"></input> <?php 
+              } 
+              ?>
+                    </form>
                 </div>
 
         </div>
       </div>
 
     </div>
+
   </div>
 
   <div class="container-fluid bg-dark mt-5 p-4">
