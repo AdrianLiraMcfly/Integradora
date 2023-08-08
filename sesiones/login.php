@@ -128,9 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </svg>
                   </a>
                   
-                  <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1" style="margin-right: 85px;">
+                  <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                     <li><a class="dropdown-item rounded mb-1" href="register.php">Sign In</a></li>
-                    <li><a class="dropdown-item rounded bg-primary text-light mb-1" href="#"><strong>Log In</strong></a></li>
+                    <li><a class="dropdown-item rounded bg-primary text-light" href="#"><strong>Log In</strong></a></li>
                   </ul>
                     
                 </li>
