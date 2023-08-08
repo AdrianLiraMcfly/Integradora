@@ -61,7 +61,7 @@
                       echo '
                       <ul class="dropdown-menu border-black">
                         <li><a class="dropdown-item" href="#">'.$_SESSION['nombre'].'</a></li>
-                        <li><a class="dropdown-item" href="../../src/cerrar_sesion.php">Cerrar Sesion</a></li> 
+                        <li><a class="dropdown-item" href="../../../src/cerrar_sesion.php">Cerrar Sesion</a></li> 
                       </ul>
                     </li>';
                     ?>
@@ -77,7 +77,7 @@
                       <ul class="dropdown-menu border-black">
                         <li><a class="dropdown-item" href="../../products/index2.php">Productos</a></li>
                         <li><a class="dropdown-item" href="../../pedidos/pedidos.php">Pedidos</a></li>
-                        <li><a class="dropdown-item" href="../../clientes/index1.php">Clientes</a></li>
+                        <li><a class="dropdown-item" href="../../clientes/clientes/clientes.php">Clientes</a></li>
                       </ul>
                     </li>
 
