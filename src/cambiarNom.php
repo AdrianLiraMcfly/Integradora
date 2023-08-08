@@ -14,9 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $_SESSION['nombre'] = $newName;
-        echo "<script>alert('Nombre de usuario cambiado exitosamente.'); window.location.href = '../configuracion.php';</script>";
+        $mensajeAlerta = "¡Nombre cambiado exitosamente!";
+        header('location: ../configuracion.php?mensaje='. urlencode($mensajeAlerta));
+        exit();
     } else {
-        echo "<script>alert('Error al cambiar el nombre de usuario.'); window.location.href = '../configuracion.php';</script>";
+        $mensajeAlerta = "¡Error al cambiar nombre de usuario!";
+            header('location: ../configuracion.php?mensajerr='. urlencode($mensajeAlerta));
+            exit();
     }
 }
 ?>

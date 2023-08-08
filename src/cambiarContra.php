@@ -28,12 +28,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(":newPassword", $hashedNewPassword);
         $stmt->bindParam(":userId", $userId, PDO::PARAM_INT);
         if ($stmt->execute()) {
-            echo "<script>alert('Contraseña cambiada exitosamente.'); window.location.href = '../configuracion.php';</script>";
+            $mensajeAlerta = "¡Contraseña cambiada exitosamente!";
+            header('location: ../configuracion.php?mensaje='. urlencode($mensajeAlerta));
+            exit();
         } else {
-            echo "<script>alert('Error al cambiar la contraseña.'); window.location.href = '../configuracion.php';</script>";
+            $mensajeAlerta = "¡Error al cambiar la contraseña!";
+            header('location: ../configuracion.php?mensajerr='. urlencode($mensajeAlerta));
+            exit();
         }
     } else {
-        echo "<script>alert('La contraseña actual es incorrecta.'); window.location.href = '../configuracion.php';</script>";
+        $mensajeAlerta = "¡La contraseña actual es incorrecta!";
+        header('location: ../configuracion.php?mensajerr='. urlencode($mensajeAlerta));
+        exit();
     }
 }
 

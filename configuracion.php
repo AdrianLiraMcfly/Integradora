@@ -286,6 +286,17 @@
 
         </div>
       </nav>
+      <?php
+  if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje']; ?>
+    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+  <?php } ?>
+  <?php
+  if (isset($_GET['mensajerr'])) {
+    $mensajeAlerta = $_GET['mensajerr']; ?>
+    <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
+  <?php } ?>
+  
         
       <div class="container-fluid w-100">
         <div class="row w-auto p-2">
