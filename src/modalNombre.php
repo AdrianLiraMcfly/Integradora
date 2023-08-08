@@ -6,7 +6,7 @@
 
       <div class="modal-header p-2">
 
-        <h5 class="modal-title" id="changeNameLabel">Cambiar Nombre de Usuario</h5>
+        <h5 class="modal-title text-center" id="changeNameLabel">Cambiar Nombre de Usuario</h5>
 
         <!--
         <button type="button" class="close bg-danger border shadow border-2 border-dark rounded-pill text-light text-center" style="width: 32; height: 32;" data-dismiss="modal" aria-label="Close">
@@ -15,7 +15,7 @@
             </span>
         </button>
         -->
-        
+
       </div>
 
       <div class="modal-body">
