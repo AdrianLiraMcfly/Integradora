@@ -63,7 +63,6 @@ $pedidos = "SELECT * FROM vista_carrito_completado";
         <a href="../cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
         <a href="../pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
         <a href="#" class="btn btn-primary mx-2">Completados</a>
-        <a href="../buscador/buscador1.php" class="btn btn-primary mx-2">Caducados</a>
     </div>
 
     <div class="container-fluid">

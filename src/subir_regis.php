@@ -8,7 +8,7 @@ $password = $_POST['pass'];
 $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
 
 try {
-    $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, id_rol) VALUES (:nombre, :email, :hashedpassword, 2)");
+    $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, id_rol, id_estado) VALUES (:nombre, :email, :hashedpassword, 2, 1)");
     $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
     $stmt->bindParam(":hashedpassword", $hashedpassword, PDO::PARAM_STR);

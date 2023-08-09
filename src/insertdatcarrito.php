@@ -48,7 +48,7 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
 
             $sentencia_producto = $bd->prepare("INSERT INTO detalles_carrito (id_producto, cantidad, precio_unitario, id_carrito) VALUES (?,?,?,?);");
             foreach ($_SESSION['CARRITO'] as $indice => $dato) {
-                $sentencia_producto->execute([$dato['ID'], $dato['CANTIDAD'], $dato['PRECIO'], NULL]); // Dejar id_carrito como NULL por ahora
+                $sentencia_producto->execute([$dato['ID'], $dato['CANTIDAD'], $dato['PRECIO'], NULL]);
             }
 
             $id_usuario = $_SESSION['id'];
