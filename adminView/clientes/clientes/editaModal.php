@@ -20,6 +20,15 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="mb-2">
+                        <label for="estado" class="form-label">Estado:</label>
+                        <select name="estado" id="estado" class="form-select  form-select-sm" required>
+                            <option value="">Seleccionar...</option>
+                            <?php while ($row_res = $resultado->fetch_assoc()) { ?>
+                                <option value="<?php echo $row_res["id"]; ?>"><?= $row_res["estado_usuario"] ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
 
 
                     <div class="d-flex justify-content-end pt2">

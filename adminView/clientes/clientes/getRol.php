@@ -2,9 +2,9 @@
 
 require '../../products/config/database.php';
 
-$id = $conn->real_escape_string($_POST['id']); 
+$id = $conn->real_escape_string($_POST['id']);
 
-$sql = "SELECT c.id_usuario, c.id_rol
+$sql = "SELECT c.id_usuario, c.id_rol, c.id_estado
 FROM  usuarios c
 WHERE c.id_usuario = $id
 LIMIT 1";

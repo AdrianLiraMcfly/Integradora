@@ -81,6 +81,7 @@ $dir = "../products/posters/";
                 <th>Nombre del Cliente</th>
                 <th>Email</th>
                 <th>Rol</th>
+                <th>Estado</th>
                 <th>Accion</th>
               </tr>
             </thead>
@@ -95,6 +96,7 @@ $dir = "../products/posters/";
                 <td><?php echo $row ["usuario"];?></td>
                 <td><?php echo $row ["email"];?></td>
                 <td ><strong><?php echo $row ["rol"]?></strong></td>
+                <td ><strong><?php echo $row ["nombre"]?></strong></td>
                 <td>
                   <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_usuario']; ?>"><img src="../../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
                 </td>
@@ -109,6 +111,8 @@ $dir = "../products/posters/";
     <?php 
 $sqlGenero = "SELECT id_rol, nombre FROM roles";
 $generos = $conn->query($sqlGenero);
+$consulta = "SELECT id, estado_usuario FROM estados_de_usuario;";
+$resultado = $conn->query($consulta);
 ?>
 
     <?php include 'editaModal.php';?>
@@ -125,6 +129,7 @@ $generos = $conn->query($sqlGenero);
 
             let inputId = editaModal.querySelector('.modal-body #id')
             let inputNombre = editaModal.querySelector('.modal-body #rol')
+            let inputEstado = editaModal.querySelector('.modal-body #estado')
 
             let url = "getRol.php"
             let formData = new FormData() 
@@ -138,6 +143,7 @@ $generos = $conn->query($sqlGenero);
 
                     inputId.value = data.id_usuario
                     inputNombre.value = data.id_rol
+                    inputEstado.value = data.id_estado
 
                 }).catch(err => console.log(err))
 

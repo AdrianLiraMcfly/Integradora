@@ -238,7 +238,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           </svg>
 
           <p class="text-warn my-auto fw-bold text-light mb-3">
-            TU CUENTA HA SIDO SUSPENDIDA POR REALIZAR MULTIPLES PEDIDOS, ACUDE A NUESTRO LOCAL PARA REACTIVAR TU CUENTA.
+            TU CUENTA HA SIDO SUSPENDIDA, ACUDE A NUESTRO LOCAL PARA REACTIVAR TU CUENTA.
           </p>
           <span class="fw-medium"><a class="link-warn" href="index.php">Volver a Inicio</a></span><br />
         </div>
