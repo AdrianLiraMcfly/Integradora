@@ -59,7 +59,7 @@ $dir = "../products/posters/";
   include '../encabesado.php';
   ?>
 
-<div class="d-flex justify-content-center mt-3">
+<div class="d-flex justify-content-center mt-3 mb-3">
         <a href="../clientes/clientes.php" class="btn btn-primary mx-2">Usuarios</a>
         <a href="#" class="btn btn-primary mx-2">Clientes</a>
         <a href="../admin/admin.php" class="btn btn-primary mx-2">Administrador</a>

@@ -72,7 +72,7 @@ $dir = "posters/";
   <?php
   include '../encabesadoProducts.php';
   ?> 
-    <div class="d-flex justify-content-center mt-3">
+    <div class="d-flex justify-content-center mt-3 mb-3">
         <a href="../index2.php" class="btn btn-primary mx-2">Productos</a>
         <a href="../category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
         <a href="#" class="btn btn-primary mx-2">Sin stock</a>
