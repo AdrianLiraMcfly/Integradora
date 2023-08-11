@@ -6,16 +6,18 @@ $email = $_POST['email'];
 $password = $_POST['pass'];
 
 $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
+$token = bin2hex(random_bytes(16));
 
 try {
-    $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, id_rol, id_estado) VALUES (:nombre, :email, :hashedpassword, 2, 1)");
+    $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, id_rol, id_estado, token) VALUES (:nombre, :email, :hashedpassword, 2, 2, :token)");
     $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
     $stmt->bindParam(":hashedpassword", $hashedpassword, PDO::PARAM_STR);
+    $stmt->bindParam(":token", $token, PDO::PARAM_STR);
     $stmt->execute();
     
     echo "Registro guardado correctamente";
-    header('Location: ../index.php');
+    header("Location: token_env.php?email=$email&token=$token");
 
     exit();
 } catch (PDOException $e) {

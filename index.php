@@ -190,6 +190,11 @@
 
         </div>
       </nav>
+      <?php
+  if (isset($_GET['mensaje'])) {
+    $mensajeAlerta = $_GET['mensaje']; ?>
+    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+  <?php } ?>
       
       <!--CARRUSEL-->
       <div id="carouselExampleCaptions" class="carousel slide">
