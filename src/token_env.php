@@ -11,7 +11,7 @@ $mail = new PHPMailer(true);
 $email=$_GET['email'];
 $token=$_GET['token'];
 
-$LinkAct = "http://52.23.174.251/activarcuenta.php?token=" . urlencode($token);
+$LinkAct = "http://52.23.174.251/src/activarcuenta.php?token=" . urlencode($token);
 
 try 
 {
