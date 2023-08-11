@@ -1,17 +1,12 @@
 <?php
 include 'conexionbd.php';
 require 'bootstrap.php';
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-//Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
-
-$email=$_GET['email'];
-$token=$_GET['token'];
-
-$LinkAct = "http://52.23.174.251/activarcuenta.php?token=$token";
 try 
 {
     //Server settings
@@ -25,6 +20,7 @@ try
 
     //Recipients
     $mail->setFrom('videogamestore9@gmail.com', 'VideoGame Store');
+    $email=$_GET['email'];
     $mail->addAddress($email);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
@@ -34,6 +30,8 @@ try
     //$mail->addAttachment('img/op.jpg');    //Optional name
 
     //Content
+    $token=$_GET['token'];
+    $LinkAct = "http://52.23.174.251/activarcuenta.php?token=$token";
     $body='<!DOCTYPE html>
     <html lang="en">
     <head>

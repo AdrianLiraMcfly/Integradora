@@ -21,16 +21,6 @@ use PHPMailer\PHPMailer\Exception;
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
-//$remitente = $_POST['remitente'];
-$destinatario = $_POST['destinatario'];
-$asunto = $_POST['asunto'];
-$mensaje = $_POST['mensaje'];
-$send = $_POST['send'];
-
-//Load Composer's autoloader
-//require 'vendor/autoload.php';
-
 try 
 {
     //Server settings
@@ -43,7 +33,7 @@ try
     $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('videogamestore9@gmail.com', 'Video Game Store');
+    $mail->setFrom('videogamestore9@gmail.com', 'VideoGame Store');
     $mail->addAddress($_SESSION['email']);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
