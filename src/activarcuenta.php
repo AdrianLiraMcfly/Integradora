@@ -6,7 +6,7 @@ $sentencia = $bd->prepare("UPDATE usuarios SET id_estado = 1 WHERE token = :toke
 $sentencia->bindParam(':token', $token);
 
 if ($sentencia->execute()) {
-    $mensajeAlerta = "¡Cuenta Activada, inicia sesion!";
+    $mensajeAlerta = "¡Cuenta Activada, puedes iniciar sesion!";
     header("Location: ../index.php?mensaje=$mensajeAlerta");
 }
 ?>
