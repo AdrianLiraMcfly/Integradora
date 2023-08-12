@@ -11,8 +11,7 @@ $mail = new PHPMailer(true);
 $email=$_GET['email'];
 $token=$_GET['token'];
 
-$LinkAct = "http://52.23.174.251/src/activarcuenta.php?token=" . urlencode($token);
-
+$LinkAct = "http://52.23.174.251/src/activarcuenta.php?token=$token";
 try 
 {
     //Server settings
@@ -25,7 +24,7 @@ try
     $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('videogamestore9@gmail.com', 'Video Game Store');
+    $mail->setFrom('videogamestore9@gmail.com', 'VideoGame Store');
     $mail->addAddress($email);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
