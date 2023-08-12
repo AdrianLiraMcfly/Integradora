@@ -3,7 +3,7 @@ session_start();
 include 'conexionbd.php';
  $email=$_GET['email'];
  $token=$_GET['token'];
- $activationLink = "https://52.23.174.251/src/activarcuenta.php?token=$token";
+ $activationLink = "52.23.174.251/src/activarcuenta.php?token=$token";
 require 'bootstrap.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
