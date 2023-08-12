@@ -1,17 +1,17 @@
 <?php
+session_start();
 include 'conexionbd.php';
+ $email=$_GET['email'];
+ $token=$_GET['token'];
+ $activationLink = "https://tu-sitio.com/activar-cuenta.php?token=$token";
 require 'bootstrap.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
-
-$email=$_GET['email'];
-$token=$_GET['token'];
-
-$LinkAct = "http://52.23.174.251/src/activarcuenta.php?token=$token";
 try 
 {
     //Server settings
@@ -58,20 +58,20 @@ try
     </head>
     <body>
         <div class="container">
-            <h1>Confirma tu cuenta de VideoGame Store!</h1>
-            <h1><a href="'.$LinkAct.'">Activa tu cuenta</a></h1>
+            <h1>Gracias por comprar con nosotros!</h1>
+            <h1>Folio: '.$activationLink.'</h1>
             <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de los próximos 3 dias o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
     </body>
     </html>';
     $mail->isHTML(true);                  //Set email format to HTML
-    $mail->Subject = 'VideoGame Store: Activa tu cuenta';
+    $mail->Subject = 'VideoGame Store: Folio de compra';
     $mail->Body    = $body;
 
     $mail->send();
-    $mensajeAlerta = "¡Verifica tu correo para activar tu cuenta!";
-    header('Location: ../index.php?mensaje='. urlencode($mensajeAlerta));
+    $mensajeAlerta = "¡Correo enviado!";
+    header('Location: ../carrito.php?mensaje='. urlencode($mensajeAlerta));
     exit();
 } 
 catch (Exception $e) 
