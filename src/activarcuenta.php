@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include 'conexionbd.php';
 
 $token=$_GET['token'];
 $sentencia = $bd->prepare("UPDATE usuarios SET id_estado = 1 WHERE token = :token AND id_estado = 2");
