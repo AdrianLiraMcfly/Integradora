@@ -59,7 +59,7 @@ try
     <body>
         <div class="container">
             <h1>Gracias por unirte a Videogame Store!</h1>
-            <h1><a href:"'.$activationLink.'">Activa aqui</a></h1>
+            <h1><a href="'.$activationLink.'">Activa aqui</a></h1>
             <p>Una vez que hayas dado click al link te redireccionara a nuestra pagina principal donde podras iniciar sesion y tu cuenta sera totalmetne funcional:D.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
