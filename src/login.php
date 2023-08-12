@@ -15,16 +15,25 @@ if (!empty($_POST["btningresar"])) {
             $datos = $stmt->fetch(PDO::FETCH_OBJ);
 
             if ($datos) {
+                if ($datos->id_estado == 2) {
+                        $mensajeAlerta = "Cuenta no activada, verifica tu correo para activarla.";
+                        header("Location: ../sesiones/login.php?mensaje=" . urlencode($mensajeAlerta));
+                        exit();
+                    }
                 // Verificar si la contraseña ingresada coincide con el hash almacenado en la base de datos
-                if (password_verify($password, $datos->contraseña)) {
+                else if (password_verify($password, $datos->contraseña)) {
                     $_SESSION["id"] = $datos->id_usuario;
                     $_SESSION["nombre"] = $datos->nombre;
                     $_SESSION["rol"] = $datos->id_rol;
                     $_SESSION["email"] = $usuario;
-                    header("Location: ../index.php"); // Redirigir a la página principal después de iniciar sesión exitosamente
-
+                    
+                    
+                   
+                    header("Location: ../index.php");
                     exit();
-                } else {
+                   
+                } 
+                else {
                     $mensajeAlerta = "Contraseña incorrecta";;
                     header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
 
