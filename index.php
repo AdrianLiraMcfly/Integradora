@@ -26,17 +26,17 @@
     <title>Inicio</title>
 </head>
 
-<body class="bg-white w-100">
+<body class="bg-white w-auto">
 
       <!--BARRA-->
-      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final w-100 p-2">
         <div class="container-fluid">
 
-            <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
+            <img src="vd_logo.png" alt="Video Game Store" width="110px" class="p-2">
 
             <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
-            <div class="container-fluid">
+            <div class="container-fluid w-100">
             
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                 
                 <ul class="navbar-nav me-auto">
 
-                    <li class="nav-item p-auto me-1 it border border-2 border-black shadow-lg">
+                    <li class="nav-item p-auto ms-1 me-1 it border border-2 border-black shadow-lg">
                         <a class="nav-link text-center" aria-current="page" href="#">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                             <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
@@ -101,8 +101,7 @@
                                   </svg>
                                 </a>
                         
-                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                  
+                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">                   
                                   <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                   <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                 </ul>
@@ -127,9 +126,9 @@
                             break;
 
                             case 2:
-                                echo '
-                                <li class="nav-item dropdown p-auto me-1">
-                          
+                                echo 
+                                '<li class="nav-item dropdown p-auto me-1">  
+                                                      
                                   <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -138,7 +137,6 @@
                                   </a>
                         
                                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                    
                                     <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                     <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                   </ul>
@@ -190,14 +188,15 @@
 
         </div>
       </nav>
+    
       <?php
-  if (isset($_GET['mensaje'])) {
-    $mensajeAlerta = $_GET['mensaje']; ?>
-    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
-  <?php } ?>
+      if (isset($_GET['mensaje'])) {
+        $mensajeAlerta = $_GET['mensaje']; ?>
+        <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+      <?php } ?>
       
       <!--CARRUSEL-->
-      <div id="carouselExampleCaptions" class="carousel slide">
+      <div id="carouselExampleCaptions" class="carousel slide w-auto">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>

@@ -101,11 +101,12 @@
     position: fixed;
     z-index: 999;
     top: 0px;
+    width: 100%;
 }
 
 body{
     position: relative;
-    top: 85px;
+    top: 84px;
 }
 .container-carrito{
     /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);*/
