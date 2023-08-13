@@ -102,7 +102,7 @@
                                 </a>
                         
                                 <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                  <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                  
                                   <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                   <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                 </ul>
@@ -138,7 +138,7 @@
                                   </a>
                         
                                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                    <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                    
                                     <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                     <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                   </ul>
@@ -252,7 +252,7 @@
           <div class="col-4 h-auto">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-primary rounded-5 h-auto w-100">
+                <div class="card bg-primary rounded-4 h-auto w-100">
 
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-playstation" viewBox="0 0 16 16" id="consolas">
@@ -288,7 +288,7 @@
           <div class="col-4 h-auto">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-black rounded-5 h-auto w-100">
+                <div class="card bg-black rounded-4 h-auto w-100">
 
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-xbox" viewBox="0 0 16 16" id="consolas">
@@ -321,7 +321,7 @@
           <div class="col-4 h-auto">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-danger rounded-5 h-auto w-100">
+                <div class="card bg-danger rounded-4 h-auto w-100">
                   
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-nintendo-switch" viewBox="0 0 16 16" id="consolas">
@@ -512,8 +512,6 @@
 
           <?php }
           ?>
-
-
 
       </div>
       <br/>

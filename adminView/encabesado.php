@@ -59,9 +59,9 @@
                       </a>
                       <?php
                       echo '
-                      <ul class="dropdown-menu border-black">
-                        <li><a class="dropdown-item" href="#">'.$_SESSION['nombre'].'</a></li>
-                        <li><a class="dropdown-item" href="../../src/cerrar_sesion.php">Cerrar Sesion</a></li> 
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                        <li><a class="dropdown-item rounded mb-1" href="../../configuracion.php">Configuracion</a></li> 
+                        <li><a class="dropdown-item rounded" href="../../src/cerrar_sesion.php">Cerrar Sesion</a></li> 
                       </ul>
                     </li>';
                     ?>
@@ -74,10 +74,10 @@
                         </svg>
                       </a>
 
-                      <ul class="dropdown-menu border-black">
-                        <li><a class="dropdown-item" href="../products/index2.php">Productos</a></li>
-                        <li><a class="dropdown-item" href="../pedidos/pedidos.php">Pedidos</a></li>
-                        <li><a class="dropdown-item" href="../clientes/clientes/clientes.php">Clientes</a></li>
+                      <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                        <li><a class="dropdown-item rounded mb-1" href="../products/index2.php">Productos</a></li>
+                        <li><a class="dropdown-item rounded mb-1" href="../pedidos/pedidos.php">Pedidos</a></li>
+                        <li><a class="dropdown-item rounded" href="../clientes/clientes/clientes.php">Clientes</a></li>
                       </ul>
                     </li>
 
