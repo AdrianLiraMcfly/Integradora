@@ -68,3 +68,10 @@ h3 b
     color: white;
 
 }
+
+.but
+{
+    background-color: #212529;
+    text-transform: uppercase;
+    color: #f8f9fa;
+}

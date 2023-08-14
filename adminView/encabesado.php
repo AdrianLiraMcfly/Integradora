@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
+<nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini">
       <div class="container-fluid">
 
         <img src="../productos/vd_logo.png" alt="" width="110px" class="p-2">
@@ -26,17 +26,6 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!--
-            <form class="d-flex me-3" role="search">
-
-              <input class="form-control me-2 border border-black rounded-start-pill shadow" id="look" type="search" placeholder="Buscar..." aria-label="Search">
-
-                <button class="btn bg-secondary-subtle border border-black rounded-end-circle rounded-start-0 shadow" type="button" id="button-addon2">
-                  <img src="../img/lupa.png" alt="" style="width: 25px">
-                </button>
-
-            </form>-->
 
             <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
                 

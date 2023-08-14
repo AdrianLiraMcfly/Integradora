@@ -20,22 +20,22 @@
     unset($_SESSION['msg']); 
 } ?>
 
-<div class="row justify-content-start">
-    <div class="col-auto">
-        <a href="#" class="btn btn-dark rounded-pill mt-3 shadow" data-bs-toggle="modal" data-bs-target="#nuevoModal"><b class="text-warning">AGREGAR PRODUCTOS</b></a>
+<div class="row justify-content-start mt-3 mb-3">
+    <div class="col-auto mx-auto">
+        <a href="#" class="btn btn-warning border border-dark border-3 rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#nuevoModal"><b class="text-dark">AGREGAR PRODUCTOS</b></a>
     </div>
 </div>
 
-<table class="table table-striped table_id">
-    <thead>
+<table class="table table-striped table_id border">
+    <thead class="border border-dark">
         <tr>
-            <th>#</th>
-            <th>Nombre del Producto</th>
-            <th>Precio</th>
-            <th>Inventario</th>
-            <th>Categoria</th>
-            <th>Imagen</th>
-            <th>Acción</th>
+            <th class="bg-dark text-light">#</th>
+            <th class="bg-dark text-light">Nombre del Producto</th>
+            <th class="bg-dark text-light">Precio</th>
+            <th class="bg-dark text-light">Inventario</th>
+            <th class="bg-dark text-light">Categoria</th>
+            <th class="bg-dark text-light">Imagen</th>
+            <th class="bg-dark text-light">Acción</th>
         </tr>
     </thead>
 
@@ -49,9 +49,13 @@
                 <td><?= $row['categoria']; ?></td>
                 <td><img src="<?= $dir . $row['id_producto'] . '.jpg?n=' . time(); ?>" width="100"></td>
                 <td>
-                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_producto']; ?>"><img src="../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
+                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_producto']; ?>">
+                        <img src="../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px">
+                    </a>
 
-                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#eliminaModal" data-bs-id="<?= $row['id_producto']; ?>"><img src="../iconos/trash-svgrepo-com.svg" alt="delate" width="25px"></a>
+                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#eliminaModal" data-bs-id="<?= $row['id_producto']; ?>">
+                        <img src="../iconos/trash-svgrepo-com.svg" alt="delate" width="25px">
+                    </a>
                 </td>
             </tr>
         <?php } ?>

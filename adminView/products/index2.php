@@ -77,18 +77,18 @@ $dir = "posters/";
     include '../encabesado.php';
     ?> 
       <div class="d-flex justify-content-center mt-3 mb-3">
-          <a href="#" class="btn btn-primary mx-2">Productos</a>
-          <a href="category/index2.php" class="btn btn-primary mx-2">Nueva categoria</a>
-          <a href="sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
+          <a href="#" class="btn btn-dark fw-medium mx-2 rounded-pill text-warning but">Productos</a>
+          <a href="category/index2.php" class="btn btn-dark rounded-pill fw-medium mx-2 but">Nueva categoria</a>
+          <a href="sinSock/index2.php" class="btn btn-dark rounded-pill fw-medium mx-2 but">Sin stock</a>
       </div>
 
 
       <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
-        <hr>
-      </form>
-    </div>
+        <form class="d-flex w-50 mx-auto">
+          <input class="form-control light-table-filter rounded-pill border border-dark shadow" data-table="table_id" type="text" placeholder="Buscar">
+          <hr>
+        </form>
+      </div>
 
     <?php
     include 'vistas/listado.php';
