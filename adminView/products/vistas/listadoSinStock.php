@@ -20,26 +20,28 @@
     unset($_SESSION['msg']); 
 } ?>
 
+    <div class="table-responsive rounded-4">
+        <table class="table table-striped">
+            <thead class="border border-dark">
+                <tr>
+                    <th class="bg-dark text-light">#</th>
+                    <th class="bg-dark text-light">Nombre del Producto</th>
+                    <th class="bg-dark text-light">Categoria</th>
+                </tr>
+            </thead>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Nombre del Producto</th>
-            <th>Categoria</th>
-        </tr>
-    </thead>
+            <tbody>
+                <?php while ($row = $peliculas->fetch_assoc()) { ?>
+                    <tr class="table-danger"> 
+                        <td><?= $row['id_producto']; ?></td>
+                        <td><?= $row['nombre_producto']; ?></td>
+                        <td><?= $row['nombre_categoria']; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>        
+    </div>
 
-    <tbody>
-        <?php while ($row = $peliculas->fetch_assoc()) { ?>
-            <tr class="table-danger"> 
-                <td><?= $row['id_producto']; ?></td>
-                <td><?= $row['nombre_producto']; ?></td>
-                <td><?= $row['nombre_categoria']; ?></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
 </div>
 
 
