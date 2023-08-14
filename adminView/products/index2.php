@@ -82,7 +82,6 @@ $dir = "posters/";
           <a href="sinSock/index2.php" class="btn btn-dark rounded-pill fw-medium mx-2 but">Sin stock</a>
       </div>
 
-
       <div class="container-fluid">
         <form class="d-flex w-50 mx-auto">
           <input class="form-control light-table-filter rounded-pill border border-dark shadow" data-table="table_id" type="text" placeholder="Buscar">
