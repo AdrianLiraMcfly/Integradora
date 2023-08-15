@@ -499,7 +499,9 @@
                   <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
 
                   <p class="card-text mt-2" style="font-size: 15px;">
-                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
+                      $<?php echo $dato->precio ?>
+                    </b>
                   </p>
                 </div>
               </div>
