@@ -355,19 +355,10 @@
       </div>
       <br/>
       
-      
-      <!--
-      <div class="text-center w-100">
-        <div class="col pt-3 pb-2 bg-warning text-dark rounded-pill">
-          <h2><b>¡NUEVOS LANZAMIENTOS!</b></h2>
-        </div>
-      </div>
-      <br/>
-      -->
 
       <!--TITULO 1-->
       <div class="container-fluid bg-warning bg-gradient shadow text-center p-2 rounded-pill w-50 mb-3 let-1">
-        <span class="fw-bold fst-italic">¡NUEVOS LANZAMIENTOS!</span>
+        <span class="fw-bold fst-italic">¡MIRA NUESTRO CATÁLOGO!</span>
       </div>
 
       <!--PRODUCTOS-->
@@ -418,7 +409,7 @@
         </div>
       </div>
 
-      <div class="container-fluid shadow text-center p-2 w-25 mb-3 let-2">
+      <div class="container-fluid shadow text-center p-2 w-25 mt-2 mb-2 let-2">
         <span class="fw-bold fst-italic">CONSOLAS</span>
       </div>
       
@@ -466,7 +457,7 @@
       </div>
       <br>
 
-      <div class="container-fluid shadow text-center p-2 w-25 mb-3 let-3">
+      <div class="container-fluid shadow text-center p-2 w-25 mt-2 mb-2 let-3">
         <span class="fw-bold fst-italic">ROPA</span>
       </div>
 
