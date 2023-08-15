@@ -245,9 +245,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       <?php
 
-    } else {
-
-
+    } 
+    else 
+    {
 
       $sentencia->closeCursor();
       $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
@@ -265,11 +265,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="carrito-detalles">
 
-
             <div class="background-categorias text-light">
               <b>DETALLES</b>
-            </div> <br>
-
+            </div> 
+            <br>
 
             <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
@@ -350,7 +349,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             <div class="background-categorias text-light">
               <b>CARRITO</b>
-            </div><br>
+            </div>
+            <br>
 
             <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
               <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
@@ -364,8 +364,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 $persona = $sentencia->fetch(PDO::FETCH_OBJ);
 
                 ?>
-
-
 
                 <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
@@ -448,7 +446,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         <?php
         }
-      } else {
+      } 
+      else 
+      {
 
         $sentencia->closeCursor();
         $IDusuario = $_SESSION['id'];
@@ -461,12 +461,12 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <div class="container-pag-carrito">
 
           <div class="carrito-detalles">
+            <!--DETALLES-->
+            <div class="container-fluid shadow text-center p-2 w-75 mb-3 let-4">
+              <span class="fw-bold fst-italic">DETALLES</span>
+            </div>
 
-            <div class="background-categorias text-light">
-              <b>DETALLES</b>
-            </div> <br>
-
-
+            <!--CARRITO-->
             <div class="container-fluid container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1 w-auto">
 
               <div class="container-fluid informacion-detalles-carrito">
@@ -502,15 +502,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             </div>
           </div>
+
         </div>
 
 
         <div class="container-carrito-div">
 
-
-          <div class="background-categorias text-light">
-            <b>CARRITO</b>
-          </div><br>
+            <div class="container-fluid shadow text-center p-2 w-75 mb-3 let-4">
+              <span class="fw-bold fst-italic">CARRITO</span>
+            </div>
 
           <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
@@ -561,7 +561,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           </div>
         </div>
 
-  <?php
+        <?php
       }
     }
   }
