@@ -357,7 +357,7 @@
 
       <!--TITULO 1-->
       <div class="container-fluid bg-warning bg-gradient shadow text-center p-2 rounded-pill w-50 mb-3 let-1">
-        <span class="fw-bold fst-italic">¡MIRA NUESTRO CATÁLOGO!</span>
+        <span class="fw-bold fst-italic">MIRA NUESTRO CATÁLOGO</span>
       </div>
 
       <!--PRODUCTOS-->
