@@ -299,25 +299,29 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
                 <p style="font-size: 17px;">
                   <b>Total:</b>
-                  $<?php if (isset($_SESSION['CARRITO'])) {
-                      foreach ($_SESSION['CARRITO'] as $indice => $producto) {
+                  $<?php if (isset($_SESSION['CARRITO'])) 
+                  {
+                      foreach ($_SESSION['CARRITO'] as $indice => $producto) 
+                      {
                         $total += $producto['PRECIO'] * $producto['CANTIDAD'];
                       }
-                    }
+                  }
                     echo $total;
                     ?>
                 </p>
 
                 <?php
-                if (isset($_SESSION['CARRITO'])) {
+                if (isset($_SESSION['CARRITO'])) 
+                {
 
 
                   $sumaCantidades = 0;
 
-                  foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
-                    $sumaCantidades += $cantidad['CANTIDAD'];
-                  }
-                ?>
+                    foreach ($_SESSION['CARRITO'] as $indice => $cantidad) 
+                    {
+                      $sumaCantidades += $cantidad['CANTIDAD'];
+                    }
+                  ?>
 
                   <div class="container-btn">
 
@@ -390,7 +394,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       <b style="font-size: 17px;">$<?php echo $producto['PRECIO'] ?></b>
                     </div>
 
-                    <div class="col-3 container-folio-products w-25 text-center me-auto border"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
+                    <div class="col-3 container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
                                                                                                   ?>
 
                       <p class="mb-0" style="font-size: 17px;">
@@ -535,7 +539,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                     <b style="font-size: 17px;"><?php echo $dato['precio_unitario'] ?></b>
                   </div>
 
-                  <div class="col-3 container-folio-products w-25 text-center me-auto border">
+                  <div class="col-3 container-folio-products w-25 text-center me-auto">
                     <p class="mb-0" style="font-size: 17px;">
                       Cantidad:
                       <br />
