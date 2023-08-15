@@ -194,7 +194,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   if (isset($_GET['mensaje'])) 
   {
       $mensajeAlerta = $_GET['mensaje']; ?>
-      <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+      <div class="alert alert-success">
+        <b><?php print $mensajeAlerta; ?></b>
+      </div>
     <?php 
   } ?>
   <?php
@@ -232,6 +234,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     if ($personaXX['id_estado'] == 2) 
     {
       ?>
+
       <!--ALERTA CUENTA SUSPENDIDA-->
       <div class="d-flex align-items-center justify-content-center vh-100">
         <div class="alerts bg-danger bg-gradient p-2 w-25 text-center rounded-3 shadow-lg">
@@ -332,12 +335,18 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                         <form action="src/insertdatcarrito.php" method="post">
                           <input type="hidden" name="txtTotal" value="<?php echo $total; ?>">
                         <?php
-                        if (empty($_SESSION['CARRITO'])) {
-                          echo "<div class='alert alert-warning'> <b> AUN NO TIENES NINGUN PRODUCTO AÑADIDO. </b></div>";
-                        } else {
-                          if ($sumaCantidades > 4) {
-                            echo "<div class='alert alert-warning'> <b> EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4. </b></div>";
-                          } else {
+                        if (empty($_SESSION['CARRITO'])) 
+                        {
+                          echo "<div class='alert text-center rounded-pill no-pro'> <b> AUN NO TIENES NINGUN PRODUCTO AÑADIDO. </b></div>";
+                        } 
+                        else 
+                        {
+                          if ($sumaCantidades > 4) 
+                          {
+                            echo "<div class='alert text-center rounded-pill maximo-pro'> <b>EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4</b></div>";
+                          } 
+                          else 
+                          {
                             echo
                             "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
                             <b>REALIZAR PEDIDO</b>

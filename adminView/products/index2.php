@@ -73,9 +73,10 @@ $dir = "posters/";
 </head>
 
 <body class="bg-white w-100">
-    <?php
-    include '../encabesado.php';
-    ?> 
+      <?php
+      include '../encabesado.php';
+      ?>
+
       <div class="d-flex justify-content-center mt-3 mb-3">
           <a href="#" class="btn btn-dark fw-medium mx-2 rounded-pill text-warning but">Productos</a>
           <a href="category/index2.php" class="btn btn-dark rounded-pill fw-medium mx-2 but">Nueva categoria</a>

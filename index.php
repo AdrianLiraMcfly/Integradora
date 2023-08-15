@@ -28,7 +28,6 @@
 
 <body class="bg-white w-auto">
 
-      <!--BARRA-->
       <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final w-100 p-2">
         <div class="container-fluid">
 
@@ -188,7 +187,7 @@
 
         </div>
       </nav>
-    
+
       <?php
       if (isset($_GET['mensaje'])) {
         $mensajeAlerta = $_GET['mensaje']; ?>
@@ -248,7 +247,7 @@
         <div class="row w-100">
          
           <!--PLAY-->
-          <div class="col-4 h-auto">
+          <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
                 <div class="card bg-primary rounded-4 h-auto w-100">
@@ -284,7 +283,7 @@
           <div class="col-3"></div>-->
 
           <!--XBOX-->
-          <div class="col-4 h-auto">
+          <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
                 <div class="card bg-black rounded-4 h-auto w-100">
@@ -317,7 +316,7 @@
           </div>
 
           <!--NINTENDO-->
-          <div class="col-4 h-auto">
+          <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
                 <div class="card bg-danger rounded-4 h-auto w-100">
