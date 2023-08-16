@@ -19,37 +19,36 @@ $dir = "../products/posters/";
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <style>
 
+      .container {
+        margin-top: 50px;
+      }
 
-    .container {
-      margin-top: 50px;
-    }
+      .table {
+        background-color: #fff;
+      }
 
-    .table {
-      background-color: #fff;
-    }
+      .sidebar .nav-item {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
 
-    .sidebar .nav-item {
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-    }
+      .sidebar {
+        height: 100vh;
+        background-color: #f8f9fa;
+      }
 
-    .sidebar {
-      height: 100vh;
-      background-color: #f8f9fa;
+      .sidebar .nav-link {
+        color: #333;
+      }
+      .product-image img {
+      max-width: 50px;
+      max-height: 50px;
     }
-
-    .sidebar .nav-link {
-      color: #333;
+      .barra-deslizable{
+        overflow-y: auto;
+        /*position: relative;*/
     }
-    .product-image img {
-    max-width: 50px;
-    max-height: 50px;
-  }
-  .barra-deslizable{
-    overflow-y: auto;
-    /*position: relative;*/
-}
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -59,54 +58,54 @@ $dir = "../products/posters/";
   include '../encabesado.php';
   ?>
 
-<div class="d-flex justify-content-center mt-3 mb-3">
-<a href="../clientes/clientes.php" class="btn btn-primary mx-2">Usuarios</a>
-        <a href="../cliente/clientes.php" class="btn btn-primary mx-2">Clientes</a>
-        <a href="#" class="btn btn-primary mx-2">Administrador</a>
-        <a href="../buscador/buscador.php" class="btn btn-primary mx-2">Buscar</a>
-    </div>
+      <div class="d-flex justify-content-center mt-3 mb-3">
+        <a href="../clientes/clientes.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Usuarios</a>
+        <a href="../cliente/clientes.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Clientes</a>
+        <a href="#" class="btn btn-dark fw-medium mx-2 rounded-pill but text-warning">Administrador</a>
+        <a href="../buscador/buscador.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Buscar</a>
+      </div>
 
         
     <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+      <form class="d-flex w-50 mx-auto">
+        <input class="form-control me-2 light-table-filter rounded-pill border border-dark shadow" data-table="table_id" type="text" placeholder="Buscar">
         <hr>
       </form>
     </div>
 
-
-    <div class="container mt-3">
-        <table class="table table-striped table_id">
-        <thead> 
-              <tr>
-                <th>#</th>
-                <th>Nombre del Cliente</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th>Accion</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php 
-              $resultado = $conn->query($pedidos); 
-              while($row= $resultado->fetch_assoc()){
-                
-              ?> 
-              <tr>
-                <td ><?php echo $row ["id_usuario"]?></td>
-                <td><?php echo $row ["usuario"];?></td>
-                <td><?php echo $row ["email"];?></td>
-                <td ><strong><?php echo $row ["rol"]?></strong></td>
-                <td>
-                  <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_usuario']; ?>"><img src="../../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
-                </td>
-              </tr>
-              <?php
-              }?>
-            </tbody>        
-          </table>
+    <div class="p-4">
+      <div class="table-responsive rounded-4 mt-3">
+          <table class="table table-striped table_id">
+          <thead> 
+                <tr>
+                  <th class="bg-dark text-light">#</th>
+                  <th class="bg-dark text-light">Nombre del Cliente</th>
+                  <th class="bg-dark text-light">Email</th>
+                  <th class="bg-dark text-light">Rol</th>
+                  <th class="bg-dark text-light">Accion</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php 
+                $resultado = $conn->query($pedidos); 
+                while($row= $resultado->fetch_assoc()){
+                  
+                ?> 
+                <tr>
+                  <td ><?php echo $row ["id_usuario"]?></td>
+                  <td><?php echo $row ["usuario"];?></td>
+                  <td><?php echo $row ["email"];?></td>
+                  <td ><strong><?php echo $row ["rol"]?></strong></td>
+                  <td>
+                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_usuario']; ?>"><img src="../../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
+                  </td>
+                </tr>
+                <?php
+                }?>
+              </tbody>        
+            </table>
+      </div>
     </div>
-
 
     <?php 
 $sqlGenero = "SELECT id_rol, nombre FROM roles";

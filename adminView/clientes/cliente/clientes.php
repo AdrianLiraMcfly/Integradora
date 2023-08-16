@@ -60,52 +60,54 @@ $dir = "../products/posters/";
   ?>
 
 <div class="d-flex justify-content-center mt-3 mb-3">
-        <a href="../clientes/clientes.php" class="btn btn-primary mx-2">Usuarios</a>
-        <a href="#" class="btn btn-primary mx-2">Clientes</a>
-        <a href="../admin/admin.php" class="btn btn-primary mx-2">Administrador</a>
-        <a href="../buscador/buscador.php" class="btn btn-primary mx-2">Buscar</a>
+        <a href="../clientes/clientes.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Usuarios</a>
+        <a href="#" class="btn btn-dark fw-medium mx-2 rounded-pill but text-warning">Clientes</a>
+        <a href="../admin/admin.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Administrador</a>
+        <a href="../buscador/buscador.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Buscar</a>
     </div>
 
     
     <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+      <form class="d-flex w-50 mx-auto">
+        <input class="form-control me-2 light-table-filter rounded-pill border border-dark shadow" data-table="table_id" type="text" placeholder="Buscar">
         <hr>
       </form>
     </div>
 
-
-    <div class="container mt-3">
-        <table class="table table-striped table_id">
-        <thead> 
-              <tr>
-                <th>#</th>
-                <th>Nombre del Cliente</th>
-                <th>Email</th>
-                <th>Rol</th>
-                <th>Accion</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php 
-              $resultado = $conn->query($pedidos); 
-              while($row= $resultado->fetch_assoc()){
-                
-              ?> 
-              <tr>
-                <td ><?php echo $row ["id_usuario"]?></td>
-                <td><?php echo $row ["usuario"];?></td>
-                <td><?php echo $row ["email"];?></td>
-                <td ><strong><?php echo $row ["rol"]?></strong></td>
-                <td>
-                  <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_usuario']; ?>"><img src="../../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
-                </td>
-              </tr>
-              <?php
-              }?>
-            </tbody>        
-          </table>
+    <div class="p-4">
+      <div class="table-responsive rounded-4 mt-3">
+          <table class="table table-striped table_id">
+          <thead> 
+                <tr>
+                  <th class="bg-dark text-light">#</th>
+                  <th class="bg-dark text-light">Nombre del Cliente</th>
+                  <th class="bg-dark text-light">Email</th>
+                  <th class="bg-dark text-light">Rol</th>
+                  <th class="bg-dark text-light">Accion</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php 
+                $resultado = $conn->query($pedidos); 
+                while($row= $resultado->fetch_assoc()){
+                  
+                ?> 
+                <tr>
+                  <td ><?php echo $row ["id_usuario"]?></td>
+                  <td><?php echo $row ["usuario"];?></td>
+                  <td><?php echo $row ["email"];?></td>
+                  <td ><strong><?php echo $row ["rol"]?></strong></td>
+                  <td>
+                    <a href="#" class="btn transparent-button" data-bs-toggle="modal" data-bs-target="#editaModal" data-bs-id="<?= $row['id_usuario']; ?>"><img src="../../iconos/edit-3-svgrepo-com.svg" alt="edit" width="25px"></a>
+                  </td>
+                </tr>
+                <?php
+                }?>
+              </tbody>        
+            </table>
+      </div>      
     </div>
+
 
 
     <?php 

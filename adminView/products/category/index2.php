@@ -35,29 +35,30 @@ $dir = "posters/";
       margin-bottom: 10px;
       border-bottom: 1px solid #ddd;
       padding-bottom: 5px;
-    }
+      }
 
-    .sidebar {
-      height: 100vh;
-      background-color: #f8f9fa;
-    }
+      .sidebar {
+        height: 100vh;
+        background-color: #f8f9fa;
+      }
 
-    .sidebar .nav-link {
-      color: #333;
-    }
+      .sidebar .nav-link {
+        color: #333;
+      }
 
-    .container {
-      margin-top: 50px;
-    }
+      .container {
+        margin-top: 50px;
+      }
 
-    .table {
-      background-color: #fff;
-      border-collapse: collapse;
-    }
-    .transparent-button {
-    background-color: transparent;
-    border-color: transparent;
-}
+      .table {
+        background-color: #fff;
+        border-collapse: collapse;
+      }
+
+      .transparent-button {
+      background-color: transparent;
+      border-color: transparent;
+      }
 
 
     </style>
@@ -75,11 +76,11 @@ $dir = "posters/";
   include '../encabesadoProducts.php';
   ?> 
 
-<div class="d-flex justify-content-center mt-3 mb-3">
-        <a href="../index2.php" class="btn btn-primary mx-2">Productos</a>
-        <a href="#" class="btn btn-primary mx-2">Nueva categoria</a>
-        <a href="../sinSock/index2.php" class="btn btn-primary mx-2">Sin stock</a>
-    </div>
+      <div class="d-flex justify-content-center mt-3 mb-3">
+        <a href="../index2.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Productos</a>
+        <a href="#" class="btn btn-dark fw-medium mx-2 rounded-pill text-warning but">Nueva categoria</a>
+        <a href="../sinSock/index2.php" class="btn btn-dark fw-medium mx-2 rounded-pill but">Sin stock</a>
+      </div>
     
 <?php
 include '../vistas/listadoCategory.php';

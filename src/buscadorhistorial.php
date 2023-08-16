@@ -1,15 +1,14 @@
 <?php
 session_start();
 include "conexionbd.php";
+$ID = $_SESSION['id'];
 if (isset($_POST['busqueda'])) {
 
     $parametro = $_POST['busqueda'];
 
-    $caracteres_a_quitar = array(';', '--', '*', '%', '!', '=', '<', '>','\\','/',',','.','_');
-    $parametro = str_replace($caracteres_a_quitar, '', $parametro);
 
-    $consulta = $bd->prepare("CALL informacion_de_un_carrito(?);");
-    $consulta->execute([$parametro]);
+    $consulta = $bd->prepare("CALL buscador_historial(?,?);");
+    $consulta->execute([$parametro, $ID]);
     $productos = $consulta->fetchAll(PDO::FETCH_OBJ);
 
     echo json_encode($productos);

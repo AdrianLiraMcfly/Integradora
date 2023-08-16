@@ -179,7 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="username mb-5">
                 <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="email" required>
-                <label for=""><b>Gmail de usuario</b></label>
+                <label for=""><b>Email de usuario</b></label>
             </div>
 
             <div class="username mb-4">

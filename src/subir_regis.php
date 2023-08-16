@@ -17,8 +17,7 @@ try {
     $stmt->execute();
     
     echo "Registro guardado correctamente";
-    header("Location: token_env.php?email=$email&token=$token");
-
+    header("Location: tokenemail.php?email=$email&token=$token");
     exit();
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {

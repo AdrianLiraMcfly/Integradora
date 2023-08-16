@@ -26,17 +26,16 @@
     <title>Inicio</title>
 </head>
 
-<body class="bg-white w-100">
+<body class="bg-white w-auto">
 
-      <!--BARRA-->
-      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final w-100 p-2">
         <div class="container-fluid">
 
-            <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
+            <img src="vd_logo.png" alt="Video Game Store" width="110px" class="p-2">
 
             <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
-            <div class="container-fluid">
+            <div class="container-fluid w-100">
             
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -46,7 +45,7 @@
                 
                 <ul class="navbar-nav me-auto">
 
-                    <li class="nav-item p-auto me-1 it border border-2 border-black shadow-lg">
+                    <li class="nav-item p-auto ms-1 me-1 it border border-2 border-black shadow-lg">
                         <a class="nav-link text-center" aria-current="page" href="#">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                             <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
@@ -128,9 +127,9 @@
                             break;
 
                             case 2:
-                                echo '
-                                <li class="nav-item dropdown p-auto me-1">
-                          
+                                echo 
+                                '<li class="nav-item dropdown p-auto me-1">  
+                                                      
                                   <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -192,14 +191,15 @@
 
         </div>
       </nav>
+
       <?php
-  if (isset($_GET['mensaje'])) {
-    $mensajeAlerta = $_GET['mensaje']; ?>
-    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
-  <?php } ?>
+      if (isset($_GET['mensaje'])) {
+        $mensajeAlerta = $_GET['mensaje']; ?>
+        <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+      <?php } ?>
       
       <!--CARRUSEL-->
-      <div id="carouselExampleCaptions" class="carousel slide">
+      <div id="carouselExampleCaptions" class="carousel slide w-auto">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -251,10 +251,10 @@
         <div class="row w-100">
          
           <!--PLAY-->
-          <div class="col-4 h-auto">
+          <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-primary rounded-5 h-auto w-100">
+                <div class="card bg-primary rounded-4 h-auto w-100">
 
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-playstation" viewBox="0 0 16 16" id="consolas">
@@ -287,10 +287,10 @@
           <div class="col-3"></div>-->
 
           <!--XBOX-->
-          <div class="col-4 h-auto">
+          <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-black rounded-5 h-auto w-100">
+                <div class="card bg-black rounded-4 h-auto w-100">
 
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-xbox" viewBox="0 0 16 16" id="consolas">
@@ -320,10 +320,10 @@
           </div>
 
           <!--NINTENDO-->
-          <div class="col-4 h-auto">
+          <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-danger rounded-5 h-auto w-100">
+                <div class="card bg-danger rounded-4 h-auto w-100">
                   
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-nintendo-switch" viewBox="0 0 16 16" id="consolas">
@@ -358,13 +358,11 @@
       </div>
       <br/>
       
-      <!--TITULO-->
-      <div class="text-center w-100">
-        <div class="col pt-3 pb-2 bg-warning text-dark rounded-pill">
-          <h2><b>¡NUEVOS LANZAMIENTOS!</b></h2>
-        </div>
+
+      <!--TITULO 1-->
+      <div class="container-fluid bg-warning bg-gradient shadow text-center p-2 rounded-pill w-50 mb-3 let-1">
+        <span class="fw-bold fst-italic">¡MIRA NUESTRO CATÁLOGO!</span>
       </div>
-      <br/>
 
       <!--PRODUCTOS-->
       <div class="container container-products">
@@ -374,9 +372,9 @@
           $rutaCarpetaImagenes = 'adminView/products/posters/';
         foreach($productos as $dato){ ?>
 
-          <div class="cards-presentacion">
+          <div class="cards-presentacion h-auto">
             <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                <div class="card bg-dark border border-3 border-secondary" style="width: 18rem;">
+                <div class="card bg-dark border border-3 border-secondary shadow-lg" style="width: 15rem;">
 
                 <?php
                       $nombreimagen = $dato->id_producto.".jpg";
@@ -385,13 +383,14 @@
                       $base64 = base64_encode(file_get_contents($rutaimagen));
                       $base64 = 'data:image/jpeg;base64,'.$base64;
 
-                      echo  "<img src='$base64' class='img_init' alt=''>";
+                      echo  "<img src='$base64' class='img_init rounded-top' alt='Carta de Producto'>";
 
                     ?>
 
                     <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                        <h5> <?php echo $dato->nombre ?></h5>
-                        <p class="card-text">
+                        <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
+
+                        <p class="card-text mt-2" style="font-size: 15px;">
                           <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
                         </p>
                     </div>
@@ -404,19 +403,18 @@
       </div>
       <br/>
 
-      <div class="text-center w-100 mb-4">
-
-        <div class="col pt-3 pb-2 bg-dark text-dark rounded-pill mb-4">
-          <h3><b>VIDEOGAME STORE ES TU MEJOR OPCION</b></h3>
+      <!--TITULOS 2-->
+      <div class="container-fluid bg-warning bg-gradient shadow text-center p-2 rounded-pill w-50 mb-5 let-1">
+        <div class="row w-auto">
+          <span class="fw-bold fst-italic">
+            <img src="vd_logo.png" class="me-2" style="width: 6vw; height: auto;" alt="Logo"> ES TU MEJOR OPCIÓN
+          </span>
         </div>
-
-        
-        <div class="col pt-3 pb-2 bg-danger background-categorias text-dark mx-auto">
-          <h3><b>CONSOLAS</b></h3>
-        </div>
-
       </div>
-      <br/>
+
+      <div class="container-fluid shadow text-center p-2 w-25 mt-2 mb-2 let-2">
+        <span class="fw-bold fst-italic">CONSOLAS</span>
+      </div>
       
       <div class="container w-100 container-products">
 
@@ -432,8 +430,8 @@
 
           <div class="cards-presentacion">
 
-            <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
-              <div class="card bg-dark border border-3 border-secondary" style="width: 18rem;">
+            <a href="product.php?id=<?php echo $dato->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+              <div class="card bg-dark border border-3 border-secondary shadow-lg" style="width: 15rem;">
 
                 <?php
                   $nombreimagen = $dato->id_producto.".jpg";
@@ -441,14 +439,14 @@
                   $base64 = base64_encode(file_get_contents($rutaimagen));
                   $base64 = 'data:image/jpeg;base64,'.$base64;
 
-                  echo  "<img src='$base64' class='img_init' alt=''>";
+                  echo  "<img src='$base64' class='img_init rounded-top' alt=''>";
                 ?>
 
                 <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                  <h5><?php echo $dato->nombre ?></h5>
+                  <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
 
-                  <p class="card-text">
-                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                  <p class="card-text mt-2" style="font-size: 15px;">
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">$<?php echo $dato->precio ?></b>
                   </p>
                 </div>
 
@@ -462,9 +460,9 @@
       </div>
       <br>
 
-      <div class="col text-center pt-3 pb-2 bg-primary background-categorias text-dark mx-auto">
-        <h3><b>ROPA</b></h3>
-      </div> 
+      <div class="container-fluid shadow text-center p-2 w-25 mt-2 mb-2 let-3">
+        <span class="fw-bold fst-italic">ROPA</span>
+      </div>
 
       </div>
 
@@ -474,7 +472,7 @@
       <div class="container w-100 container-products">
 
         <?php 
-          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 3;");
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 4;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
           $rutaCarpetaImagenes = 'adminView/products/posters/';
   
@@ -488,7 +486,7 @@
           <div class="cards-presentacion">
             <a href="product.php?id=<?php echo $dato->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-              <div class="card bg-dark border border-secondary border-3" style="width: 18rem;">
+              <div class="card bg-dark border border-secondary border-3 shadow-lg" style="width: 15rem;">
 
                 <?php
 
@@ -502,8 +500,9 @@
                 ?>
 
                 <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                  <h5> <?php echo $dato->nombre ?></h5>
-                  <p class="card-text">
+                  <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
+
+                  <p class="card-text mt-2" style="font-size: 15px;">
                     <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
                   </p>
                 </div>
@@ -514,8 +513,6 @@
 
           <?php }
           ?>
-
-
 
       </div>
       <br/>

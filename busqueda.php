@@ -93,7 +93,6 @@ session_start();
                               </a>
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
@@ -129,7 +128,6 @@ session_start();
                                 </a>
                       
                                 <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                                  <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
                                   <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                   <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                 </ul>

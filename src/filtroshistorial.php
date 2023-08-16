@@ -7,31 +7,33 @@ $productos = array();
 if (isset($_POST['opcion'])) {
 
     $idUsuario = $_SESSION['id'];
+    $Datos = $_POST['datos'];
 
     switch ($_POST['opcion']) {
         case 'antiguos':
-            $consulta = $bd->prepare("CALL recientes(?);");
-            $consulta->execute([$idUsuario]);
-            $productos = $consulta->fetchAll(PDO::FETCH_OBJ);
+            usort($Datos, function($a, $b) {
+                return strtotime($a['Fecha_de_pedido']) - strtotime($b['Fecha_de_pedido']);
+            });
             break;
         case 'recientes':
-            $consulta = $bd->prepare("CALL antiguos(?);");
-            $consulta->execute([$idUsuario]);
-            $productos = $consulta->fetchAll(PDO::FETCH_OBJ);
+            usort($Datos, function($a, $b) {
+                return strtotime($b['Fecha_de_pedido']) - strtotime($a['Fecha_de_pedido']);
+            });
             break;
         case 'max-cost':
-            $consulta = $bd->prepare("CALL maxCost(?);");
-            $consulta->execute([$idUsuario]);
-            $productos = $consulta->fetchAll(PDO::FETCH_OBJ);
+            usort($Datos, function($a, $b) {
+                return $b['Total'] - $a['Total'];
+            });
             break;
         case 'min-cost':
-            $consulta = $bd->prepare("CALL minCost(?);");
-            $consulta->execute([$idUsuario]);
-            $productos = $consulta->fetchAll(PDO::FETCH_OBJ);
+            usort($Datos, function($a, $b) {
+                return $a['Total'] - $b['Total'];
+            });
+
+
             break;
     }
-
-    echo json_encode($productos);
+    echo json_encode($Datos);
 } else {
     echo json_encode(array('error' => 'Datos del carrito no enviados.'));
 }

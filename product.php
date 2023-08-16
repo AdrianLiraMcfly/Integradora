@@ -99,6 +99,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                 <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
+                                <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
@@ -133,6 +134,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                 <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
+                                <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>

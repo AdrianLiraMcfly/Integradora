@@ -50,9 +50,7 @@ $dir = "../products/posters/";
     overflow-y: auto;
     /*position: relative;*/
   }
-  .oculto{
-    
-  }
+
   </style>
   <title>VideoGame Store - Admin</title>
 </head>
@@ -63,81 +61,84 @@ $dir = "../products/posters/";
   ?>
 
 <div class="d-flex justify-content-center mt-3 mb-3">
-        <a href="#" class="btn btn-primary mx-2">Pedidos</a>
-        <a href="cancelados/cancelados.php" class="btn btn-primary mx-2">Cancelados</a>
-        <a href="pendientes/pendientes.php" class="btn btn-primary mx-2">Pendientes</a>
-        <a href="completado/completados.php" class="btn btn-primary mx-2">Completados</a>
+        <a href="#" class="btn btn-dark mx-2 fw-medium rounded-pill text-warning but">Pedidos</a>
+        <a href="cancelados/cancelados.php" class="btn btn-dark mx-2 fw-medium rounded-pill but">Cancelados</a>
+        <a href="pendientes/pendientes.php" class="btn btn-dark mx-2 fw-medium rounded-pill but">Pendientes</a>
+        <a href="completado/completados.php" class="btn btn-dark mx-2 fw-medium rounded-pill but">Completados</a>
     </div>
     
 
     <div class="container-fluid">
-      <form class="d-flex">
-        <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+      <form class="d-flex w-50 mx-auto">
+        <input class="form-control light-table-filter rounded-pill border border-dark shadow" data-table="table_id" type="text" placeholder="Buscar">
         <hr>
       </form>
     </div>
 
-    <div class="container mt-3">
-        <table class="table table-striped table_id">
-        <thead> 
-              <tr>
-                <th>#</th>
-                <th>ID de la Orden</th>
-                <th>Nombre del Cliente</th>
-                <th>Cantidad Total</th>
-                <th>Fecha y Hora</th>
-                <th scope="col" class="col-lg-4">Productos</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php 
-              $resultado = $conn->query($pedidos); 
-              while($row= $resultado->fetch_assoc()){
-                $idUsuario = $row["id_usuario"];
-                $idCarrito = $row["id_carrito"];
+    <div class="p-4">
+      <div class="table-responsive rounded-4 mt-3">
+          <table class="table table-striped table_id">
+          <thead class="border border-dark"> 
+                <tr>
+                  <th class="bg-dark text-light">#</th>
+                  <th class="bg-dark text-light">ID de la Orden</th>
+                  <th class="bg-dark text-light">Nombre del Cliente</th>
+                  <th class="bg-dark text-light">Cantidad Total</th>
+                  <th class="bg-dark text-light">Fecha y Hora</th>
+                  <th class="bg-dark text-light" scope="col" class="col-lg-4">Productos</th>
+                  <th class="bg-dark text-light">Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php 
+                $resultado = $conn->query($pedidos); 
+                while($row= $resultado->fetch_assoc()){
+                  $idUsuario = $row["id_usuario"];
+                  $idCarrito = $row["id_carrito"];
 
-                $conn->multi_query("CALL integradora2.ObtenerProductosPorUsuarioYCarrito($idUsuario,$idCarrito)");
-                $productosPedido = $conn->store_result();
-                $conn->next_result();
+                  $conn->multi_query("CALL integradora2.ObtenerProductosPorUsuarioYCarrito($idUsuario,$idCarrito)");
+                  $productosPedido = $conn->store_result();
+                  $conn->next_result();
 
-                
-              ?> 
-              <tr>
-                <td ><?php echo $row ["id_carrito"]?></td>
-                <td><?php echo $row ["id_order"];?></td>
-                <td><?php echo $row ["nombre_cliente"];?></td>
-                <td>$<?php echo $row ["cantidad_total"];?></td>
-                <td><?php echo $row ["fecha_venta"];?></td>
-                <td scope="row">
-                  <table class="table table-borderless table-sm table-responsive barra-deslizable" >
-                    <thead>
-                      <tr>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      while ($producto = $productosPedido->fetch_assoc()) {
-                      ?>
-                      <tr>
-                        <td><?php echo $producto["nombre"]; ?></td>
-                        <td>$<?php echo $producto["precio_unitario"]; ?></td>
-                        <td><?php echo $producto["cantidad"]; ?></td>
-                      </tr>
-                      <?php }?>
-                    </tbody>
-                  </table>
-                </td>
-                <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
-              </tr>
-              <?php
-              }?>
-            </tbody>        
-          </table>
+                  
+                ?> 
+                <tr>
+                  <td ><?php echo $row ["id_carrito"]?></td>
+                  <td><?php echo $row ["id_order"];?></td>
+                  <td><?php echo $row ["nombre_cliente"];?></td>
+                  <td>$<?php echo $row ["cantidad_total"];?></td>
+                  <td><?php echo $row ["fecha_venta"];?></td>
+                  <td scope="row">
+                    <table class="table table-borderless table-sm table-responsive barra-deslizable" >
+                      <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Precio</th>
+                          <th>Cantidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        while ($producto = $productosPedido->fetch_assoc()) {
+                        ?>
+                        <tr>
+                          <td><?php echo $producto["nombre"]; ?></td>
+                          <td>$<?php echo $producto["precio_unitario"]; ?></td>
+                          <td><?php echo $producto["cantidad"]; ?></td>
+                        </tr>
+                        <?php }?>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td ><strong><?php echo $row ["estado_orden"]?></strong></td>
+                </tr>
+                <?php
+                }?>
+              </tbody>        
+            </table>
+      </div>
     </div>
+
     <script src="../js/buscador.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

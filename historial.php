@@ -39,8 +39,8 @@ session_start();
 
                         <ul class="navbar-nav me-auto">
 
-                            <li class="nav-item p-auto me-1 it border border-2 border-black shadow-lg">
-                                <a class="nav-link text-center" aria-current="page" href="#">
+                            <li class="nav-item p-auto me-1">
+                                <a class="nav-link text-center" aria-current="page" href="index.php">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                                         <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
                                     </svg>
@@ -93,7 +93,6 @@ session_start();
                         
                                 <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                   <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
-                                  <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
                                   <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                   <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                 </ul>
@@ -130,7 +129,6 @@ session_start();
                         
                                   <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                     <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
-                                    <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
                                     <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
                                     <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                                   </ul>
@@ -204,7 +202,7 @@ session_start();
 
             <div class="filtro">
                 <label class="titulo-filtro" for="">Filtro:</label>
-                <select name="" class="si" style="margin-left: 20px;">
+                <select name="" class="si" id="filtro1" style="margin-left: 20px;">
                     <option id="option0" value="nada" disabled selected>Selecciona una opción...</option>
                     <option id="option1" value="recientes">Fecha (Mas recientes primero)</option>
                     <option id="option2" value="antiguos">Fecha (Mas antiguos primero)</option>
@@ -280,14 +278,18 @@ session_start();
 
     <script>
         $(document).ready(function() {
+            let bus2;
 
             $('.si').change(function(event) {
+
+
                 const selectedValue = $(this).val();
                 $.ajax({
                     type: 'POST',
                     url: 'src/filtroshistorial.php',
                     data: {
-                        opcion: selectedValue
+                        opcion: selectedValue,
+                        datos: bus2
                     },
                     success: function(response) {
                         console.log(response);
@@ -297,48 +299,11 @@ session_start();
                         enlace.empty();
 
                         filtro.forEach(producto => {
-                            enlace.append(`
-                            <a class="enlaces" id="enlace" href="#" data-id-carrito="${producto.id_carrito}" data-folio="${producto.id_order}" data-estado="${producto.nombre_estado}" data-fecha="${producto.fecha_venta}">
-                        <div class="detalles">
-                            <div class="contenido-detalles">
-                                <p class="texto-detalles">Folio: ${producto.id_order}</p>
-                                <p class="texto-detalles">Estado: ${producto.nombre_estado}</p>
-                                <p class="texto-detalles">Fecha de pedido: ${producto.fecha_venta}</p>
-                                <p class="texto-detalles">Total: ${producto.total}</p>                                
-                            </div>
-                        </div>
-                    </a>
 
-                    `);
-                        });
-                    },
-                    error: function() {
-                        console.log('Error al realizar la consulta AJAX.');
-                    }
-                });
-            });
+                            if (producto.ID_Estado == 3) {
 
-
-
-            $('#buscador').change(function(event) {
-                alert("hola");
-                const selectedValue2 = $(this).val();
-                $.ajax({
-                    type: 'POST',
-                    url: 'src/buscadorhistorial.php',
-                    data: {
-                        busqueda : selectedValue2
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        const bus = JSON.parse(response);
-                        console.log(bus);
-                        const enlace = $('#container-pedidos-realizados2');
-                        enlace.empty();
-
-                        bus.forEach(producto => {
-                            enlace.append(`
-                            <a class="enlaces" id="enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                                enlace.append(`
+                                <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles">
                             <div class="contenido-detalles">
                                 <p class="texto-detalles">Folio: ${producto.Folio}</p>
@@ -350,12 +315,93 @@ session_start();
                     </a>
 
                     `);
+                            } else {
+                                enlace.append(`
+                            <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                        <div class="detalles no-click-div1">
+                            <div class="contenido-detalles no-click-div2">
+                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
+                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
+                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
+                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                            </div>
+                        </div>
+                    </a>
+
+                    `);
+
+                            }
+
                         });
                     },
                     error: function() {
                         console.log('Error al realizar la consulta AJAX.');
                     }
                 });
+            });
+
+            $('#buscador').on('input', function(event) {
+                const selectedValue2 = $(this).val();
+                const inputField = document.getElementById('buscador');
+                const selectField = document.getElementById('filtro1');
+
+                if (inputField.value.trim() !== '') {
+                    selectField.value = 'nada';
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: 'src/buscadorhistorial.php',
+                    data: {
+                        busqueda: selectedValue2
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        const bus = JSON.parse(response);
+                        bus2 = JSON.parse(response);
+                        console.log(bus);
+                        const enlace = $('#container-pedidos-realizados2');
+                        enlace.empty();
+
+                        bus.forEach(producto => {
+
+                            if (producto.ID_Estado === 3) {
+                                enlace.append(`
+                            <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                        <div class="detalles">
+                            <div class="contenido-detalles">
+                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
+                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
+                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
+                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                            </div>
+                        </div>
+                    </a>
+
+                    `);
+                            } else {
+                                enlace.append(`
+                            <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                        <div class="detalles no-click-div1">
+                            <div class="contenido-detalles no-click-div2">
+                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
+                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
+                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
+                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                            </div>
+                        </div>
+                    </a>
+
+                    `);
+
+                            }
+
+                        });
+                    },
+                    error: function() {
+                        console.log('Error al realizar la consulta AJAX.');
+                    }
+                });
+
             });
 
             $(document).on('click', '.enlaces', function(event) {

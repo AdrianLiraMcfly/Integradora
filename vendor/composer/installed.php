@@ -3,7 +3,7 @@
         'name' => 'vendor/wicho',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '693a88242cc7a036d650e5d4818329cea358604d',
+        'reference' => '606a17f38498165e2a41fbf370a164183df65c3f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -67,7 +67,7 @@
         'vendor/wicho' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '693a88242cc7a036d650e5d4818329cea358604d',
+            'reference' => '606a17f38498165e2a41fbf370a164183df65c3f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

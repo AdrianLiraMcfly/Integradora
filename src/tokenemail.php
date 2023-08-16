@@ -1,30 +1,30 @@
 <?php
+session_start();
 include 'conexionbd.php';
+ $email=$_GET['email'];
+ $token=$_GET['token'];
+ $activationLink = "52.23.174.251/src/activarcuenta.php?token=$token";
 require 'bootstrap.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-
-
-$email=$_GET['email'];
-$token=$_GET['token'];
-
-$LinkAct = "http://52.23.174.251/src/activarcuenta.php?token=$token";
 try 
 {
     //Server settings
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'videogamestore9@gmail.com';            //SMTP username
-    $mail->Password   = 'qyltjnjtpxdcszsn';                 //SMTP password
+    $mail->Username   = 'vgs314316@gmail.com';            //SMTP username
+    $mail->Password   = 'funmjqjmvjfdlzgi';                 //SMTP password
     $mail->SMTPSecure = 'tls';       //Enable implicit TLS encryption
     $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('videogamestore9@gmail.com', 'VideoGame Store');
+    $mail->setFrom('vgs314316@gmail.com', 'VideoGame Store');
     $mail->addAddress($email);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
@@ -58,19 +58,19 @@ try
     </head>
     <body>
         <div class="container">
-            <h1>Confirma tu cuenta de VideoGame Store!</h1>
-            <h1><a href="'.$LinkAct.'">Activa tu cuenta</a></h1>
-            <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de los próximos 3 dias o sus productos de carrito serán devueltos a la venta al público.</p>
+            <h1>Gracias por unirte a Videogame Store!</h1>
+            <h1><a href="'.$activationLink.'">Activa aqui</a></h1>
+            <p>Una vez que hayas dado click al link te redireccionara a nuestra pagina principal donde podras iniciar sesion y tu cuenta sera totalmetne funcional:D.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
     </body>
     </html>';
     $mail->isHTML(true);                  //Set email format to HTML
-    $mail->Subject = 'VideoGame Store: Activa tu cuenta';
+    $mail->Subject = 'VideoGame Store: Activa Tu cuenta';
     $mail->Body    = $body;
 
     $mail->send();
-    $mensajeAlerta = "¡Verifica tu correo para activar tu cuenta!";
+    $mensajeAlerta = "¡Correo de activacion enviado!";
     header('Location: ../index.php?mensaje='. urlencode($mensajeAlerta));
     exit();
 } 
