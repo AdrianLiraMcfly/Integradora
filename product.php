@@ -278,27 +278,33 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             if ($IDxESTADO != 2 || $IDxESTADO == NULL) 
             {
             ?>
+            <div class="w-auto text-center">
               <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
                 AGREGAR AL CARRITO
-              </button>
+              </button>              
+            </div>
 
-              <div class="cont-cant">
+
+              <div class="cont-cant text-center p-2">
                 <p>
                   <b>Cantidad:</b>
                 </p>
                 
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
-                <p>NOTA: La cantidad total maxima de productos es de 4.</p>
+                <p class="fw-semibold">NOTA: La cantidad total maxima de productos es de 4.</p>
               </div>
               
               <?php } 
               else 
                 { ?>
+                <div class="w-auto text-center">
                   <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
                     AGREGAR AL CARRITO
-                  </button>
+                  </button>                  
+                </div>
 
-                  <div class="cont-cant">
+
+                  <div class="cont-cant text-center p-2">
                     <p>
                       <b>Cantidad:</b>
                     </p>
@@ -309,18 +315,18 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               }
               else
               { ?>
-                    </form> 
-                    <form action="carrito.php">
-                      <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
-                        AGREGAR AL CARRITO
-                      </button>
+          </form> 
+              <form action="carrito.php">
+                          <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
+                            AGREGAR AL CARRITO
+                          </button>
 
-                      <p><b>Cantidad:</b></p>
-                      <input class="input-perfect" disabled value="1"></input> <?php 
-              } 
-              ?>
-                    </form>
-                </div>
+                          <p><b>Cantidad:</b></p>
+                          <input class="input-perfect" disabled value="1"></input> <?php 
+                          } 
+                          ?>
+              </form>
+          </div>
 
         </div>
       </div>
