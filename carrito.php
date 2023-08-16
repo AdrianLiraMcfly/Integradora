@@ -32,12 +32,12 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <title>Carrito</title>
 </head>
 
-<body class="bg-white w-100 h-100">
+<body class="bg-white w-auto">
 
-  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
     <div class="container-fluid">
 
-      <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
+      <img src="vd_logo.png" alt="Video Game Store" width="110px" class="p-2 me-auto">
 
       <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -49,7 +49,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
 
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav">
 
               <li class="nav-item p-auto me-1">
                 <a class="nav-link text-center" aria-current="page" href="index.php">
@@ -126,7 +126,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                                 <li><a class="dropdown-item rounded mb-1" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
                                 <li><a class="dropdown-item rounded" href="adminView/clientes/clientes/clientes.php">Clientes</a></li>
                               </ul>
-                          </li>';
+                            </li>';
 
                       break;
                     case 2:
@@ -146,14 +146,21 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
                         
-                            </li>';
+                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                  <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
+                                  <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
+                                </ul>
+                        
+                              </li>';
                       break;
                     default:
 
                       break;
                   }
                 }
-              } else {
+              } 
+              else 
+              {
                 echo '
                         <li class="nav-item dropdown p-auto">
                         
@@ -177,7 +184,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
 
             <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 

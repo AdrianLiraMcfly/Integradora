@@ -28,14 +28,14 @@
 
 <body class="bg-white w-auto">
 
-      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final w-100 p-2">
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
         <div class="container-fluid">
 
-            <img src="vd_logo.png" alt="Video Game Store" width="110px" class="p-2">
+            <img src="vd_logo.png" alt="Video Game Store" width="110px" class="p-2 me-auto">
 
             <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
-            <div class="container-fluid w-100">
+            <div class="container-fluid">
             
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
 
               <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
                 
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav">
 
                     <li class="nav-item p-auto ms-1 me-1 it border border-2 border-black shadow-lg">
                         <a class="nav-link text-center" aria-current="page" href="#">
@@ -177,7 +177,7 @@
 
               </div>
 
-              <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+              <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
 
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -361,7 +361,7 @@
 
       <!--TITULO 1-->
       <div class="container-fluid bg-warning bg-gradient shadow text-center p-2 rounded-pill w-50 mb-3 let-1">
-        <span class="fw-bold fst-italic">¡MIRA NUESTRO CATÁLOGO!</span>
+        <span class="fw-bold fst-italic">MIRA NUESTRO CATÁLOGO</span>
       </div>
 
       <!--PRODUCTOS-->
@@ -503,7 +503,9 @@
                   <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
 
                   <p class="card-text mt-2" style="font-size: 15px;">
-                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark"> $<?php echo $dato->precio ?></b>
+                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
+                      $<?php echo $dato->precio ?>
+                    </b>
                   </p>
                 </div>
               </div>

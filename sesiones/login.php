@@ -161,21 +161,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            if (isset($_GET['mensaje'])) {
            $mensajeAlerta = $_GET['mensaje'];?>
            <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
-           <?php } ?>
+           <?php } 
+           else if (isset($_SESSION["mensaje_error"])) 
+           {?>
+            <div class="alert alert-danger"><b><?php print $_SESSION["mensaje_error"]; ?></b></div>
+            <?php } ?>
       <div class="formulario bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto mt-5">
         <h2 class="text-center titulo_pro text-light mt-2" ><b>INICIA SESION!</b></h2>
         <h4 class="text-center titulo_pro text-dark mb-5"><b>Bienvenido!</b></h4>
 
         <form action="../src/login.php" method="post">
-          <?php
-            //include '../src/login.php';
-            //include '../src/conexionbd.php';
-            if (isset($_SESSION["mensaje_error"])) 
-            {
-              echo "<script>alert('".$_SESSION["mensaje_error"]."');</script>";
-              unset($_SESSION["mensaje_error"]); // Limpiar el mensaje de error después de mostrarlo
-            }
-          ?>
 
             <div class="username mb-5">
                 <input class="border border border-black text-start p-3 shadow-sm rounded w-100" name="email" type="email" required>

@@ -278,6 +278,16 @@ body{
     text-shadow: 2px 2px 4px rgba(2, 18, 82, 0.5);
 }
 
+.let-5
+{
+    border-radius: 100px 0px 100px 0px;
+    border: 3.5px solid #212529;
+    font-size: 2vw;
+    background-color: #ffc107;
+    color: #f8f9fa;
+    text-shadow: 2px 2px 4px rgba(2, 18, 82, 0.5);
+}
+
 .maximo-pro
 {
     color: #f8f9fa;
