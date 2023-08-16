@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -16,10 +16,10 @@
 
   <body>
 
-      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini">
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm p-2 mx-auto">
             <div class="container-fluid">
 
-              <img src="../productos/vd_logo.png" alt="" width="110px" class="p-2">
+              <img src="../productos/vd_logo.png" alt="" width="110px" class="p-2 me-auto">
 
               <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 

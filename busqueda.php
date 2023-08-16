@@ -17,7 +17,8 @@ session_start();
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+
+    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
       <div class="container-fluid">
 
         <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -32,7 +33,7 @@ session_start();
 
             <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
 
-              <ul class="navbar-nav me-auto">
+              <ul class="navbar-nav">
 
                 <li class="nav-item p-auto me-1">
                   <a class="nav-link text-center" aria-current="page" href="index.php">
@@ -166,7 +167,7 @@ session_start();
 
             </div>
 
-            <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+            <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
 
               <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -223,7 +224,8 @@ session_start();
       { ?>
 
         <div class="cards-presentacion">
-          <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+
+          <a href="product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
             <div class="card border border-3 border-secondary bg-dark" style="width: 15rem;">
 
               <?php
@@ -238,6 +240,7 @@ session_start();
               ?>
 
               <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+
                 <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
 
                 <p class="card-text mt-2" style="font-size: 15px;">
@@ -245,11 +248,11 @@ session_start();
                     $<?php echo $dato->precio ?>
                   </b>
                 </p>
+
               </div>
             </div>
           </a>
         </div>
-
 
         <?php 
       }

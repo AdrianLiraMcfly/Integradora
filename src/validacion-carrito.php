@@ -122,8 +122,8 @@ if (isset($_POST['btnAccion'])) {
             }
             break;
         case 'eliminar':
-            if (is_numeric(openssl_decrypt($_POST['id'], COD, KEY))) {
-                $ID = openssl_decrypt($_POST['id'], COD, KEY);
+            if (is_numeric($_POST['id'])) {
+                $ID =$_POST['id'];
 
                 foreach ($_SESSION['CARRITO'] as $indice => $producto) {
                     if ($producto['ID'] == $ID) {

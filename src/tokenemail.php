@@ -71,7 +71,7 @@ try
 
     $mail->send();
     $mensajeAlerta = "¡Correo de activacion enviado!";
-    header('Location: ../index.php?mensaje='. urlencode($mensajeAlerta));
+    header('Location: ../sesiones/login.php?mensaje='. urlencode($mensajeAlerta));
     exit();
 } 
 catch (Exception $e) 

@@ -37,6 +37,7 @@ if (!empty($_POST["btningresar"])) {
                     $_SESSION["id"] = $datos->id_usuario;
                     $_SESSION["nombre"] = $datos->nombre;
                     $_SESSION["rol"] = $datos->id_rol;
+                    $_SESSION["estado"] = $datos->id_estado;
                     $_SESSION["email"] = $usuario;
                     
                     

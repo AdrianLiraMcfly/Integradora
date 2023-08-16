@@ -26,8 +26,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-white">
-  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+<body class="bg-white w-auto">
+
+  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
     <div class="container-fluid">
 
       <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -42,7 +43,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
 
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav">
 
               <li class="nav-item p-auto me-1 ">
                 <a class="nav-link text-center" aria-current="page" href="index.php">
@@ -99,6 +100,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                 <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
+                                <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
@@ -133,6 +135,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       
                               <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
                                 <li class="dropdown-item rounded">' . $_SESSION["nombre"] . '</li>
+                                <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
                                 <li><a class="dropdown-item rounded mb-1" href="#">Configuracion</a></li>
                                 <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
                               </ul>
@@ -168,7 +171,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
 
             <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -275,23 +278,32 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             if ($IDxESTADO != 2 || $IDxESTADO == NULL) 
             {
             ?>
-              <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                AGREGAR AL CARRITO
-              </button>
+              <div class="w-auto text-center">
+                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                  AGREGAR AL CARRITO
+                </button>              
+              </div>
 
-              <div class="cont-cant">
+              <div class="cont-cant text-center p-2">
                 <p>
                   <b>Cantidad:</b>
                 </p>
+                
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
+                <p class="fw-semibold">NOTA: La cantidad total maxima de productos es de 4.</p>
+              </div>
+              
               <?php } 
               else 
                 { ?>
+                <div class="w-auto text-center">
                   <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
                     AGREGAR AL CARRITO
-                  </button>
+                  </button>                  
+                </div>
 
-                  <div class="cont-cant">
+
+                  <div class="cont-cant text-center p-2">
                     <p>
                       <b>Cantidad:</b>
                     </p>
@@ -302,18 +314,18 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               }
               else
               { ?>
-                    </form> 
-                    <form action="carrito.php">
-                      <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
-                        AGREGAR AL CARRITO
-                      </button>
+          </form> 
+              <form action="carrito.php">
+                          <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
+                            AGREGAR AL CARRITO
+                          </button>
 
-                      <p><b>Cantidad:</b></p>
-                      <input class="input-perfect" disabled value="1"></input> <?php 
-              } 
-              ?>
-                    </form>
-                </div>
+                          <p><b>Cantidad:</b></p>
+                          <input class="input-perfect" disabled value="1"></input> <?php 
+                          } 
+                          ?>
+              </form>
+          </div>
 
         </div>
       </div>

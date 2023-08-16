@@ -1,0 +1,236 @@
+.container-izquierdo {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px black solid;
+    height: 88.6%;
+    width: 30%;
+    position: relative;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background-color: ghostwhite;
+    flex-flow: row wrap;
+}
+
+.espacio-muerto {
+    position: relative;
+    top: 0px;
+    height: 82px;
+    width: 100%;
+}
+
+.container-opciones {
+    height: 30%;
+    width: 100%;
+    box-shadow: 0px 15px 13px rgba(0, 0, 0, 0.25);
+    z-index: 200;
+    background-color: ghostwhite;
+}
+
+.container-pedidos {
+    border-top: 1px black solid;
+    background-color: ghostwhite;
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.container-derecho {
+    height: 20%;
+    width: 70%;
+    height: 88.6%;
+}
+
+.container-buscador {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.label-buscar {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.filtro {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-top: 6.8%;
+    margin-bottom: auto;
+
+}
+
+.titulo-filtro {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+select option {
+    font-size: 18px;
+}
+
+.container-pedidos-realizados {
+    height: 120px;
+    width: 100%;
+}
+
+.buscador {
+    display: flex;
+    flex-flow: row;
+    width: 60%;
+    margin-right: 10px;
+}
+
+.detalles {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: lime;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0px 15px 60px rgba(0, 0, 0, 0.3);
+
+}
+.detalles:hover{
+    background-color: #333;
+}
+
+.texto-detalles {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 3px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.contenido-detalles {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 97%;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: white;
+    border: 1px black solid;
+    justify-content: center;
+}
+
+
+.container-superior {
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    height: 30%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: ghostwhite;
+}
+
+.container-inferior {
+    background-color: ghostwhite;
+    display: flex;
+    flex-flow: row wrap;
+    height: 70%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.tabla-productos {
+    margin: 10px;
+    border: 1px black solid;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tabla-productos th,
+.tabla-productos td {
+    border: 1px solid black;
+    width: auto;
+}
+
+.tabla-productos th {
+    background-color: gold;
+    text-align: center;
+}
+
+.tabla-productos td {
+    background-color: white;
+    text-align: center;
+}
+
+.contenido-detalles-carrito {
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px black solid;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.lista-detalles {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 30%;
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.lista-detalles li {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.enlaces {
+    color: inherit;
+    text-decoration: none;
+}
+
+.titulo-juego {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.descripcion-juego {
+    font-size: 14px;
+}
+
+.precio-juego {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.categoria-juego {
+    font-size: 16px;
+    font-weight: bold;
+}
+.no-click{
+    pointer-events: none;
+}
+.no-click-div1{
+    background-color: rgb(220,20,60)
+}
+.no-click-div2{
+    background-color:  rgb(255, 214, 214);
+}
+
+@media (max-width: 800px){
+    .label-buscar{
+        font-size: 16px;
+    }
+    .titulo-filtro{
+        font-size: 16px;
+  
+    }
+}

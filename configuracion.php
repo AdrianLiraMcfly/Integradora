@@ -36,7 +36,7 @@
 
     <body class="bg-white" style="background-image: url(img/wallpaper.jpg)">
 
-      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final">
+      <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
         <div class="container-fluid">
 
             <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -51,7 +51,7 @@
 
               <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
                 
-                <ul class="navbar-nav p-auto me-auto">
+                <ul class="navbar-nav">
 
                     <li class="nav-item p-auto me-1">
                         <a class="nav-link text-center" aria-current="page" href="index.php">
@@ -184,7 +184,7 @@
 
               </div>
 
-              <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+              <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
 
                 <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -198,81 +198,82 @@
 
         </div>
       </nav>
+
       <?php
-  if (isset($_GET['mensaje'])) {
-    $mensajeAlerta = $_GET['mensaje']; ?>
-    <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
-  <?php } ?>
-  <?php
-  if (isset($_GET['mensajerr'])) {
-    $mensajeAlerta = $_GET['mensajerr']; ?>
-    <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
-  <?php } ?>
+        if (isset($_GET['mensaje'])) {
+          $mensajeAlerta = $_GET['mensaje']; ?>
+          <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
+        <?php } ?>
+        <?php
+        if (isset($_GET['mensajerr'])) {
+          $mensajeAlerta = $_GET['mensajerr']; ?>
+          <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
+        <?php } ?>
   
         
-      <div class="container-fluid w-100">
-        <div class="row w-auto p-2">
+        <div class="container-fluid w-100">
+          <div class="row w-auto p-2">
 
-          <div class="col-6 p-2 d-flex justify-content-center align-items-center">
+            <div class="col-6 p-2 d-flex justify-content-center align-items-center">
 
-            <div class="text-center bg-warning border border-light border-3 rounded rounded-2 p-3 shadow-lg ms-auto me-auto" style="width: fit-content;">
-                <h2 class="wht text-light fw-bold">¿QUÉ DESEAS HACER HOY?</h2>
-                
-                <ul class="list-group w-auto mx-auto">
+              <div class="text-center bg-warning border border-light border-3 rounded rounded-2 p-3 shadow-lg ms-auto me-auto" style="width: fit-content;">
+                  <h2 class="wht text-light fw-bold">¿QUÉ DESEAS HACER HOY?</h2>
                   
-                  <li class="list-group-item border border-0 fw-medium encima rounded-pill mb-2">
-                    <button type="button" class="btn w-100 h-100 rounded-pill border border-0" data-toggle="modal" data-target="#changeNameModal">
+                  <ul class="list-group w-auto mx-auto">
+                    
+                    <li class="list-group-item border border-0 fw-medium encima rounded-pill mb-2">
+                      <button type="button" class="btn w-100 h-100 rounded-pill border border-0" data-toggle="modal" data-target="#changeNameModal">
 
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
-                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
-                        <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
-                      </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                          <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                        </svg>
 
-                      <span class="fw-medium">Cambiar Nombre </span>
-                    </button>
-                  </li>
+                        <span class="fw-medium">Cambiar Nombre </span>
+                      </button>
+                    </li>
 
-                  <li class="list-group-item border border-0 fw-medium encima rounded-pill mb-2">
-                    <button type="button" class="btn w-100 h-100 rounded-pill border border-0" data-toggle="modal" data-target="#changePasswordModal">
+                    <li class="list-group-item border border-0 fw-medium encima rounded-pill mb-2">
+                      <button type="button" class="btn w-100 h-100 rounded-pill border border-0" data-toggle="modal" data-target="#changePasswordModal">
 
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
-                      </svg>
-                      
-                      <span class="fw-medium">Cambiar Contraseña</span>
-                    </button>
-                  </li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
+                        </svg>
+                        
+                        <span class="fw-medium">Cambiar Contraseña</span>
+                      </button>
+                    </li>
 
-                </ul>
-            
+                  </ul>
+              
+              </div>
             </div>
+            
+
+            <div class="col-6 p-2 text-center ms-auto me-auto">
+
+                <div class="container-fluid text-light mt-5 mb-5">
+                  <b class="wel">
+                    ¡BIENVENIDO!
+                  </b>
+                </div>
+                <img src="vd_logo.png" class="wel rounded mx-auto d-block p-2" width="200px" alt="Logo Tienda">
+
+                <div class="container-fluid text-light">
+                  <b class="wel2 mb-5">
+                    TU MEJOR OPCIÓN EN VIDEOJUEGOS, CONSOLAS Y ELECTRONICA ...
+                  </b>
+                </div>
+
+                <div class="container-fluid text-dark p-2 bg-warning border border-dark border-3 rounded-pill" style="width: fit-content;">
+                  <b class="wel3">
+                    DESDE 2010
+                  </b>
+                </div>
+            </div>
+
           </div>
-          
-
-          <div class="col-6 p-2 text-center ms-auto me-auto">
-
-              <div class="container-fluid text-light mt-5 mb-5">
-                <b class="wel">
-                  ¡BIENVENIDO!
-                </b>
-              </div>
-              <img src="vd_logo.png" class="wel rounded mx-auto d-block p-2" width="200px" alt="Logo Tienda">
-
-              <div class="container-fluid text-light">
-                <b class="wel2 mb-5">
-                  TU MEJOR OPCIÓN EN VIDEOJUEGOS, CONSOLAS Y ELECTRONICA ...
-                </b>
-              </div>
-
-              <div class="container-fluid text-dark p-2 bg-warning border border-dark border-3 rounded-pill" style="width: fit-content;">
-                <b class="wel3">
-                  DESDE 2010
-                </b>
-              </div>
-          </div>
-
         </div>
-      </div>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>
       <?php // ?>
