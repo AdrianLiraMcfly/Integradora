@@ -22,8 +22,9 @@ try {
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
         // Error de clave duplicada (email ya en uso)
-        echo "<script>alert('El email ya está en uso. Por favor, utiliza otro email.'); window.location.href='../sesiones/register.php';</script>";
-    
+        $mensajeAlerta = "Email en uso, favor de ingresar otro.";;
+                    header("Location: ../sesiones/register.php?mensaje=".urldecode($mensajeAlerta));
+
     } else {
         // Otro tipo de error
         echo "Error al guardar el registro: " . $e->getMessage();

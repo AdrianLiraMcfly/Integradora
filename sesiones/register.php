@@ -13,6 +13,8 @@ include '../src/conexionbd.php';
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script>
+
+    
     function verpass()
     {
       var password = document.getElementById("pass");
@@ -146,6 +148,11 @@ include '../src/conexionbd.php';
 
         </div>
       </nav>
+      <?php
+           if (isset($_GET['mensaje'])) {
+           $mensajeAlerta = $_GET['mensaje'];?>
+           <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
+           <?php } ?>
 
       <div class="container-fluid mt-3" id="contenedor">
 
@@ -161,7 +168,7 @@ include '../src/conexionbd.php';
               <input type="text" name="nombre" class="form-control border border-black shadow-sm" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required style="height: 32px;">
             </div>
 
-            <div class="w-100 mb-3">
+            <div class="username w-100 mb-3">
               <label for=""><b>Email</b></label>
               <input type="email" class="form-control border border-black shadow-sm" name="email" placeholder="" aria-label="ejemplo@gmail.com" aria-describedby="basic-addon1" required style="height: 32px;">
             </div>
