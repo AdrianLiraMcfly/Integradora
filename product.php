@@ -286,6 +286,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <p>
                   <b>Cantidad:</b>
                 </p>
+                
                 <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
               <?php } 
               else 

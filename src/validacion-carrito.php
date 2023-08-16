@@ -122,7 +122,6 @@ if (isset($_POST['btnAccion'])) {
             }
             break;
         case 'eliminar':
-            echo "pene";
             if (is_numeric($_POST['id'])) {
                 $ID =$_POST['id'];
 
