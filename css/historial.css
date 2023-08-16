@@ -225,7 +225,7 @@ select option {
     background-color:  rgb(255, 214, 214);
 }
 
-@media (max-width: 600px){
+@media (max-width: 800px){
     .label-buscar{
         font-size: 16px;
     }
