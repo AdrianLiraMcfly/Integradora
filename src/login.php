@@ -3,18 +3,7 @@ session_start();
 include '../base/conexion.php';
 
 if (!empty($_POST["btningresar"])) {
-    if (!preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/", $email)) {
-        $_SESSION["mensaje_error"] = "El correo electrónico ingresado no es válido.";
-        header("Location: login.php");
-        exit();
-    }
-
-    // Validar que la contraseña no contenga caracteres especiales
-    if (!preg_match("/^[a-zA-Z0-9!@#$%^&*()_+{}[\]:;<>,.?~\-]+$/", $password)) {
-        $_SESSION["mensaje_error"] = "La contraseña ingresada no es válida.";
-        header("Location: login.php");
-        exit();
-    }
+    
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         $usuario = $_POST["email"];
         $password = $_POST["password"];

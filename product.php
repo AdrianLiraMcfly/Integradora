@@ -171,7 +171,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
+          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="get" action="busqueda.php">
 
             <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 

@@ -189,9 +189,9 @@ session_start();
         $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       } 
-      else if (isset($_POST['search'])) 
+      else if (isset($_GET['search'])) 
       {
-        $search = addslashes($_POST['search']);
+        $search = addslashes($_GET['search']);
         $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       } 
