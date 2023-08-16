@@ -8,6 +8,7 @@ if (isset($_POST['idcarrito'])) {
     $consulta->execute([$idCarrito]);
     $datosCarrito = $consulta->fetch(PDO::FETCH_ASSOC);
 
+    $bd = NULL;
     echo json_encode($datosCarrito);
 } else {
     echo json_encode(array('error' => 'ID de usuario no proporcionado.'));

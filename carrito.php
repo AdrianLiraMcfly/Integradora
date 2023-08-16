@@ -387,7 +387,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       <div class="col-3 btn-delete-product w-auto text-center me-auto">
                         <form action="" method="post">
 
-                          <input type="hidden" name="id" value=" <?php echo openssl_encrypt($producto['ID'], COD, KEY); ?> ">
+                          <input type="hidden" name="id" value=" <?php echo $producto['ID']; ?> ">
 
                           <button class="border border-3 border-black bg-danger bg-gradient p-2 rounded-pill shadow-lg" type="submit" name="btnAccion" value="eliminar">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
