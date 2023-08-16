@@ -33,7 +33,6 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
     header("location: ../carrito.php");
     $sentenciaX = $bd->query("CALL suspender_usuario($IDxUSUARIO);");
     $personaX = $sentenciaX->fetchAll(PDO::FETCH_ASSOC);
-    
 } else {
     $bd->beginTransaction();
 
@@ -41,27 +40,40 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
         $NumProductos = 0;
         foreach ($_SESSION['CARRITO'] as $indice => $producto) {
             $NumProductos += $producto['CANTIDAD'];
-        }
-        if ($NumProductos > 4) {
-            echo "La cantidad maxima total de articulos que puedes pedir es de 4.";
-        } else {
-
-            $sentencia_producto = $bd->prepare("INSERT INTO detalles_carrito (id_producto, cantidad, precio_unitario, id_carrito) VALUES (?,?,?,?);");
-            foreach ($_SESSION['CARRITO'] as $indice => $dato) {
-                $sentencia_producto->execute([$dato['ID'], $dato['CANTIDAD'], $dato['PRECIO'], NULL]);
+            $IdProducto = $producto['ID'];
+            $consulta = $bd->query("SELECT * FROM productos p INNER JOIN inventario i ON i.id_producto = p.id_producto WHERE p.id_producto = $IdProducto;");
+            $consultaX = $consulta->fetch(PDO::FETCH_ASSOC);
+            if ($consultaX['cantidad'] < $producto['CANTIDAD']) {
+                $IDxPRODUCTOS[] = $consultaX['id_producto'];
             }
+        }
+        if (empty($IDxPRODUCTOS)) {
+            if ($NumProductos > 4) {
+                echo "La cantidad maxima total de articulos que puedes pedir es de 4.";
+            } else {
 
-            $id_usuario = $_SESSION['id'];
-            $sentencia_carrito = $bd->prepare("INSERT INTO carrito (id_usuario, fecha_venta, total) VALUES (?, NOW(), ?);");
-            $sentencia_carrito->execute([$id_usuario, $total]);
+                $sentencia_producto = $bd->prepare("INSERT INTO detalles_carrito (id_producto, cantidad, precio_unitario, id_carrito) VALUES (?,?,?,?);");
+                foreach ($_SESSION['CARRITO'] as $indice => $dato) {
+                    $sentencia_producto->execute([$dato['ID'], $dato['CANTIDAD'], $dato['PRECIO'], NULL]);
+                }
 
-            $id_carrito = $bd->lastInsertId();
-            $sentencia_update = $bd->prepare("UPDATE detalles_carrito SET id_carrito = ? WHERE id_carrito IS NULL;");
-            $sentencia_update->execute([$id_carrito]);
+                $id_usuario = $_SESSION['id'];
+                $sentencia_carrito = $bd->prepare("INSERT INTO carrito (id_usuario, fecha_venta, total) VALUES (?, NOW(), ?);");
+                $sentencia_carrito->execute([$id_usuario, $total]);
 
-            $bd->commit();
-            header('location: ../carrito.php');
-            $bd = NULL;
+                $id_carrito = $bd->lastInsertId();
+                $sentencia_update = $bd->prepare("UPDATE detalles_carrito SET id_carrito = ? WHERE id_carrito IS NULL;");
+                $sentencia_update->execute([$id_carrito]);
+
+                $bd->commit();
+                header('location: ../carrito.php');
+                $bd = NULL;
+            }
+        } else {
+            print_r($IDxPRODUCTOS);
+            $IDxPRODUCTOS2 = urlencode(serialize($IDxPRODUCTOS));
+            header("Location: ../carrito.php?dato=" . $IDxPRODUCTOS2);
+            exit();
         }
     } catch (Exception $e) {
         $bd->rollback();
