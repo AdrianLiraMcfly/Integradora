@@ -224,3 +224,13 @@ select option {
 .no-click-div2{
     background-color:  rgb(255, 214, 214);
 }
+
+@media (max-width: 600px){
+    .label-buscar{
+        font-size: 16px;
+    }
+    .titulo-filtro{
+        font-size: 16px;
+  
+    }
+}
