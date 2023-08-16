@@ -14,18 +14,6 @@ include '../src/conexionbd.php';
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script>
-function valform(event) {
-  const specialChars = /[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-  const inputs = document.querySelectorAll('#form-re input[type="text"], #form-re input[type="email"], #form-re input[type="password"]');
-  
-  for (const input of inputs) {
-    if (specialChars.test(input.value)) {
-      alert("Los valores especiales no están permitidos en los campos.");
-      event.preventDefault();
-      return;
-    }
-  }
-}
     
     function verpass()
     {

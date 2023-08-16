@@ -54,8 +54,8 @@ if (!empty($_POST["btningresar"])) {
                     exit();
         }
     } else {
-        $_SESSION["mensaje_error"] = "Por favor, complete todos los campos.";
-        header("Location: ../sesiones/login.php");
+        $mensajeAlerta = "Por favor, llena todos los campos";;
+                    header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
 
         exit();
     }
