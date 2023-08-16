@@ -278,12 +278,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             if ($IDxESTADO != 2 || $IDxESTADO == NULL) 
             {
             ?>
-            <div class="w-auto text-center">
-              <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                AGREGAR AL CARRITO
-              </button>              
-            </div>
-
+              <div class="w-auto text-center">
+                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                  AGREGAR AL CARRITO
+                </button>              
+              </div>
 
               <div class="cont-cant text-center p-2">
                 <p>
