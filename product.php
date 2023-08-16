@@ -26,8 +26,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-white">
-  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final" id="ini" style="width: 100.9%;">
+<body class="bg-white w-auto">
+
+  <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
     <div class="container-fluid">
 
       <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
@@ -42,7 +43,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
 
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav">
 
               <li class="nav-item p-auto me-1 ">
                 <a class="nav-link text-center" aria-current="page" href="index.php">
@@ -168,7 +169,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <form class="d-flex text-center ms-auto me-auto" role="search" method="post" action="busqueda.php">
+          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
 
             <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -324,22 +325,22 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <div class="container-fluid bg-dark mt-5 p-4">
 
-    <div class="bg-warning background-categorias text-center text-uppercase">
-      <h3><b>más de <?php echo $persona->categoria ?> </b></h3>
+    <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
+      <span class="fw-bold fst-italic">más de <?php echo $persona->categoria ?> </span>
     </div>
     <br>
 
     <div class="row w-100 h-100 p-2">
       <?php
       $categoria = $persona->categoria;
-      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 3;");
+      $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('%$categoria%') ORDER BY RAND() LIMIT 4;");
       $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       $rutaCarpetaImagenes = 'adminView/products/posters/';
       foreach ($productos as $dato) { ?>
 
         <div class="col-4 prod-card me-auto ms-auto mb-4">
           <a href="product.php?id=<?php echo $dato->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-            <div class="card border border-3 border-secondary" style="width: 200px; height: 100%">
+            <div class="card border border-3 border-secondary bg-dark" style="width: 200px; height: 100%">
 
               <?php
               $nombreimagen = $dato->imagen;
@@ -348,13 +349,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               $base64 = base64_encode(file_get_contents($rutaimagen));
               $base64 = 'data:image/jpeg;base64,' . $base64;
 
-              echo  "<img src='$base64' class='img_init2' alt=''>";
+              echo  "<img src='$base64' class='img_init2 rounded-top' alt=''>";
               ?>
 
               <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                <h5><?php echo $dato->nombre ?></h5>
+                <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
 
-                <p class="card-text">
+                <p class="card-text mt-2" style="font-size: 15px;">
                   <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
                     $<?php echo $dato->precio ?>
                   </b>
