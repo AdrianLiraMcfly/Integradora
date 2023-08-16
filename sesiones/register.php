@@ -10,10 +10,22 @@ include '../src/conexionbd.php';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="css/registro.css">
   <link rel="stylesheet" href="../estilo.css">
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script>
-
+function valform(event) {
+  const specialChars = /[!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+  const inputs = document.querySelectorAll('#form-re input[type="text"], #form-re input[type="email"], #form-re input[type="password"]');
+  
+  for (const input of inputs) {
+    if (specialChars.test(input.value)) {
+      alert("Los valores especiales no están permitidos en los campos.");
+      event.preventDefault();
+      return;
+    }
+  }
+}
     
     function verpass()
     {
@@ -33,7 +45,7 @@ include '../src/conexionbd.php';
       }
     }
 
-    function valform(event) {
+    function valform1(event) {
             event.preventDefault();
 
             var password = document.getElementById("pass").value;
@@ -161,7 +173,7 @@ include '../src/conexionbd.php';
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
-          <form action="../src/subir_regis.php" onsubmit="equalspass(event)" method="post" id="form-re">
+          <form action="../src/subir_regis.php" onsubmit="equalspass(event);valform(event);" method="post" id="form-re">
 
             <div class="w-100 mb-3">
               <label for=""><b>Nombre completo</b></label>
@@ -189,8 +201,8 @@ include '../src/conexionbd.php';
                   Contraseña visible
                 </label>
             </div>
-
-                <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform(event)">ACEPTAR</button>
+              
+                <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform1(event);">ACEPTAR</button>
 
           </form>
           

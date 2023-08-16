@@ -76,6 +76,7 @@ try
 } 
 catch (Exception $e) 
 {
-    echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
+    $mensajeAlerta = "Error al enviar correo, verifica tus direccion email.";;
+                    header("Location: ../sesiones/register.php?mensaje=".urldecode($mensajeAlerta));
 }
 $bd = NULL;
