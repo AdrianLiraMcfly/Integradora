@@ -188,20 +188,30 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <?php
   if ($VALcant == 2) { ?>
-    <div class="alert alert-success"> 
+
+    <div class="alert alert-success position-relative mt-5"> 
       <b> 
         <?php print $mensaje; ?> 
       </b> 
 
-      <a href="carrito.php" class="position-absolute" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;">
+      <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;">
         <b>Ver Carrito</b>
       </a> 
     </div>
+
   <?php
   }
   if ($VALcant == 1 || $VALcant == 4) {
   ?>
-    <div class="alert alert-danger"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+    <div class="alert alert-danger position-relative mt-5"> 
+      <b>
+        <?php print $mensaje; ?>
+      </b>
+
+      <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;">
+        <b>Ver Carrito</b>
+      </a> 
+    </div>
 
   <?php
   }
