@@ -352,7 +352,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       </form>
                     </div>
 
-                    <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
+                    <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete. La hora para recoger es de 10:00AM a 06:00PM.</p>
                 </div>
 
               </div>
