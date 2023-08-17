@@ -358,7 +358,6 @@
         </div>
       </nav>
 
-
       <?php
       if (isset($_GET['mensaje'])) {
         $mensajeAlerta = $_GET['mensaje']; ?>
