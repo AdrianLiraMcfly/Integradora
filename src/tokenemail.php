@@ -1,40 +1,35 @@
 <?php
 session_start();
 include 'conexionbd.php';
- $email=$_GET['email'];
- $token=$_GET['token'];
- $activationLink = "52.23.174.251/src/activarcuenta.php?token=$token";
+$email = $_GET['email'];
+$token = $_GET['token'];
+$activationLink = "http://52.23.174.251/src/activarcuenta.php?token=" . urlencode($token); // Usar http:// en lugar de solo la IP
+
 require 'bootstrap.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Create an instance; passing `true` enables exceptions
+// Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
-try 
-{
-    //Server settings
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'vgs314316@gmail.com';            //SMTP username
-    $mail->Password   = 'funmjqjmvjfdlzgi';                 //SMTP password
-    $mail->SMTPSecure = 'tls';       //Enable implicit TLS encryption
-    $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'videogame.store314@gmail.com';
+    $mail->Password   = 'yuyphigctktwzqoj';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port       = 587;
+    $mail->CharSet = 'UTF-8';
 
-    //Recipients
-    $mail->setFrom('vgs314316@gmail.com', 'VideoGame Store');
-    $mail->addAddress($email);     //Add a recipient
-    
-    //$mail->addCC('cc@example.com');
-    //$mail->addBCC('bcc@example.com');
+    // Recipients
+    $mail->setFrom('videogame.store314@gmail.com', 'VideoGame Store');
+    $mail->addAddress($email);
 
-    //Attachments
-    //$mail->addAttachment('img/op.jpg');    //Optional name
-
-    //Content
-    $body='<!DOCTYPE html>
+    // Content
+    $body = '<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -43,12 +38,11 @@ try
         <style>
             /* Estilos en línea */
             img {
-                width: 100%; /* Ajusta el tamaño de la imagen al 100% del contenedor */
-                max-width: 300px; /* Establece el ancho máximo de la imagen */
-                height: auto; /* Permite que la imagen conserve su relación de aspecto */
+                max-width: 300px;
+                height: auto;
             }
             .container {
-                text-align: center; /* Alinea el contenido al centro */
+                text-align: center;
             }
             h1, p {
                 font-family: Arial, sans-serif;
@@ -59,24 +53,24 @@ try
     <body>
         <div class="container">
             <h1>Gracias por unirte a Videogame Store!</h1>
-            <h1><a href="'.$activationLink.'">Activa aqui</a></h1>
-            <p>Una vez que hayas dado click al link te redireccionara a nuestra pagina principal donde podras iniciar sesion y tu cuenta sera totalmetne funcional:D.</p>
-            <p>VideoGame Store agradece su fidelidad y preferencia.</p>
+            <p>Por favor, <a href="' . $activationLink . '">haz clic aquí</a> para activar tu cuenta.</p>
+            <p>Una vez que hayas hecho clic en el enlace, serás redirigido a nuestra página principal donde podrás iniciar sesión y tu cuenta será totalmente funcional.</p>
+            <p>VideoGame Store agradece tu fidelidad y preferencia.</p>
         </div>
     </body>
     </html>';
-    $mail->isHTML(true);                  //Set email format to HTML
+
+    $mail->isHTML(true);
     $mail->Subject = 'VideoGame Store: Activa Tu cuenta';
     $mail->Body    = $body;
 
     $mail->send();
-    $mensajeAlerta = "¡Correo de activacion enviado!";
-    header('Location: ../sesiones/login.php?mensaje='. urlencode($mensajeAlerta));
+    
+    $mensajeAlerta = "¡Correo de activación enviado! Activa tu cuenta para poder iniciar sesión.";
+    header('Location: ../sesiones/login.php?mensajegood=' . urlencode($mensajeAlerta));
     exit();
-} 
-catch (Exception $e) 
-{
-    $mensajeAlerta = "Error al enviar correo, verifica tus direccion email.";;
-                    header("Location: ../sesiones/register.php?mensaje=".urldecode($mensajeAlerta));
+} catch (Exception $e) {
+    $mensajeAlerta = "Error al enviar el correo. Por favor, verifica tu dirección de correo electrónico.";
+    header("Location: ../sesiones/register.php?mensaje=" . urldecode($mensajeAlerta));
 }
 $bd = NULL;

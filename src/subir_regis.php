@@ -17,11 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         contieneCaracteresEspeciales($email) ||
         contieneCaracteresEspeciales($pass) ||
         contieneCaracteresEspeciales($passre)) {
-        $mensajeError = "Valores invalidos en alguno de los campos. No se admiten los siguientes valores < > / \ .";
+        $mensajeError = "Valores no validos en alguno de los campos. No se admiten los siguientes valores < > / \ .";
         header("Location: ../sesiones/register.php?mensaje=" . urlencode($mensajeError));
         exit();
     } else {
-        $token = bin2hex(random_bytes(16));
+        $token = bin2hex(random_bytes(5));
         try {
             $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, id_rol, id_estado, token) VALUES (:nombre, :email, :hashedpassword, 2, 2, :token)");
             $stmt->bindParam(":nombre", $nombre, PDO::PARAM_STR);
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
                 // Error de clave duplicada (email ya en uso)
-                $mensajeAlerta = "Email en uso, favor de ingresar otro.";
+                $mensajeAlerta = "Email o usuario en uso, favor de ingresar otro.";
                 header("Location: ../sesiones/register.php?mensaje=".urlencode($mensajeAlerta));
             } else {
                 // Otro tipo de error

@@ -162,9 +162,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            $mensajeAlerta = $_GET['mensaje'];?>
            <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
            <?php } 
-           else if (isset($_SESSION["mensaje_error"])) 
-           {?>
-            <div class="alert alert-danger"><b><?php print $_SESSION["mensaje_error"]; ?></b></div>
+           else if (isset($_GET['mensajegood'])) 
+           {$mensajeAlerta = $_GET['mensajegood'];?>
+            <div class="alert alert-success"><b><?php print $mensajeAlerta; ?></b></div>
             <?php } ?>
       <div class="formulario bg-warning bg-gradient border border-4 border-light-subtle p-5 rounded-4 mx-auto mt-5">
         <h2 class="text-center titulo_pro text-light mt-2" ><b>INICIA SESION!</b></h2>

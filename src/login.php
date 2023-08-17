@@ -14,7 +14,7 @@ if (!empty($_POST["btningresar"])) {
 
         if (contieneCaracteresEspeciales($email) ||
         contieneCaracteresEspeciales($password)) {
-        $mensajeError = "Valores invalidos en alguno de los campos. No se admiten los siguientes valores < > / \ .";
+        $mensajeError = "Valores no validos en alguno de los campos. No se admiten los siguientes valores < > / \ .";
         header("Location: ../sesiones/login.php?mensaje=" . urlencode($mensajeError));
         exit();
     }
