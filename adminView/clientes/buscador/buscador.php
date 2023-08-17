@@ -154,6 +154,6 @@ $generos = $conn->query($sqlGenero);
   </html>
   <?php
 } else {
-  header('location: ../../index.php');
+  header('location: ../../../index.php');
 }
 ?>
