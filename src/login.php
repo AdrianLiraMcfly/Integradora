@@ -1,11 +1,24 @@
 <?php
 session_start();
 include '../base/conexion.php';
+function contieneCaracteresEspeciales($cadena) {
+    return preg_match('/[<>\/\\\\]/', $cadena);
+}
 
 if (!empty($_POST["btningresar"])) {
+
+    
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         $usuario = $_POST["email"];
         $password = $_POST["password"];
+
+        if (contieneCaracteresEspeciales($email) ||
+        contieneCaracteresEspeciales($password)) {
+        $mensajeError = "Valores invalidos en alguno de los campos. No se admiten los siguientes valores < > / \ .";
+        header("Location: ../sesiones/login.php?mensaje=" . urlencode($mensajeError));
+        exit();
+    }
+    else {
 
         try {
             $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = :email");
@@ -51,10 +64,10 @@ if (!empty($_POST["btningresar"])) {
                     header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
 
                     exit();
-        }
+        }}
     } else {
-        $_SESSION["mensaje_error"] = "Por favor, complete todos los campos.";
-        header("Location: ../sesiones/login.php");
+        $mensajeAlerta = "Por favor, llena todos los campos";;
+                    header("Location: ../sesiones/login.php?mensaje=".urldecode($mensajeAlerta));
 
         exit();
     }

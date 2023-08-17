@@ -20,10 +20,10 @@
 
     <body class="bg-white" style="background-image: url(img/wallpaper.jpg)">
 
-    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm" id="ini" style="width: 100.9%;">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
+        <div class="container-fluid">
 
-            <img src="vd_logo.png" alt="" width="110px" class="p-2 me-auto">
+            <img src="vd_logo.png" alt="Video Game Store" width="110px" class="p-2 me-auto">
 
             <button class="navbar-toggler d-md-none d-sm-none d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -35,10 +35,10 @@
 
               <div class="collapse navbar-collapse icons" id="navbarSupportedContent">
                 
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav">
 
-                    <li class="nav-item p-auto me-1">
-                        <a class="nav-link text-center" aria-current="page" href="index.php">
+                    <li class="nav-item p-auto ms-1 me-1 it border border-2 border-black shadow-lg">
+                        <a class="nav-link text-center" aria-current="page" href="#">
                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                             <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z"/>
                           </svg>
@@ -53,7 +53,6 @@
                         </a>
                     </li>
 
-
                     <li class="nav-item dropdown p-auto me-1">
 
                       <a class="nav-link text-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,69 +62,117 @@
                       </a>
 
                       <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                        <li><a class="dropdown-item rounded mb-1" href="#">Videojuegos</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Accesorios</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Ropa</a></li>
-                        <li><a class="dropdown-item rounded mb-1" href="#">Juguetes</a></li>
-                        <li><a class="dropdown-item rounded" href="#">Consolas</a></li>
+                        <?php
+                        include 'src/conexionbd.php';
+                          $sentencia = $bd->query("SELECT * FROM categorias;");
+                          $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                          foreach($productos as $dato){
+                            echo "<li><a class='dropdown-item rounded mb-1' href='busqueda.php?id=$dato->id_categoria'>$dato->nombre</a></li>";
+                          }
+                        
+                        ?>
                       </ul>
 
                     </li>
+                
+                    <?php
+                      if(isset($_SESSION['nombre']))
+                      {
+                        if (isset($_SESSION['rol'])) 
+                        {
+                          switch ($_SESSION['rol']) 
+                          {
+                            case 1:
+                              echo 
+                              '<li class="nav-item dropdown p-auto me-1">
+                          
+                                <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                  </svg>
+                                </a>
+                        
+                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                  <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                  <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
+                                  <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
+                                  <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
+                                </ul>
+                          
+                              </li>
 
-                  <li class="nav-item dropdown p-auto">
+                              <li class="nav-item text-center dropdown p-auto">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                                    <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                                    <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                  </svg>
+                                </a>
+        
+                                <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                  <li><a class="dropdown-item rounded mb-1" href="adminView/products/index2.php">Productos</a></li>
+                                  <li><a class="dropdown-item rounded mb-1" href="adminView/pedidos/pedidos.php">Pedidos</a></li>
+                                  <li><a class="dropdown-item rounded" href="adminView/clientes/clientes/clientes.php">Clientes</a></li>
+                                </ul>
+                              </li>';
+
+                            break;
+
+                            case 2:
+                                echo 
+                                '<li class="nav-item dropdown p-auto me-1">  
+                                                      
+                                  <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                    </svg>
+                                  </a>
                         
-                    <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                      </svg>
-                    </a>
+                                  <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                    <li class="dropdown-item rounded">'.$_SESSION["nombre"].'</li>
+                                    <li><a class="dropdown-item rounded mb-1" href="historial.php">Historial de compras</a></li>
+                                    <li><a class="dropdown-item rounded mb-1" href="configuracion.php">Configuracion</a></li>
+                                    <li><a class="dropdown-item rounded" href="src/cerrar_sesion.php">Cerrar sesion</a></li>
+                                  </ul>
+                          
+                                </li>';
+                                break;
+                                default:
+                              
+                            break;
+                          }
+                        }
+                      }
+                      else
+                      {
+                          echo 
+                          '<li class="nav-item dropdown p-auto me-1">
+                          
+                              <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                              </a>
                       
-                    <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
-                      <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
-                      <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
-                    </ul>
-                        
-                  </li>
+                              <ul class="dropdown-menu bg-dark-subtle border border-black border-2 p-1">
+                                <li><a class="dropdown-item rounded mb-1" href="sesiones/register.php">Sign In</a></li>
+                                <li><a class="dropdown-item rounded" href="sesiones/login.php">Log In</a></li>
+                              </ul>
+                          
+                          </li>';
+                      }
+                    ?>
 
                 </ul>
-
-                <!--
-                <ul class="navbar-nav ms-auto me-5">
-
-
-                      <li class="nav-item dropdown p-auto">
-                        
-                        <a class="nav-link text-center dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                          </svg>
-                        </a>
-                      
-                        <ul class="dropdown-menu border border-black" style="margin-right: 85px;">
-                          <li><a class="dropdown-item" href="#">Sign In</a></li>
-                          <li><a class="dropdown-item" href="#">Log In</a></li>
-                        </ul>
-                        
-                      </li>
-
-                      
-                      <li class="nav-item p-auto">
-                        <a class="nav-link text-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                          </svg>
-                        </a>
-                      </li>
-                 
-                </ul>-->
 
               </div>
 
 
-            </div>
-    </nav>
+        </div>
+      </nav>
 
 
     <!--este es el formulario-->

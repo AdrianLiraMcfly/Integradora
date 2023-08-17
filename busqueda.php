@@ -17,6 +17,7 @@ session_start();
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
       <div class="container-fluid">
 
@@ -188,9 +189,9 @@ session_start();
         $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       } 
-      else if (isset($_POST['search'])) 
+      else if (isset($_GET['search'])) 
       {
-        $search = addslashes($_POST['search']);
+        $search = addslashes($_GET['search']);
         $sentencia = $bd->query("call integradora2.BuscadorPro('$search');");
         $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
       } 
@@ -223,7 +224,8 @@ session_start();
       { ?>
 
         <div class="cards-presentacion">
-          <a href=" product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
+
+          <a href="product.php?id=<?php echo $dato->id_producto ?> " class="link-light link-offset-2 link-underline link-underline-opacity-0">
             <div class="card border border-3 border-secondary bg-dark" style="width: 15rem;">
 
               <?php
@@ -238,6 +240,7 @@ session_start();
               ?>
 
               <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+
                 <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $dato->nombre ?></span>
 
                 <p class="card-text mt-2" style="font-size: 15px;">
@@ -245,11 +248,11 @@ session_start();
                     $<?php echo $dato->precio ?>
                   </b>
                 </p>
+
               </div>
             </div>
           </a>
         </div>
-
 
         <?php 
       }

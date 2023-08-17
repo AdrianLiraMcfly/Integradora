@@ -18,7 +18,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <title>Producto</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
   <link rel="stylesheet" href="estilo.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="css/diseno.css">
@@ -171,7 +171,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
+          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="get" action="busqueda.php">
 
             <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -289,43 +289,56 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
               if ($IDxESTADO != 2 || $IDxESTADO == NULL) {
             ?>
+              <div class="w-auto text-center">
                 <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
                   AGREGAR AL CARRITO
-                </button>
+                </button>              
+              </div>
 
-                <div class="cont-cant">
-                  <p>
-                    <b>Cantidad:</b>
-                  </p>
-
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
-                  <p>NOTA: La cantidad total maxima de productos es de 4.</p>
+              <div class="cont-cant text-center p-2">
+                <p>
+                  <b>Cantidad:</b>
+                </p>
+                
+                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
+                <p class="fw-semibold">NOTA: La cantidad total maxima de productos es de 4.</p>
+              </div>
+              
+              <?php } 
+              else 
+                { ?>
+                <div class="w-auto text-center">
+                  <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                    AGREGAR AL CARRITO
+                  </button>                  
                 </div>
 
-              <?php } else { ?>
-                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                  AGREGAR AL CARRITO
-                </button>
 
-                <div class="cont-cant">
-                  <p>
-                    <b>Cantidad:</b>
-                  </p>
+                  <div class="cont-cant text-center p-2">
+                    <p>
+                      <b>Cantidad:</b>
+                    </p>
 
-                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
-                <?php
+                    <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
+                  <?php 
+                }
               }
-            } else { ?>
-          </form>
-          <form action="">
-            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
-              AGREGAR AL CARRITO
-            </button>
+              else
+              { ?>
+          </form> 
+              <form action="carrito.php">
+                          <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
+                            AGREGAR AL CARRITO
+                          </button>
 
-            <p><b>Cantidad:</b></p>
-            <input class="input-perfect" disabled value="1"></input> <?php
-                                                                    }
-                                                                      ?>
+                          <p><b>Cantidad:</b></p>
+                          <input class="input-perfect" disabled value="1"></input> <?php 
+                          
+                          ?>
+              </form>
+          </div>
+
+              <?php } ?>
           </form>
         </div>
 

@@ -184,7 +184,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="post" action="busqueda.php">
+          <form class="d-flex text-center ms-auto me-auto p-2" role="search" method="get" action="busqueda.php">
 
             <input class="form-control border border-black rounded-start-pill shadow" id="look" name="search" type="search" placeholder="Buscar..." aria-label="Search">
 
@@ -208,7 +208,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php
   } ?>
   <?php
-  if (!isset($_SESSION['nombre'])) {
+  if (!isset($_SESSION['nombre'])) 
+  {
   ?>
     <!--ALERTA SESIÓN-->
     <div class="d-flex align-items-center justify-content-center vh-100">
@@ -229,7 +230,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     </div>
 
     <?php
-  } else {
+  } 
+  else 
+  {
 
     $IDusuario = $_SESSION['id'];
     $sentencia = $bd->query("SELECT id_estado FROM usuarios WHERE id_usuario = $IDusuario;");
@@ -273,7 +276,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <br>
 
         <!--CARRITO CUENTA INICIADA LLENO-->
-        <div class="row w-100 mx-auto">
+        <div class="row w-100 mx-auto mb-3">
 
           <!--DETALLES-->
           <div class="col-lg-6">
@@ -358,7 +361,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           </div>
 
-          <?php if (!empty($_SESSION['CARRITO'])) { ?>
+          <?php if (!empty($_SESSION['CARRITO'])) 
+          { ?>
 
             <!--CARRITO-->
             <div class="col-lg-6">
@@ -383,7 +387,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                   <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
-                    <div class="row w-100 mx-auto">
+                    <div class="row w-100 mx-auto mb-3">
                       <div class="col-3 btn-delete-product w-auto text-center me-auto">
                         <form action="" method="get">
 
@@ -539,7 +543,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <?php foreach ($persona2 as $indice => $dato) { ?>
               <div class="container-fluid container-carrito-products border border-2 border-black text-center rounded-4">
 
-                <div class="row w-100 mx-auto">
+                <div class="row w-100 mx-auto mb-3">
                   <div class="col-3 btn-delete-product w-auto text-center me-auto">
                   </div>
 

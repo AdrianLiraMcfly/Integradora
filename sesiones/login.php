@@ -187,13 +187,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <input name="btningresar" class="btn btn-dark fw-bold rounded-pill border border-3 border-white" type="submit" value="INICIAR SESION">
               <br/><br/>
 
-              <label for=""><a href="" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">¿Olvido su contraseña?</a></label><br>
+            
               <label for=""><b>¿No tiene una cuenta?</b> <a href="register.php" class="link-offset-2 link-underline link-underline-opacity-0 fw-medium">Cree una</a></label>
 
             </div>
 
         </form>
       </div>
-      <?php // ?>
+      
 </body>
 </html>
