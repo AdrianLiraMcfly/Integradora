@@ -300,7 +300,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <b>Cantidad:</b>
                 </p>
                 
-                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
+                <input class="input-perfect" type="number" min="0" step="1" name="cantidad" id="cantidad" value="" required></input>
                 <p class="fw-semibold">NOTA: La cantidad total maxima de productos es de 4.</p>
               </div>
               
