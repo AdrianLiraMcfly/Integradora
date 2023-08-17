@@ -2,7 +2,15 @@
 include '../base/conexion.php';
 
 function contieneCaracteresEspeciales($cadena) {
-    return preg_match('/[<>\/\\\\]/', $cadena);
+    $caracteresNoDeseados = ['<', '>', '/', '\\', "'", '"', ';', '=', '(', ')', '[', ']', '{', '}', '`', '|', '&', '$', '#', '%', '^', '*', '~', '!', '?', ':', ',','+'];
+    
+    foreach ($caracteresNoDeseados as $caracter) {
+        if (strpos($cadena, $caracter) !== false) {
+            return true; // Contiene un caracter no deseado
+        }
+    }
+    
+    return false; // No contiene caracteres no deseados
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         contieneCaracteresEspeciales($email) ||
         contieneCaracteresEspeciales($pass) ||
         contieneCaracteresEspeciales($passre)) {
-        $mensajeError = "Valores no válidos en alguno de los campos. No se admiten los siguientes valores < > / \ .";
+        $mensajeError = "Valores no válidos en alguno de los campos. favor de solo ingresar alfanumericos";
         header("Location: ../sesiones/register.php?mensaje=" . urlencode($mensajeError));
         exit();
     } else {
