@@ -276,7 +276,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <br>
 
         <!--CARRITO CUENTA INICIADA LLENO-->
-        <div class="row w-100 mx-auto mb-3">
+        <div class="row w-100 mx-auto mb-5 mt-5">
 
           <!--DETALLES-->
           <div class="col-lg-6">
