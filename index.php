@@ -367,7 +367,7 @@
       <!--PRODUCTOS-->
       <div class="container container-products">
         <?php 
-          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') LIMIT 8;");
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('VideoJuegos') AND id_estado = 1 LIMIT 8;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
           $rutaCarpetaImagenes = 'adminView/products/posters/';
         foreach($productos as $dato){ ?>
@@ -421,7 +421,7 @@
         <?php 
 
 
-          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') LIMIT 8;");
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Consolas') AND id_estado = 1 LIMIT 8;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
           $rutaCarpetaImagenes = 'adminView/products/posters/';
   
@@ -472,7 +472,7 @@
       <div class="container w-100 container-products">
 
         <?php 
-          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') LIMIT 4;");
+          $sentencia = $bd->query("SELECT * FROM vista_productos_categoria WHERE categoria like ('Ropa') AND id_estado = 1 LIMIT 4;");
           $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
           $rutaCarpetaImagenes = 'adminView/products/posters/';
   

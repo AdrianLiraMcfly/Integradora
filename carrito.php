@@ -290,19 +290,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
               <div class="container-carrito shadow-lg border border-2 border-black p-3 rounded-4 p-1">
 
                 <div class="informacion-detalles-carrito">
-                  <?php
-                  /* Verificar si tiene folio
-                    if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
-                    $folio = $_SESSION['folio'];
-                    echo '<p style="font-size: 17px;"><b>Folio:</b>'.$_SESSION['folio'].'</p>';
-                      // Aquí también puedes deshabilitar el botón de compra si lo deseas
-                      echo '<script>document.getElementById("btnPedido").disabled = true;</script>';
-                      } else {
-                    echo '<p style="font-size: 17px;"><b>Folio: </b> No generado</p>';         
-                    // Aquí también puedes habilitar el botón de compra si lo deseas
-                    echo '<script>document.getElementById("btnPedido").disabled = false;</script>';
-                    }*/
-                  ?>
 
                   <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
                   <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
@@ -366,8 +353,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             <!--CARRITO-->
             <div class="col-lg-6">
-
-
               <div class="container-fluid shadow text-center p-2 w-75 mb-3 let-4 mt-1">
                 <span class="fw-bold fst-italic">CARRITO</span>
               </div>
@@ -406,8 +391,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                         <b style="font-size: 17px;">$<?php echo $producto['PRECIO'] ?></b>
                       </div>
 
-                      <div class="col-3 container-folio-products w-25 text-center me-auto"> <?php //OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO 
-                                                                                            ?>
+                      <div class="col-3 container-folio-products w-25 text-center me-auto">
 
                         <p class="mb-0" style="font-size: 17px;">
                           Cantidad:

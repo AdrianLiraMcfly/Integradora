@@ -198,10 +198,10 @@ session_start();
       else if (isset($_GET['id'])) 
       {
         $idCategoria = $_GET['id'];
-        $sentenciaCategoria = $bd->prepare("SELECT nombre FROM categorias WHERE id_categoria = $idCategoria");
+        $sentenciaCategoria = $bd->prepare("SELECT nombre FROM categorias WHERE id_categoria = $idCategoria;");
         $sentenciaCategoria->execute();
         $search = $sentenciaCategoria->fetch(PDO::FETCH_COLUMN);
-        $sentenciaProductos = $bd->prepare("SELECT * FROM vista_productos_categoria C INNER JOIN productos P ON P.id_producto = C.id_producto WHERE id_categoria = $idCategoria");
+        $sentenciaProductos = $bd->prepare("SELECT * FROM vista_productos_categoria C INNER JOIN productos P ON P.id_producto = C.id_producto WHERE id_categoria = $idCategoria  AND id_estado = 1;");
         $sentenciaProductos->execute();
         $productos = $sentenciaProductos->fetchAll(PDO::FETCH_OBJ);
       }

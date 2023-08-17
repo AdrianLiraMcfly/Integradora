@@ -181,9 +181,18 @@ session_start();
 
     <div class="espacio-muerto"> <!-- NO EDITAR ESTE DIV --> </div>
 
-    <div class="container-izquierdo">
+
+    <button class="btn-show" id="btn-show2"></button>
+
+    <div class="container-izquierdo" id="div-izq">
+
+
 
         <div class="container-opciones">
+
+            <button class="btn-cerrar close" id="btn-cerrar2" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
 
             <div class="container-buscador">
 
@@ -203,11 +212,11 @@ session_start();
             <div class="filtro">
                 <label class="titulo-filtro" for="">Filtro:</label>
                 <select name="" class="si" id="filtro1" style="margin-left: 20px;">
-                    <option id="option0" value="nada" disabled selected>Selecciona una opción...</option>
-                    <option id="option1" value="recientes">Fecha (Mas recientes primero)</option>
-                    <option id="option2" value="antiguos">Fecha (Mas antiguos primero)</option>
-                    <option id="option3" value="max-cost">Costo (Mas costosos primero)</option>
-                    <option id="option4" value="min-cost">Costo (Menos costosos primero)</option>
+                    <option class="opciones" id="option0" value="nada" disabled selected>Selecciona una opción...</option>
+                    <option class="opciones" id="option1" value="recientes">Fecha (Mas recientes primero)</option>
+                    <option class="opciones" id="option2" value="antiguos">Fecha (Mas antiguos primero)</option>
+                    <option class="opciones" id="option3" value="max-cost">Costo (Mas costosos primero)</option>
+                    <option class="opciones" id="option4" value="min-cost">Costo (Menos costosos primero)</option>
                 </select>
 
             </div>
@@ -232,9 +241,9 @@ session_start();
 
 
 
-    <div class="container-derecho">
+    <div class="container-derecho" id="cont-der">
 
-        <div class="container-superior">
+        <div class="container-superior" id="cont-su">
 
             <div class="contenido-detalles-carrito">
 
@@ -253,7 +262,7 @@ session_start();
             </div>
 
         </div>
-        <div class="container-inferior">
+        <div class="container-inferior" id="cont-inf">
 
             <table class="tabla-productos">
                 <thead>
@@ -276,7 +285,22 @@ session_start();
 
 
 
+
+
     <script>
+
+        document.getElementById("btn-cerrar2").addEventListener("click", function() {
+            document.getElementById("div-izq").style.display = "none";
+            document.getElementById("cont-der").style.display = "block";
+            document.getElementById("btn-show2").style.display = "block";
+
+        });
+        document.getElementById("btn-show2").addEventListener("click", function() {
+            document.getElementById("cont-der").style.display = "none";
+            document.getElementById("btn-show2").style.display = "none";
+            document.getElementById("div-izq").style.display = "block";
+        });
+
         $(document).ready(function() {
             let bus2;
 
@@ -306,10 +330,12 @@ session_start();
                                 <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles">
                             <div class="contenido-detalles">
-                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
-                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
-                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
-                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                                <ul class="contenid-texto-detalles">
+                                    <li  class="texto-detalles">Folio: ${producto.Folio}</li>
+                                    <li  class="texto-detalles">Estado: ${producto.Estado}</li>
+                                    <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
+                                    <li  class="texto-detalles">Total: ${producto.Total}</li>
+                                </ul>                              
                             </div>
                         </div>
                     </a>
@@ -317,16 +343,19 @@ session_start();
                     `);
                             } else {
                                 enlace.append(`
-                            <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                                <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles no-click-div1">
                             <div class="contenido-detalles no-click-div2">
-                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
-                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
-                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
-                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                                <ul class="contenid-texto-detalles">
+                                    <li  class="texto-detalles">Folio: ${producto.Folio}</li>
+                                    <li  class="texto-detalles">Estado: ${producto.Estado}</li>
+                                    <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
+                                    <li  class="texto-detalles">Total: ${producto.Total}</li>
+                                </ul>                              
                             </div>
                         </div>
                     </a>
+
 
                     `);
 
@@ -366,13 +395,15 @@ session_start();
 
                             if (producto.ID_Estado === 3) {
                                 enlace.append(`
-                            <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                                <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles">
                             <div class="contenido-detalles">
-                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
-                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
-                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
-                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                                <ul class="contenid-texto-detalles">
+                                    <li  class="texto-detalles">Folio: ${producto.Folio}</li>
+                                    <li  class="texto-detalles">Estado: ${producto.Estado}</li>
+                                    <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
+                                    <li  class="texto-detalles">Total: ${producto.Total}</li>
+                                </ul>                              
                             </div>
                         </div>
                     </a>
@@ -380,13 +411,15 @@ session_start();
                     `);
                             } else {
                                 enlace.append(`
-                            <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                                <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles no-click-div1">
                             <div class="contenido-detalles no-click-div2">
-                                <p class="texto-detalles">Folio: ${producto.Folio}</p>
-                                <p class="texto-detalles">Estado: ${producto.Estado}</p>
-                                <p class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</p>
-                                <p class="texto-detalles">Total: ${producto.Total}</p>                                
+                                <ul class="contenido-texto-detalles">
+                                    <li  class="texto-detalles">Folio: ${producto.Folio}</li>
+                                    <li  class="texto-detalles">Estado: ${producto.Estado}</li>
+                                    <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
+                                    <li  class="texto-detalles">Total: ${producto.Total}</li>
+                                </ul>                              
                             </div>
                         </div>
                     </a>
@@ -396,7 +429,7 @@ session_start();
                             }
 
                         });
-                    },
+                        },
                     error: function() {
                         console.log('Error al realizar la consulta AJAX.');
                     }
@@ -462,9 +495,9 @@ session_start();
                         <tr>
                             <td class="titulo-juego">${producto.Nombre_producto}</td>
                             <td class="descripcion-juego">${producto.Descripcion}</td>
-                            <td class="precio-juego"> ${producto.Cantidad}</td>
-                            <td class="precio-juego"> ${producto.Precio}</td>
-                            <td class="categoria-juego"> ${producto.Categoria_nombre}</td>
+                            <td class="titulo-juego"> ${producto.Cantidad}</td>
+                            <td class="titulo-juego"> ${producto.Precio}</td>
+                            <td class="titulo-juego"> ${producto.Categoria_nombre}</td>
                         </tr>
                     `);
                         });
@@ -474,6 +507,7 @@ session_start();
                     }
                 });
             }
+
         });
     </script>
 

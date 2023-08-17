@@ -5,8 +5,9 @@ if (!isset($_POST['btnPedido'])) {
     echo 'ERROR';
     exit();
 }
+
 if (isset($_POST['txtTotal'])) {
-    $total = $_POST['txtTotal'];
+    $total = $_POST['txtTotal']; 
 }
 
 
@@ -15,7 +16,6 @@ $sumaCantidades = 0;
 foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
     $sumaCantidades += $cantidad['CANTIDAD'];
 }
-
 $IDxUSUARIO = $_SESSION['id'];
 $sentenciaX = $bd->query("CALL pedidos_recientes($IDxUSUARIO);");
 $personaX = $sentenciaX->fetchAll(PDO::FETCH_ASSOC);
@@ -37,11 +37,13 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
     $bd->beginTransaction();
 
     try {
+
         $NumProductos = 0;
         foreach ($_SESSION['CARRITO'] as $indice => $producto) {
             $NumProductos += $producto['CANTIDAD'];
             $IdProducto = $producto['ID'];
             $consulta = $bd->query("SELECT * FROM productos p INNER JOIN inventario i ON i.id_producto = p.id_producto WHERE p.id_producto = $IdProducto;");
+
             $consultaX = $consulta->fetch(PDO::FETCH_ASSOC);
             if ($consultaX['cantidad'] < $producto['CANTIDAD']) {
                 $IDxPRODUCTOS[] = $consultaX['id_producto'];
@@ -72,8 +74,9 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
         } else {
             print_r($IDxPRODUCTOS);
             $IDxPRODUCTOS2 = urlencode(serialize($IDxPRODUCTOS));
+            echo 'hola';
             header("Location: ../carrito.php?dato=" . $IDxPRODUCTOS2);
-            exit();
+
         }
     } catch (Exception $e) {
         $bd->rollback();
