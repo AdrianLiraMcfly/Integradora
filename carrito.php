@@ -597,7 +597,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     $bd = NULL;
 ?>
 
-<footer>
+<footer class="w-100 p-0">
 
   <div class="container-fluid" id="foot">
     <div class="row">
