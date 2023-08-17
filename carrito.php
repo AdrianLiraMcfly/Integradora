@@ -388,7 +388,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </svg>
 
         <p class="text-warn my-auto fw-bold text-light mb-3">
-          ¡NECESITAS INICIAR SESION PARA USAR EL CARRITO!
+          ¡NECESITAS INICIAR SESIÓN PARA USAR EL CARRITO!
         </p>
 
         <span class="fw-medium"><a class="link-warn" href="sesiones/login.php">¿Ya tienes cuenta?</a></span><br />
@@ -459,7 +459,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <div class="informacion-detalles-carrito">
 
                   <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
-                  <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> No generada</p>
+                  <p style="font-size: 17px;"><b>Fecha realizaciÓn de pedido:</b> No generada</p>
                   <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
                   <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
                   <p style="font-size: 17px;">
@@ -506,7 +506,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       </form>
                     </div>
 
-                    <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete. La hora para recoger es de 10:00AM a 06:00PM.</p>
+                    <p style="font-size: 14px;" class="mt-3">A partir de realizar el pedido, se tienen 3 dias para recogerlo, después de ese lapso de tiempo se cancelará automáticamente. Se debe presentar el folio para recoger el paquete. La hora para recoger es de 10:00 am a 06:00 pm.</p>
                 </div>
 
               </div>
@@ -648,7 +648,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
               <div class="container-fluid informacion-detalles-carrito">
                 <p style="font-size: 17px;"><b>Folio:</b> <?php echo $persona2[0]['id_order']; ?> </p>
-                <p style="font-size: 17px;"><b>Fecha realizacion de pedido:</b> <?php echo $persona2[0]['fecha_venta']; ?> </p>
+                <p style="font-size: 17px;"><b>Fecha realización de pedido:</b> <?php echo $persona2[0]['fecha_venta']; ?> </p>
                 <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> <?php echo $persona2[0]['fecha_limite']; ?> </p>
                 <p style="font-size: 17px;"><b>Elementos:</b> <?php $a = 0;
                                                               foreach ($persona2 as $indice => $dato2) {
@@ -674,7 +674,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                 </div>
 
-                <p style="font-size: 14px;" class="mt-3">Apartir de realizar el pedido se tienen 3 dias para recogerlo, despues de ese lapso de tiempo se cancelara automaticamente. Se debe presentar el folio para recoger el paquete.</p>
+                <p style="font-size: 14px;" class="mt-3">A partir de realizar el pedido, se tienen 3 dias para recogerlo, después de ese lapso de tiempo se cancelará automáticamente. Se debe presentar el folio para recoger el paquete.</p>
               </div>
 
             </div>
@@ -755,7 +755,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       <div class="col mb-auto bg-dark p-4">
 
-        <h4><b>CONTACTANOS</b></h4>
+        <h4><b>CONTÁCTANOS</b></h4>
 
         <div class="mt-2 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text me-1" viewBox="0 0 16 16">
@@ -763,7 +763,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
           </svg>
 
-          <a href="contactanos.php">Contactanos por correo</a>
+          <a href="contactanos.php">Contáctanos por correo</a>
         </div>
 
         <div class="mt-2 mb-2">
@@ -778,7 +778,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       <div class="col mb-auto bg-dark p-4">
 
-        <h4><b>ENCUENTRANOS EN</b></h4>
+        <h4><b>ENCÚENTRANOS EN</b></h4>
 
         <div class="mt-2 mb-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop me-1" viewBox="0 0 16 16">
