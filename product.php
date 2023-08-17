@@ -186,6 +186,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
 
+  
+
   <?php
   if ($VALcant == 2) { ?>
 
