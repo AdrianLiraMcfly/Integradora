@@ -60,7 +60,7 @@
                       <?php
                       echo '
                       <ul class="dropdown-menu border-black">
-                        <li><a class="dropdown-item" href="#">'.$_SESSION['nombre'].'</a></li>
+                      <li><a class="dropdown-item" href="../../../configuracion.php">Cerrar Sesion</a></li> 
                         <li><a class="dropdown-item" href="../../../src/cerrar_sesion.php">Cerrar Sesion</a></li> 
                       </ul>
                     </li>';

@@ -186,19 +186,17 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
 
-  <?php 
-    if ($VALcant == 2) 
-    { ?>
-      <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
-      <?php 
-    }
-    if ($VALcant == 1 || $VALcant == 4) 
-    {
-      ?>
-      <div class="alert alert-danger"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+  <?php
+  if ($VALcant == 2) { ?>
+    <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+  <?php
+  }
+  if ($VALcant == 1 || $VALcant == 4) {
+  ?>
+    <div class="alert alert-danger"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
 
-      <?php 
-    }
+  <?php
+  }
   ?>
 
 
@@ -209,16 +207,31 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="col-4 container_product_present shadow rounded border border-2 border-dark w-auto ms-auto me-auto">
         <?php
 
-        $id = $_GET['id'];
+        if (isset($_GET['id'])) {
+          $id = $_GET['id'];
+        }
+
         $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
-        $resultado = $sentencia->execute([$id]);
+        if(is_numeric($id)){
+          $resultado = $sentencia->execute([$id]);
+        }
+        else{
+          $resultado = $sentencia->execute([openssl_decrypt($id, COD, KEY)]);
+        }
         $persona = $sentencia->fetch(PDO::FETCH_OBJ);
+        if (empty($persona)) {
+          $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
+          $resultado = $sentencia->execute([openssl_decrypt($id, COD, KEY)]);
+          $persona = $sentencia->fetch(PDO::FETCH_OBJ);
+        }
+
+
         $nombreimagen = $persona->imagen;
         $rutaimagen = $rutaCarpetaImagenes . $nombreimagen;
         $base64 = base64_encode(file_get_contents($rutaimagen));
         $base64 = 'data:image/jpeg;base64,' . $base64;
 
-          echo  "<img src='$base64' class='img_present' alt='product' style='width: 200px; height: 200px;'>";
+        echo  "<img src='$base64' class='img_present' alt='product' style='width: 200px; height: 200px;'>";
 
         ?>
       </div>
@@ -257,7 +270,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       <div class="col-4 w-auto p-2 ms-auto me-auto ">
         <div class="btns_container rounded p-2 shadow border border-black border-2">
-          <form action="" method="post">
+          <form action="" method="get">
             <input type="hidden" name="inv" id="inv" value="<?php echo $persona->cantidad; ?>">
             <input type="hidden" name="id" id="id" value=" <?php echo openssl_encrypt($persona->id_producto, COD, KEY); ?> ">
             <input type="hidden" name="nombre" id="nombre" value=" <?php echo openssl_encrypt($persona->nombre, COD, KEY); ?> ">
@@ -265,67 +278,61 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             <input type="hidden" name="imagen" id="imagen" value=" <?php echo openssl_encrypt($persona->imagen, COD, KEY); ?> ">
 
             <?php
-            if(isset($_SESSION['nombre']))
-            {
+            if (isset($_SESSION['nombre'])) {
               $IDusuario = $_SESSION['id'];
               $sentencia = $bd->query("CALL vista_pedido_reciente ($IDusuario);");
               $mipito = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  
+
               @$IDxESTADO = $mipito[0]['id_estado'];
-            
 
 
-            if ($IDxESTADO != 2 || $IDxESTADO == NULL) 
-            {
+
+              if ($IDxESTADO != 2 || $IDxESTADO == NULL) {
             ?>
-              <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                AGREGAR AL CARRITO
-              </button>
+                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark mb-2" id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                  AGREGAR AL CARRITO
+                </button>
 
-              <div class="cont-cant">
-                <p>
-                  <b>Cantidad:</b>
-                </p>
-                
-                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
-                <p>NOTA: La cantidad total maxima de productos es de 4.</p>
-              </div>
-              
-              <?php } 
-              else 
-                { ?>
-                  <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
-                    AGREGAR AL CARRITO
-                  </button>
+                <div class="cont-cant">
+                  <p>
+                    <b>Cantidad:</b>
+                  </p>
 
-                  <div class="cont-cant">
-                    <p>
-                      <b>Cantidad:</b>
-                    </p>
-
-                    <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
-                  <?php 
-                }
-              }
-              else
-              { ?>
-                    </form> 
-                    <form action="carrito.php">
-                      <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
-                        AGREGAR AL CARRITO
-                      </button>
-
-                      <p><b>Cantidad:</b></p>
-                      <input class="input-perfect" disabled value="1"></input> <?php 
-              } 
-              ?>
-                    </form>
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
+                  <p>NOTA: La cantidad total maxima de productos es de 4.</p>
                 </div>
 
-        </div>
-      </div>
+              <?php } else { ?>
+                <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark" disabled id="btnPedido" name="btnAccion" value="agregar" type="submit">
+                  AGREGAR AL CARRITO
+                </button>
 
+                <div class="cont-cant">
+                  <p>
+                    <b>Cantidad:</b>
+                  </p>
+
+                  <input class="input-perfect" type="text" name="cantidad" id="cantidad" disabled value=""></input>
+                <?php
+              }
+            } else { ?>
+          </form>
+          <form action="">
+            <button class="btn btn-warning text-dark fw-bold rounded-pill pos_btns border border-3 border-dark">
+              AGREGAR AL CARRITO
+            </button>
+
+            <p><b>Cantidad:</b></p>
+            <input class="input-perfect" disabled value="1"></input> <?php
+                                                                    }
+                                                                      ?>
+          </form>
+        </div>
+
+      </div>
     </div>
+
+  </div>
 
   </div>
 
@@ -391,7 +398,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     });
   </script>
 
-<?php // ?>
+  <?php // 
+  ?>
 </body>
 
 </html>
