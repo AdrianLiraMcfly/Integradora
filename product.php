@@ -188,7 +188,15 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <?php
   if ($VALcant == 2) { ?>
-    <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+    <div class="alert alert-success"> 
+      <b> 
+        <?php print $mensaje; ?> 
+      </b> 
+
+      <a href="carrito.php" class="position-absolute" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;">
+        <b>Ver Carrito</b>
+      </a> 
+    </div>
   <?php
   }
   if ($VALcant == 1 || $VALcant == 4) {
