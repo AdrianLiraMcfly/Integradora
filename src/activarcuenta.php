@@ -7,6 +7,6 @@ $sentencia->bindParam(':token', $token);
 
 if ($sentencia->execute()) {
     $mensajeAlerta = "¡Cuenta Activada, puedes iniciar sesion!";
-    header("Location: ../sesiones/login.php?mensaje=$mensajeAlerta");
+    header("Location: ../sesiones/login.php?mensajegood=$mensajeAlerta");
 }
 ?>

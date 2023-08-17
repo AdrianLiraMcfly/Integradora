@@ -186,14 +186,34 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         </div>
   </nav>
 
+  
+
   <?php
   if ($VALcant == 2) { ?>
-    <div class="alert alert-success"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+
+    <div class="alert alert-success position-relative mt-5"> 
+      <b> 
+        <?php print $mensaje; ?> 
+      </b> 
+
+      <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;">
+        <b>Ver Carrito</b>
+      </a> 
+    </div>
+
   <?php
   }
   if ($VALcant == 1 || $VALcant == 4) {
   ?>
-    <div class="alert alert-danger"> <b> <?php print $mensaje; ?> </b> <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;"><b>Ver Carrito</b></a> </div>
+    <div class="alert alert-danger position-relative mt-5"> 
+      <b>
+        <?php print $mensaje; ?>
+      </b>
+
+      <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;">
+        <b>Ver Carrito</b>
+      </a> 
+    </div>
 
   <?php
   }
@@ -300,7 +320,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <b>Cantidad:</b>
                 </p>
                 
-                <input class="input-perfect" type="text" name="cantidad" id="cantidad" value=""></input>
+                <input class="input-perfect" type="number" min="0" step="1" name="cantidad" id="cantidad" value="" required></input>
                 <p class="fw-semibold">NOTA: La cantidad total maxima de productos es de 4.</p>
               </div>
               

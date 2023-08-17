@@ -27,13 +27,13 @@ try
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                 //Enable SMTP authentication
-    $mail->Username   = 'vgs314316@gmail.com';            //SMTP username
-    $mail->Password   = 'funmjqjmvjfdlzgi';                //SMTP password
+    $mail->Username   = 'videogame.store314@gmail.com';            //SMTP username
+    $mail->Password   = 'yuyphigctktwzqoj';                  //SMTP password
     $mail->SMTPSecure = 'tls';       //Enable implicit TLS encryption
     $mail->Port       = 587;                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('videogamestore9@gmail.com', 'VideoGame Store');
+    $mail->setFrom('videogame.store314@gmail.com', 'VideoGame Store');
     $mail->addAddress($_SESSION['email']);     //Add a recipient
     
     //$mail->addCC('cc@example.com');
