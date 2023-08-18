@@ -168,6 +168,11 @@ h3 b
     background-color: rgba(41, 41, 41, 0.25);
 }
 
+.bg-red
+{
+    background-color: red;
+}
+
 /*
 #encima {
     

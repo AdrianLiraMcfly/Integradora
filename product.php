@@ -184,12 +184,11 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           </form>
 
         </div>
-  </nav>
-
-  
+  </nav>  
 
   <?php
-  if ($VALcant == 2) { ?>
+  if ($VALcant == 2) 
+  { ?>
 
     <div class="alert alert-success position-relative mt-5"> 
       <b> 
@@ -203,7 +202,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   <?php
   }
-  if ($VALcant == 1 || $VALcant == 4) {
+  if ($VALcant == 1 || $VALcant == 4) 
+  {
   ?>
     <div class="alert alert-danger position-relative mt-5"> 
       <b>
@@ -218,7 +218,6 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <?php
   }
   ?>
-
 
   <div class="container-fluid p-2">
 
@@ -369,6 +368,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
   </div>
 
+  <!--PRODUCTOS RELACIONADOS-->
   <div class="container-fluid bg-dark mt-5 p-4">
 
     <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
