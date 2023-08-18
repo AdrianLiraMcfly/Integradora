@@ -68,7 +68,7 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
                 $sentencia_update->execute([$id_carrito]);
 
                 $bd->commit();
-                header('location: ../carrito.php');
+                header('location: convertpdf.php');
                 $bd = NULL;
             }
         } else {

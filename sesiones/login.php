@@ -61,7 +61,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+    function verpass()
+    {
+      var password = document.getElementById("pass");
+      var vercon= document.getElementById("contravisi");
 
+      if (vercon.checked)
+      {
+        password.type="text";
+      }
+      else
+      {
+        password.type="password";
+      }
+    }
+ </script>
     <title>LogIn</title>
 </head>
 
@@ -269,8 +284,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="username mb-4">
-                <input class="border border border-black text-start p-3 shadow-sm rounded w-100" type="password" name="password" required name="" id="" required>
+                <input class="border border border-black text-start p-3 shadow-sm rounded w-100" type="password" name="password" required name="" id="pass" required>
                 <label for=""><b>Contraseña</b></label>
+            </div>
+            <div class="mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="contravisi" onchange="verpass()">
+                <label class="form-check-label" for="defaultCheck1">
+                  Contraseña visible
+                </label>
             </div>
 
             <div class="recordar">

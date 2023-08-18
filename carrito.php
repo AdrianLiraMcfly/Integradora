@@ -288,7 +288,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="container-fluid border border-dark border-2 bg-warning bg-gradient text-center p-2 rounded-pill shadow" style="width: fit-content;">
             <b class="text-light fst-italic" style="font-size: 16px;">
-              <a href="#" class="link-light link-underline link-underline-opacity-0">¡SIGUE COMPRANDO!</a>
+              <a href="index.php" class="link-light link-underline link-underline-opacity-0">¡SIGUE COMPRANDO!</a>
             </b>
           </div>
 
@@ -309,7 +309,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <div class="informacion-detalles-carrito">
 
                     <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
-                    <p style="font-size: 17px;"><b>Fecha realizaciÓn de pedido:</b> No generada</p>
+                    <p style="font-size: 17px;"><b>Fecha realización de pedido:</b> No generada</p>
                     <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
                     <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
                     <p style="font-size: 17px;">
@@ -561,13 +561,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                     <div class="container-btn">
 
-                      <form action="src/convertpdf.php" method="post">
-                        <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="" id="" value="" style="margin-left: 35px;">
-                          <b>ENVIAR FOLIO</b>
-                        </button>
-                      </form>
-
-                      <form action="src/CANCELARxPEDIDO.php" method="post">
+                      <form action="src/CANCELARxPEDIDO.php" method="post" onsubmit="disableButton()">
                         <input type="hidden" name="IDxCARRITO" value="<?php echo $persona2[0]['id_carrito']; ?>">
                         <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
                           <b>CANCELAR PEDIDO</b>
