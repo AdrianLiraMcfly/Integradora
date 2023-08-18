@@ -2,12 +2,14 @@
 session_start();
 include 'conexionbd.php';
 
-$sentencia = $bd->query("SELECT id_order FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
+$sentencia = $bd->query("SELECT id_order, fecha_limite FROM carrito ORDER BY id_carrito DESC LIMIT 1;");
 $result = $sentencia->fetchAll(PDO::FETCH_OBJ);;
 if ($result) {
     // Extraer el resultado de la consulta
     $row =$result[0];
     $folio = $row->id_order; // Puedes ajustar esta fórmula si es necesario
+    $fecha_lim=$row->fecha_limite;
+    $_SESSION["fechalim"]=$fecha_lim;
     $_SESSION["folio"]=$folio;
 } else {
     // Manejar el caso de error en la consulta
@@ -69,6 +71,7 @@ try
         <div class="container">
             <h1>Gracias por comprar con nosotros!</h1>
             <h1>Folio: '.$_SESSION['folio'].'</h1>
+            <h2>Fecha limite para recoger:'.$_SESSION['fechalim'].'</h2> 
             <p>Favor de pasar al Local 314 Videogame Store a recoger su producto antes de los próximos 3 dias o sus productos de carrito serán devueltos a la venta al público.</p>
             <p>VideoGame Store agradece su fidelidad y preferencia.</p>
         </div>
@@ -79,7 +82,7 @@ try
     $mail->Body    = $body;
 
     $mail->send();
-    $mensajeAlerta = "¡Correo enviado!";
+    $mensajeAlerta = "¡Folio de compra enviado a tu correo!";
     header('Location: ../carrito.php?mensaje='. urlencode($mensajeAlerta));
     exit();
 } 

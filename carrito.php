@@ -512,13 +512,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                     <div class="container-btn">
 
-                      <form action="src/convertpdf.php" method="post">
-                        <button class="btn-carrito btn btn-warning border border-3 border-dark rounded-pill shadow" type="submit" name="" id="" value="" style="margin-left: 35px;">
-                          <b>ENVIAR FOLIO</b>
-                        </button>
-                      </form>
-
-                      <form action="src/CANCELARxPEDIDO.php" method="post">
+                      <form action="src/CANCELARxPEDIDO.php" method="post" onsubmit="disableButton()">
                         <input type="hidden" name="IDxCARRITO" value="<?php echo $persona2[0]['id_carrito']; ?>">
                         <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
                           <b>CANCELAR PEDIDO</b>
