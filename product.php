@@ -1,7 +1,10 @@
 <?php
-if (!isset($_GET['id'])) {
+
+if (!isset($_GET['id'])) 
+{
   header('Location: index.php');
 }
+
 include 'src/config.php';
 include 'src/validacion-carrito.php';
 include 'src/conexionbd.php';
@@ -226,19 +229,22 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="col-4 container_product_present shadow rounded border border-2 border-dark w-auto ms-auto me-auto">
         <?php
 
-        if (isset($_GET['id'])) {
+        if (isset($_GET['id'])) 
+        {
           $id = $_GET['id'];
         }
-
         $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
-        if(is_numeric($id)){
+        if(is_numeric($id))
+        {
           $resultado = $sentencia->execute([$id]);
         }
-        else{
+        else
+        {
           $resultado = $sentencia->execute([openssl_decrypt($id, COD, KEY)]);
         }
         $persona = $sentencia->fetch(PDO::FETCH_OBJ);
-        if (empty($persona)) {
+        if (empty($persona)) 
+        {
           $sentencia = $bd->prepare("SELECT * FROM vista_productos_categoria WHERE id_producto = ?;");
           $resultado = $sentencia->execute([openssl_decrypt($id, COD, KEY)]);
           $persona = $sentencia->fetch(PDO::FETCH_OBJ);

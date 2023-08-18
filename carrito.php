@@ -3,6 +3,8 @@
 //    header("Location: " . $_SERVER['PHP_SELF']);
 //    exit();
 //}
+
+
 include 'src/config.php';
 include 'src/validacion-carrito.php';
 include 'src/conexionbd.php';
@@ -247,7 +249,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
     if ($personaXX['id_estado'] == 2) 
     {
-    ?>
+      ?>
 
       <!--ALERTA CUENTA SUSPENDIDA-->
       <div class="d-flex align-items-center justify-content-center vh-100">
@@ -373,7 +375,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 </div>
 
                 <div class="container-carrito barra-deslizable shadow-lg border border-2 border-black p-3 rounded-4 p-1">
-                  <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) { ?>
+                  <?php foreach ($_SESSION['CARRITO'] as $indice => $producto) 
+                  { ?>
 
 
                     <?php
@@ -441,7 +444,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                       </div>
 
                     </div>
-                  <?php } ?>
+                    <?php 
+                  } ?>
 
                 </div>
               </div>
@@ -470,6 +474,51 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             </div>
 
+                <!--PRODUCTOS RELACIONADOS-->
+                <div class="container-fluid bg-dark mt-5 p-4 border border-black" style="position: relative;">
+
+                  <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
+                      <span class="fw-bold fst-italic">SIGUE</span>
+                  </div>
+                  <br>
+
+                  <div class="row w-100 p-2">
+                      <?php
+                      if (isset($_GET['id'])) {
+                          $id = $_GET['id'];
+                      }
+                      
+                      $sentencia = $bd->prepare("SELECT * FROM productos ORDER BY RAND() LIMIT 4;");
+                      $sentencia->execute();
+                      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                      $rutaCarpetaImagenes = 'adminView/products/posters/';
+                      
+                      foreach ($productos as $producto) { ?>
+                          <div class="col-4 prod-card me-auto ms-auto mb-4">
+                              <a href="product.php?id=<?php echo $producto->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+                                  <div class="card border border-3 border-secondary bg-dark" style="width: 200px; height: 100%;">
+                                      <?php
+                                      $rutaimagen = $rutaCarpetaImagenes . $producto->imagen;
+                                      $base64 = base64_encode(file_get_contents($rutaimagen));
+                                      $base64 = 'data:image/jpeg;base64,' . $base64;
+                                      ?>
+                                      <img src="<?php echo $base64; ?>" class="img_init2 rounded-top" alt="">
+                                      <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                                          <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $producto->nombre ?></span>
+                                          <p class="card-text mt-2" style="font-size: 15px;">
+                                              <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
+                                                  $<?php echo $producto->precio ?>
+                                              </b>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </a>
+                          </div>
+                      <?php } ?>
+                  </div>
+
+                </div>
+  
             <?php
           }
       } 
@@ -592,14 +641,16 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
             </div>
 
           </div>
+          
           <?php
+          
       }
       }
     }
     $bd = NULL;
-?>
-  
-    <!--PIE DE PAGINA-->
+    ?>  
+
+    <!--PIE DE PAGINA
     <footer class="w-100 p-0 acomodar-foot">
 
       <div class="container-fluid" id="foot">
@@ -667,7 +718,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       </div>
 
     </footer>
-
+    -->
 <script>
 </script>
 
