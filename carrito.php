@@ -286,7 +286,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
           <div class="container-fluid border border-dark border-2 bg-warning bg-gradient text-center p-2 rounded-pill shadow" style="width: fit-content;">
             <b class="text-light fst-italic" style="font-size: 16px;">
-              <a href="#" class="link-light link-underline link-underline-opacity-0">¡SIGUE COMPRANDO!</a>
+              <a href="index.php" class="link-light link-underline link-underline-opacity-0">¡SIGUE COMPRANDO!</a>
             </b>
           </div>
 
@@ -307,7 +307,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   <div class="informacion-detalles-carrito">
 
                     <p style="font-size: 17px;"><b>Folio:</b> No generado</p>
-                    <p style="font-size: 17px;"><b>Fecha realizaciÓn de pedido:</b> No generada</p>
+                    <p style="font-size: 17px;"><b>Fecha realización de pedido:</b> No generada</p>
                     <p style="font-size: 17px;"><b>Fecha limite de recogida:</b> No generada</p>
                     <p style="font-size: 17px;"><b>Elementos:</b> <?php echo (empty($_SESSION['CARRITO'])) ? 0 : count($_SESSION['CARRITO']); ?> </p>
                     <p style="font-size: 17px;">

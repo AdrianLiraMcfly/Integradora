@@ -35,8 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        $stmtUsername = $conn->prepare("SELECT COUNT(*) AS username_count FROM usuarios WHERE nombre = :nombre");
+        $stmtUsername->bindParam(":nombre", $nombre, PDO::PARAM_STR);
+        $stmtUsername->execute();
+        $resultUsername = $stmtUsername->fetch(PDO::FETCH_ASSOC);
+
         if ($result['count'] > 0) {
-            $mensajeAlerta = "Email o usuario en uso, favor de ingresar otro.";
+            $mensajeAlerta = "Email en uso, favor de ingresar otro.";
+            header("Location: ../sesiones/register.php?mensaje=" . urlencode($mensajeAlerta));
+            exit();
+        }
+        elseif ($resultUsername['username_count'] > 0) {
+            $mensajeAlerta = "Nombre de usuario en uso, favor de ingresar otro.";
             header("Location: ../sesiones/register.php?mensaje=" . urlencode($mensajeAlerta));
             exit();
         }
@@ -54,7 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: tokenemail.php?email=$email&token=$token");
             exit();
         } catch (PDOException $e) {
-            echo "Error al guardar el registro: " . $e->getMessage();
+            $mensajeAlerta = "Error inesperado.";
+            header("Location: ../sesiones/register.php?mensaje=" . urlencode($mensajeAlerta));
+            exit();
         }
     }
 }

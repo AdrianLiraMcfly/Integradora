@@ -14,7 +14,6 @@ include '../src/conexionbd.php';
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script>
-    
     function verpass()
     {
       var password = document.getElementById("pass");
@@ -34,23 +33,32 @@ include '../src/conexionbd.php';
     }
 
     function valform1(event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            var password = document.getElementById("pass").value;
-            var passwordre = document.getElementById("passre").value;
+    var password = document.getElementById("pass").value;
+    var passwordre = document.getElementById("passre").value;
 
-            if (password !== passwordre) {
-                alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
-                return;
-            }
+    // Validar al menos una mayúscula
+    if (!/[A-Z]/.test(password)) {
+        alert("La contraseña debe contener al menos una letra mayúscula.");
+        return;
+    }
 
-            if (/\d/.test(password)) {
-                document.getElementById("form-re").submit();
-            } else {
-                alert("La contraseña debe contener al menos un número");
-                return;
-            }
-        }
+    // Validar si las contraseñas coinciden
+    if (password !== passwordre) {
+        alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+        return;
+    }
+
+    // Validar al menos un número
+    if (!/\d/.test(password)) {
+        alert("La contraseña debe contener al menos un número");
+        return;
+    }
+
+    // Si todas las validaciones pasan, enviar el formulario
+    document.getElementById("form-re").submit();
+}
   </script>
 
   <title>SignIn</title>
@@ -255,7 +263,7 @@ include '../src/conexionbd.php';
           <h2 class="text-center titulo_pro text-light"><b>REGISTRATE!</b></h2>
           <h4 class="text-center titulo_pro text-dark mb-4"><b>Unete a VideoGame Store!</b></h4>
 
-          <form action="../src/subir_regis.php" onsubmit="equalspass(event);valform(event);" method="post" id="form-re">
+          <form action="../src/subir_regis.php" onsubmit="valform1(event);" method="post" id="form-re">
 
             <div class="w-100 mb-3">
               <label for=""><b>Nombre completo</b></label>
@@ -269,7 +277,7 @@ include '../src/conexionbd.php';
 
             <div class="w-100 mb-3">
               <label for=""><b>Contraseña</b></label>
-              <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required style="height: 32px;">
+              <input type="password" class="form-control border border-black shadow-sm" id="pass" name="pass" placeholder="" aria-label="Username" aria-describedby="basic-addon1" required style="height: 32px;" maxlength="13" minlength="5">
             </div>
 
             <div class="w-100 mb-3">
@@ -284,7 +292,7 @@ include '../src/conexionbd.php';
                 </label>
             </div>
               
-                <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white" onclick="valform1(event);">ACEPTAR</button>
+                <button type="submit" class="btn btn-dark fw-bold rounded-pill border-3 border-white">ACEPTAR</button>
 
           </form>
           
