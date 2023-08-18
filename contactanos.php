@@ -16,6 +16,26 @@
             alert("Mensaje enviado");
           }
         </script>
+        <script>
+          document.addEventListener
+          ("DOMContentLoaded", function() 
+          {
+              const cerrarBoton = document.querySelector(".cerrar");
+              const alerta = document.querySelector(".alert");
+
+              if (cerrarBoton && alerta) 
+              {
+                cerrarBoton.addEventListener
+                ("click", function() 
+                  {
+                    alerta.style.display = "none"; // Oculta la alerta
+                  }
+                );
+              }
+            }
+          );
+        </script>
+
     </head>
 
     <body class="bg-white" style="background-image: url(img/wallpaper.jpg)">
@@ -170,11 +190,23 @@
             </div>
           </div>
       </nav>
+
       <?php
-           if (isset($_GET['mensaje'])) {
-           $mensajeAlerta = $_GET['mensaje'];?>
-           <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
-           <?php } ?>
+           if (isset($_GET['mensaje'])) 
+           {
+            $mensajeAlerta = $_GET['mensaje'];?>
+
+              <div class="alert alert-danger mx-auto mt-2 border border-3 border-light rounded-4 text-center" style="background-color: red; width: fit-content;">
+                <b class="text-light text-uppercase fst-italic"><?php print $mensajeAlerta; ?></b>
+                <br>
+
+                <button class="btn btn-danger rounded-pill border border-light border-2 text-light mt-1 p-2 shadow cerrar">
+                  <span class="fw-semibold">CERRAR</span>
+                </button>
+              </div>
+
+            <?php 
+          } ?>
 
       <!--este es el formulario-->
       <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 mx-auto mt-5" style="width: 400px;" action="phpmailer.php" method="post">
@@ -207,4 +239,5 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Xykaow5M6xosbl+eovUDxu6Zb+VBzqE3F1fTCepyrViZfmiwD9+vgHMgW8FDoZ2Y" crossorigin="anonymous"></script>
       <?php // ?>
     </body>
+
 </html>
