@@ -286,13 +286,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         ?>
           <br>
 
-          <div class="container-fluid border border-dark border-2 bg-warning bg-gradient text-center p-2 rounded-pill shadow" style="width: fit-content;">
-            <b class="text-light fst-italic" style="font-size: 16px;">
-              <a href="index.php" class="link-light link-underline link-underline-opacity-0">¡SIGUE COMPRANDO!</a>
-            </b>
-          </div>
-
-          <!--CARRITO CUENTA INICIADA LLENO-->
+          <!--CARRITO CUENTA INICIADA-->
           <div class="row w-auto mx-auto mt-5 mb-5">
 
             <!--DETALLES-->
@@ -450,6 +444,61 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 </div>
               </div>
 
+              <!--PRODUCTOS RELACIONADOS-->
+              <div class="container-fluid bg-dark mt-5 p-4 border border-black acomodar-pro" style="position: relative;">
+
+                <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
+                  <span class="fw-bold fst-italic">PRODUCTOS RELACIONADOS</span>
+                </div>
+                <br>
+
+                <div class="row w-100 p-2">
+                  <?php
+                    if (isset($_GET['id'])) 
+                    {
+                      $id = $_GET['id'];
+                    }
+                        
+                    $sentencia = $bd->prepare("SELECT * FROM productos ORDER BY RAND() LIMIT 4;");
+                    $sentencia->execute();
+                    $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                    $rutaCarpetaImagenes = 'adminView/products/posters/';
+                        
+                    foreach ($productos as $producto) 
+                    { ?>
+                            <div class="col-4 prod-card me-auto ms-auto mb-4">
+                              <a href="product.php?id=<?php echo $producto->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+
+                                <div class="card border border-3 border-secondary bg-light" style="width: 200px; height: 100%;">
+
+                                    <?php
+                                      $rutaimagen = $rutaCarpetaImagenes . $producto->imagen;
+                                      $base64 = base64_encode(file_get_contents($rutaimagen));
+                                      $base64 = 'data:image/jpeg;base64,' . $base64;
+                                    ?>
+
+                                    <img src="<?php echo $base64; ?>" class="img_init2 rounded-top" alt="">
+
+                                    <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                                      <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $producto->nombre ?></span>
+
+                                      <p class="card-text mt-2" style="font-size: 15px;">
+                                        <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
+                                          $<?php echo $producto->precio ?>
+                                        </b>
+                                      </p>
+
+                                    </div>
+
+                                </div>
+                              </a>
+                            </div>
+                        <?php 
+                      } ?>
+                </div>
+
+              </div>
+
             <!--guardemos esa madre </div> -->
 
           </div><!---->
@@ -459,7 +508,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           { ?>
 
             <!--CUANDO EL CARRITO ESTA VACIO-->
-            <div class="col-lg-6 p-2 ms-auto acomodar" style="position: absolute; margin-top: 116px">
+            <div class="col-lg-6 p-2 ms-auto acomodar" style="position: absolute; margin-top: 72px">
 
 
               <div class="container-fluid shadow text-center p-2 w-75 mb-3 let-4">
@@ -474,51 +523,63 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
             </div>
 
-                <!--PRODUCTOS RELACIONADOS-->
-                <div class="container-fluid bg-dark mt-5 p-4 border border-black" style="position: relative;">
+            <!--PRODUCTOS RELACIONADOS-->
+            <!--
+            <div class="container-fluid bg-dark mt-5 p-4 border border-black" style="position: relative;">
 
-                  <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
-                      <span class="fw-bold fst-italic">SIGUE</span>
-                  </div>
-                  <br>
+              <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
+                <span class="fw-bold fst-italic">SIGUE</span>
+              </div>
+              <br>
 
-                  <div class="row w-100 p-2">
-                      <?php
-                      if (isset($_GET['id'])) {
-                          $id = $_GET['id'];
-                      }
+              <div class="row w-100 p-2">
+                <?php
+                  if (isset($_GET['id'])) 
+                  {
+                    $id = $_GET['id'];
+                  }
                       
-                      $sentencia = $bd->prepare("SELECT * FROM productos ORDER BY RAND() LIMIT 4;");
-                      $sentencia->execute();
-                      $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-                      $rutaCarpetaImagenes = 'adminView/products/posters/';
+                  $sentencia = $bd->prepare("SELECT * FROM productos ORDER BY RAND() LIMIT 4;");
+                  $sentencia->execute();
+                  $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                  $rutaCarpetaImagenes = 'adminView/products/posters/';
                       
-                      foreach ($productos as $producto) { ?>
+                  foreach ($productos as $producto) 
+                  { ?>
                           <div class="col-4 prod-card me-auto ms-auto mb-4">
-                              <a href="product.php?id=<?php echo $producto->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
-                                  <div class="card border border-3 border-secondary bg-dark" style="width: 200px; height: 100%;">
-                                      <?php
-                                      $rutaimagen = $rutaCarpetaImagenes . $producto->imagen;
-                                      $base64 = base64_encode(file_get_contents($rutaimagen));
-                                      $base64 = 'data:image/jpeg;base64,' . $base64;
-                                      ?>
-                                      <img src="<?php echo $base64; ?>" class="img_init2 rounded-top" alt="">
-                                      <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
-                                          <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $producto->nombre ?></span>
-                                          <p class="card-text mt-2" style="font-size: 15px;">
-                                              <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
-                                                  $<?php echo $producto->precio ?>
-                                              </b>
-                                          </p>
-                                      </div>
+                            <a href="product.php?id=<?php echo $producto->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+
+                              <div class="card border border-3 border-secondary bg-light" style="width: 200px; height: 100%;">
+
+                                  <?php
+                                    $rutaimagen = $rutaCarpetaImagenes . $producto->imagen;
+                                    $base64 = base64_encode(file_get_contents($rutaimagen));
+                                    $base64 = 'data:image/jpeg;base64,' . $base64;
+                                  ?>
+
+                                  <img src="<?php echo $base64; ?>" class="img_init2 rounded-top" alt="">
+
+                                  <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                                    <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $producto->nombre ?></span>
+
+                                    <p class="card-text mt-2" style="font-size: 15px;">
+                                      <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
+                                        $<?php echo $producto->precio ?>
+                                      </b>
+                                    </p>
+
                                   </div>
-                              </a>
+
+                              </div>
+                            </a>
                           </div>
-                      <?php } ?>
+                      <?php 
+                    } ?>
                   </div>
 
-                </div>
-  
+            </div>
+            -->
+
             <?php
           }
       } 
@@ -632,6 +693,61 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                   </div>
                 <?php } ?>
               </div>
+            </div>
+
+          </div>
+
+          <!--PRODUCTOS RELACIONADOS-->
+          <div class="container-fluid bg-dark mt-5 p-4 border border-black" style="position: relative;">
+
+            <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
+              <span class="fw-bold fst-italic">SIGUE</span>
+            </div>
+            <br>
+
+            <div class="row w-100 p-2">
+              <?php
+                if (isset($_GET['id'])) 
+                {
+                  $id = $_GET['id'];
+                }
+                    
+                $sentencia = $bd->prepare("SELECT * FROM productos ORDER BY RAND() LIMIT 4;");
+                $sentencia->execute();
+                $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+                $rutaCarpetaImagenes = 'adminView/products/posters/';
+                    
+                foreach ($productos as $producto) 
+                { ?>
+                        <div class="col-4 prod-card me-auto ms-auto mb-4">
+                          <a href="product.php?id=<?php echo $producto->id_producto ?>" class="link-light link-offset-2 link-underline link-underline-opacity-0">
+
+                            <div class="card border border-3 border-secondary bg-light" style="width: 200px; height: 100%;">
+
+                                <?php
+                                  $rutaimagen = $rutaCarpetaImagenes . $producto->imagen;
+                                  $base64 = base64_encode(file_get_contents($rutaimagen));
+                                  $base64 = 'data:image/jpeg;base64,' . $base64;
+                                ?>
+
+                                <img src="<?php echo $base64; ?>" class="img_init2 rounded-top" alt="">
+
+                                <div class="card-body bg-dark bg-gradient text-white rounded-bottom">
+                                  <span class="fw-medium p-0" style="font-size: 15px;"><?php echo $producto->nombre ?></span>
+
+                                  <p class="card-text mt-2" style="font-size: 15px;">
+                                    <b class="bg-warning bg-gradient border border-2 border-black p-1 rounded-pill text-dark">
+                                      $<?php echo $producto->precio ?>
+                                    </b>
+                                  </p>
+
+                                </div>
+
+                            </div>
+                          </a>
+                        </div>
+                    <?php 
+                  } ?>
             </div>
 
           </div>

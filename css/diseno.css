@@ -339,7 +339,7 @@ body{
 {
     .acomodar
     {
-        top: 81.1%;
+        top: 87.7%;
         left: 0%;
         right: 0%;
     }
@@ -361,6 +361,20 @@ body{
     }
 }
 
+/*
+.acomodar-pro
+{
+    top: 0%;
+    position: absolute;
+}
+
+@media (max-width: 768px)
+{
+    .acomodar-pro
+    {
+        top: 200%;
+    }
+}*/
 
   
 
