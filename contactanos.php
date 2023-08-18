@@ -341,6 +341,11 @@
           </div>
         </div>
       </nav>
+      <?php
+           if (isset($_GET['mensaje'])) {
+           $mensajeAlerta = $_GET['mensaje'];?>
+           <div class="alert alert-danger"><b><?php print $mensajeAlerta; ?></b></div>
+           <?php } ?>
 
     <!--este es el formulario-->
     <form class="bg-warning bg-gradient border border-light-subtle border-4 p-5 rounded-4 mx-auto mt-5" style="width: 400px;" action="phpmailer.php" method="post">

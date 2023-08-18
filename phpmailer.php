@@ -52,7 +52,9 @@ try
 } 
 catch (Exception $e) 
 {
-    echo "<script>alert('Error al enviar el correo: " . $mail->ErrorInfo . "');</script>";
+    $mensajeAlerta = "Error al enviar correo, favor de llenar todos los campos.";
+    header('Location: contactanos.php?mensaje=' . urlencode($mensajeAlerta));
+    exit();
 }
 
 //
