@@ -200,7 +200,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   </nav>
 
   <?php
-  if (isset($_GET['mensaje'])) {
+  if (isset($_GET['mensaje'])) 
+  {
     $mensajeAlerta = $_GET['mensaje']; ?>
     
     <div class="alert bg-success ms-auto me-auto rounded-pill mt-3 border border-black border-2 w-50">
@@ -244,7 +245,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     $personaXX = $sentencia->fetch(PDO::FETCH_ASSOC);
     $sentencia->closeCursor();
 
-    if ($personaXX['id_estado'] == 2) {
+    if ($personaXX['id_estado'] == 2) 
+    {
     ?>
 
       <!--ALERTA CUENTA SUSPENDIDA-->
@@ -280,11 +282,16 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
         $total = 0;
         ?>
-
           <br>
 
+          <div class="container-fluid border border-dark border-2 bg-warning bg-gradient text-center p-2 rounded-pill shadow" style="width: fit-content;">
+            <b class="text-light fst-italic" style="font-size: 16px;">
+              <a href="#" class="link-light link-underline link-underline-opacity-0">¡SIGUE COMPRANDO!</a>
+            </b>
+          </div>
+
           <!--CARRITO CUENTA INICIADA LLENO-->
-          <div class="row w-auto mx-auto mb-5 mt-5">
+          <div class="row w-auto mx-auto mt-5 mb-5">
 
             <!--DETALLES-->
             <div class="col-lg-6 p-2">
@@ -448,7 +455,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           { ?>
 
             <!--CUANDO EL CARRITO ESTA VACIO-->
-            <div class="col-lg-6 p-2 ms-auto acomodar" style="position: absolute; margin-top: 72px">
+            <div class="col-lg-6 p-2 ms-auto acomodar" style="position: absolute; margin-top: 116px">
 
 
               <div class="container-fluid shadow text-center p-2 w-75 mb-3 let-4">
@@ -591,7 +598,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
     }
     $bd = NULL;
 ?>
-
+  
+    <!--PIE DE PAGINA-->
     <footer class="w-100 p-0 acomodar-foot">
 
       <div class="container-fluid" id="foot">

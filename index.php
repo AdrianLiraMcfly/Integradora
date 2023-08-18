@@ -28,8 +28,6 @@
 
 <body class="bg-white w-auto">
 
-
-      <!--navbar 2-->
       <nav class="navbar navbar-expand-lg bg-warning bg-gradient row shadow-sm navigation-bar-final p-2 mx-auto">
         <div class="container-fluid">
 
@@ -281,9 +279,6 @@
                 </div>
             </a>
           </div>
-          
-          <!--
-          <div class="col-3"></div>-->
 
           <!--XBOX-->
           <div class="col-lg-4 p-2 h-100">
@@ -357,7 +352,6 @@
       </div>
       <br/>
       
-
       <!--TITULO 1-->
       <div class="container-fluid bg-warning bg-gradient shadow text-center p-2 rounded-pill w-50 mb-3 let-1">
         <span class="fw-bold fst-italic">MIRA NUESTRO CATÁLOGO</span>
@@ -585,6 +579,8 @@
         </div>
 
       </footer>
+
       <?php $bd = NULL; ?>
+      
 </body>
 </html>
