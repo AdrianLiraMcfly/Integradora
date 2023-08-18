@@ -301,7 +301,8 @@ body{
     background-color: #198754;
     border: 3.5px solid #212529;
 }
-
+/*asi es como estaba antes en carrito 4.5rem*/
+/*
 .acomodar
 {
     top: 0%;
@@ -310,7 +311,7 @@ body{
     max-width: 100%;
     min-width: 50%;
     position: relative;
-    /*transition: top 0.3s ease;*/
+    transition: top 0.3s ease;
 }
 
 @media (max-width: 768px)
@@ -321,7 +322,46 @@ body{
         left: 0%;
         right: 0%;
     }
+}*/
+
+.acomodar
+{
+    top: 0%;
+    left: 50%;
+    right: auto;
+    max-width: 100%;
+    min-width: 50%;
+    position: relative;
+    transition: top 0.3s ease;
 }
+
+@media (max-width: 768px)
+{
+    .acomodar
+    {
+        top: 85%;
+        left: 0%;
+        right: 0%;
+    }
+}
+
+.acomodar-foot
+{
+    top: 100%;
+    position: absolute;
+    /*position: relative;
+    transition: top 0.3s ease;*/
+}
+
+@media (max-width: 768px)
+{
+    .acomodar-foot
+    {
+        top: 127%;
+    }
+}
+
+
   
 
 
