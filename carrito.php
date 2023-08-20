@@ -31,6 +31,26 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
+  <script>
+    document.addEventListener
+    ("DOMContentLoaded", function() 
+      {
+        const cerrarBoton = document.querySelector(".cerrar");
+        const alerta = document.querySelector(".alert");
+
+        if (cerrarBoton && alerta) 
+        {
+          cerrarBoton.addEventListener
+          ("click", function() 
+            {
+              alerta.style.display = "none"; // Oculta la alerta
+            }
+          );
+        }
+      }
+    );
+  </script>
+
   <title>Carrito</title>
 </head>
 
@@ -206,10 +226,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   {
     $mensajeAlerta = $_GET['mensaje']; ?>
     
-    <div class="alert bg-success ms-auto me-auto rounded-pill mt-3 border border-black border-2 w-50">
-      <div class="text-center text-light text-uppercase">
-        <b><?php print $mensajeAlerta; ?></b>        
-      </div>
+    <div class="alert bg-success mx-auto mt-2 border border-3 border-dark rounded-4 text-center shadow" style="width: fit-content;">
+
+      <b class="text-light text-uppercase fst-italic"><?php print $mensajeAlerta; ?></b>        
+      <br/>
+
+      <button class="btn btn-success rounded-pill border border-light border-2 text-light mt-1 p-2 shadow cerrar">
+        <span class="fw-semibold">CERRAR</span>
+      </button>
     </div>
 
   <?php
@@ -340,7 +364,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                             echo "<div class='alert text-center rounded-pill maximo-pro'> <b>EL MAXIMO TOTAL DE CANTIDAD ADMITIDO ES DE 4</b></div>";
                           } else {
                             echo
-                            "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
+                            "<button class='btn btn-carrito btn-warning border border-3 border-dark rounded-pill shadow mx-auto' type='submit' name='btnPedido' id='btnPedido' value='pedido'>
                               <b>REALIZAR PEDIDO</b>
                             </button>";
                           }
@@ -624,7 +648,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                       <form action="src/CANCELARxPEDIDO.php" method="post" onsubmit="disableButton()">
                         <input type="hidden" name="IDxCARRITO" value="<?php echo $persona2[0]['id_carrito']; ?>">
-                        <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
+                        <button class="btn-carrito btn btn-danger border border-3 border-dark rounded-pill shadow mx-auto" type="submit" name="btnCancelar" id="btnCancelar" value="cancelar" style="margin-left: 35px;">
                           <b>CANCELAR PEDIDO</b>
                         </button>
                       </form>

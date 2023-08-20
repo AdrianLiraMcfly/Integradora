@@ -288,7 +288,7 @@
           <div class="col-lg-4 p-2 h-100">
             <a href="#" class="link-light link-offset-2 link-underline link-underline-opacity-0">
 
-                <div class="card bg-black rounded-4 h-auto w-100">
+                <div class="card bg-success rounded-4 h-auto w-100">
 
                     <div class="mx-auto p-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-xbox" viewBox="0 0 16 16" id="consolas">
@@ -299,14 +299,14 @@
                     <div class="card-body text-center text-light rounded-bottom p-2">
 
                       <p class="card-text">
-                        <b style="text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);">
+                        <b style="text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);">
                           La consola más poderosa de la generación te invita a ver sus ofertas.
                         </b>
                       </p>
                       
                       <form action="busqueda.php" method="get">
 
-                        <button type="submit" class="btn btn-dark border-2 border-light bg-gradient rounded-pill">
+                        <button type="submit" class="btn btn-succes border-2 border-light text-light bg-gradient rounded-pill">
                           <input type="hidden" name="opt" value="Xbox">
                           <b>Ver Más</b>
                         </button>
