@@ -374,7 +374,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                         </form>
                       </div>
 
-                      <p style="font-size: 14px;" class="mt-3">A partir de realizar el pedido, se tienen 3 dias para recogerlo, después de ese lapso de tiempo se cancelará automáticamente. Se debe presentar el folio para recoger el paquete. La hora para recoger es de 10:00 am a 06:00 pm.</p>
+                      <p style="font-size: 14px; text-align: justify" class="mt-3">
+                        A partir de realizar el pedido, se tienen 3 dias para recogerlo, después de ese lapso de tiempo se cancelará automáticamente. Se debe presentar el folio para recoger el paquete. La hora para recoger es de 10:00 am a 06:00 pm.
+                      </p>
                   </div>
 
                 </div>
@@ -655,7 +657,9 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                     </div>
 
-                    <p style="font-size: 14px;" class="mt-3">A partir de realizar el pedido, se tienen 3 dias para recogerlo, después de ese lapso de tiempo se cancelará automáticamente. Se debe presentar el folio para recoger el paquete.</p>
+                    <p style="font-size: 14px; text-align: justify" class="mt-3">
+                      A partir de realizar el pedido, se tienen 3 dias para recogerlo, después de ese lapso de tiempo se cancelará automáticamente. Se debe presentar el folio para recoger el paquete.
+                    </p>
                   </div>
 
                 </div>
@@ -851,8 +855,8 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
       </div>
 
-    </footer>
-    -->
+    </footer>-->
+
 <script>
 </script>
 
