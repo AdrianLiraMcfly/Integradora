@@ -186,12 +186,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   if ($VALcant == 2) 
   { ?>
 
-    <div class="alert alert-success position-relative mt-5"> 
-      <b> 
+    <div class="alert alert-success bg-success mx-auto mt-5 border border-3 border-dark text-center shadow" style="width: fit-content;"> 
+      <b class="text-light text-uppercase fst-italic"> 
         <?php print $mensaje; ?> 
       </b> 
+      <br/><br/>
 
-      <a href="carrito.php" style="background-color: green; border-radius: 5px; border: 3px green solid; color: white; text-decoration: none;">
+      <a href="carrito.php" class="rounded-pill bg-success bg-gradient border border-light border-2 text-light p-2 shadow mx-auto" style="text-decoration: none;">
         <b>Ver Carrito</b>
       </a> 
     </div>
@@ -201,12 +202,13 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
   if ($VALcant == 1 || $VALcant == 4) 
   {
   ?>
-    <div class="alert alert-danger position-relative mt-5"> 
-      <b>
+    <div class="alert alert-danger mx-auto mt-5 border border-3 border-dark text-center shadow" style="width: fit-content; background-color: red; "> 
+      <b class="text-light text-uppercase fst-italic">
         <?php print $mensaje; ?>
       </b>
+      <br/><br/>
 
-      <a href="carrito.php" style="background-color: red; border-radius: 5px; border: 3px red solid; color: white; text-decoration: none;">
+      <a href="carrito.php" class="rounded-pill bg-danger bg-gradient border border-light border-2 text-light p-2 shadow mx-auto" style="text-decoration: none;">
         <b>Ver Carrito</b>
       </a> 
     </div>
