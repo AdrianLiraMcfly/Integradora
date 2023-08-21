@@ -30,8 +30,8 @@ if (isset($_GET['btnAccion'])) {
                     if ($_GET['cantidad'] > $_GET['inv']) {
                         $VALcant = 4;
                     } else {
-                        if ($_GET['cantidad'] > 4) {
-                            $CANTIDAD = 4;
+                        if ($_GET['cantidad'] > 12) {
+                            $CANTIDAD = 12;
                             $VALcant = 2;
                         } else {
                             if ($_GET['cantidad'] > $_GET['inv']) {
@@ -86,8 +86,8 @@ if (isset($_GET['btnAccion'])) {
                             }
                         } else {
                             $NumeroProductos = count($_SESSION['CARRITO']);
-                            if ($NumeroProductos == 4) {
-                                $mensaje = "La cantidad maxima de articulos es de 4.";
+                            if ($NumeroProductos == 12) {
+                                $mensaje = "La cantidad maxima de articulos es de 12.";
                             } else {
                                 $producto = array(
                                     'ID' => $ID,

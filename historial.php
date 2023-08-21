@@ -228,6 +228,83 @@ session_start();
             <div class="container-pedidos-realizados" id="container-pedidos-realizados2">
 
 
+                <?php
+                $idUsuario = $_SESSION['id'];
+                $consulta = $bd->prepare("CALL buscador_historial('ORD',?);");
+                $consulta->execute([$idUsuario]);
+                $resultado = $consulta->fetchAll(PDO::FETCH_OBJ);
+
+
+                foreach ($resultado as $indice => $dato) {
+                    if ($dato->ID_Estado == 3) {
+                        echo "
+                    <a class='enlaces enlace' href='#' data-id-carrito='" . $dato->ID_Carrito . "' data-folio='" . $dato->Folio . "' data-estado='" . $dato->Estado . "' data-fecha='" . $dato->Fecha_de_pedido . "'>
+                        <div class='detalles'>
+                            <div class='contenido-detalles'>
+                                <ul class='contenid-texto-detalles'>
+                                    <li class='texto-detalles'>Folio: " . $dato->Folio . "</li>
+                                    <li class='texto-detalles'>Estado: " . $dato->Estado . "</li>
+                                    <li class='texto-detalles'>Fecha de pedido: " . $dato->Fecha_de_pedido . "</li>
+                                    <li class='texto-detalles'>Total: " . $dato->Total . "</li>
+                                </ul>                              
+                            </div>
+                        </div>
+                    </a>
+                ";
+                    } else {
+                        if ($dato->ID_Estado == 2) {
+                            echo "
+                        <a class='enlaces enlace' href='#' data-id-carrito='" . $dato->ID_Carrito . "' data-folio='" . $dato->Folio . "' data-estado='" . $dato->Estado . "' data-fecha='" . $dato->Fecha_de_pedido . "'>
+                            <div class='detalles no-click-div1-pendiente'>
+                                <div class='contenido-detalles no-click-div2-pendiente'>
+                                    <ul class='contenido-texto-detalles'>
+                                        <li class='texto-detalles'>Folio: " . $dato->Folio . "</li>
+                                        <li class='texto-detalles'>Estado: " . $dato->Estado . "</li>
+                                        <li class='texto-detalles'>Fecha de pedido: " . $dato->Fecha_de_pedido . "</li>
+                                        <li class='texto-detalles'>Total: " . $dato->Total . "</li>
+                                    </ul>                              
+                                </div>
+                            </div>
+                        </a>
+                    ";
+                        } else {
+                            echo "
+                        <a class='enlaces enlace no-click' href='#' data-id-carrito='" . $dato->ID_Carrito . "' data-folio='" . $dato->Folio . "' data-estado='" . $dato->Estado . "' data-fecha='" . $dato->Fecha_de_pedido . "'>
+                            <div class='detalles no-click-div1'>
+                                <div class='contenido-detalles no-click-div2'>
+                                    <ul class='contenido-texto-detalles'>
+                                        <li class='texto-detalles'>Folio: " . $dato->Folio . "</li>
+                                        <li class='texto-detalles'>Estado: " . $dato->Estado . "</li>
+                                        <li class='texto-detalles'>Fecha de pedido: " . $dato->Fecha_de_pedido . "</li>
+                                        <li class='texto-detalles'>Total: " . $dato->Total . "</li>
+                                    </ul>                              
+                                </div>
+                            </div>
+                        </a>
+                    ";
+                        }
+                    }
+                }
+
+
+
+
+
+                ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
 
@@ -302,6 +379,9 @@ session_start();
         $(document).ready(function() {
             let bus2;
 
+            bus2 = <?php echo json_encode($resultado); ?>;
+
+
             $('.si').change(function(event) {
 
 
@@ -323,7 +403,6 @@ session_start();
                         filtro.forEach(producto => {
 
                             if (producto.ID_Estado == 3) {
-
                                 enlace.append(`
                                 <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles">
@@ -340,11 +419,12 @@ session_start();
 
                     `);
                             } else {
-                                enlace.append(`
-                                <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
-                        <div class="detalles no-click-div1">
-                            <div class="contenido-detalles no-click-div2">
-                                <ul class="contenid-texto-detalles">
+                                if (producto.ID_Estado == 2) {
+                                    enlace.append(`
+                                <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                        <div class="detalles no-click-div1-pendiente">
+                            <div class="contenido-detalles no-click-div2-pendiente">
+                                <ul class="contenido-texto-detalles">
                                     <li  class="texto-detalles">Folio: ${producto.Folio}</li>
                                     <li  class="texto-detalles">Estado: ${producto.Estado}</li>
                                     <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
@@ -353,10 +433,23 @@ session_start();
                             </div>
                         </div>
                     </a>
-
-
                     `);
-
+                                } else {
+                                    enlace.append(`
+                                <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                        <div class="detalles no-click-div1">
+                            <div class="contenido-detalles no-click-div2">
+                                <ul class="contenido-texto-detalles">
+                                    <li  class="texto-detalles">Folio: ${producto.Folio}</li>
+                                    <li  class="texto-detalles">Estado: ${producto.Estado}</li>
+                                    <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
+                                    <li  class="texto-detalles">Total: ${producto.Total}</li>
+                                </ul>                              
+                            </div>
+                        </div>
+                    </a>
+                    `);
+                                }
                             }
 
                         });
@@ -391,7 +484,7 @@ session_start();
 
                         bus.forEach(producto => {
 
-                            if (producto.ID_Estado === 3) {
+                            if (producto.ID_Estado == 3) {
                                 enlace.append(`
                                 <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles">
@@ -408,7 +501,23 @@ session_start();
 
                     `);
                             } else {
-                                enlace.append(`
+                                if (producto.ID_Estado == 2) {
+                                    enlace.append(`
+                                <a class="enlaces enlace" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
+                        <div class="detalles no-click-div1-pendiente">
+                            <div class="contenido-detalles no-click-div2-pendiente">
+                                <ul class="contenido-texto-detalles">
+                                    <li  class="texto-detalles">Folio: ${producto.Folio}</li>
+                                    <li  class="texto-detalles">Estado: ${producto.Estado}</li>
+                                    <li  class="texto-detalles">Fecha de pedido: ${producto.Fecha_de_pedido}</li>
+                                    <li  class="texto-detalles">Total: ${producto.Total}</li>
+                                </ul>                              
+                            </div>
+                        </div>
+                    </a>
+                    `);
+                                } else {
+                                    enlace.append(`
                                 <a class="enlaces enlace no-click" href="#" data-id-carrito="${producto.ID_Carrito}" data-folio="${producto.Folio}" data-estado="${producto.Estado}" data-fecha="${producto.Fecha_de_pedido}">
                         <div class="detalles no-click-div1">
                             <div class="contenido-detalles no-click-div2">
@@ -421,13 +530,11 @@ session_start();
                             </div>
                         </div>
                     </a>
-
                     `);
-
+                                }
                             }
-
                         });
-                        },
+                    },
                     error: function() {
                         console.log('Error al realizar la consulta AJAX.');
                     }

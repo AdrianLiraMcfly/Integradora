@@ -231,10 +231,17 @@ select option {
 .no-click-div1 {
     background-color: rgb(220, 20, 60)
 }
-
 .no-click-div2 {
     background-color: rgb(255, 214, 214);
 }
+.no-click-div1-pendiente{
+    background-color: rgb(220, 143, 20)
+}
+.no-click-div2-pendiente{
+    background-color: rgb(255, 247, 214);
+}
+
+
 
 .si {
     margin-right: 20px;

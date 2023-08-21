@@ -1,21 +1,16 @@
 <?php
 session_start();
-include 'conexionbd.php';
+include "conexionbd.php";
+
 if (!isset($_POST['btnPedido'])) {
-    echo 'ERROR';
+    echo 'ERROR PENE';
     exit();
 }
 
 if (isset($_POST['txtTotal'])) {
-    $total = $_POST['txtTotal']; 
+    $total = $_POST['txtTotal'];
 }
 
-
-$sumaCantidades = 0;
-
-foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
-    $sumaCantidades += $cantidad['CANTIDAD'];
-}
 $IDxUSUARIO = $_SESSION['id'];
 $sentenciaX = $bd->query("CALL pedidos_recientes($IDxUSUARIO);");
 $personaX = $sentenciaX->fetchAll(PDO::FETCH_ASSOC);
@@ -26,6 +21,14 @@ foreach ($personaX as $dato) {
         $NUMxPEDIDOSxCANCELADOS++;
     }
 }
+$cantidadCero = false;
+
+foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
+    if ($cantidad['CANTIDAD'] == 0) {
+        $cantidadCero = true;
+        break;
+    }
+}
 $sentenciaX->closeCursor();
 
 if ($NUMxPEDIDOSxCANCELADOS > 3) {
@@ -34,6 +37,13 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
     $sentenciaX = $bd->query("CALL suspender_usuario($IDxUSUARIO);");
     $personaX = $sentenciaX->fetchAll(PDO::FETCH_ASSOC);
 } else {
+    if($cantidadCero == true){
+        $mensaje = "Hola, tienes la cantidad de algun articulo en cero y eso no se puede.";
+        header("Location: ../carrito.php?mensajeMalo=" . urlencode($mensaje));
+        exit();
+    }
+    else{
+
     $bd->beginTransaction();
 
     try {
@@ -50,8 +60,8 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
             }
         }
         if (empty($IDxPRODUCTOS)) {
-            if ($NumProductos > 4) {
-                echo "La cantidad maxima total de articulos que puedes pedir es de 4.";
+            if ($NumProductos > 12) {
+                echo "La cantidad maxima total de articulos que puedes pedir es de 12.";
             } else {
 
                 $sentencia_producto = $bd->prepare("INSERT INTO detalles_carrito (id_producto, cantidad, precio_unitario, id_carrito) VALUES (?,?,?,?);");
@@ -68,6 +78,11 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
                 $sentencia_update->execute([$id_carrito]);
 
                 $bd->commit();
+
+                $_SESSION['CARRITOback'] = $_SESSION['CARRITO'];
+                unset($_SESSION['CARRITO']);
+                print_r($_SESSION['CARRITOback']);
+                echo "pan";
                 header('location: convertpdf.php');
                 $bd = NULL;
             }
@@ -76,11 +91,11 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
             $IDxPRODUCTOS2 = urlencode(serialize($IDxPRODUCTOS));
             echo 'hola';
             header("Location: ../carrito.php?dato=" . $IDxPRODUCTOS2);
-
         }
     } catch (Exception $e) {
         $bd->rollback();
         echo "Error al procesar la compra: " . $e->getMessage();
         $bd = NULL;
     }
+}
 }
