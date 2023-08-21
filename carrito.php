@@ -751,7 +751,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <div class="card border border-3 border-secondary bg-light" style="width: 200px; height: 100%;">
 
                   <?php
-                  $rutaimagen = $rutaCarpetaImagenes . $producto->imagen;
+                  $rutaimagen = $rutaCarpetaImagenes . $producto->id_producto.".jpg";
                   $base64 = base64_encode(file_get_contents($rutaimagen));
                   $base64 = 'data:image/jpeg;base64,' . $base64;
                   ?>
