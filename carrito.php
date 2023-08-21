@@ -442,7 +442,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                           Cantidad:
                           <br />
 
-                          <input type="number" id="<?php echo $identificador ?>" class="input-cantidad-osi bg-body-secondary rounded border border-2 border-black w-25 text-center" value="<?php echo $producto['CANTIDAD']; ?>"> </input>
+                          <input type="number" id="<?php echo $identificador ?>" class="input-cantidad-osi bg-body-secondary rounded border border-2 border-black text-center" value="<?php echo $producto['CANTIDAD']; ?>"> </input>
                         </p>
 
                         <a class="ver-pro mt-3" style="font-size: 12px;" href="product.php?id=<?php echo $producto['ID']; ?>">

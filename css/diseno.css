@@ -380,8 +380,6 @@ body{
     font-weight: normal;
     text-shadow: none;
 }
-
-  
-
-
-  
+.input-cantidad-osi{
+    width: 50%;
+}

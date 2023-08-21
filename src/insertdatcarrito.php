@@ -24,7 +24,7 @@ foreach ($personaX as $dato) {
 $cantidadCero = false;
 
 foreach ($_SESSION['CARRITO'] as $indice => $cantidad) {
-    if ($cantidad['CANTIDAD'] == 0) {
+    if ($cantidad['CANTIDAD'] <= 0) {
         $cantidadCero = true;
         break;
     }
@@ -38,7 +38,7 @@ if ($NUMxPEDIDOSxCANCELADOS > 3) {
     $personaX = $sentenciaX->fetchAll(PDO::FETCH_ASSOC);
 } else {
     if($cantidadCero == true){
-        $mensaje = "Hola, tienes la cantidad de algun articulo en cero y eso no se puede.";
+        $mensaje = "Hola, tienes la cantidad de algun articulo en cero o menos y eso no se puede.";
         header("Location: ../carrito.php?mensajeMalo=" . urlencode($mensaje));
         exit();
     }
