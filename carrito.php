@@ -721,7 +721,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
       <div class="container-fluid bg-dark mt-5 p-4 border border-black" style="position: relative;">
 
         <div class="container-fluid shadow text-center text-uppercase p-2 w-50 mt-2 mb-2 let-5">
-          <span class="fw-bold fst-italic">SIGUE</span>
+          <span class="fw-bold fst-italic">SIGUE COMPRANDO</span>
         </div>
         <br>
 
