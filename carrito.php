@@ -433,7 +433,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                       <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
                         <p class="mb-0" style="font-size: 17px;"><?php echo $producto['NOMBRE'] ?></p>
-                        <b style="font-size: 17px;">$<?php echo $producto['PRECIO'] ?></b>
+                        <b style="font-size: 17px;">Precio c/u: $<?php echo $producto['PRECIO'] ?></b>
                       </div>
 
                       <div class="col-3 container-folio-products w-25 text-center me-auto container-input-cantidad">
@@ -674,7 +674,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
 
                   <div class="col-3 container-products-carrito-info w-25 text-center me-auto">
                     <p class="mb-0" style="font-size: 17px;"><?php echo $dato['nombre'] ?></p>
-                    <b style="font-size: 17px;"><?php echo $dato['precio_unitario'] ?></b>
+                    <b style="font-size: 17px;">Precio c/u: $<?php echo $dato['precio_unitario'] ?></b>
                   </div>
 
                   <div class="col-3 container-folio-products w-25 text-center me-auto">
