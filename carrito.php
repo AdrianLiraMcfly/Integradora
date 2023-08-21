@@ -312,6 +312,14 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
         <br>
 
         <!--CARRITO CUENTA INICIADA-->
+
+        <div class="container-fluid w-50 mx-auto text-center">
+
+          <button class="btn rounded-pill bg-warning text-dark border border-dark border-2">
+            <b><a href="index.php" class="link-light link-offset-0" style="text-decoration: none;">SIGUE COMPRANDO</a></b>
+          </button>
+        </div>
+
         <div class="row w-auto mx-auto mt-5 mb-5">
 
           <!--DETALLES-->
@@ -537,7 +545,7 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
           } else { ?>
 
         <!--CUANDO EL CARRITO ESTA VACIO-->
-        <div class="col-lg-6 p-2 ms-auto acomodar" style="position: absolute; margin-top: 72px">
+        <div class="col-lg-6 p-2 ms-auto acomodar" style="position: absolute; margin-top: 113px;">
 
 
           <div class="container-fluid shadow text-center p-2 w-75 mb-3 let-4">
