@@ -328,10 +328,10 @@ $rutaCarpetaImagenes = 'adminView/products/posters/';
                 <div class="informacion-detalles-carrito">
 
                   <ul>
-                    <li><b class="lista-detalles-defecto">Folio:</b> No generado</li>
-                    <li><b class="lista-detalles-defecto">Fecha realización de pedido:</b> No generada</li>
-                    <li><b class="lista-detalles-defecto">Fecha límite de recogida:</b> No generada</li>
-                    <li><b class="lista-detalles-defecto">Total:</b><p style="display: inline;" id="total-precio">
+                    <p style="font-size: 17px;"><b class="lista-detalles-defecto">Folio:</b> No generado</li>
+                    <lp style="font-size: 17px;"><b class="lista-detalles-defecto">Fecha realización de pedido:</b> No generada</li>
+                    <p style="font-size: 17px;"><b class="lista-detalles-defecto">Fecha límite de recogida:</b> No generada</li>
+                    <p style="font-size: 17px;"><b class="lista-detalles-defecto">Total:</b><p style="display: inline;" id="total-precio">
                     <?php
                       if (isset($_SESSION['CARRITO'])) {
                         $total = 0;
